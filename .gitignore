@@ -1,0 +1,31 @@
+# OS·편집기 잡파일
+.DS_Store
+Thumbs.db
+desktop.ini
+.vscode/
+.idea/
+
+# 오피스 임시파일
+~$*
+*.tmp
+
+# 민감정보 (혹시라도)
+.env
+*.key
+*_secret*
+*_password*
+
+# 로그
+*.log
+logs/
+
+# 리서치 임시 산출물 (subagent 결과 폴더는 사용자 판단으로 추후 추가)
+# research-topic/
+# research-bible/
+# research-illustration/
+# research-qa/
+# research-application/
+# research-timing/
+# research-style/
+# research-experience/
+# research-public-talk/
