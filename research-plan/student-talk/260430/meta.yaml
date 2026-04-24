@@ -1,0 +1,170 @@
+week: 2026-04-27
+meeting_date: 2026-04-30
+slug: 260430
+part_type: apply_talk
+slot_number: 5
+title: "종교 단체에 꼭 속해 있어야 합니까?"
+time_minutes: 5
+speaker_label: "{{student_label}}"
+speaker_qualification: "male_student_only"
+helper_rule: "none"
+point_count: 2
+speaking_purpose: "convince"
+section: "야외 봉사에 힘쓰십시오"
+part_name: "우리의 신앙 설명하기"
+
+reference_material:
+  publication: "웹성대"
+  full_title: "jw.org 성경의 대답 — 기사 90 '종교 단체에 꼭 속해 있어야 합니까?'"
+  publication_code_en: "ijwbq"
+  article_number: 90
+  section_title: "성경의 대답 / 종교에 속해 있는 것만으로는 충분하지 않습니다"
+  url_ko_wol: "https://wol.jw.org/ko/wol/d/r8/lp-ko/502015170"
+  url_ko_public: "https://www.jw.org/ko/bible-teachings/questions/organized-religion/"
+  url_en: "https://www.jw.org/en/bible-teachings/questions/organized-religion/"
+  verbatim_path: "source_text.md"
+
+study_point:
+  publication: "읽가"
+  full_title: "읽기와 가르치기에 힘씀"
+  publication_code_en: "th"
+  lesson_number: 16
+  title: "격려가 되고 긍정적인 내용"
+  title_en: "Upbuilding and Positive"
+  reference_scripture: "욥 16:5"
+  url_en: "https://jw.org/en/library/brochures/reading-and-teaching/16-upbuilding-and-positive/"
+  url_brochure_toc: "https://www.jw.org/en/library/brochures/reading-and-teaching/"
+  verbatim_path: "study_point.md"
+
+scripture_reads:
+  - ref: "히 10:24, 25"
+    read_aloud: true
+    role: "요점 1 핵심 성구"
+    nwt_ko: "서로 생각해 주어 사랑과 훌륭한 일을 고무하며, 일부 사람들의 습관처럼 함께 모이는 일을 그만두지 말고, 오히려 서로 격려하며 그날이 다가오는 것을 볼수록 더욱더 그렇게 합시다."
+  - ref: "약 1:27"
+    read_aloud: true
+    role: "요점 2 핵심 성구"
+    nwt_ko: "우리 하느님 아버지의 관점에서 깨끗하고 더럽혀지지 않은 숭배 방식은 고난을 겪는 고아와 과부를 돌보고 세상으로부터 자신을 지켜 점이 없는 상태를 유지하는 것입니다."
+  - ref: "요 13:35"
+    read_aloud: false
+    role: "요점 1 요약 언급 (보조)"
+    nwt_ko: "여러분 가운데 사랑이 있으면, 모든 사람이 그것으로 여러분이 내 제자라는 것을 알게 될 것입니다."
+  - ref: "고전 16:19"
+    read_aloud: false
+    role: "요점 1 요약 언급 (보조)"
+    nwt_ko: "아시아의 회중들이 여러분에게 안부를 전합니다. 아굴라와 브리스가가 자기 집에 모이는 회중과 함께 주 안에서 여러분에게 진심 어린 안부를 전합니다."
+  - ref: "벧전 2:17"
+    read_aloud: false
+    role: "요점 1 요약 언급 (보조)"
+    nwt_ko: "모든 부류의 사람들을 존중하고, 연합된 형제들 전체를 사랑하며, 하느님을 두려워하고, 왕을 공경하십시오."
+  - ref: "욥 16:5"
+    read_aloud: false
+    role: "조언과 참조 성구 (사회자 ② 단계 인용)"
+    nwt_ko: "하지만 나는 내 입의 말로 자네들을 강하게 해 주고, 내 입술의 위로로 고통을 덜어 주었을 걸세."
+
+references: []  # publication-cross-ref 서브 산출 후 채움
+
+illustrations: []  # illustration-finder 서브 산출 후 채움
+
+chair_advice_candidates:
+  compliment_count: 5
+  caution_count: 0
+  feedback_policy: "positive_only"
+  candidates_path: "chair_advice_candidates.md"
+  special_note: "주제('종교 단체에 꼭 속해…')가 타 종교 비판으로 흐르기 쉬우나 조언과 16과는 정반대 — 긍정·격려. 이 긴장 해소가 관찰 포인트."
+
+instructions_to_subresearchers:
+  scripture-deep: |
+    본 5분 연설 낭독 핵심 성구 2개 심층 조사:
+      1) 히 10:24, 25 — 신세계역 각주·연구 노트·상호 참조·문맥(히 10:19~25 전체).
+         "고무하며"(παροξυσμός 의 긍정적 사용)·"함께 모이는 일"(ἐπισυναγωγή) 원어 의미.
+      2) 약 1:27 — "깨끗하고 더럽혀지지 않은"(καθαρὰ καὶ ἀμίαντος) 의 원어 뉘앙스,
+         "세상으로부터 자신을 지킴" 의 야고보 문맥(1:22~27 전체),
+         왜 야고보가 '고아와 과부' 를 대표 사례로 꼽았는지 구약 배경(신 10:18, 사 1:17).
+    보조 성구 짧게: 요 13:35 / 고전 16:19 / 벧전 2:17 — 초기 교회 회중 조직의 증거 포인트만.
+    조언과 참조 성구 욥 16:5 도 신세계역 본문·각주 1회 확보.
+
+    (피하기) 본문 범위 밖 성구로 확장 금지. 낭독 안 하는 성구에 시간 과투자 금지.
+    (피하기) 타 종교 비판 배경 자료 금지 — 조언과 16과 "긍정·격려" 와 정면 충돌.
+    저장 경로: research-bible/260430/
+
+  publication-cross-ref: |
+    주제 키워드: "조직된 종교", "회중 모임의 유익", "함께 모임", "참된 숭배와 일상 생활",
+               "고아와 과부 돌봄", "형제 관계".
+    우선 검색: 최근 10년 (2016~2026) 「파수대」 연구용 · 공개판 · 「통찰」 '숭배'·'회중'·'모임' 항목.
+    각 요점 3~5편 충분.
+    특별 요청: 야 1:27 을 주해하는 공식 기사 1편 이상 확보 — 왜 '고아와 과부' 가 대표격인지.
+    특별 요청: 「익」(여호와와 계속 친밀하게 지내십시오) 책의 '회중 모임' 관련 장 1회 확인.
+
+    (피하기) 외국어판 직접 인용 금지 — 한국어판 우선.
+    (피하기) "거짓 종교 식별" 주제 과다 수집 금지 — 본 연설은 긍정 톤이므로 1편 이하 참고.
+    (피하기) 범위 밖 회중 조직 역사·통계·연감 숫자 자랑 금지 — 5분에 맞지 않음.
+    저장 경로: research-topic/260430/
+
+  illustration-finder: |
+    서론 후크용 예화 1~2개:
+      - "개인의 마음의 문제 vs 조직된 숭배의 차이" 를 암시하는 일상 비유
+        (예: 혼자 훈련 vs 팀 훈련 / 혼자 연주 vs 오케스트라 / 집에서 운동 vs 헬스장)
+    요점 1 "함께 모임의 유익" 용 예화 2~3개:
+      - 장작 하나는 금방 꺼지지만 여러 개는 오래 탄다 (공식 출판물에 이 비유 존재 확인 후 사용)
+      - 철새가 V자 편대로 날 때 에너지 효율 증대
+      - 등반 파트너 / 안전 로프
+    요점 2 "이름뿐인 소속의 한계 + 약 1:27 의 실제 실천" 용 예화 2~3개:
+      - 회원증만 있고 활동 안 하는 헬스장·도서관 비유
+      - 서류상 직원 vs 실제 일하는 직원
+      - 긍정적 예: 회중이 실제로 재난 피해자·과부를 돌본 짧은 장면 묘사
+
+    (피하기) 회중 특정 인물 실명 언급 금지.
+    (피하기) 정치·국가·민감 종교 예시 금지 — 특히 "다른 종교" 를 대조 예로 들지 말 것 (16과 위반).
+    (피하기) 너무 긴 예화 금지 — 5분 연설에 각 예화는 1~2문장 안에 압축 가능한 것만.
+    저장 경로: research-illustration/260430/
+
+  experience-collector: |
+    주제: 회중의 형제 자매 연합·돌봄이 실제로 어떻게 개인을 강하게 했는가.
+    우선순위:
+      1) 회중의 실제 돌봄·형제애 경험담 (시련·질병·재난 상황에서 회중이 고아·과부 돌본 사례) — 약 1:27 을 생동감 있게 뒷받침
+      2) "처음에는 조직된 종교에 거부감이 있었지만 회중에 와서 변화된" 성서 학습자 경험담 — 전도 현장 적용
+      3) 야외 봉사 중 이 질문("종교 단체에 속해야 합니까?") 을 받고 성경으로 잘 대답한 경험
+    출처: 연감·「파수대」·JW 방송 2016년 이후. 짧고 핵심적인 것 우선.
+
+    (피하기) 실명·구체적 지역 노출 금지 — 공식 출판물에 공개된 경우만 사용.
+    (피하기) 아동 사례 금지.
+    (피하기) 특정 회중·지방부 공격용 사례 금지.
+    저장 경로: research-experience/260430/
+
+  application-builder: |
+    4축 (가정·직장/학교·봉사·개인 영성) 중 **봉사** 특히 **야외 봉사 현장 응답** 포커스 (이 연설의 존재 이유).
+    적용 카드 1~2장 작성:
+      카드 A — 야외 봉사에서 "종교 단체에 속할 필요가 있냐?" 질문을 받았을 때 히 10:24, 25 + 약 1:27 두 성구로 긍정적·따뜻하게 응답하는 3단계 대화 스크립트
+      카드 B — 개인 영성: 집회 참석과 형제 자매 교제가 내 일상 생활에 실제로 영향을 주고 있는지 자기 점검 질문 2개
+      (선택) 카드 C — 가정: 가족 중에 "종교는 개인의 마음" 이라고 말하는 구성원이 있을 때 약 1:27 로 부드럽게 대화하는 방법
+    자기점검 질문 1~2개: "이번 주 내가 보인 사랑과 훌륭한 일은?" / "집회에서 형제 자매로부터 고무된 순간은?"
+
+    (피하기) 정치·국가·민감 이슈 금지.
+    (피하기) 다른 종교 폄하·비판식 적용 금지 (16과 정면 위반).
+    (피하기) "반드시 해야 한다" 식 강요 어조 금지 — 긍정·초청 어조.
+    저장 경로: research-application/260430/
+
+special_week_flags:
+  circuit_overseer_week: false
+  convention_week: false
+  memorial_week: false
+
+source:
+  wol_week_index: "https://wol.jw.org/ko/wol/dt/r8/lp-ko/2026/4/27"
+  part_page: "https://wol.jw.org/ko/wol/d/r8/lp-ko/202026089"
+  part_page_en: "https://wol.jw.org/en/wol/d/r1/lp-e/202026089"
+
+generated_at: 2026-04-24
+
+multi_layer_defense:
+  stage_1_instructions_issued: true
+  stage_3_planner_review_status: "pending"
+  stage_3_review_path: "_planner_review.md"
+
+acquisition_notes:
+  - "영문 「웹성대」(ijwbq) 기사 90 본문 3단락은 jw.org/en 공식 페이지에서 verbatim 확보."
+  - "한국어 본문은 WebFetch 저작권 제약으로 전문 직접 다운 제한 — 공식 URL 2개(jw.org ko + WOL ko)·신세계역 성구 verbatim·영문 대조로 source_text.md 복원."
+  - "「읽가」 16과 영문 원본(jw.org/en)에서 요점·소원칙 3개·실천 구절·야외봉사 한 줄 확보. 한국어 팜플렛 전문 직접 다운은 제한 — 영문 기반 복원."
+  - "script 단계에서 source_text.md · study_point.md 의 한국어 표현이 의심되면 WOL 한국어 URL 로 재확인 권장."
+  - "모든 낭독 성구 (히 10:24,25 · 약 1:27 · 요 13:35 · 고전 16:19 · 벧전 2:17 · 욥 16:5) 는 WOL 한국어 신세계역 verbatim 직접 확보 완료."
