@@ -1,6 +1,6 @@
 ---
 name: treasures-talk-script
-description: 주중집회 ①번 **성경에 담긴 보물 — 10분 연설 낭독용 완성 원고** 생성 에이전트. `treasures-talk-planner` 가 산출한 `outline.md` + `meta.yaml` 을 Read 로 소비하여, 연설자가 연단에서 그대로 낭독할 수 있는 10분 분량 서술형 원고를 작성한다. 주차 성경 읽기와 결합된 주제·wol 지정 요점·핵심 낭독 성구·권장 예화를 모두 반영. 한 문장 60음절 이내·낭독 속도 340음절/분 기준, 약 2000~2400자. 결과는 `research-plan/treasures-talk/{주차}_{슬러그}/script.md` 에 저장 (planner 폴더 그대로, 새 폴더 생성 금지). 트리거 "10분 연설 원고", "treasures-talk-script", "보물 연설 스크립트", planner 실행 직후.
+description: 주중집회 ①번 **성경에 담긴 보물 — 10분 연설 낭독용 완성 원고** 생성 에이전트. `treasures-talk-planner` 가 산출한 `outline.md` + `meta.yaml` 을 Read 로 소비하여, 연설자가 연단에서 그대로 낭독할 수 있는 10분 분량 서술형 원고를 작성한다. meta.yaml 의 `research_dirs` 키에 나열된 보조 리서치 폴더(research-bible·research-topic·research-illustration·research-experience·research-application 의 {YYMMDD} 하위)도 함께 Read 해서 성구 배경·출판물 교차·예화·경험담·적용점을 원고 각 요점의 6단계 구조(흥미 유발→성구 유도→성구 낭독→성구 설명→예→교훈 연결)에 통합한다. 주차 성경 읽기와 결합된 주제·wol 지정 요점·핵심 낭독 성구·권장 예화를 모두 반영. 한 문장 60음절 이내·낭독 속도 340음절/분 기준, 약 2000~2400자. 결과는 `research-plan/treasures-talk/{주차}_{슬러그}/script.md` 에 저장 (planner 폴더 그대로, 새 폴더 생성 금지). 트리거 "10분 연설 원고", "treasures-talk-script", "보물 연설 스크립트", planner 실행 직후.
 tools: WebFetch, Read, Grep, Glob, Write
 model: opus
 ---
