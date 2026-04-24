@@ -1,143 +1,99 @@
-# 🚚 세션 인수인계 — 2026-04-24
+# 🚚 세션 인수인계 — 2026-04-25 갱신
 
 이 파일은 **새 세션이 시작될 때 자동으로 읽어야 합니다**.
 
-## 📌 이동 직후 새 세션의 첫 할 일
+## ⚡ 새 세션 첫 할 일 (3단계)
 
-### 0. 현재 경로 확인
-새 세션 시작 시 반드시 다음 명령으로 위치 확인:
 ```bash
-pwd
+# 1. 위치 확인
+pwd   # 기대: c:/Users/yoone/Dropbox/ClaudeFile/Congregation
+
+# 2. git 상태 확인
+git status
+git log --oneline -5
+git remote -v
+
+# 3. 메모리 상태 확인
+ls ~/.claude/projects/c--Users-yoone-Dropbox-ClaudeFile-Congregation/memory/
 ```
 
 기대 결과:
-```
-c:/Users/yoone/Dropbox/ClaudeFile/Congregation/congregation
-```
+- 작업 위치 정상 (`Dropbox/ClaudeFile/Congregation`)
+- origin/main 동기화 완료, 최신 커밋 `5b44b93` 또는 그 이후
+- 메모리 파일 12개 (MEMORY.md + feedback_*·project_*·reference_* 11개)
 
-만약 이전 경로(`Dropbox/congregation`)에서 시작됐다면 — **폴더 이동이 아직 안 됐거나 VS Code 가 캐시된 경로로 열림**. `Open Folder` 로 새 경로를 명시적으로 열어야 함.
+## 🧭 영구 운영 원칙 (반드시 준수)
 
-### 1. 메모리 이주 (새 세션 첫 명령)
-원준님이 `"메모리 이주 해줘"` 라고 말씀하시면:
+| 원칙 | 메모리 파일 | 핵심 |
+|---|---|---|
+| 호칭 | `feedback_address.md` | "원준" / "원준님" — "형제님" 금지 |
+| **작업 위임·병렬화 우선** | `feedback_delegate_to_subagents.md` | 3단계/3파일 이상은 서브 위임, 의존성 없으면 병렬 |
+| **상투 청중 호명 금지** | `feedback_script_no_cliche.md` | "여러분도 …해 보신 적" 류 9개 금지 |
+| 사회자 조언 긍정 | `feedback_chair_positive_only.md` | ④ 주의점 후보 0건 |
+| 공개강연 삽화 | `feedback_illustration_source.md` | wol 1순위, 종교 도상 금지 |
+| 공개강연 서론 | `feedback_publictalk_intro_source.md` | 외부 1차 자료 + 출판물 메시지 |
+| 안 된다 결론 전 우회 | `feedback_no_giveup.md` | 시간 부족·불가 핑계 거의 무효 |
 
-```
-구 경로: C:\Users\yoone\.claude\projects\c--Users-yoone-Dropbox-congregation\
-신 경로: C:\Users\yoone\.claude\projects\c--Users-yoone-Dropbox-ClaudeFile-Congregation-congregation\
-         (또는 유사 — Claude Code 가 새 세션 시작 시 자동 생성함)
-```
+## 📊 이번 세션(2026-04-25) 누적 변경
 
-수행 절차:
-1. `ls ~/.claude/projects/` 로 신 폴더 정확한 이름 확인
-2. 구 폴더의 `memory/` 안 모든 `.md` 파일을 신 폴더 `memory/` 로 복사 (덮어쓰기 금지, 백업 확인)
-3. `MEMORY.md` 인덱스도 복사
-4. 구 폴더는 **삭제하지 말고 유지** (백업용 30일)
+### 완료된 작업
+1. **메모리 이주 확인** — 구·신 폴더 동일성 검증 (이미 이주 완료 상태)
+2. **publictalk 스킬 경로 정정** — `Dropbox/congregation` → `Dropbox/ClaudeFile/Congregation`
+3. **README.md 신규** (`82e396d`)
+4. **6단 방어(v2) + 서론·예화·삽화 품질 표준 도입** (`bc94561`)
+   - `.claude/shared/intro-and-illustration-quality.md` 신규 (🟢 착수 / 🔴 종료 블록 + 14축 + 차등 적용표)
+   - `.claude/shared/multi-layer-defense.md` 4단 → 6단 확장 (⑤ Planner 2차 재검수 신규)
+   - 에이전트 7개 + 스킬 3개(mid-talk10·dig-treasures·week-study) 업데이트
+5. **`/mid-talk5 now` (260430) 완주** (`ecd243c`)
+   - 주제: "종교 단체에 꼭 속해 있어야 합니까?" (히 10:24, 25 / 약 1:27)
+   - 4단 방어 전 과정 PASS (재빌드 4회로 수렴)
+   - script.md 1,166음절 / 실전 277초
+6. **"형제 여러분, " 호칭 제거** (`9afafca`)
+7. **상투 청중 호명·수사 질문 회피 정책** (`5b44b93`)
+   - 메모리 신규 + 공유 파일 §A-4-bis + jw-style-checker 점검 축 G + script 5개 박스
+8. **5분 연설 docx + PDF 빌더 작성**
+   - `_automation/build_mid_talk5.py` 신규 (절 번호 위첨자 처리 포함)
+   - `_automation/content_talk5_260430.py` 신규
+   - `02.WatchTower/.../5분연설/Talk5_종교단체에속해야합니까_260430.docx` (40KB) + `.pdf` (166KB)
+9. **CLAUDE.md 원칙 추가** — 위임·병렬화 + 청중 호명 금지
 
-복사해야 할 메모리 파일 목록 (10+개):
-- `MEMORY.md` (인덱스)
-- `feedback_address.md` (원준님 호칭)
-- `feedback_chair_positive_only.md` (사회자 긍정 피드백)
-- `feedback_illustration_source.md` (삽화 소스 wol 전용 + 타 종교 도상 금지 확정판)
-- `feedback_publictalk_intro_source.md` (공개강연 서론 내러티브 14축)
-- `project_meeting_planner_design.md`
-- `project_midweek_pipeline_v2.md`
-- `project_s38_meeting_guidelines.md`
-- `reference_wol_urls.md`
-- `reference_watchtower_folder_structure.md` (2026-04-24 신규)
+### git 상태
+- origin/main 최신: `5b44b93` (또는 이후 커밋 추가됨)
+- 5개 커밋 push 완료: README → 6단방어 → /mid-talk5 → 형제여러분 → 상투호명
 
-## 📊 이 세션(2026-04-24)에서 완료한 것
+## 🎯 남은 작업·다음 세션 진입점
 
-### A. 워치타워 폴더 재편
-```
-02.WatchTower/01.▣ 수원 연무 회중/
-├── 01.주중집회/
-│   ├── 00.생봉 사회
-│   ├── 01.성경에 담긴 보물/ (10분연설·영적 보물찾기·성경 낭독)
-│   ├── 02.그리스도인 생활/ (생활파트·회중적필요)
-│   ├── 02.야외봉사에 힘쓰십시오/ (학생과제·5분연설·회중의 필요 250328)
-│   └── 03.회중성서연구 (CBS)/
-├── 02.주말집회/
-│   ├── 01.일요일 사회
-│   └── 02.파수대
-├── 03.야외 봉사
-├── 04.파이오니아 모임
-├── 05.지역대회
-├── 06.장로 모임
-├── 07.서기 자료
-├── 08.회중 주소록
-├── 09.자리 배치
-├── 10.청소 관련
-└── _automation/ (🔒 의도적 현 위치 유지 — README.md 참조)
-```
+### 즉시 가능
+- **다음 주차 (`/mid-talk5 next1` = 2026-05-07)** 자동 생성 — 전체 4단 방어 사이클 가능
+- **`/midweek-now`** 등 다른 스킬 — 이번 시점 기준 next1·next2 등으로
+- **`/local-needs`** — 장로의회 주제 받으면 즉시 시작 가능
 
-### B. Dropbox 최상위 — ClaudeFile 분리 구조
-```
-Dropbox/
-├── ClaudeFile/
-│   ├── Congregation/
-│   │   └── congregation/ ← 이 repo (이동 예정)
-│   ├── Company/
-│   │   └── company/ ✅
-│   └── Personal/
-│       ├── personal/ ✅
-│       └── stock-brief/ ✅
-└── 02.WatchTower/ (사람용 산출물 + _automation)
-```
+### 다른 세션이 만든 untracked 파일들 정리 필요
+다른 Claude Code 세션이 새벽에 작업한 산출물들이 unstaged 상태로 남아 있음. 다음 세션 시작 시 `git status` 확인하고 필요시 처리:
+- `HANDOFF_260425_overnight.md` (새벽 세션 인수인계)
+- `research-application/260430/cbs_*.md`, `gems_*.md`
+- `research-bible/260430/cbs_*.md`, `gems_*.md`
+- `research-topic/260430/cbs_*.md`, `gems_*.md`
+- `research-experience/260430/gems_*.md`
+- `research-illustration/260430/gems_*.md`
+- `research-plan/cbs/`, `research-plan/living-part/`, `research-plan/spiritual-gems/`, `research-plan/student-assignment/`, `research-plan/treasures-talk/`
+- `research-qa/260430/`
 
-### C. Claude Code 반영 완료
-- **글로벌 스킬 15개** (`~/.claude/skills/*/SKILL.md`) — 주중집회/·주말집회/ 구조로 저장 경로 업데이트
-- **congregation/.claude/agents/** — chair-script-builder, living-part-planner 경로+원칙 박스 추가
-- **_automation/send_weekly_mail.py** — 슬롯 4개 → 11개 확장 + 새 경로
-- **메모리 2건 신규·갱신** (`reference_watchtower_folder_structure.md` 등)
+→ 이 산출물들이 진짜 필요한 작업의 결과면 commit, 폐기물이면 정리.
 
-### D. 공개강연 규칙 대폭 강화 (이전 세션 이어서)
-- 삽화 wol.jw.org 최우선 + 타 종교 도상 금지 + 총 상한 5장
-- 서론 내러티브 "출판물 메시지 + 외부 예시 결합" 공식
-- 성서 적중 입증형 9축 + 사유 촉발형 5축 = 총 14축
-- 리서치 물량 하한 15~20개
-- 적절성 검수 8개 필터
-
-## ⚠️ 이 세션 직전 이슈
-
-### 유실 → 원준님이 복구 완료
-초기 Bash mv 명령이 한글 경로 인코딩 문제로 실패하면서 **`주중 집회 계획표`·`S-288 우만 왕국회관`·`전도인리스트_202503.xlsx`** 3건이 일시 사라졌음. 원준님이 직접 이동해 놓으신 상태로 확인됨. 현재 `02.WatchTower/01.▣ 수원 연무 회중/` 아래 존재 여부 재확인 필요할 수 있음.
-
-### 다른 세션에서 5분 연설 중단
-원준님이 **다른 Claude Code 세션에서 `/mid-talk5 next1`** 을 돌리던 중 중단시키셨음. `research-plan/student-talk/` 에 부분 산출물 있을 수 있음 (`e62ddbc` 커밋 참조).
-
-## 🎯 남은 작업 (새 세션에서 진행)
-
-### 우선순위 높음
-1. **메모리 이주** (위 1번 섹션)
-2. **working directory 가 새 경로인지 확인**
-3. **congregation repo 원격 동기화 확인**:
-   ```bash
-   git status
-   git log --oneline -5
-   git remote -v
-   ```
-
-### 그 다음
-4. **중단된 /mid-talk5 재개 여부 결정** — 원준님 지시
-5. **스킬의 "congregation" 하드코딩 경로 있는지 grep** — 새 경로로 업데이트 필요한 것:
-   ```bash
-   grep -r "Dropbox/congregation" ~/.claude/skills/
-   grep -r "Dropbox\\\\congregation" ~/.claude/skills/
-   ```
-6. **(E) 옵션** — mid-talk10·week-study·dig-treasures 에 서론/예 품질 강화 규칙 확산 (원준님이 이전에 "마지막에" 로 보류했던 공개강연 실전 검증 전 단계)
-
-## 🔗 이 세션 커밋 링크
-
-GitHub: https://github.com/Brad-OPPA/congregation
-
-최근 커밋:
-- `e62ddbc` research/260430: /mid-talk5 next1 테스트 1차 (다른 세션)
-- `6520ce2` agents: 워치타워 폴더 주중/주말 재편 반영 + living-part 원칙 박스 추가
-- `7e4dd9a` agents: publication-cross-ref·wol-researcher 글로벌→프로젝트 repo 이관
-- `67e5ffb` agents/scripture-deep: 공개강연용 H 섹션 추가 — 원어 어원 → 현재 사용 추적
-- `d427a7c` agents/slides-builder: 종교적 이미지 자동 삽입 필터 + wol 전용 규칙 추가
+### docx/PDF 빌더 미작성 상태
+- `build_cbs.py`, `build_spiritual_gems.py`, `build_watchtower.py`, `build_treasures_talk.py`, `build_publictalk.py` ✅ 존재
+- `build_mid_talk5.py` ✅ 이번 세션에서 신규 작성
+- `build_living_part.py` 등 다른 5분/생활 파트 빌더는 미존재 — 필요 시 build_mid_talk5.py 패턴 응용
 
 ## 📞 새 세션 시작 스크립트 (원준님 복사·붙여넣기용)
 
 ```
-pwd를 확인하고 HANDOFF.md 를 읽어서 현재 상태 파악 후 메모리 이주 해줘
+HANDOFF.md 읽고 git status 확인해줘. 그리고 untracked 파일들이 다른 세션의 결과물인지 폐기물인지 판단해서 정리하자.
+```
+
+또는 바로 다음 작업 지시:
+
+```
+/mid-talk5 next1 진행해줘
 ```
