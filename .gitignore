@@ -5,6 +5,9 @@ desktop.ini
 .vscode/
 .idea/
 
+# Claude Code 로컬 설정 (PC·환경별로 다름)
+.claude/settings.local.json
+
 # 오피스 임시파일
 ~$*
 *.tmp
