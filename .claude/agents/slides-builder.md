@@ -28,6 +28,20 @@ model: sonnet
 - `slides_plan.json` 에 있는 슬라이드를 생략 금지
 - 본문 불릿 문구를 자의적으로 줄이거나 늘이지 않음 (폰트 크기만 자동 조정, 텍스트는 verbatim)
 - `meeting-planner.md`·`chair-script-builder.md`·`local-needs-planner.md`·`watchtower-study-planner.md` 의 산출물 폴더 외의 파일을 건드리지 않음
+- 🔒 **종교적 내용이 담긴 외부 이미지 자동 삽입 절대 금지** — image_hint 에 외부 URL 이 와도 종교성 판정(성경 장면·영적 상징·성인·예배 장면·내세관 중 하나라도 해당) 이 "예" 이면 삽입하지 않고 build_log.md 에 경고 기록. 종교적 이미지는 **`wol:<wol.jw.org URL>`** 형식의 wol 출처만 허용
+
+## 🔒 이미지 필터 (사용자 지침 2026-04-24 확정판)
+
+> **"종교적 내용이 있는 이미지는 오직 wol.jw.org 에서만. 외부 이미지는 세속적·중립적 사실만."**
+
+`image_hint` 를 실제 이미지 삽입으로 확장하는 경우(향후 확장):
+- `wol:<URL>` 접두어로 시작 → wol.jw.org 공식 이미지로 간주, 다운로드·삽입 허용
+- 일반 URL (https://commons.wikimedia.org/… 등) → **종교성 판정 체크** 수행
+  - 파일명·캡션·alt 텍스트에 다음 키워드 포함 시 자동 탈락: `Danby`, `Doré`, `Bruegel`, `icon`, `이콘`, `성화`, `성모`, `성인`, `예수`, `천사`, `십자가`, `부처`, `불화`, `탱화`, `신상`, `LDS`
+  - 박물관 공식(britishmuseum.org·louvre.fr·imj.org.il 등)·NASA·ESA·NOAA·National Geographic 등 세속 중립 도메인만 허용
+- 판정 애매하면 **삽입 생략 + build_log 경고** — 사용자 수동 검토 요청
+
+현재는 `image_hint` 를 텍스트 주석으로만 보존하므로(자동 삽입 비활성) 이 필터는 향후 활성화 대비 규정. 지금 시점 책임은 `local-needs-planner` 의 `image_hint` 생성 단계.
 
 # 호출 타이밍 (훅)
 
