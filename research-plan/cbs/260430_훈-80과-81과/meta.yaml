@@ -40,7 +40,7 @@ scripture_reads:
   - ref: "마 5:44"
     read_aloud: true
     block: 4
-    verbatim: "나는 여러분에게 말합니다. 계속해서 원수를 사랑하고 여러분을 박해하는 사람을 위해 기도하십시오."
+    verbatim: "그러나 나는 여러분에게 말합니다. 계속해서 원수를 사랑하고 여러분을 박해하는 사람을 위해 기도하십시오."
   - ref: "마 6:33"
     read_aloud: true
     block: 5
@@ -48,20 +48,17 @@ scripture_reads:
 
 expansion_questions:
   - block: 2
-    question: "예수께서 사도들을 친구로 여기신 것처럼, 우리는 오늘날 예수와 어떤 관계를 맺을 수 있을까요?"
+    question: "예수께서 사도들을 친구로 여기신 것처럼, 오늘날 우리도 그분의 가르침을 실천하며 기도로 교제를 이어 갈 때 예수와 친구 관계를 맺을 수 있습니다. 가까운 예를 한 가지 짧게 나누어 주십시오."
   - block: 5
-    question: "이번 주 가정이나 학교에서 황금률을 실천할 수 있는 구체적인 기회가 있다면 어떤 것이 있을까요?"
+    question: "이번 주 가정이나 학교에서 황금률을 적용할 수 있는 구체적인 한 가지 상황을 짧게 나누어 주십시오."
 
 references:
   - title: "「예수 — 길, 진리, 생명」 34장 '예수께서 열두 사도를 택하시다'"
     url: "https://wol.jw.org/ko/wol/d/r8/lp-ko/1102014637"
     applicable_block: [1, 2]
-  - title: "「통찰」 '사도' 항목"
+  - title: "「성경 통찰」 제1권 '사도' 항목"
     url: "https://wol.jw.org/ko/wol/d/r8/lp-ko/1200000310"
     applicable_block: [1]
-  - title: "파수대 2026년 5월호 '성경 원칙—왜 중요합니까?'"
-    url: "[확인 필요]"
-    applicable_block: [4]
 
 special_week_flags:
   circuit_overseer_week: false
