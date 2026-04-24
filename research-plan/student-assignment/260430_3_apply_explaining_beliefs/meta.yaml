@@ -1,0 +1,96 @@
+week: 2026-04-27
+meeting_date: 2026-04-30
+assignment_number: 3
+assignment_slot: 5  # 집회 실제 슬롯 번호 (mid-student3)
+assignment_type: "apply_explaining_beliefs"
+mode: "talk"   # demo (실연) | talk (연설) — 연설 모드
+setting: null   # 연설 모드이므로 장면 없음
+student_label: "{{student_label}}"
+helper_label: null   # 연설 모드 — 보조자 없음
+time_minutes: 5
+study_point:
+  publication: "읽고 가르치는 기술을 발전시키십시오"
+  publication_short: "읽가"
+  sub_title: null   # apply_explaining_beliefs talk 모드
+  lesson_number: 16
+  point_number: null
+  point_title: "긍정적이고 격려적인 말"
+  reference_scripture: "욥 16:5"
+  reference_scripture_text: "하지만 나는 내 입의 말로 자네들을 강하게 해 주고, 내 입술의 위로로 고통을 덜어 주었을 걸세."
+  url: "https://wol.jw.org/ko/wol/d/r8/lp-ko/1102018456"
+  verbatim_path: "study_point.md"
+source_article:
+  publication: "웹사이트에 실린 성경 질문과 대답"
+  publication_short: "웹성대"
+  article_number: 90
+  article_title: "종교 단체에 꼭 속해 있어야 합니까?"
+  url: "https://www.jw.org/ko/%EC%84%B1%EA%B2%BD-%EA%B0%80%EB%A5%B4%EC%B9%A8/%EC%A7%88%EB%AC%B8/%EC%A2%85%EA%B5%90-%EB%8B%A8%EC%B2%B4/"
+  verbatim_path: "source_text.md"
+scenario_context: "종교 단체에 꼭 속해 있어야 하는지에 관한 주제로 연설"
+bible_reading_range: null
+scripture_reads:
+  - ref: "히 10:24, 25"
+    read_aloud: true
+  - ref: "약 1:27"
+    read_aloud: true
+  - ref: "욥 16:5"
+    read_aloud: true
+  - ref: "행 15:41"
+    read_aloud: false
+  - ref: "벧전 2:17"
+    read_aloud: false
+references:
+  - title: "「읽가」 16과 — 긍정적이고 격려적인 말"
+    url: "https://wol.jw.org/ko/wol/d/r8/lp-ko/1102018456"
+  - title: "「웹성대」 기사 90 — 종교 단체에 꼭 속해 있어야 합니까?"
+    url: "https://www.jw.org/ko/%EC%84%B1%EA%B2%BD-%EA%B0%80%EB%A5%B4%EC%B9%A8/%EC%A7%88%EB%AC%B8/%EC%A2%85%EA%B5%90-%EB%8B%A8%EC%B2%B4/"
+  - title: "wol 주차 페이지 2026-04-27"
+    url: "https://wol.jw.org/ko/wol/dt/r8/lp-ko/2026/4/27"
+illustrations: []
+chair_advice_candidates:
+  compliment_count: 5
+  caution_count: 0   # 긍정 피드백 원칙 — 주의점 생성 안 함
+  feedback_policy: "positive_only"
+  candidates_path: "chair_advice_candidates.md"
+special_note: >
+  mid-talk5 (Talk5_종교단체에속해야합니까_260430) 와 주제 동일.
+  mid-talk5 는 「익」기반 설득형, 이 과제는 「웹성대」기사 90 기반 신앙 설명형.
+  script 에서 차별화 필수.
+instructions_to_subresearchers:
+  scripture-deep: |
+    주 성구: 히브리서 10:24-25, 야고보서 1:27, 욥기 16:5.
+    추가: 행 15:41, 벧전 2:17.
+    중점 — 함께 모이는 것의 성경적 근거, 참된 숭배의 원어·문맥, 욥 16:5 격려의 원어 의미.
+    (피하기: 시나리오 주제에서 먼 성구, 종말론 관련 성구)
+  publication-cross-ref: |
+    주제 키워드: "종교 단체", "함께 모이기", "참된 숭배", "회중".
+    우선 검색: 최근 10년 「파수대」, 「익」 종교 항목, 「성서의 가르침」.
+    「웹성대」 기사 90 관련 병행 기사 확인.
+    (피하기: 외국어판 인용, 무관한 기사)
+  illustration-finder: |
+    연설 서론에 녹일 비유·관찰 1~2개 — 함께 있을 때의 힘, 고립과 공동체 대비.
+    긍정적·희망적 분위기에 맞는 예화만.
+    (피하기: 회중 특정 인물, 정치·민족 예시, 타 종교 비판 내용)
+  experience-collector: |
+    회중에 속함으로써 힘과 위로를 얻은 경험담.
+    연감·파수대·JW방송 최근 10년.
+    (피하기: 실명·지역 노출, 아동 사례, 부정적 개종 경험)
+  application-builder: |
+    청중(회중)이 봉사에서 "긍정적이고 격려적인 말"을 즉시 적용할 수 있는 예 1~2개.
+    사회자 ⑤ 블록 후보로 활용.
+    (피하기: 정치·민감 이슈)
+qualification:
+  student_gender: "male_only"   # apply_explaining_beliefs 연설 모드 = 남학생 전용
+  helper_rule: "none"           # 연설 모드 — 보조자 없음
+special_week_flags:
+  circuit_overseer_week: false
+  convention_week: false
+  memorial_week: false
+source:
+  wol_week_index: "https://wol.jw.org/ko/wol/dt/r8/lp-ko/2026/4/27"
+  part_page: "https://wol.jw.org/ko/wol/dt/r8/lp-ko/2026/4/27"
+generated_at: 2026-04-24
+multi_layer_defense:
+  stage_1_instructions_issued: true
+  stage_3_planner_review_status: "pending"
+  stage_3_review_path: "_planner_review.md"

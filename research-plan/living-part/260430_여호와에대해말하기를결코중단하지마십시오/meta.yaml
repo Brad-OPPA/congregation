@@ -1,0 +1,47 @@
+week: 2026-04-27
+meeting_date: 2026-04-30
+slug: 여호와에대해말하기를결코중단하지마십시오
+part_type: "living_part"
+subtype: "living_video"
+title: "여호와에 대해 말하기를 결코 중단하지 마십시오"
+time_minutes: 15
+speaker_label: "사회자"
+interviewee_label: null
+speaker_qualification: "chair_allowed"
+question_count: 2
+video:
+  title: "여호와는 \"멀리 떨어져 계시지 않습니다\""
+  duration_seconds: 370
+  duration_display: "약 6분 10초"
+  pub_code: "pub-jwb-101"
+  track: 7
+  lang: "KO"
+  url_streaming: "https://www.jw.org/ko/라이브러리/동영상/#ko/mediaitems/VODOurActivities/pub-jwb-101_7_VIDEO"
+  url_cdn_720p: "https://akamd1.jw-cdn.org/sg2/p/75ba344/1/o/jwb-101_KO_07_r720P.mp4"
+  url_note: "스트리밍 URL 작동 여부를 사회자가 집회 전 JW 라이브러리 앱에서 직접 확인 권장"
+scripture_reads:
+  - ref: "전 11:6"
+    read_aloud: true
+    text: "아침에 씨를 뿌리고 저녁때까지 손을 쉬지 마라. 어떤 것이 성공할지, 이것일지 저것일지, 혹은 둘 다 잘될지 네가 모르기 때문이다."
+  - ref: "딤전 1:13"
+    read_aloud: false
+    text: "내가 전에는 신성을 모독하는 자, 박해하는 자, 불손한 자였습니다. 그렇지만 내가 모르고 믿음 없이 한 일이기 때문에 나는 자비를 받았습니다."
+  - ref: "눅 6:45"
+    read_aloud: false
+    text: "선한 사람은 자기 마음에 선한 것을 쌓아 두었다가 선한 것을 내지만, 악한 사람은 악한 것을 쌓아 두었다가 악한 것을 냅니다. 마음에 가득한 것을 입으로 말하는 법입니다."
+  - ref: "요1 5:3"
+    read_aloud: true
+    text: "하느님을 사랑한다는 것은 그분의 계명들을 지키는 것을 의미합니다. 그리고 그분의 계명들은 짐스럽지 않습니다."
+references:
+  - title: "생활과 봉사 집회 교재 2026년 4월 27일 — 5월 3일 주차"
+    url: "https://wol.jw.org/ko/wol/d/r8/lp-ko/202026089"
+  - title: "JW 방송 영상 — 여호와는 \"멀리 떨어져 계시지 않습니다\" (pub-jwb-101 track 7)"
+    url: "https://www.jw.org/ko/라이브러리/동영상/#ko/mediaitems/VODOurActivities/pub-jwb-101_7_VIDEO"
+special_week_flags:
+  circuit_overseer_week: false
+  convention_week: false
+  memorial_week: false
+source:
+  wol_week_index: "https://wol.jw.org/ko/wol/dt/r8/lp-ko/2026/4/27"
+  part_page: "https://wol.jw.org/ko/wol/d/r8/lp-ko/202026089"
+generated_at: 2026-04-24

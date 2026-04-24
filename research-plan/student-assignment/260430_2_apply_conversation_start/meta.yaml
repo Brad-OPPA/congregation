@@ -1,0 +1,75 @@
+week: 2026-04-27
+meeting_date: 2026-04-30
+assignment_number: 2
+assignment_type: "apply_conversation_start"
+mode: "demo"
+setting: "비공식 증거"
+student_label: "{{student_label}}"
+helper_label: "{{helper_label}}"
+time_minutes: 3
+study_point:
+  publication: "사람들을 사랑하십시오"
+  sub_title: "자연스러움"
+  lesson_number: 2
+  point_number: 4
+  point_title: "참을성을 보이십시오"
+  reference_scripture: "잠 15:23"
+  url: "https://wol.jw.org/ko/wol/d/r8/lp-ko/1102023302"
+  verbatim_path: "study_point.md"
+scenario_context: "비공식 증거를 통해 최근에 집회에서 배운 내용을 상대방에게 말해 준다"
+bible_reading_range: null
+scripture_reads:
+  - ref: "잠 15:23"
+    read_aloud: true
+  - ref: "행 8:30-31"
+    read_aloud: false
+references:
+  - title: "사람들을 사랑하십시오 — 2과 요점 4 (자연스러움)"
+    url: "https://wol.jw.org/ko/wol/d/r8/lp-ko/1102023302"
+  - title: "260430 주차 생활과 봉사 집회 교재"
+    url: "https://wol.jw.org/ko/wol/dt/r8/lp-ko/2026/4/27"
+illustrations: []
+chair_advice_candidates:
+  compliment_count: 4
+  caution_count: 0
+  feedback_policy: "positive_only"
+  candidates_path: "chair_advice_candidates.md"
+instructions_to_subresearchers:
+  scripture-deep: |
+    주 재료 시나리오에 등장하는 성구: 잠 15:23, 행 8:30-31.
+    보조 성구 후보: 전 3:1, 7; 골 4:6; 고전 9:22.
+    중점 — "자연스러움"·"참을성"·"때에 맞는 말"과 관련된 원어·문맥.
+    행 8:30-31의 빌립이 질문하는 방식과 그 배경.
+    (피하기: 시나리오 주제에서 먼 성구 삽입)
+  publication-cross-ref: |
+    주제 키워드: "비공식 증거", "일상 대화 전도", "자연스러운 접근", "참을성".
+    우선 검색: 최근 10년 「파수대」, 「사람들을 사랑하십시오」 다른 과.
+    JW.org 전도 경험 영상·기사 참고.
+    (피하기: 외국어판 인용, 무관한 파수대 기사)
+  illustration-finder: |
+    비공식 증거 상황에서 자연스러운 대화를 시작한 예화·비유 1~2개.
+    일상 속 작은 기회를 통해 성경 주제로 연결한 사례.
+    (피하기: 회중 특정 인물, 정치·민족 예시)
+  experience-collector: |
+    비공식 증거에서 참을성을 발휘해 자연스럽게 대화를 이어 간 경험담.
+    연감·파수대·JW 방송 최근 10년 사례.
+    (피하기: 실명·지역 노출, 아동 사례)
+  application-builder: |
+    청중(회중)이 직장·이웃과의 일상에서 바로 활용할 수 있는 비공식 증거 적용 1~2개.
+    사회자 ⑤ 블록 후보로 활용.
+    (피하기: 정치·민감 이슈)
+qualification:
+  student_gender: "any"
+  helper_rule: "same_gender_or_family"
+special_week_flags:
+  circuit_overseer_week: false
+  convention_week: false
+  memorial_week: false
+source:
+  wol_week_index: "https://wol.jw.org/ko/wol/dt/r8/lp-ko/2026/4/27"
+  part_page: "https://wol.jw.org/ko/wol/d/r8/lp-ko/1102023302"
+generated_at: 2026-04-24
+multi_layer_defense:
+  stage_1_instructions_issued: true
+  stage_3_planner_review_status: "pending"
+  stage_3_review_path: "_planner_review.md"

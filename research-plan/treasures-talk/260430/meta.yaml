@@ -1,0 +1,368 @@
+week_date: 260430
+meeting_date: 2026-04-30
+week_index: 2026-04-27
+slug: yehowa-hananim-hengbok
+part_type: treasures_talk
+title: "여호와를 하느님으로 둔 우리는 행복합니다"
+subtitle: ""
+bible_reading_range: "이사야 56-57장"
+time_minutes: 10
+speaker_label: "OO 형제"
+speaker_qualification: "elder_or_ms"
+point_count: 3
+
+points:
+  - no: 1
+    title: "우상 숭배자들이 도와 달라고 외쳐도 우상은 그들을 구해줄 수 없습니다"
+    time_minutes: 3.0
+    scripture: "사 57:13"
+    scripture_text: "네가 도와 달라고 부르짖을 때에 네가 모은 우상들이 너를 구해 주지 못할 것이다. 그것들은 모두 바람에 휩쓸려 가고, 입김만 불어도 날아가 버릴 것이다. 그러나 나에게 도피하는 자는 땅을 상속받고 나의 거룩한 산을 차지할 것이다."
+    secondary_scriptures: ["삿 10:14", "사 42:17"]
+    publication_refs:
+      - label: "「예-2」 269면 14-16항"
+        url: "https://wol.jw.org/ko/wol/pc/r8/lp-ko/202026089/1/0"
+    axis_14: ["#6 고고학", "#10 인생 의미 질문", "#11 시간·유한성"]
+  - no: 2
+    title: "여호와를 섬기지 않는 사람들은 불안정하며 분열되어 있습니다"
+    time_minutes: 3.0
+    scripture: "사 57:20"
+    scripture_text: "그러나 악인들은 요동치는 바다와 같아서 가만히 있지 못하니, 그 물이 해초와 진창을 계속 솟구쳐 올린다."
+    secondary_scriptures: ["사 48:22", "약 1:6"]
+    publication_refs:
+      - label: "「파18.06」 7면 16항"
+        url: "https://wol.jw.org/ko/wol/pc/r8/lp-ko/202026089/2/0"
+      - label: "「통」 \"지구, 땅\" 22항"
+        url: "https://wol.jw.org/ko/wol/pc/r8/lp-ko/202026089/3/0"
+    axis_14: ["#4 자연 순환", "#5 생태계 질서", "#10 인생 의미", "#13 선택의 무게"]
+  - no: 3
+    title: "악한 사람들에게는 평화가 없습니다"
+    time_minutes: 2.0
+    scripture: "사 57:21"
+    scripture_text: "나의 하느님께서 말씀하신다. '악인에게는 평화가 없다.'"
+    secondary_scriptures: ["잠 13:9", "사 3:11"]
+    publication_refs:
+      - label: "「통」 \"평화, 평안\" 4항"
+        url: "https://wol.jw.org/ko/wol/pc/r8/lp-ko/202026089/4/0"
+    axis_14: ["#12 자기 점검형", "#14 상실·회복 공감", "원어 어원 축(샬롬)"]
+
+scripture_reads:
+  - ref: "사 57:13"
+    read_aloud: true
+    point_no: 1
+  - ref: "사 57:20"
+    read_aloud: true
+    point_no: 2
+  - ref: "사 57:21"
+    read_aloud: true
+    point_no: 3
+
+scripture_refs:
+  - ref: "사 57:13"
+    url: "https://wol.jw.org/ko/wol/b/r8/lp-ko/nwtsty/23/57#study=discover&v=23:57:13"
+  - ref: "사 57:20"
+    url: "https://wol.jw.org/ko/wol/b/r8/lp-ko/nwtsty/23/57#study=discover&v=23:57:20"
+  - ref: "사 57:21"
+    url: "https://wol.jw.org/ko/wol/b/r8/lp-ko/nwtsty/23/57#study=discover&v=23:57:21"
+  - ref: "삿 10:14"
+    url: "https://wol.jw.org/ko/wol/b/r8/lp-ko/nwtsty/7/10"
+  - ref: "사 42:17"
+    url: "https://wol.jw.org/ko/wol/b/r8/lp-ko/nwtsty/23/42"
+  - ref: "사 48:22"
+    url: "https://wol.jw.org/ko/wol/b/r8/lp-ko/nwtsty/23/48"
+  - ref: "약 1:6"
+    url: "https://wol.jw.org/ko/wol/b/r8/lp-ko/nwtsty/59/1"
+  - ref: "잠 13:9"
+    url: "https://wol.jw.org/ko/wol/b/r8/lp-ko/nwtsty/20/13"
+  - ref: "사 3:11"
+    url: "https://wol.jw.org/ko/wol/b/r8/lp-ko/nwtsty/23/3"
+
+wol_publication_refs:
+  - "「예-2」 269면 14-16항 — https://wol.jw.org/ko/wol/pc/r8/lp-ko/202026089/1/0"
+  - "「파18.06」 7면 16항 — https://wol.jw.org/ko/wol/pc/r8/lp-ko/202026089/2/0"
+  - "「통」 \"지구, 땅\" 22항 — https://wol.jw.org/ko/wol/pc/r8/lp-ko/202026089/3/0"
+  - "「통」 \"평화, 평안\" 4항 — https://wol.jw.org/ko/wol/pc/r8/lp-ko/202026089/4/0"
+
+research_dirs:
+  bible:        research-bible/260430/
+  topic:        research-topic/260430/
+  illustration: research-illustration/260430/
+  experience:   research-experience/260430/
+  application:  research-application/260430/
+
+illustration:
+  description: "두 자매가 함께 즐겁게 봉사하고 있습니다."
+  url: "https://wol.jw.org/ko/wol/mp/r8/lp-ko/mwb26/2026/151"
+  usage_point: "결론 직전 — 여호와를 하느님으로 둔 행복의 시각적 증거"
+
+self_check_question: "여호와와 좋은 관계를 누릴 때 어떻게 더 나은 삶을 살게 되는가?"
+
+time_budget:
+  intro: 1.0
+  point_1: 3.0
+  point_2: 3.0
+  point_3: 2.0
+  conclusion: 1.0
+  total: 10.0
+
+special_week_flags:
+  circuit_overseer_week: false
+  convention_week: false
+  memorial_week: false
+
+source:
+  wol_week_index: "https://wol.jw.org/ko/wol/dt/r8/lp-ko/2026/4/27"
+  part_page: "https://wol.jw.org/ko/wol/d/r8/lp-ko/202026089"
+  isaiah_56: "https://wol.jw.org/ko/wol/b/r8/lp-ko/nwtsty/23/56"
+  isaiah_57: "https://wol.jw.org/ko/wol/b/r8/lp-ko/nwtsty/23/57"
+
+generated_at: 2026-04-24
+protocol_version: "multi-layer-defense v2 (6단)"
+quality_standard: ".claude/shared/intro-and-illustration-quality.md"
+
+instructions_to_subresearchers:
+
+  scripture-deep: |
+    대상 성구:
+      핵심 3개 — 사 57:13, 사 57:20, 사 57:21 (낭독·해설 필수)
+      보조 6개 — 삿 10:14, 사 42:17, 사 48:22, 약 1:6, 잠 13:9, 사 3:11
+      주변 문맥 — 사 56:1-12 전체, 사 57:1-21 전체 (이사야 후반부 회복 약속의 맥락)
+
+    중점 작업:
+      1. 신세계역 연구용 본문 verbatim 재조회 — wol.jw.org/ko/wol/b/r8/lp-ko/nwtsty/23/57
+         URL 파편: https://wol.jw.org/ko/wol/b/r8/lp-ko/nwtsty/23/57#study=discover&v=23:57:13 등
+      2. 각 절의 연구 노트·각주·상호 참조 full 수집 (특히 사 57:20 은 「통찰」 제1권 772면 연결)
+      3. 히브리어 원어 배경:
+         - 사 57:13 "우상"(엘리림 אֱלִילִים) · "바람"(루아흐 רוּחַ) · "입김"(헤벨 הֶבֶל 전도서 '헛됨' 과 동어근)
+         - 사 57:20 "요동치는 바다"(얌 니그라시 יָם נִגְרָשׁ) · "해초/진창"(레페쉬 바팃 רֶפֶשׁ וָטִיט)
+         - 사 57:21 "평화"(샬롬 שָׁלוֹם — 온전·결함없음) · "악인"(라샤 רָשָׁע)
+      4. 역사적 문맥:
+         - 이사야 56-57장 = 바빌론 유배 직전·회복 약속 맥락
+         - 당시 이스라엘의 우상 숭배 실태 (바알·아세라·테라핌)
+      5. 병행 구절 — 사 48:22 ("여호와께서 말씀하신다. 악인에게는 평화가 없다") 가 사 57:21 과 거의 동일
+         → 이사야서 내부 구조적 반복 의미
+      6. 개역한글 / 새번역 / 가톨릭 공용 등 **타 한국어 번역과 대조** — 뉘앙스 차이 노트
+
+    저장 파일 (research-bible/260430/):
+      - 01_isa-57-13.md  (우상 무력)
+      - 02_isa-57-20.md  (요동치는 바다)
+      - 03_isa-57-21.md  (악인에게 평화 없음)
+      - 04_isa-56-overview.md  (문맥)
+      - 05_isa-57-overview.md  (문맥)
+      - _selfcheck.md  (🔴 종료 블록 포함)
+
+    피할 것:
+      - 훈련 기억 재구성·본문 요약본 (반드시 WebFetch 재조회 verbatim)
+      - 다른 장 성구 끌어오기 (이사야서 외부는 상호 참조 표기만, 본문 수집 X)
+      - 추정·해석 삽입 (사실만)
+
+    연결 목표:
+      - 사 57:13 → 요점 1 핵심 낭독
+      - 사 57:20 → 요점 2 핵심 낭독 (원어 '요동' 뉘앙스 강조)
+      - 사 57:21 → 요점 3 핵심 낭독 (샬롬 어원이 결론으로 자연 연결)
+
+  publication-cross-ref: |
+    주제 키워드: "우상 숭배(현대)", "마음의 불안·평화", "여호와 신뢰 행복", "요동치는 바다 비유"
+
+    우선 검색 범위:
+      1. wol 지정 4편 직접 Read:
+         - 「예-2」 269면 14-16항 (https://wol.jw.org/ko/wol/pc/r8/lp-ko/202026089/1/0)
+         - 「파18.06」 7면 16항 (https://wol.jw.org/ko/wol/pc/r8/lp-ko/202026089/2/0)
+         - 「통」 "지구, 땅" 22항 (https://wol.jw.org/ko/wol/pc/r8/lp-ko/202026089/3/0)
+         - 「통」 "평화, 평안" 4항 (https://wol.jw.org/ko/wol/pc/r8/lp-ko/202026089/4/0)
+      2. 확장: 「파수대」 연구용 2018-2025 — "요동치는 바다", "우상", "평화" 키워드
+      3. 「익」 ("여호와께 가까이") 해당 장
+      4. 「훈련」 지파(양무리 지원자) 교재 관련 장 (있다면)
+      5. JW 방송·깨어라 2020-2025 관련 기사
+
+    각 단락 수집 분량: 요점당 **3~5개** 충분 · 최근 10년 직접 인용 자제 (요점 2 의 「파18.06」은 배경 참조로만)
+
+    저장 파일 (research-topic/260430/):
+      - 01_idol-modern.md       (현대 우상의 실체·맘몬·경력·명예)
+      - 02_restless-heart.md    (요동치는 마음·불안·스트레스)
+      - 03_peace-of-jehovah.md  (여호와의 평화·샬롬)
+      - 04_trust-jehovah.md     (여호와 신뢰 행복)
+      - _selfcheck.md           (🔴 블록)
+
+    피할 것:
+      - 외국어판 단독 인용 (한국어판 없으면 한국어판 번역본 있을 때만)
+      - 회중 개인 이름·특정 지역 언급
+      - 정치·논쟁 현대 사안 (낙태·동성애·백신 등)
+      - 2016년 이전 너무 오래된 자료는 보조로만
+
+    연결 목표:
+      - 01 → 요점 1 해설 보강
+      - 02 → 요점 2 해설 보강
+      - 03 → 요점 3 해설 보강 + 결론
+      - 04 → 서론·결론 테마 보강
+
+  illustration-finder: |
+    요점별 예화 발굴 지시:
+
+    요점 1 "우상은 구해 줄 수 없음" (2~3개):
+      - 14축 #6 고고학 (★★★ 최상 권장): 고대 근동·이스라엘 발굴된 우상(테라핌·바알·마르두크 소형상) 의 실제 사례.
+        · 주인이 위기 때 의지했으나 결국 폐허에 묻힘
+        · 위키커먼즈·박물관 공개 자료에서 세속 중립 사실만
+        · **종교 도상 이미지 전면 금지 — wol 전용 규칙**. 삽화 없이 텍스트 설명만 OK
+      - 14축 #10 인생 의미: 현대 우상 (돈·건강기능식품·SNS·커리어) — 극한 상황에서의 무력함
+      - 14축 #11 시간·유한성: 바람에 날리는 낙엽·모래성 비유
+
+    요점 2 "요동치는 바다" (2~3개):
+      - 14축 #4 자연 순환 + #5 생태계 질서 (★★★ 최상 "성서 적중 입증형" 권장):
+        · 바다는 조수·파도·해류·바람으로 결코 정지 상태가 안 됨
+        · 해변에 밀려 온 해초·거품·진창 — 이사야가 수천 년 전 정확히 관찰·기록
+        · 현대 해양학 사실 (예: 파도는 평균 매 초 어디선가 발생)
+        · "수천 년 전 이사야가 기록한 바로 그대로" 연결 다리 문장 작성
+      - 14축 #10·11 현대 불안 (스마트폰·정보 과다·불안 장애) 일상 비유
+      - 14축 #13 선택의 무게: 여러 역할 연기로 분열된 현대인
+
+    요점 3 "악인에게 평화 없음" (2~3개):
+      - 원어 어원 축 (샬롬 שָׁלוֹם / ★★★ 가능):
+        · 샬롬 어원 = 온전·결함 없음
+        · 히브리어 샬롬 → 그리스어 에이레네 → 그리스도의 평화(요 14:27)
+        · 성서 내적 어휘 일관성
+      - 14축 #12 자기 점검: "밤에 편히 잠드는가?" 현대인의 불면증·양심 가책
+      - 14축 #14 상실·회복 공감: 죄책감의 흔적
+
+    저장 파일 (research-illustration/260430/):
+      - 01_idol-archaeology.md   (고대 우상 고고학)
+      - 02_modern-idols.md       (현대 우상)
+      - 03_restless-sea.md       (요동치는 바다 자연 현상 — ★★★ 중점)
+      - 04_modern-anxiety.md     (현대 불안)
+      - 05_shalom-etymology.md   (샬롬 어원)
+      - 06_conscience-peace.md   (양심·평화)
+      - _selfcheck.md            (🔴 블록)
+
+    피할 것:
+      - **타 종교 도상** (서양 종교화·성화·이콘·불화·힌두 신상·이슬람 종교 서예·몰몬 공식 삽화) — 위키커먼즈에 있어도 탈락
+      - 상업 스톡 이미지
+      - 성적·폭력적·충격적 장면
+      - 출처 불명 전승·도시전설
+      - 진화론 긍정 전제 (자연 현상은 창조 관점으로 서술)
+      - 특정 정당·정권 언급
+      - 최근 10년 JW 출판물 예화 직접 재사용 (변형·배경으로만)
+
+    상한: 삽화 이미지는 wol 지정 1장 (mwb26/2026/151) 외에는 추가 권장 안 함. 텍스트 예화만 충분.
+
+    연결 목표: 각 예화가 어느 요점에서 어떻게 연결 다리 문장과 결합될지 명시
+
+  experience-collector: |
+    주제별 경험담 수집:
+
+    주제 A — "세상의 성공을 우상처럼 추구하다 여호와께 돌이킨" (요점 1 연결)
+      · 경력·재물·명예를 우상화했다가 진리로 돌이킨 형제·자매
+      · 젊은이 경험 우선
+
+    주제 B — "마음의 평화를 세상에서 찾다 실패, 여호와에게서 찾음" (요점 2·3 연결)
+      · 약물·명상·여행·심리치료로 평화 찾다 실패
+      · 진리 배운 후 참 안식
+
+    주제 C — "양심·죄책감 해결 → 진정한 평화" (요점 3 결론)
+      · 해결되지 않은 죄·관계를 여호와께 맡기고 회복된 사례
+
+    우선 출처:
+      - JW 방송 (jw.org/ko/도서관/동영상/) 2020년 이후 경험 영상
+      - 「파수대」 공개용·연구용 2018-2025 경험담 섹션
+      - 연감 (있는 경우)
+      - 깨어라! 2018-2025
+
+    수집 형식:
+      - 인물 이름은 공개된 이니셜·성명 그대로 (실명 아동 금지)
+      - 출처 4요소: 출판물명·호수·면·URL
+      - 경험 요점 3~5줄 요약
+      - 어느 요점·어느 구간에 쓸지 태그
+
+    저장 파일 (research-experience/260430/):
+      - 01_idol-to-truth.md       (우상→진리 전환)
+      - 02_anxiety-to-peace.md    (불안→평화)
+      - 03_conscience-healing.md  (양심 회복)
+      - _selfcheck.md             (🔴 블록)
+
+    피할 것:
+      - 실명 공개된 아동 경험
+      - 검증 불가 경험 (공식 출판물 외)
+      - 정치·법적 논쟁 사례
+      - 같은 경험담 중복
+
+    연결 목표: 각 경험이 3개 요점 중 어디에 삽입 가능한지 명시. 요점당 1~2 경험 후보.
+
+  application-builder: |
+    4축 적용 카드 발굴 — 요점 3개에 맞게:
+
+    요점 1 적용 (우상→여호와 첫 의지):
+      · 가정: 가족 문제 앞에서 "첫 반응이 기도인가, 검색인가?" 점검
+      · 직장/학교: 성과 압박·경쟁 속 "성공 우상화" 경고 신호 리스트
+      · 회중: 봉사 활동 통해 우선순위 재조정
+      · 개인 영성: 아침 첫 5분 기도로 하루 시작
+
+    요점 2 적용 (요동 → 평안):
+      · 가정: 하루 10분 가족 성구 묵상 — 마음의 요동 진정
+      · 직장/학교: 스마트폰 끄는 시간·정보 단식
+      · 회중: 정기적 집회 참석으로 영적 안정 유지
+      · 개인 영성: 일기 또는 기도 노트로 마음 상태 점검
+
+    요점 3 적용 (평화 회복):
+      · 가정: 가족과의 해결되지 않은 관계 회복 시도
+      · 직장/학교: 양심에 걸리는 관행 식별·거리두기
+      · 회중: 장로·신뢰하는 형제에게 상담 요청
+      · 개인 영성: 양심 목록 작성·기도로 맡김
+
+    자기점검 질문: 각 요점당 1~2개 (총 3~6개)
+      예: "내가 위기 때 가장 먼저 도움을 청한 대상은 누구·무엇인가?"
+      예: "요즘 내 마음은 잔잔한 호수인가, 요동치는 바다인가? 원인은?"
+      예: "밤에 편히 잠들 수 없게 하는 것이 있는가?"
+
+    우선 소재:
+      - 「하느님의 사랑 안에 머무십시오」 관련 장
+      - 「기쁜소식」 전도 안내 책
+      - 「청소년」 질문 답하기 책 (젊은이 주제일 때)
+      - wol 지정 4개 참조 출판물의 적용 부분
+
+    저장 파일 (research-application/260430/):
+      - 01_point1-idol-check.md       (우상 점검 카드)
+      - 02_point2-still-heart.md      (마음 진정 카드)
+      - 03_point3-peace-restore.md    (평화 회복 카드)
+      - 04_self-questions.md          (자기점검 질문 묶음)
+      - _selfcheck.md                 (🔴 블록)
+
+    피할 것:
+      - 정치·국가·법 관련 적용 예시
+      - 실명 회중 인물
+      - 의학적 조언 (불안 장애 치료 등은 의사 상담으로 안내)
+      - 과도하게 개인적/사적 예시
+
+    연결 목표: 각 카드가 원고 어느 지점에 삽입되어 "청중 행동 촉구" 로 기능할지 명시. 특히 결론의 "이번 주 실천 한 가지" 후보 1개는 반드시 강조.
+
+  common_instructions_all_subagents: |
+    === 모든 서브 에이전트 공통 의무 (예외 없음) ===
+
+    1. 착수 전 의무 Read:
+       a. `.claude/shared/multi-layer-defense.md` — 6단 방어 v2 전체
+       b. `.claude/shared/intro-and-illustration-quality.md` — 차등 적용표 내 에이전트 본인 행
+       c. `research-plan/treasures-talk/260430/outline.md` — 기획 전체
+       d. `research-plan/treasures-talk/260430/meta.yaml` — 본 지시서
+
+    2. 🟢 착수 블록 복사:
+       - 본인 산출물 폴더의 대표 파일(또는 첫 파일) 최상단에
+         `.claude/shared/intro-and-illustration-quality.md` 의 🟢 블록 복사
+       - 모든 ☐→☑ 체크 완료해야 작업 개시
+
+    3. 🔴 종료 블록 복사·판정:
+       - 본인 폴더의 `_selfcheck.md` 에 🔴 블록 복사
+       - 8개 항목 각각 PASS/FAIL/N·A 판정 + 증거
+       - FAIL=0 이어야 통과. FAIL 있으면 자체 수정 후 재판정 (최대 2회)
+
+    4. 할루시네이션 절대 금지:
+       - wol.jw.org 실재 재조회 후 인용
+       - 확인 못 한 항목은 `[확인 필요]` 명시
+       - 성구는 verbatim · 출처 4요소 (출판물명·호수·면·URL)
+
+    5. mid-talk10 차등 적용 규칙:
+       - 14축 활용 최소 3축 (요점당 1축 이상)
+       - 요점당 예화 후보 2~3개
+       - 적절성 8필터 전부 필수 통과
+       - 최근 10년 JW 출판물 직접 인용 권장 회피 (배경 참조는 OK)
+       - 삽화 있으면 wol 전용
+
+    6. 보고 완료 시:
+       - `_selfcheck.md` 에 status: PASS | FAILED 명시
+       - 메인 Claude 가 Planner 재호출 (③ 단계) 해서 지시서 대비 검수

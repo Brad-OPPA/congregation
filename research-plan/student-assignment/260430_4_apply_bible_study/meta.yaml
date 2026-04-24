@@ -1,0 +1,91 @@
+week: 2026-04-27
+meeting_date: 2026-04-30
+assignment_number: 4
+slot: "mid-student4"
+slot_number: 6
+assignment_type: "apply_bible_study"
+mode: "demo"
+setting: null   # 성경 연구 진행 — 실내 착석, 장면 분류 없음
+student_label: "{{student_label}}"
+helper_label: "{{helper_label}}"   # 동성만
+time_minutes: 4
+study_point:
+  publication: "사람들을 사랑하십시오"
+  publication_abbr: "랑제"
+  sub_title: "간단명료하게 가르치기"
+  lesson_number: 11
+  point_number: 3
+  point_title: "말을 너무 많이 하지 마십시오"
+  reference_scripture: "고전 14:9"
+  url: "https://wol.jw.org/ko/wol/d/r8/lp-ko/1102023311"
+  verbatim_path: "study_point.md"
+supplementary_material:
+  publication: "행복한 삶을 영원히 누리십시오"
+  publication_abbr: "행누"
+  lesson_number: 19
+  point_number: 4
+  point_title: "우리의 신앙의 근거는 성경입니다"
+  reference_scripture: "단 12:4"
+  url: "https://wol.jw.org/ko/wol/d/r8/lp-ko/1102021219"
+  video_title: "성경 진리를 찾아내다"
+  video_note: "소개만 가능 — 재생 금지 (S-38 14항)"
+scenario_context: "제자 양성 관련 교육 자료 활용 — 행누 19과 진행 중인 연구 장면"
+bible_reading_range: null
+scripture_reads:
+  - ref: "단 12:4"
+    read_aloud: true
+    reader: "연구생 (집주인)"
+references:
+  - title: "사람들을 사랑하십시오 — 11과 요점 3"
+    url: "https://wol.jw.org/ko/wol/d/r8/lp-ko/1102023311"
+  - title: "행복한 삶을 영원히 누리십시오 — 19과 요점 4"
+    url: "https://wol.jw.org/ko/wol/d/r8/lp-ko/1102021219"
+  - title: "wol 주차 페이지 (2026-04-27)"
+    url: "https://wol.jw.org/ko/wol/dt/r8/lp-ko/2026/4/27"
+illustrations: []
+chair_advice_candidates:
+  compliment_count: 5
+  caution_count: 0
+  feedback_policy: "positive_only"
+  candidates_path: "chair_advice_candidates.md"
+instructions_to_subresearchers:
+  scripture-deep: |
+    주 성구: 다니엘 12:4.
+    중점 — "참지식이 풍부하게 될 것" 히브리어 원어(다아트: 지식/이해)·문맥·성취 배경.
+    보조 성구: 고린도 전서 14:9 ("이해하기 쉽게 말하십시오" — 랑제 11과 원칙 성구).
+    (피하기: 다니엘서 묵시문학 전체 해석 확장, 종말론 예측 콘텐츠)
+  publication-cross-ref: |
+    주제 키워드: "간단명료하게 가르치기", "성경 연구 진행", "말을 줄이기", "기다리기".
+    우선 검색: 「파수대」 2018-2025 연구용, 「전도 학교」 책 해당 원칙.
+    보조: 행누 19과 4 동영상 "성경 진리를 찾아내다" 내용 요약 (찰스 러셀 성경 연구 배경).
+    (피하기: 외국어판 인용, 찰스 러셀 비판 콘텐츠)
+  illustration-finder: |
+    성경 연구 진행 장면에 녹일 비유·관찰 1~2개.
+    핵심: 교사가 말을 줄이고 학생이 스스로 발견하도록 돕는 예시 (교육학·일상).
+    (피하기: 회중 특정 인물, 정치·민족 예시, 종교 교리 비교)
+  experience-collector: |
+    성경 연구 진행 중 "기다리기·질문으로 유도"하여 연구생이 스스로 진리를 발견한 경험담.
+    연감·파수대·JW 방송 2018년 이후.
+    (피하기: 실명·주소 노출, 아동 사례, 강요·심리 조작 묘사)
+  application-builder: |
+    회중 성원이 성경 연구 진행 시 바로 쓸 수 있는 적용 1~2개.
+    사회자 ⑤ 블록 후보로 활용 — "여러분도 구역에서 이 점을 적용해 보시면 좋겠습니다."
+    (피하기: 정치·민감 이슈, 특정 연구생 언급)
+qualification:
+  student_gender: "any"
+  helper_rule: "same_gender_only"
+  can_sit: true
+  skip_intro_conclusion: true   # S-38 9항 — 이미 진행 중인 연구 장면
+  video_rule: "no_play_only_discuss"   # S-38 14항
+special_week_flags:
+  circuit_overseer_week: false
+  convention_week: false
+  memorial_week: false
+source:
+  wol_week_index: "https://wol.jw.org/ko/wol/dt/r8/lp-ko/2026/4/27"
+  part_page: "https://wol.jw.org/ko/wol/d/r8/lp-ko/202026089"
+generated_at: 2026-04-24
+multi_layer_defense:
+  stage_1_instructions_issued: true
+  stage_3_planner_review_status: "pending"
+  stage_3_review_path: "_planner_review.md"

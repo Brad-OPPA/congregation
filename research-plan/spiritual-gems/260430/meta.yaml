@@ -1,0 +1,112 @@
+week: 2026-04-30
+meeting_date: 2026-04-30
+part_type: spiritual_gems
+bible_reading_range: "사 56-57장 (통독 전체) / 성경 낭독: 사 56:4-12"
+theme_scripture: "전 11:6"
+theme_scripture_text: "아침에 씨를 뿌리고 저녁때까지 손을 쉬지 마라. 어떤 것이 성공할지, 이것일지 저것일지, 혹은 둘 다 잘될지 네가 모르기 때문이다."
+speaker_label: "OO 형제"
+speaker_qualification: "elder_or_ms"
+time_minutes: 10
+
+official_questions:
+  - number: 1
+    text: "사 56:6, 7—이 예언은 어떻게 성취되고 있습니까?"
+    scripture_read: "사 56:6, 7"
+    target_seconds: 240
+    question_type: official_doctrinal
+  - number: 2
+    text: "이번 주 성경 읽기를 통해 어떤 영적 보물을 발견했습니까?"
+    scripture_read: "사 57:15 (선택, 사회자 보강 시)"
+    target_seconds: 240
+    question_type: open_audience_sharing
+
+scripture_reads:
+  - ref: "사 56:6"
+    read_aloud: true
+    text_verbatim: "여호와와 함께하여 그를 섬기고 여호와의 이름을 사랑하며 그의 종이 되려고 하는 외국인들, 안식일을 지키고 그날을 더럽히지 않는 이들, 나의 계약을 굳게 지키는 모든 이들,"
+  - ref: "사 56:7"
+    read_aloud: true
+    text_verbatim: "그들을 내가 나의 거룩한 산으로 데리고 가서 나의 기도하는 집 안에서 기쁘게 해 주겠다. 그들의 번제물과 희생 제물은 나의 제단 위에서 기꺼이 받아들여질 것이다. 내 집은 모든 민족이 기도하는 집이라고 불릴 것이다."
+  - ref: "사 57:15"
+    read_aloud: false
+    note: "청중 보물 나누기 보강 시 선택 사용"
+    text_verbatim: "높고도 높으신 분, 영원히 사시며 그 이름이 거룩한 분이 이렇게 말씀하신다. '나는 높고 거룩한 곳에 거하지만, 낮은 자들의 영을 되살리고 억눌린 자들의 마음을 되살리기 위해, 영이 꺾이고 낮은 자들과 함께 있다.'"
+
+references:
+  - title: "파수대(연구용) 2007년 1월 15일호 10면 3항 — 이사야서의 주요점—제2부"
+    url: "https://wol.jw.org/ko/wol/d/r8/lp-ko/2007042"
+    paragraph: "3항"
+    relevance: "사 56:6, 7 예언 성취 — 타국인(다른 양)이 새 계약에 동참하는 방식 해설"
+  - title: "파수대(연구용) 2006년 11월 1일호 27면 1항 — 우리의 신성한 모임들에 대해 존중심을 나타내라"
+    url: "https://wol.jw.org/ko/wol/d/r8/lp-ko/2006805"
+    paragraph: "1항"
+    relevance: "사 56:7 — 거룩한 산·기도하는 집의 현대적 의미, 모든 민족이 함께 예배"
+
+major_scripture_candidates_count: 20
+
+time_budget:
+  intro_seconds: 30
+  question_1_seconds: 240
+  question_2_and_sharing_seconds: 240
+  conclusion_seconds: 30
+  buffer_seconds: 60
+  total_seconds: 600
+
+special_week_flags:
+  circuit_overseer_week: false
+  convention_week: false
+  memorial_week: false
+
+dig_treasures_specific:
+  question1_type: "doctrinal_fulfillment"
+  question2_type: "open_audience_gems"
+  audience_gems_backup_count: 5
+  major_scripture_candidates_range: "사 56:1-12, 사 57:1-21"
+  fourteen_axis_applied:
+    - axis: 6
+      description: "고고학·역사 — 외국인의 참 숭배 참여가 1세기 이후 역사적으로 성취됨 (사 56:6, 7 → 요 10:16 다른 양)"
+      scripture: "사 56:6-8"
+    - axis: 10
+      description: "인생의 의미 — 출신 민족보다 마음의 자세가 여호와와의 관계를 결정함"
+      scripture: "사 56:6"
+    - axis: 14
+      description: "상실·회복 — 여호와께서 낮고 억눌린 자를 회복시키시는 약속"
+      scripture: "사 57:15-18"
+
+instructions_to_subresearchers:
+  scripture-deep: |
+    이 주차 핵심 성구: 사 56:6-7 (공식 질문 1), 사 57:15 (보물 나누기 보강 후보).
+    중점 — 사 56:6의 "계약을 굳게 지키는"의 히브리어 원의 및 신약 성취(요 10:16, 엡 2:12-14),
+    사 57:15의 "영이 꺾이고 낮은 자들"의 히브리어 표현 및 시편 51:17과의 연결.
+    연구 노트·상호 참조 포함. 이사야 56-57장 범위 내 성구 중심 조사.
+    피하기: 범위 외 다른 이사야 장(1-55, 58-66)의 성구 독립 확장 금지.
+  publication-cross-ref: |
+    주제 키워드: '다른 양', '외국인의 참 숭배', '모든 민족을 위한 기도하는 집', '낮은 자를 되살리심'.
+    우선 검색 범위: 「파수대」 연구용 2007년 1/15 10면 3항, 2006년 11/1 27면 1항.
+    보조 검색: 「통찰」 제1권 "외국인", "계약" 항목.
+    각 출판물 3~5개 단락이면 충분. 피하기: 외국어판 인용 금지, 사 56:6, 7 직접 인용 외 성구 과잉 확장.
+  illustration-finder: |
+    이 파트(dig-treasures)는 서론 외부 후크 N·A (차등 적용표 규칙).
+    대신 §4 대비 답변 5개에 사용할 간단한 "연결 이미지" 후보만 수집:
+    - 사 56:8 (또 다른 사람들 모음) → 전도 활동 관련 wol 공식 사진
+    - 사 57:15 (낮은 자와 함께 계심) → wol 위로 장면 공식 사진
+    삽화 상한 N·A. 종교적 이미지는 wol 전용 원칙 유지. 피하기: 외부 종교화·도상 절대 금지.
+  experience-collector: |
+    주제: '다른 민족 배경을 가진 형제자매의 회중 환영 경험' 또는 '어려움 중 여호와께 도피하여 회복된 경험'.
+    연감·파수대·JW 방송 2015년 이후. 실명 공개된 아동 포함 경험담 피하기.
+    dig-treasures는 10분 파트로 경험담 실제 사용 가능성은 낮음 — 사회자 당일 언급용 후보만 수집.
+  application-builder: |
+    4축 (가정·직장/학교·회중·개인 영성) 중 특히 '회중'과 '개인 영성' 포커스.
+    사 56:6, 7 관련: "출신 배경 무관하게 따뜻이 맞아들이는 회중 분위기 만들기"
+    사 57:15 관련: "낙심·억눌림 중에 여호와께 나아가는 구체적 방법"
+    자기점검 질문 1~2개. 피하기: 정치·국가 관련 예시, 특정 문화권 비교 예시.
+
+source:
+  wol_week_index: "https://wol.jw.org/ko/wol/d/r8/lp-ko/202026089"
+  part_page: "https://wol.jw.org/ko/wol/pc/r8/lp-ko/202026089/5/0"
+  isa_56_text: "https://wol.jw.org/ko/wol/b/r8/lp-ko/nwtsty/23/56"
+  isa_57_text: "https://wol.jw.org/ko/wol/b/r8/lp-ko/nwtsty/23/57"
+
+generated_at: 2026-04-24
+planner_version: "spiritual-gems-planner v1 (dig-treasures 포맷)"
+defense_protocol: "6단 방어 v2 — ① 단계 완료"
