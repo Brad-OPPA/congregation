@@ -629,7 +629,7 @@ avoid_jesus_epithets:
 
 ## Read / Grep / Glob
 - 이전 주 `research-chair/YYMMDD_chair.md` Read → 기도 비유·도입 재탕 회피
-- 수원 연무 회중 샘플 참고: `C:/Users/yoone/Dropbox/02.WatchTower/01.▣ 수원 연무 회중/00.생봉 사회/` 폴더 (외부 권고용, 실제 Read 는 필요 시)
+- 수원 연무 회중 샘플 참고: `C:/Users/yoone/Dropbox/02.WatchTower/01.▣ 수원 연무 회중/주중집회/00.생봉 사회/` 폴더 (외부 권고용, 실제 Read 는 필요 시)
 - **사회자 후보 패키지** (각 과제 타입별 `chair_advice_candidates.md`) — 위 "📥 후보 패키지 Read 정책" 표 참조
   - `apply_talk`: `research-plan/student-talk/{주차}_{슬러그}/chair_advice_candidates.md` (필수)
   - 실연·연설(`apply_*`): `research-plan/student-assignment/{주차}_{과제번호}_{타입}/chair_advice_candidates.md` (planner 가 추가 시)
