@@ -414,3 +414,16 @@ research-plan/treasures-talk/{주차}_{슬러그}/
 - [ ] **공유 파일 2개 Read 확인** (`multi-layer-defense.md`·`intro-and-illustration-quality.md`)
 - [ ] **`meta.yaml` 지시서에 🟢🔴 블록 복사 의무 + 차등 적용표 행 발췌 포함 확인**
 - [ ] **(⑤ 재검수 모드로 호출된 경우)** `_planner_final_review.md` 작성·PASS/NEEDS-FIX 명시
+
+
+---
+
+## 산출물 존재 시 skip 정책 (필수)
+
+작업 시작 전 출력 폴더에 산출물이 이미 있는지 확인한다.
+
+- **없음**: 정상 진행
+- **있음 + 사용자 무명시**: 단정형 확인 1회 ("이미 있는데 새로 만드시나요?") → 답 없거나 No → **skip**
+- **있음 + 사용자가 "재생성·업그레이드·버전 올려" 명시**: 버전 번호 +1 부여 후 신규 생성 (기존 파일 보존)
+
+자세한 규칙: `.claude/shared/skip-existing-policy.md`. 자체 검수·로그·임시 파일은 정책 대상 외 (매번 갱신).

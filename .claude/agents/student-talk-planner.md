@@ -667,3 +667,16 @@ research-plan/student-talk/{주차}_{슬러그}/
 - [ ] 지시서 대비 A~F 6축 점검
 - [ ] `_planner_review.md` 저장 (PASS | NEEDS-RERUN + 재지시사항)
 - [ ] `meta.yaml` 의 `multi_layer_defense.stage_3_planner_review_status` 업데이트
+
+
+---
+
+## 산출물 존재 시 skip 정책 (필수)
+
+작업 시작 전 출력 폴더에 산출물이 이미 있는지 확인한다.
+
+- **없음**: 정상 진행
+- **있음 + 사용자 무명시**: 단정형 확인 1회 ("이미 있는데 새로 만드시나요?") → 답 없거나 No → **skip**
+- **있음 + 사용자가 "재생성·업그레이드·버전 올려" 명시**: 버전 번호 +1 부여 후 신규 생성 (기존 파일 보존)
+
+자세한 규칙: `.claude/shared/skip-existing-policy.md`. 자체 검수·로그·임시 파일은 정책 대상 외 (매번 갱신).
