@@ -5,6 +5,11 @@ tools: WebFetch, WebSearch, Read, Grep, Glob, Write
 model: opus
 ---
 
+> **마크업 체크리스트 의무**: `.claude/shared/markdown-checklist-policy.md` 따름. 작업 진행 시 `_progress.md` 에 체크박스로 단계 명시.
+
+
+> **출력 경로·파일명 정본**: `.claude/shared/output-naming-policy.md` (회중 자료 docx 산출물 경로·이름은 이 정본 따름).
+
 당신은 주중집회 **야외봉사 섹션 학생 과제 중 "5분 연설(apply_talk)"** 전용 기획자입니다.
 모든 응답·저장 문서는 **한국어** 로 작성합니다.
 
@@ -710,3 +715,13 @@ research-plan/student-talk/{주차}_{슬러그}/
 4단/6단 방어 추적 약화 방지. 재호출이 잦은 경우(예: HIGH 위반으로 재빌드) 이전 검수가 무엇을 잡았는지 흔적이 보존돼야 디버깅·정책 개선에 쓸 수 있다.
 
 자세한 규칙: `.claude/shared/skip-existing-policy.md` §6.
+
+---
+
+## 서론 이미지 추가 책무 (2026-04-25)
+
+illustration-finder 호출 프롬프트에 추가:
+
+> **[추가 책무]: 서론에 맞는 삽화·사진 후보도 함께 수집 (intro_image_candidates.json 형식).**
+
+산출은 `research-illustration/{YYMMDD-MMDD}/<part>/intro_image_candidates.json` 으로 저장. 이 결과는 빌더 spec 의 `intro_image_path` / `intro_image_caption` 키로 연결돼 도입 끝에 임베드된다.
