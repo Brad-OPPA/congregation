@@ -6,6 +6,16 @@
     ]
   },
   "hooks": {
+    "UserPromptSubmit": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python -X utf8 \"c:/Users/yoone/Dropbox/ClaudeFile/Congregation/.claude/hooks/skill-source-reminder.py\""
+          }
+        ]
+      }
+    ],
     "Stop": [
       {
         "hooks": [

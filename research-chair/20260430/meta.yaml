@@ -1,0 +1,339 @@
+# meta.yaml — 사회자 대본 ① Planner 단계 산출물
+# chair-script-builder · 6단 방어(v2) 프로토콜
+# 생성일: 2026-04-25
+# 집회 날짜: 2026-04-30 (목) — next1
+# WOL 주차: 2026년 4월 27일–5월 3일
+
+meeting_date: "2026-04-30"
+week_start: "2026-04-27"
+week_label: "2026년 4월 27일–5월 3일"
+chair_name: "김원준"
+special_week: null
+
+# ─────────────────────────────────────────────────────────────
+# 사용자 입력 슬롯 (테스트 실행 — placeholder)
+# ─────────────────────────────────────────────────────────────
+prayer_opening_by: "(미정 — 사용자 입력 필요)"
+prayer_closing_by: "(미정 — 사용자 입력 필요)"
+
+songs:
+  opening:
+    number: "(미정 — 사용자 입력 필요)"
+    title: "(미정 — 사용자 입력 필요)"
+    scripture: "(미정 — 사용자 입력 필요)"
+  middle:
+    number: "(미정 — 사용자 입력 필요)"
+    title: "(미정 — 사용자 입력 필요)"
+  closing:
+    number: "(미정 — 사용자 입력 필요)"
+    title: "(미정 — 사용자 입력 필요)"
+
+# ─────────────────────────────────────────────────────────────
+# WOL 자동 파싱 결과 (출처: https://wol.jw.org/ko/wol/dt/r8/lp-ko/2026/4/27)
+# ─────────────────────────────────────────────────────────────
+wol_source_url: "https://wol.jw.org/ko/wol/dt/r8/lp-ko/2026/4/27"
+week_subject_anchor: "이사야 56장 — '여호와를 하느님으로 둔 우리는 행복합니다'"
+bible_reading_week_range: "사 56:4-12"
+
+parts:
+  treasures_talk:
+    speaker: "(미정 — 사용자 입력 필요)"
+    title: "여호와를 하느님으로 둔 우리는 행복합니다"
+    minutes: 10
+    source_url: "https://wol.jw.org/ko/wol/dt/r8/lp-ko/2026/4/27"
+
+  spiritual_gems:
+    speaker: "(미정 — 사용자 입력 필요)"
+    minutes: 10
+    questions:
+      - "이사야 56:6, 7—이 예언은 어떻게 성취되고 있습니까?"
+      - "이번 주 성경 읽기를 통해 어떤 영적 보물을 발견했습니까?"
+
+  bible_reading:
+    student: "(미정 — 사용자 입력 필요)"
+    student_gender: "(미정 — 사용자 입력 필요)"
+    range: "사 56:4-12"
+    minutes: 4
+    study_point: "「가르치는 기술」 5과"
+    study_point_pamphlet: "가르치는 기술"
+    study_point_lesson: "5"
+    study_point_title: "[wol 확인 필요 — 5과 정확한 제목]"
+
+  apply_1:
+    type: "apply_conversation_start"
+    type_label: "대화 시작하기"
+    setting: "비공식 증거"
+    student: "(미정 — 사용자 입력 필요)"
+    student_gender: "(미정 — 사용자 입력 필요)"
+    helper: "(미정 — 사용자 입력 필요)"
+    minutes: 3
+    study_point_pamphlet: "랑제"
+    study_point_full: "「사람들을 사랑하십시오」 2과 요점 4"
+    study_point_title: "[wol 확인 필요 — 「랑제」 2과 요점 4 정확한 제목]"
+    context: "최근 집회에서 배운 내용을 일상 대화 속에서 자연스럽게 나누는 비공식 증거 상황"
+
+  apply_2:
+    type: "apply_explaining_beliefs"
+    type_label: "우리의 신앙 설명하기"
+    setting: "[연설 또는 실연 — wol 확인 필요. 「웹성대」 기사 90 사용 정황상 연설 가능성 높음]"
+    student: "(미정 — 사용자 입력 필요)"
+    student_gender: "(미정 — 사용자 입력 필요. 연설형이면 남자 고정)"
+    helper: "(연설형이면 보조자 없음 / 실연형이면 미정)"
+    minutes: 5
+    study_point_full: "「우리의 웹사이트에서 성서 대답 찾기」 기사 90"
+    study_point_title: "종교 단체에 꼭 속해 있어야 합니까?"
+    source_article: "「웹성대」 기사 90"
+
+  apply_3:
+    type: "apply_bible_study"
+    type_label: "제자가 되도록 돕기"
+    setting: "[wol 확인 필요 — 호별 방문 후속 / 비공식 증거 등]"
+    student: "(미정 — 사용자 입력 필요)"
+    student_gender: "(미정 — 사용자 입력 필요)"
+    helper: "(미정 — 사용자 입력 필요)"
+    minutes: 4
+    study_point_full: "「행복을 누리는 길」 19과 + 「사람들을 사랑하십시오」 11과 요점 3"
+    study_point_title: "[wol 확인 필요 — 「행누」 19과 + 「랑제」 11과 요점 3 정확한 제목]"
+
+  living_part:
+    title: "여호와에 대해 말하기를 결코 중단하지 마십시오"
+    speaker: "(미정 — 사용자 입력 필요)"
+    minutes: 15
+    subtype: "living_discussion"
+    subtype_note: "WOL 명시: 토의 + 동영상 포함"
+
+  cbs:
+    speaker: "(미정 — 사용자 입력 필요)"
+    reader: "(미정 — 사용자 입력 필요)"
+    material: "「하느님께 가까이 가십시오」 80장–81장"
+    material_pamphlet: "훈"
+    paragraph_range: "[wol 확인 필요 — 정확한 단락 범위. 보통 30분 분량으로 80-81장 = 약 80장 후반 + 81장 전반]"
+
+# ─────────────────────────────────────────────────────────────
+# 다음 주 (5월 4일–10일) 인덱스 미리보기
+# 출처: https://wol.jw.org/ko/wol/dt/r8/lp-ko/2026/5/4
+# ─────────────────────────────────────────────────────────────
+next_week:
+  week_label: "2026년 5월 4일–10일"
+  source_url: "https://wol.jw.org/ko/wol/dt/r8/lp-ko/2026/5/4"
+  subject: "이사야 58-59장"
+  bible_reading: "사 59:1-12"
+  preview_note: "[wol 확인 필요 — 다음 주 10분 연설 제목 미파싱]"
+  assignments:
+    bible_reading: "(미정 — 사용자 입력 필요)"
+    apply_conversation_start:
+      - "(미정 — 사용자 입력 필요)"
+      - "(미정 — 사용자 입력 필요)"
+    apply_follow_up:
+      - "(미정 — 사용자 입력 필요)"
+      - "(미정 — 사용자 입력 필요)"
+    apply_bible_study:
+      - "(미정 — 사용자 입력 필요)"
+      - "(미정 — 사용자 입력 필요)"
+
+advertisements: "준비중"
+
+# ─────────────────────────────────────────────────────────────
+# 9개 시간 마커 자동 계산 (학생 과제 합산: 3 + 5 + 4 = 12분 + 조언 3분 = 15분)
+# 수원 연무 회중 7:30 pm 시작 기준
+# ─────────────────────────────────────────────────────────────
+time_markers:
+  marker_1_intro: "By 7:35 pm"           # 소개말 시작 (5분 전 = 시작노래·기도)
+  marker_2_subject: "By 7:36 pm"         # 주제 소개 (1분)
+  marker_3_treasures_talk: "By 7:46 pm"  # 10분 연설 종료
+  marker_4_spiritual_gems: "By 7:56 pm"  # 영적 보물 찾기 종료
+  marker_5_bible_reading: "By 8:00 pm"   # 성경 낭독 + 조언 종료 (4분)
+  marker_6_field_intro: "By 8:01 pm"     # 야외 봉사 진입
+  marker_7_field_end: "By 8:16 pm"       # 학생 과제 3건 + 조언 (3+5+4=12분 + 조언 3분 = 15분 → 8:01+15=8:16)
+  marker_8_living: "By 8:20 pm"          # 중간 노래 후 그리스도인 생활 진입 (8:16+4=8:20)
+  marker_8b_living_end: "By 8:35 pm"     # 생활 파트 15분 → 8:20+15=8:35
+  marker_9_cbs: "By 9:05 pm"             # CBS 30분 종료
+  marker_10_review: "By 9:08 pm"         # 복습·발표·다음주·임명 3분
+  # 광고 + 마치는 노래 + 마침 기도 ~ 9:15 pm
+
+time_calc_notes: |
+  학생 과제 시간 합산:
+    apply_1 (대화 시작하기, 3분) + apply_2 (우리의 신앙 설명하기, 5분) + apply_3 (제자가 되도록 돕기, 4분) = 12분
+    + 학생 조언 각 1분씩 3건 = 3분
+    + 진입 멘트 1분 = 16분
+    8:00 pm + 16분 = 8:16 pm (야외 봉사 종료)
+  생활 파트 15분이므로 8:20 + 15 = 8:35 pm
+  CBS 30분 = 8:35 + 30 = 9:05 pm
+
+# ─────────────────────────────────────────────────────────────
+# ① Planner 단계 — 보조 에이전트 지시서 (6단 방어 ① 키)
+# 두 개의 prayer-composer 호출에 대한 자연어 지시
+# ─────────────────────────────────────────────────────────────
+instructions_to_subresearchers:
+  prayer-composer-opening: |
+    당신은 prayer-composer 에이전트입니다. 본 호출은 chair-script-builder 의
+    ② 단계 (보조 에이전트 자체 검수 단계 포함) 작업입니다. 작업 완료 후
+    `_selfcheck.md` 에 자체 검수 결과를 남기세요.
+
+    [입력 파라미터]
+    meeting_type: midweek
+    prayer_type: opening
+    meeting_date: 2026-04-30
+    week_subject: "이사야 56장 — 여호와를 하느님으로 둔 우리는 행복합니다"
+    bible_reading_range: "사 56:4-12"
+    key_points:
+      - 10분 연설: "여호와를 하느님으로 둔 우리는 행복합니다" — 여호와를 자신의 하느님으로 모실 때 누리는 참된 행복
+      - 영적 보물 찾기: 사 56:6, 7 의 예언이 오늘날 어떻게 성취되고 있는지 — 이방인·외국인도 여호와의 집에서 환영받는 영적 성취
+      - 그리스도인 생활: "여호와에 대해 말하기를 결코 중단하지 마십시오" — 어떤 상황에서도 증거하는 자세
+      - CBS: 「하느님께 가까이 가십시오」 80-81장 — 여호와의 속성과 우리의 가까운 관계
+    related_bible_person: 이사야 (또는 sub-agent 판단으로 자연스러운 다른 인물 가능)
+    prayer_by: "(미정 — chair-script-builder 가 사용자 입력 후 치환)"
+    avoid_metaphors: []  # 없음 (본 집회 첫 호출이므로)
+    avoid_jesus_epithets: []  # 없음
+
+    [지시 사항]
+    - 시작 기도이므로 집회 도입에 어울리는 4단 구조 (도입 인사 → 한 주 영적 양식에 대한 감사·요청 →
+      각 파트별 통찰 구하기 → 마무리·예수의 이름으로) 로 작성
+    - 여호와를 하느님으로 모시는 행복(10분 연설 주제)을 짧게 반영
+    - 신선한 비유 1개 사용 (예: 영적 양식·등불·길잡이 류 진부한 비유 회피)
+    - 이전 주 research-prayer 폴더의 비유·수식어와 중복 회피 (같은 폴더 Read 후)
+    - 신세계역 표기 엄수, 추측·창작 금지
+
+    [할루시네이션 금지 헌장]
+    - 훈련 데이터 기억으로 성구·출판물 인용 금지. wol.jw.org 에서 확인된 본문만 사용.
+    - 인용 시 출처 URL 명시. 확인 못 한 항목은 [확인 필요] placeholder.
+    - verbatim 인용은 짧게, 출처 함께.
+
+    [산출물]
+    - 저장 경로: /mnt/c/Users/yoone/Dropbox/ClaudeFile/Congregation/research-prayer/260430_midweek_opening.md
+    - 같은 폴더 _selfcheck.md 에 자체 검수 (사용 비유·수식어 명시 — chair-script-builder 가
+      ③ 재검수 + ⑤ 단계에서 마침 기도 호출 시 avoid 리스트로 전달)
+
+  prayer-composer-closing: |
+    당신은 prayer-composer 에이전트입니다. 본 호출은 chair-script-builder 의
+    ② 단계 작업입니다. 작업 완료 후 `_selfcheck.md` 에 결과 남기세요.
+
+    [입력 파라미터]
+    meeting_type: midweek
+    prayer_type: closing
+    meeting_date: 2026-04-30
+    week_subject: "이사야 56장 — 여호와를 하느님으로 둔 우리는 행복합니다"
+    bible_reading_range: "사 56:4-12"
+    key_points: (opening 과 동일 4개)
+    related_bible_person: (opening 과 다른 인물 권장 — 자연스러움 우선)
+    prayer_by: "(미정 — chair-script-builder 가 사용자 입력 후 치환)"
+    avoid_metaphors:
+      - "[chair-script-builder 가 ③ 단계에서 opening _selfcheck.md 의 used_metaphors 를 자동 추출해 채움]"
+    avoid_jesus_epithets:
+      - "[chair-script-builder 가 ③ 단계에서 opening _selfcheck.md 의 used_jesus_epithets 를 자동 추출해 채움]"
+
+    [지시 사항]
+    - 마침 기도이므로 4단 구조 (집회에서 받은 영적 양식 회상 → 결심 표현 →
+      청중 보호·복지 간구 → 마무리·예수의 이름으로) 로 작성
+    - opening 기도와 비유·수식어 중복 절대 금지 (avoid_* 명시 활용)
+    - 본 집회의 모든 파트(10분 연설·영보·학생 과제 3건·생활·CBS) 에서 받은 영적 통찰을
+      두루 회상하되 한 파트만 길게 다루지 말 것
+
+    [할루시네이션 금지 헌장]
+    - opening 호출과 동일.
+
+    [산출물]
+    - 저장 경로: /mnt/c/Users/yoone/Dropbox/ClaudeFile/Congregation/research-prayer/260430_midweek_closing.md
+    - 같은 폴더 _selfcheck.md 에 자체 검수
+
+# ─────────────────────────────────────────────────────────────
+# placeholder 항목 목록 (사용자 입력 필요)
+# ─────────────────────────────────────────────────────────────
+user_input_required:
+  - prayer_opening_by  # 시작 기도 담당자
+  - prayer_closing_by  # 마침 기도 담당자
+  - songs.opening.number / title / scripture
+  - songs.middle.number / title
+  - songs.closing.number / title
+  - parts.treasures_talk.speaker  # 10분 연설자
+  - parts.spiritual_gems.speaker  # 영보 담당자
+  - parts.bible_reading.student / student_gender
+  - parts.apply_1.student / student_gender / helper  # 대화 시작하기
+  - parts.apply_2.student / student_gender (연설형이면 남자 고정) / setting 확인
+  - parts.apply_3.student / student_gender / helper / setting 확인
+  - parts.living_part.speaker
+  - parts.cbs.speaker / reader
+  - next_week.assignments (다음 주 임명 7건 모두)
+  - advertisements
+
+# ─────────────────────────────────────────────────────────────
+# WOL 추가 확인 필요 항목 (Planner 단계에서 확인 못 한 것)
+# ─────────────────────────────────────────────────────────────
+wol_to_verify:
+  - "「가르치는 기술」 5과 정확한 제목"
+  - "「랑제」 2과 요점 4 정확한 소제목"
+  - "「행누」 19과 + 「랑제」 11과 요점 3 정확한 소제목"
+  - "apply_2 우리의 신앙 설명하기 — 연설형 vs 실연형 확정"
+  - "apply_3 제자가 되도록 돕기 — 호별 방문 후속 vs 다른 장면 확정"
+  - "CBS 「훈」 80-81장 정확한 단락 범위"
+  - "next_week 10분 연설 제목"
+
+# ─────────────────────────────────────────────────────────────
+# 6단 방어 진행 상태
+# ─────────────────────────────────────────────────────────────
+defense_protocol:
+  current_stage: "① Planner 단계 완료 (재실행 — layout_patterns 추가)"
+  next_stage: "② prayer-composer × 2 호출 + 자체 검수"
+  ready_for_next_call: true
+
+# ─────────────────────────────────────────────────────────────
+# layout_patterns — 4주치 샘플 (231213/250718/251031/260311) 직접 분석
+# 정책 정본: .claude/shared/markup-and-layout-policy.md §K-2
+# 분석일: 2026-04-25
+# ─────────────────────────────────────────────────────────────
+layout_patterns:
+  body_size_pt: 13
+  direction_size_pt: 8                     # < 무대 지시 > 회색 8pt (4주 모두 일관)
+  inline_quote_size_pt: 12                 # 성구·요점 verbatim 인용 12pt (선택)
+  time_marker_color: "FF0000"
+  time_marker_size_pt: 13
+  time_markers_standard:
+    - "7:35"
+    - "7:36"
+    - "7:46"
+    - "7:56"
+    - "8:00"
+    - "8:01"
+    - "8:16"
+    - "8:20"
+    - "8:35"
+    - "9:05"
+    - "9:08"
+  time_markers_sub:                        # 학생 과제 사이 보조 마커 — 자동 들여쓰기
+    - "8:04"
+    - "8:05"
+    - "8:09"
+    - "8:10"
+  indent_emu_standard: 508000              # 인용·실연·성구 verbatim·보조 시간 마커
+  yellow_highlight_targets:
+    - student_speaker_name_with_title      # 예: "김영준 형제", "박기숙 자매"
+    - quoted_titles                        # 예: "여호와를 하느님으로 둔 우리는 행복합니다"
+    - publication_titles                   # 예: 「사람들을 사랑하십시오 — …」 요점 N
+    - lesson_number_and_title              # 예: 4. 대화 시작하기
+    - inline_minutes                       # 예: (3분이내), (5분), (15분)
+    - welcome_paragraph_full               # 환영사 첫 단락 전체
+    - section_intro_sentences              # 파트 소개·종료 감사 문장
+    - song_intro_with_number               # 노래 소개 정형구
+  red_bold_keywords:                       # 4주 샘플에서 표준화된 빨강+볼드
+    - "성경 낭독 시간"
+    - "(필수)"
+    - "(필수) 연구 질문"
+  block_headers: false                     # ### [블록 N] 본문 docx 출력 안 함
+  fixed_section_transitions:               # 정형구 5종 (변형 금지)
+    - "이제 프로그램의 첫 번째 부분인 \"성경에 담긴 보물\"을 즐기도록 하겠습니다."
+    - "이제 집회의 다음 부분인 \"야외 봉사에 힘쓰십시오\"를 시작하겠습니다."
+    - "이제 우리 집회의 다음 순서인 \"그리스도인 생활\"을 시작하겠습니다."
+    - "집회의 마지막 부분은 회중 성서 연구입니다."
+    - "이것으로써 오늘의 집회를 모두 마치도록 하겠습니다."
+  prayer_full_text: true                   # 시작·마침 기도 전문 항상 작성, placeholder 금지
+  next_week_assignment_format: "한 과제 한 줄, 쉼표로 두 명까지"
+  closing_signature: "잘 준비된 집회 임명에 진심으로 감사드립니다."
+
+  # 4주 샘플 검증 통계 (참고)
+  sample_stats:
+    paragraphs_total: [147, 121, 106, 110]   # 231213/250718/251031/260311
+    yellow_runs_total: 172
+    red_bold_runs_total: 19
+    direction_runs_8pt_total: 4              # 입장 안내 < ... > 4주 모두 동일 문구
+    time_markers_right_align: 62
+    most_common_indent_emu: 508000           # 58회 — 표준

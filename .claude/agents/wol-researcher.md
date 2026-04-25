@@ -39,19 +39,76 @@ model: opus
 - "다른 출판물" 섹션의 같은 이름 항목 → 책 전체 목차 (다른 페이지)
 - 주차 리서치 시 반드시 **전자(썸네일 있는 주차 카드)** 클릭
 
-# 출판물 약어 매핑
+# 출판물 약어·WOL Short Code 매핑 (영구)
 
-| 약어 | 출판물 |
-|------|--------|
-| 「파」 | 파수대 |
-| 「통」 | 성경 통찰 (Insight on the Scriptures) |
-| 「훈」 | 훈련 책 (현재 회중성서연구 교재) |
-| 「익」 | 신권 전도 학교 교육에서 얻는 유익 |
+⚠ **핵심**: 본 매핑 + N과 docid 패턴이 wol-researcher 의 **자동 fetch 능력의 근간**. 모든 회중 스킬 (chair / mid-talk10 / mid-talk5 / mid-student 1~4 / dig-treasures / cbs / week-study) 이 wol-researcher 호출 한 번으로 학생 과제·연설 학습 요점·낭독 본문·연구 자료 본문 verbatim 을 받음. 본체(Claude)나 다른 에이전트가 직접 wol fetch 하거나 short code 추측하지 **않는다** — 이 표만 사용.
 
-**모르는 약어가 나오면:**
-1. wol.jw.org 출판물 아이콘 → **"용어 설명"** 진입 후 검색
-2. 또는 `jw.org` 일반 검색으로 약어·용어 확인
-3. **절대 추측하거나 임의 조어(예: "예-1" 같은) 만들지 않음**
+## 출판물 약어 → WOL Short Code
+
+| 한국어 약어 | WOL short code | 출판물 정식 명 | URL 패턴 |
+|---|---|---|---|
+| 「파」 | `w` | 파수대 (연구용) | `/ko/wol/d/r8/lp-ko/{docid}` (호별) |
+| 「깨」 | `g` | 깨어라! | 동상 |
+| 「통」 | `it` | 성경 통찰 | `/ko/wol/publication/r8/lp-ko/it` |
+| 「훈」 | `lr` 또는 docid `1102016XXX` | 「하느님의 교훈이 담긴 성경 이야기」 (선생님이 — 훈) | 회중성서연구용 |
+| 「예-1」 | docid `1102014XXX` | 「예수 — 길, 진리, 생명」 1권 | |
+| 「익책」 | `be` | 신권 전도 학교 교육에서 얻는 유익 | `/ko/wol/publication/r8/lp-ko/be` |
+| **「읽가」** | **`th`** | **예수의 가르침을 본받으십시오 — 읽고 가르치는 기술을 발전시키십시오** | `/ko/wol/publication/r8/lp-ko/th` |
+| **「랑제」** | **`lmd`** | **사람들을 사랑하고 제자로 삼으십시오** | `/ko/wol/publication/r8/lp-ko/lmd` |
+| **「행누」** | **`lff`** | **행복한 삶을 영원히 누리십시오!** | `/ko/wol/publication/r8/lp-ko/lff` |
+| 「행누첫」 | `lffi` | 행복한 삶을 영원히 누리십시오! (첫 단계) | `/ko/wol/publication/r8/lp-ko/lffi` |
+| 「선」 또는 「배」 | `lr` | 선생님 (배·예수 선생님 본받기) | `/ko/wol/publication/r8/lp-ko/lr` |
+| 「웹성대」 | (URL 별도) | jw.org 웹성서대백과 / 「우리의 그리스도인 생활」 | 검색 |
+
+## 학생 과제·연설 학습 요점 N과 자동 Fetch 흐름
+
+**핵심 발견**: 각 출판물의 N과 본문은 **연속된 docid** 로 매핑됨. 1과 docid 만 알면 N과 = `(1과 docid) + (N - 1)`.
+
+### 검증된 1과 base docid (이번 작업 2026-04-25 확인)
+
+| 책 | short code | 1과 docid | N과 docid 공식 |
+|---|---|---|---|
+| 「읽가」 | `th` | `1102018441` | `1102018441 + (N-1)` |
+| 「랑제」 | `lmd` | `1102023301` | `1102023301 + (N-1)` |
+| 「행누」 | `lff` | `1102021201` | `1102021201 + (N-1)` |
+| (예: 「행누」 13과 이후 docid 점프 가능 — 책 구조에 따라 차이) | — | — | 아래 검증 절차 의무 |
+
+### 자동 Fetch 절차
+
+1. **주차 인덱스 raw HTML 받기**: `curl https://wol.jw.org/ko/wol/dt/r8/lp-ko/{YYYY}/{M}/{D}` — 해당 주의 월요일.
+2. **학생 과제 영역의 학습 요점 식별** — wol-researcher 가 본문 텍스트만 받으면 hyperlink 가 누락되므로 **반드시 raw HTML 파싱**:
+   - `grep -oE 'href="[^"]+"' /tmp/week.html | grep -E "/d/r8/lp-ko/[0-9]+"` 로 docid 후보 추출
+   - 학생 과제 파트 페이지 (`/pc/r8/lp-ko/202{YY}{NN}/{idx}/0`) 도 fetch — 학습 요점 inline 링크 추가 발견
+3. **N과 docid 계산** — 표의 1과 base + (N-1).
+4. **N과 본문 fetch**: `WebFetch https://wol.jw.org/ko/wol/d/r8/lp-ko/{N과 docid}` 로 본문 verbatim 추출.
+5. **검증 — 첫 fetch 응답에서 "이 페이지가 N과인가?" 확인**. 다르면 docid 패턴 보정 (한 단계씩 +/- 시도).
+
+### 모르는 약어 발견 시
+
+1. `https://wol.jw.org/ko/wol/publication/r8/lp-ko/{후보_short_code}` 시도 (lr/lf/lff/lffi/th/lmd/be/it/g/w 등)
+2. 페이지 `<title>` 태그 확인 → 책 제목 매칭
+3. 매칭되면 위 표에 영구 추가
+4. **추측 금지**. 모르면 `[wol short code 확인 필요]` placeholder + 보고에서 사용자 입력 요청
+5. **임의 조어 (예: "예-1" 같은) 만들지 않음**
+
+### 학습 요점 fetch 후 산출물 형식
+
+```yaml
+# research-wol/{YYMMDD}_{caller}_supplements.md 의 "학생 과제 학습 요점" 섹션
+student_assignments:
+  apply_1:
+    type: apply_conversation_start
+    study_point_book: 「읽가」
+    study_point_lesson: 5
+    study_point_title: "정확한 낭독"
+    study_point_body_verbatim: |
+      자료의 내용을 정확하게 낭독해야 합니다.
+      
+      1. 잘 준비한다 — ...
+      2. 각 단어를 정확히 발음한다 — ...
+      3. 또렷하게 말한다 — ...
+    source_url: "https://wol.jw.org/ko/wol/d/r8/lp-ko/1102018445"
+```
 
 # 스킬별 리서치 요청 패턴
 
@@ -137,6 +194,61 @@ model: opus
   - 설명·적용 후보
 [결론 재료] 기사 마지막 문단 요지
 ```
+
+## chair-script-builder (사회자 전체 대본) 리서치 요청
+**원고 구조: 1시간 45분 통합 진행 대본. 전 파트 메타·학습 요점 본문 verbatim·낭독 본문 등 종합 자료**
+
+⚠ **chair 호출은 가장 광범위**. 위 §출판물 약어·short code 매핑 + N과 docid 자동 fetch 흐름 100% 활용.
+
+반환 블록 (의무):
+```
+[주차 정보]
+  - 표어·성경 읽기 범위
+  - 10분 연설 제목·부제
+  - 영보 질문 2개 verbatim
+  
+[성경 낭독]
+  - 절 범위
+  - 신세계역 본문 verbatim (절 번호·구두점·띄어쓰기 보존)
+  - 학습 요점 「읽가」 N과 → 본문 verbatim 1-3 단락 + 부제·강조점
+  
+[학생 과제 3건] — 각각:
+  - type / setting / 시간
+  - 학습 요점 출처 (책+과+요점 번호)
+  - **학습 요점 본문 verbatim 1-3 단락** (필수 — 추측·요약 금지, wol fetch 결과 그대로)
+    * 「읽가」: docid `1102018441 + (N-1)` 으로 fetch
+    * 「랑제」: docid `1102023301 + (N-1)` 으로 fetch
+    * 「행누」: docid `1102021201 + (N-1)` 으로 fetch (13과 이후 점프 가능 — 검증 필수)
+    * 「웹성대」 / 「행누」 등 잡지 기사: 호별 검색
+  - 보조 자료 (예: 부록 가, 카드, 비디오)
+  
+[그리스도인 생활 파트]
+  - 제목·시간
+  - 동영상 제목 (있으면)
+  - 토의 질문
+  - 핵심 가르침 4-6개 verbatim
+  
+[CBS]
+  - 교재 (예: 「하느님께 가까이 가십시오」 N장)
+  - 단락 범위
+  - 핵심 질문·요점
+  
+[다음 주]
+  - 표어·성경 읽기·연설 제목
+  - 임명 4종 (성경 낭독 + 학생 과제 3종)
+  
+[노래]
+  - 시작·중간·마치는 노래 번호
+  - **번호별 한국어 제목 + 표어 성구** (wol 노래책 페이지 fetch 시도 — 차단되면 placeholder)
+```
+
+**chair 호출 시 자동 fetch 검증 워크플로우** (의무):
+1. 주차 인덱스 raw HTML 받기
+2. 학생 과제 영역의 학습 요점 docid 추출 (인덱스 + 파트 페이지 모두 fetch)
+3. 출판물 약어 매핑 표로 short code 식별 → 1과 base + (N-1) 로 N과 docid 계산
+4. **N과 본문 fetch + 첫 응답에서 "이 페이지가 정확히 N과인가?" 검증**. 다르면 ±1 보정.
+5. 본문 verbatim 1-3 단락 추출 + 부제·강조점 명시.
+6. 못 가져온 항목만 "사용자 입력 필요" 섹션으로 위임.
 
 # 🏆 품질 헌장 (모든 산출물 필수)
 
