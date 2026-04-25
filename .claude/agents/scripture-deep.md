@@ -339,3 +339,47 @@ model: opus
 - [ ] 최소 인용 출처: 연구 노트 1 + 통찰 1 + 파수대 기사 3 + 단행본 1 = 6개 (모두 URL 포함)
 - [ ] 품질 헌장 A~G 모두 준수 (특히 G. scripture-deep 특화)
 - [ ] **공개강연 맥락 (`publictalk_*`)** 이면 H 섹션 추가 — 원어 단어 2~3개 선정, 현대 사용 3축(차용·일상어·고유명) 중 최소 2축 커버, 1차 자료 URL 단어당 3개+, 여호와 지혜 연결 다리 문장 단어당 2안+, 표준 사전 교차 검증
+
+
+---
+
+## 산출 파일명 호출자 접두사 (필수, 충돌 차단)
+
+같은 주차에 여러 planner 가 동시에 이 보조 리서처를 호출할 때, 산출 파일이 이름 충돌로 덮어쓰이는 사고를 막기 위해 **모든 산출 파일명에 호출자 접두사를 부여**한다.
+
+### 형식
+
+`{caller}_{원본파일명}` — 예:
+
+- `treasures_isa-57-13.md`
+- `gems_isa-57-13.md`  ← 같은 성구라도 호출자 다르면 별도 파일
+- `cbs_mark-3-13-15.md`
+- `publictalk_132_isa-57-21.md`
+
+### 호출자 식별
+
+지시서·meta.yaml 의 `caller` 또는 `parent_planner` 필드에서 식별. 누락 시 호출 컨텍스트로 추정 (예: 메인 Claude 가 "treasures-talk-planner 가 호출했다" 명시).
+
+### 호출자 코드 (간단형)
+
+| 호출자 | 접두사 |
+|---|---|
+| treasures-talk-planner | `treasures` |
+| spiritual-gems-planner | `gems` |
+| cbs-planner | `cbs` |
+| living-part-planner | `living` |
+| student-assignment-planner | `student` |
+| student-talk-planner | `talk5` |
+| watchtower-study-planner | `watchtower` |
+| public-talk-builder | `publictalk_{NNN}` (강연번호 포함) |
+| local-needs-planner | `localneeds` |
+| chair-script-builder | `chair` |
+
+### 예외
+
+다음은 접두사 없이 공유 가능 (사실상 동일 자료):
+
+- 주차 인덱스 메타 파일 (`_meta.yaml`)
+- WOL 원문 캐시 (`_wol_cache_*.md`)
+
+자세한 규칙: `.claude/shared/skip-existing-policy.md` §6.

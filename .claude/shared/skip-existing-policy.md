@@ -102,16 +102,41 @@
 
 ---
 
-## 6. 예외 — 정책 미적용
+## 6. 예외·특별 처리
 
-다음 산출물은 이 정책에서 **제외** (항상 새로 생성·덮어쓰기):
+### 6-A. 정책 미적용 (매번 갱신·덮어쓰기 OK)
 
-- 자체 검수 파일 `_selfcheck.md`, `_selfcheck_script.md`, `_planner_review_*.md` (작업 단계 추적용)
 - 빌드 로그 `build_log.md`
 - 임시 분석 파일 `analysis-tmp/*`
 - 메모리·정책 파일 자체 수정
+- WOL fetch 캐시 (`_wol_cache_*.md`, 15분 TTL)
 
-산출물이라기보다 작업 흔적이므로 매번 갱신.
+### 6-B. 누적 보존 (덮어쓰지 말고 버전 누적)
+
+검수 흔적은 4단/6단 방어 추적 자료라 덮어쓰면 안 된다. 재호출 시 누적 보존:
+
+| 파일 | 누적 형식 |
+|---|---|
+| `_selfcheck.md` (서브 자체 검수) | `_selfcheck_v{N}.md` 누적 |
+| `_selfcheck_script.md` (script 자체 검수) | `_selfcheck_script_v{N}.md` 누적 |
+| `_planner_review_research.md` (Planner 1차) | `_planner_review_research_v{N}.md` 누적 |
+| `_planner_review_script.md` (Planner 2차) | `_planner_review_script_v{N}.md` 누적 |
+
+규칙: 첫 호출은 `_selfcheck.md`, 두 번째는 기존을 `_selfcheck_v1.md` 로 rename 후 새로 `_selfcheck.md` 생성. 가장 최신은 항상 버전 번호 없는 이름 유지.
+
+### 6-C. 보조 리서처 산출 파일명 — 호출자 접두사 (필수)
+
+같은 주차에 여러 planner 가 동시에 보조 리서처를 호출할 때 파일 이름 충돌을 막기 위해 모든 산출 파일명에 호출자 접두사를 부여:
+
+- `treasures_isa-57-13.md` (treasures-talk-planner 가 호출)
+- `gems_isa-57-13.md` (spiritual-gems-planner 가 호출)
+- `publictalk_132_isa-57-21.md` (public-talk-builder 강연번호 132)
+
+호출자 코드 표는 각 보조 리서처 정의 파일의 "산출 파일명 호출자 접두사" 단락 참조.
+
+### 6-D. _v_old/ 폴더 누적 (추후 정리)
+
+매주 "버전 업그레이드" 명시 시 기존 docx·pdf 가 `_v_old/` 로 이동. 매주 약 3MB/연 150MB. 즉시 위험은 없지만 장기적 정리 필요 — 30일 이상 된 `_v_old/` 자동 정리 hook 추후 도입 검토.
 
 ---
 

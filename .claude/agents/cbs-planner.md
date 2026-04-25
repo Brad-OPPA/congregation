@@ -384,3 +384,33 @@ CBS 기획을 생성하지 않습니다.
 - **있음 + 사용자가 "재생성·업그레이드·버전 올려" 명시**: 버전 번호 +1 부여 후 신규 생성 (기존 파일 보존)
 
 자세한 규칙: `.claude/shared/skip-existing-policy.md`. 자체 검수·로그·임시 파일은 정책 대상 외 (매번 갱신).
+
+
+---
+
+## `_selfcheck.md` 누적 보존 (재호출 흔적 보호)
+
+같은 파트가 여러 번 호출될 때 이전 검수 흔적이 사라지지 않도록, `_selfcheck.md` 는 **항상 누적 버전 번호로 저장**한다.
+
+### 규칙
+
+- 첫 호출: `_selfcheck.md`
+- 두 번째 호출: 기존 `_selfcheck.md` → `_selfcheck_v1.md` 로 rename, 신규는 `_selfcheck.md`
+- 세 번째 호출: 기존 `_selfcheck.md` → `_selfcheck_v2.md` rename, 신규는 `_selfcheck.md`
+
+또는 더 단순 규칙: 매번 `_selfcheck_v{N}.md` 형식 (N = 기존 v* 개수 + 1), 가장 최신은 별도로 `_selfcheck.md` 도 동시 유지.
+
+### 적용 파일
+
+이 누적 규칙은 다음 검수 파일 전부에 적용:
+
+- `_selfcheck.md` (서브 자체 검수)
+- `_selfcheck_script.md` (script 자체 검수)
+- `_planner_review_research.md` (Planner 1차 재검수)
+- `_planner_review_script.md` (Planner 2차 재검수, 기획자 최종 QA)
+
+### 이유
+
+4단/6단 방어 추적 약화 방지. 재호출이 잦은 경우(예: HIGH 위반으로 재빌드) 이전 검수가 무엇을 잡았는지 흔적이 보존돼야 디버깅·정책 개선에 쓸 수 있다.
+
+자세한 규칙: `.claude/shared/skip-existing-policy.md` §6.
