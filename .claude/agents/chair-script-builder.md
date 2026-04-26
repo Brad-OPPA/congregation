@@ -673,6 +673,52 @@ wol-researcher 호출:
   결과: research-wol/{YYMMDD}_chair_supplements.md
 ```
 
+### K-chair-2-tris. 수원 연무 회중 학생 과제 성별 룰 (영구)
+
+⚠ **회중 룰 (원준님 명시 2026-04-25)**:
+- **2명 함께 실연하는 학생 과제** (대화 시작·관심 자라도록·제자 되도록 — 보조자 동반) = **거의 자매·자매 조합**. 임명표 분석 시 작은 글자로 성별 판단 어려우면 **자매·자매로 가정**.
+- **1명 단독 학생 과제** (apply_talk 5분 연설·신앙 설명 연설형) = **형제 고정** (S-38 11항).
+- 성경 낭독 = **남자 학생 형제 고정** (S-38 11항).
+
+### K-chair-2-quad. 비슷 이름 분별 (영구)
+
+⚠ **김원준 ≠ 김현준** — 두 형제 모두 회중 성원, 이름이 비슷해 헷갈릴 수 있음. 임명표 분석·meta.yaml 채움 시 **반드시 한 글자씩 정확히 확인**:
+- **김원준** (원준님 본인) — 사회자·CBS 낭독 등 다양한 임명에 등장
+- **김현준** — 별도 형제, 다른 주차 임명
+
+이미지 작은 글자에서 비슷한 이름 (예: "김원준/김현준", "최증찬/최종찬") 발견 시 자동 추출 결과를 `[검증 필요 — 김X준]` 으로 placeholder 처리하고 사용자 입력 섹션에 명시. 임의 결정 금지.
+
+### K-chair-2-bis. 월별 계획표 PNG 자동 Read (담당자 자동 추출)
+
+⚠ **회중 임명표가 PNG 이미지로 매월 발표됨** — 모든 담당자 (사회자·기도·연설·영보·낭독·학생 과제 3건+보조·생활·CBS 사회·CBS 낭독) 정보가 거기에 있음.
+
+**위치**: `C:/Users/yoone/Dropbox/02.WatchTower/01.▣ 수원 연무 회중/01.주중집회/00.생봉 사회/생활과 봉사 계획표/{YYYYMM}.png`
+
+**자동 추출 흐름** (① 단계 의무):
+1. 주차 YYYYMMDD 에서 월 식별 → `{YYYYMM}.png` Read
+2. 이미지 글자가 작아 OCR 정확도 떨어짐 → **해당 주차 행만 crop + 2x zoom** (임시 PNG 저장 후 Read)
+   ```python
+   from PIL import Image
+   img = Image.open(src)
+   w, h = img.size
+   # 4행 표 가정 — 1주(헤더 100px) + 행 평균 (h-100)/4
+   row_idx = ...  # 0~3 (해당 주차)
+   y0 = 100 + row_idx * (h-100) // 4
+   y1 = 100 + (row_idx+1) * (h-100) // 4
+   crop = img.crop((0, y0, w, y1)).resize((w*2, (y1-y0)*2), Image.LANCZOS)
+   crop.save(tmp_dst)
+   ```
+3. crop 이미지 Read → 표 컬럼별 임명자 이름 추출
+4. meta.yaml 의 슬롯에 자동 채움:
+   - `chair_name`, `prayer_opening_by`, `prayer_closing_by`
+   - `parts.treasures_talk.speaker`, `parts.spiritual_gems.speaker`, `parts.bible_reading.student`
+   - `parts.apply_1/2/3.{student, helper}`
+   - `parts.living_part.speaker`
+   - `parts.cbs.{speaker, reader}`
+5. 작은 글자로 정확도 떨어지는 항목은 `[검증 필요 — 김X준 등]` placeholder + 사용자 입력 섹션에 명시.
+
+**다음 주 임명** 도 같은 PNG 의 다음 행 (또는 다음 달 PNG 첫 행) 에서 자동 추출.
+
 ### K-chair-3. 부족 항목 사용자 요청 섹션 (필수)
 
 wol-researcher 호출 후에도 가져오지 못한 항목·사용자 수동 입력 슬롯 (`(미정)`) 이 남으면, **④ Script 본문 마지막에 다음 섹션 자동 추가** (정책 §보조 자료 위임):
