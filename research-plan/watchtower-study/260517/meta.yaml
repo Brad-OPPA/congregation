@@ -1,0 +1,297 @@
+week_date: "260517"
+week_iso: "2026-05-17"
+weekday: "일요일"
+part: "주말집회 ② 파수대 연구 사회"
+duration_minutes: 30
+duration_seconds: 1800
+duration_tolerance_seconds: 90
+
+magazine:
+  title: "파수대 — 연구용"
+  issue: "2026년 3월호"
+  pages: "8-13"
+  article_number: 8
+  article_title: "온 우주에서 가장 높으신 분인 여호와를 신뢰하십시오"
+  article_url: "https://wol.jw.org/ko/wol/d/r8/lp-ko/2026321"
+  week_index_url: "https://wol.jw.org/ko/wol/dt/r8/lp-ko/2026/5/17"
+  docid: 2026321
+
+theme_scripture:
+  reference: "시편 83:18"
+  text: "그 이름이 여호와이신 당신, 당신만이 홀로 온 땅을 다스리는 가장 높으신 분입니다."
+  translation: "신세계역(2020 개정)"
+
+songs:
+  opening:
+    number: 7
+    title: "여호와, 우리의 힘"
+  closing:
+    number: 153
+    title: "용기를 주소서"
+
+paragraph_count: 20
+official_question_count: 17
+section_titles:
+  - "사탄이 하늘에서 열린 모임에 참석하다"
+  - "여호와께서 한계를 정하시다"
+  - "여호와께서 욥의 시련을 끝내시다"
+  - "여호와께서는 자신의 충성스러운 종들을 사랑하십니다"
+  - "여호와를 온전히 신뢰하십시오"
+
+output_folder_name: "260511-0517"
+output_paths:
+  docx: "WS/02.주말집회/02.파수대 사회/260511-0517/파수대 사회_260517.docx"
+  docx_full: "/Users/brandon/Library/CloudStorage/Dropbox/02.WatchTower/01.▣ 수원 연무 회중/02.주말집회/02.파수대 사회/260511-0517/파수대 사회_260517.docx"
+  pdf: "WS/02.주말집회/02.파수대 사회/260511-0517/파수대 사회_260517.pdf"
+  research_plan: "/Users/brandon/Library/CloudStorage/Dropbox/ClaudeFile/Congregation/research-plan/watchtower-study/260517/"
+
+reference_old_docx:
+  - "/Users/brandon/Library/CloudStorage/Dropbox/02.WatchTower/01.▣ 수원 연무 회중/02.주말집회/02.파수대 사회/260504-0510/파수대 사회_260510.docx"
+  - "/Users/brandon/Library/CloudStorage/Dropbox/02.WatchTower/01.▣ 수원 연무 회중/02.주말집회/02.파수대 사회/260430-0503/파수대 사회_260503.docx"
+
+time_markers:
+  granularity_seconds: 120
+  values: ["2'", "4'", "6'", "8'", "10'", "12'", "14'", "16'", "18'", "20'", "22'", "24'", "26'", "28'", "30'"]
+  style:
+    color: "#FF0000"
+    bold: true
+    standalone_line: true
+
+yellow_highlights_targets:
+  - "노래 7번 + 제목 (시작)"
+  - "노래 153번 + 제목 (마침)"
+  - "표어 성구 본문 (시 83:18) 전체"
+  - "본문 핵심 어구: '한계를 정하시다', '온전히 신뢰', '가장 높으신 분', '왜', '어떻게', '회복'"
+
+red_bold_labels_intro:
+  - "(파수대 집회의 대답은 어떻게 참여 할수 있습니까?)"
+  - "가능하면 30초이내로"
+  - "첫번째는 직접적으로,"
+  - "이후 참조 성구나 부가적인 대답을 자유롭게 발표 하실"
+
+time_distribution:
+  total_seconds: 1800
+  blocks:
+    - id: opening_entry
+      label: "입장 안내·환영·시작 노래 7 안내·시작 기도 호명"
+      start: "0'00\""
+      end: "0'40\""
+      seconds: 40
+    - id: theme_intro
+      label: "주제 소개·표어 성구·외부 후크"
+      start: "0'40\""
+      end: "2'00\""
+      seconds: 80
+    - id: block_01
+      paragraphs: [1]
+      official_question_index: 1
+      seconds: 60
+    - id: block_02
+      paragraphs: [2, 3]
+      official_question_index: 2
+      seconds: 100
+    - id: block_03
+      paragraphs: [4]
+      official_question_index: 3
+      seconds: 60
+    - id: block_04
+      paragraphs: [5]
+      official_question_index: 4
+      seconds: 60
+    - id: block_05
+      paragraphs: [6]
+      official_question_index: 5
+      seconds: 60
+    - id: block_06
+      paragraphs: [7]
+      official_question_index: 6
+      seconds: 60
+    - id: block_07
+      paragraphs: [8, 9]
+      official_question_index: 7
+      seconds: 110
+    - id: block_08
+      paragraphs: [10]
+      official_question_index: 8
+      seconds: 70
+    - id: block_09
+      paragraphs: [11]
+      official_question_index: 9
+      seconds: 80
+    - id: block_10
+      paragraphs: [12]
+      official_question_index: 10
+      seconds: 100
+    - id: block_11
+      paragraphs: [13]
+      official_question_index: 11
+      seconds: 70
+    - id: block_12
+      paragraphs: [14, 15]
+      official_question_index: 12
+      seconds: 110
+    - id: block_13
+      paragraphs: [16]
+      official_question_index: 13
+      seconds: 60
+    - id: block_14
+      paragraphs: [17]
+      official_question_index: 14
+      seconds: 110
+    - id: block_15
+      paragraphs: [18]
+      official_question_index: 15
+      seconds: 80
+    - id: block_16
+      paragraphs: [19]
+      official_question_index: 16
+      seconds: 80
+    - id: block_17
+      paragraphs: [20]
+      official_question_index: 17
+      seconds: 80
+    - id: review
+      label: "복습 — 핵심 3가지"
+      seconds: 90
+    - id: closing
+      label: "다음 주 예고·마치는 노래 153 안내·마침 기도 호명"
+      seconds: 60
+  rationale: "본 회중 30분 단축형. 본문 낭독·청중 답변 시간 약 180초가 블록 사이에 분산되어 합계 약 1800초."
+
+cross_ref_plan:
+  insight_book:
+    - topic: "욥"
+      note: "「통찰」 욥 항목 — 우즈 땅·시대 추정·인내의 모범"
+    - topic: "사탄"
+      note: "어원 (히. 사탄 = '대항자'·'고발자')"
+    - topic: "우즈"
+      note: "지리적 위치 (창 36:28; 욥 1:1)"
+  past_watchtower:
+    note: "최근 10년 회피. 2010년 이전 「파」 욥기 다룬 호 우선."
+  jesus_book: null
+  god_love_book:
+    note: "욥의 인내·여호와의 한계 설정 다룬 장"
+  awake:
+    - topic: "1945년 4-5월 나치 강제수용소 죽음의 행진"
+      note: "「깨어라!」 1974/8/22 (10년 초과)"
+  jw_broadcasting:
+    note: "충실한 종 시련 인내 경험담 후보"
+
+instructions_to_subresearchers:
+  common_block: |
+    ⚠ 이 호출은 `.claude/shared/multi-layer-defense.md` 의 6단 방어 프로토콜(v2) 에 따른다.
+    먼저 다음 두 공유 파일을 반드시 Read 하고 본인의 단계(②)를 확인:
+      1. .claude/shared/multi-layer-defense.md
+      2. .claude/shared/intro-and-illustration-quality.md
+
+    차등 적용표 내 **week-study 행 발췌**:
+      | week-study | 기사 전체 3~5회 외부 소재 결합 | 오프닝 후크 1~2개 권장 |
+      | 항별 해설 선택 | 이미지 N·A | 적절성 8필터 필수 전부 |
+      | 최근 10년 JW 출판물 — 오프닝·중간 해설 한정 권장 회피 |
+
+    산출물 최상단에 🟢 착수 전 리마인드 블록을 복사·체크한 후 작업을 시작하라.
+    완료 시 동일 폴더 `_selfcheck.md` 에 🔴 종료 후 자체 검수 블록을 복사·PASS/FAIL 로 판정하라.
+    FAIL 발견 시 본인 스스로 2회까지 재작업.
+
+  wol-researcher: |
+    [공통 블록 적용]
+    임무: 기사 8번 ("온 우주에서 가장 높으신 분인 여호와를 신뢰하십시오") 본문을
+    wol.jw.org docid=2026321 에서 직접 verbatim 캡처:
+      A. 항 1~20 본문 전체
+      B. 17개 공식 질문 박스 (어느 항을 다루는지·정확한 텍스트)
+      C. 5개 소제목
+      D. 4개 삽화 caption 본문
+      E. 인용된 모든 성구 reference (verbatim 본문은 scripture-deep 가 처리)
+    저장: research-wol/260517/article_2026321.md
+    피하기: 본문 의역·요약·재서술. 100% verbatim. 출처 4요소(잡지·호·면·URL) 명시.
+
+  scripture-deep: |
+    [공통 블록 적용]
+    심층 조사 성구 (신세계역 한국어판 verbatim · 원어 어원 · 배경 · 병행 성구):
+      - 욥 1:6 (사탄=대항자 어원)
+      - 욥 1:9-12 (사탄의 거짓 주장 verbatim)
+      - 욥 2:6 (한계 설정)
+      - 욥 14:15 (여호와의 부활 의지)
+      - 욥 42:10-13 (회복)
+      - 시 83:18 (표어 성구 — 가장 높으신 분 = 엘리욘 (히.))
+      - 시 145:16 (친밀한 사랑)
+      - 사 54:17 (어떤 무기도 X)
+      - 사 65:17 (새 하늘·새 땅)
+      - 호 13:14 (죽음에서 구속)
+      - 단 3:27, 4:35, 6:22 (능력의 예)
+      - 계 21:3-5 (낙원의 약속)
+    저장: research-bible/260517/
+    피하기: 다른 번역본을 신세계역 위에 두는 분석. 원어 분석은 「통찰」 인용 가능.
+
+  publication-cross-ref: |
+    [공통 블록 적용]
+    주제 키워드: '여호와의 신뢰성', '사탄의 한계', '욥의 인내', '시련 회복'.
+    우선 검색 범위:
+      - 「통찰」 '욥' · '사탄' · '우즈' · '엘리욘'
+      - 과거 「파」 욥기 다룬 연구용 호 (★ 10년 초과 우선)
+      - 「하」 욥 관련 장
+      - 「깨어라!」 1974/8/22 (죽음의 행진)
+    각 항당 3~5개 충분.
+    저장: research-topic/260517/
+    피하기: 외국어판 인용. 최근 10년 「파」·「깨어라!」 직접 인용 (오프닝·중간 해설 한정).
+
+  qa-designer: |
+    [공통 블록 적용]
+    17개 공식 질문 박스 각각에 대해 다음 4요소 설계:
+      a. 예상 답변 요점 (2~4 bullet)
+      b. 사회자 보강 멘트 (2~4문장 — 본문 재서술 X, 보강·연결만)
+      c. 확장 질문 1개 (선택)
+      d. 항별 낭독 성구 지시 (있을 때)
+    각 블록 시간 분배는 meta.yaml 의 time_distribution 따름.
+    저장: research-qa/260517/qa_blocks.json
+    피하기: 본문 verbatim 을 사회자 멘트로 재포장.
+
+  application-builder: |
+    [공통 블록 적용]
+    4축(가정·직장/학교·회중·개인 영성) 중 다음 항에 집중:
+      - 항 13 (시련 중 확신) — 가정·직장 적용
+      - 항 17 (사탄이 백성 없앨 수 없음) — 회중·개인 적용
+      - 항 19 (낙원의 상) — 개인 영성 적용
+    자기점검 질문 항당 1~2개.
+    저장: research-application/260517/
+    피하기: 정치·국가·논쟁적 현대 사안 예시.
+
+  experience-collector: |
+    [공통 블록 적용]
+    수집 대상:
+      A. 1945년 4-5월 나치 죽음의 행진 — 여호와의 증인 230명 생존 사례
+         · 외부 사료 (예: David Hackett, ed., *The Buchenwald Report*; 「깨어라!」 1974/8/22) 4요소 인용
+      B. 현대 (2015 이전) 시련 인내 경험담 1~2개 — 연감·파수대·JW 방송 출처
+    저장: research-experience/260517/
+    피하기: 실명 노출된 미성년자. 검증 불가 일화.
+
+  illustration-finder: |
+    [공통 블록 적용]
+    14축 외부 소재 후크 후보 5개:
+      1. 욥의 우즈 땅 위치 — 고고학·고대 근동 지리 (🕰️ 6축)
+      2. 고대 근동 흙판 문서의 "가장 높으신 분" 칭호 (📜 8축)
+      3. 욥기 시대 추정 (BC 1600s — 모세 이전, ★성서 적중)
+      4. 1945년 죽음의 행진 외부 사료 (🕰️ 6축, ★성서 적중 입증형)
+      5. 인간 뇌 망각 메커니즘 — 사 65:17 "기억나지 않을 것이다" (🐢 1축)
+    각 후크에 성구·주제 연결 다리 문장 1~2개 미리 준비.
+    적절성 8필터 전부 통과 확인.
+    이미지 임베드는 N·A (파수대 사회 docx 본문에 삽화 X) — 그러나 외부 사실의 출처 URL·도판 정보는 deep_notes 에 보존.
+    저장: research-illustration/260517/
+    피하기: 진화론 긍정·정치·타 종교 도상·논쟁적 현대 사안.
+
+  public-talk-builder: |
+    [공통 블록 적용 — 단 본 파트는 N·A]
+    파수대 연구 사회 범위 외. 호출 안 함.
+    (대신 wol-researcher 에 추가 책무: 삽화 caption 깊이 파기.)
+
+quality_pre_work_block_status: "복사·체크 완료 (outline.md 최상단)"
+quality_post_work_block_target_file: "_selfcheck.md"
+
+special_week_flags:
+  circuit_overseer_week: false
+  convention_week: false
+  memorial_week: false
+
+generated_at: "2026-04-29"
+generator: "watchtower-study-planner ① 단계 (지시서 작성)"
+note_30min_format: "본 회중 사용 30분 단축형. 본 에이전트의 정의 60분과 다름 — 사용자 지시 우선."

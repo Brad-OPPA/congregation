@@ -1,0 +1,400 @@
+week_date: 260514
+week_label: "2026-05-11 ~ 2026-05-17"
+output_folder_name: "260511-0517"
+meeting_date: 2026-05-14
+week_index: 2026-05-11
+slug: yeoja-irana-bich
+part_type: treasures_talk
+title: "여자야, 일어나서 빛을 비추어라"
+subtitle: ""
+topic: "여자야, 일어나서 빛을 비추어라"
+bible_reading_range: "이사야 60-61장"
+time_minutes: 10
+speaker_label: "OO 형제"
+speaker_qualification: "elder_or_ms"
+point_count: 3
+
+points:
+  - no: 1
+    title: "이사야 60장 1절의 '여자'는 고대 예루살렘을 상징합니다"
+    time_minutes: 3.0
+    scripture_main: "사 60:1, 2"
+    secondary_scriptures: ["사 52:1, 2", "사 54:1-3"]
+    refs:
+      - "「파24.07」 30면 1, 2항"
+      - "https://wol.jw.org/ko/wol/pc/r8/lp-ko/202026162/1/0"
+    axis_14: ["#6 고고학", "#11 시간·유한성", "#14 상실·회복 공감"]
+  - no: 2
+    title: "이사야 60장의 회복 예언은 예루살렘에 대해 부분적으로만 성취되었습니다"
+    time_minutes: 3.0
+    scripture_main: "사 60:3"
+    secondary_scriptures: ["스 1:1-4", "느 12:27, 43", "학 2:9"]
+    refs:
+      - "「파24.07」 30면 3, 4항"
+      - "https://wol.jw.org/ko/wol/pc/r8/lp-ko/202026162/1/0"
+    axis_14: ["#6 고고학", "#7 지리 예언 성취", "#5 생태계 질서(일출)"]
+  - no: 3
+    title: "이 예언들은 '위에 있는 예루살렘' 과 관련해 더 크게 성취되고 있습니다"
+    time_minutes: 2.0
+    scripture_main: "갈 4:26"
+    secondary_scriptures: ["계 21:2", "히 12:22", "사 60:11"]
+    refs:
+      - "「파24.07」 30면 5항 ~ 31면 2항"
+      - "https://wol.jw.org/ko/wol/pc/r8/lp-ko/202026162/1/0"
+    axis_14: ["#7 지리 예언 성취(240개국·1000개 언어)", "원어 어원 축(어머니 μήτηρ)", "#14 상실·회복 공감"]
+
+scripture_reads:
+  - ref: "사 60:1, 2"
+    read_aloud: true
+    point_no: 1
+  - ref: "갈 4:26"
+    read_aloud: true
+    point_no: 3
+
+scripture_refs:
+  - ref: "사 60:1, 2"
+    url: "https://wol.jw.org/ko/wol/b/r8/lp-ko/nwtsty/23/60#study=discover&v=23:60:1-23:60:2"
+  - ref: "사 60:3"
+    url: "https://wol.jw.org/ko/wol/b/r8/lp-ko/nwtsty/23/60#study=discover&v=23:60:3"
+  - ref: "사 60:11"
+    url: "https://wol.jw.org/ko/wol/b/r8/lp-ko/nwtsty/23/60#study=discover&v=23:60:11"
+  - ref: "사 52:1, 2"
+    url: "https://wol.jw.org/ko/wol/b/r8/lp-ko/nwtsty/23/52"
+  - ref: "사 54:1-3"
+    url: "https://wol.jw.org/ko/wol/b/r8/lp-ko/nwtsty/23/54"
+  - ref: "스 1:1-4"
+    url: "https://wol.jw.org/ko/wol/b/r8/lp-ko/nwtsty/15/1"
+  - ref: "느 12:27, 43"
+    url: "https://wol.jw.org/ko/wol/b/r8/lp-ko/nwtsty/16/12"
+  - ref: "학 2:9"
+    url: "https://wol.jw.org/ko/wol/b/r8/lp-ko/nwtsty/37/2"
+  - ref: "갈 4:26"
+    url: "https://wol.jw.org/ko/wol/b/r8/lp-ko/nwtsty/48/4#study=discover&v=48:4:26"
+  - ref: "계 21:2"
+    url: "https://wol.jw.org/ko/wol/b/r8/lp-ko/nwtsty/66/21"
+  - ref: "히 12:22"
+    url: "https://wol.jw.org/ko/wol/b/r8/lp-ko/nwtsty/58/12"
+
+wol_publication_refs:
+  - "「파24.07」 30면 1, 2항 — https://wol.jw.org/ko/wol/pc/r8/lp-ko/202026162/1/0"
+  - "「파24.07」 30면 3, 4항 — https://wol.jw.org/ko/wol/pc/r8/lp-ko/202026162/1/0"
+  - "「파24.07」 30면 5항 ~ 31면 2항 — https://wol.jw.org/ko/wol/pc/r8/lp-ko/202026162/1/0"
+
+research_dirs:
+  bible:        research-bible/260514/
+  topic:        research-topic/260514/
+  illustration: research-illustration/260514/
+  experience:   research-experience/260514/
+  application:  research-application/260514/
+
+output_paths:
+  base: "/Users/brandon/Library/CloudStorage/Dropbox/02.WatchTower/01.▣ 수원 연무 회중/01.주중집회/01.성경에 담긴 보물/01.10분 연설/260511-0517/"
+  filename_pattern: "10분 연설_{주제}_260514.docx"
+  expected_filename: "10분 연설_여자야 일어나서 빛을 비추어라_260514.docx"
+
+illustration:
+  description: "낙원 장면 — 빛이 가득한 회복된 땅 (요점 3 의 더 큰 성취 시각적 등가물)"
+  url: "https://wol.jw.org/ko/wol/mp/r8/lp-ko/mwb26/2026/174"
+  url_status: "확인 필요 — illustration-finder 가 wol 재조회 후 확정"
+  usage_point: "결론 직전 — 위에 있는 예루살렘 자녀들이 누릴 영광·빛의 시각적 마무리"
+
+self_check_question: "이사야 60장의 환상이 위에 있는 예루살렘과 관련해 어떻게 더 크게 성취되고 있는가? 나는 그 자녀로서 어떤 빛을 비추고 있는가?"
+
+time_budget:
+  intro: 1.0
+  point_1: 3.0
+  point_2: 3.0
+  point_3: 2.0
+  conclusion: 1.0
+  total: 10.0
+
+special_week_flags:
+  circuit_overseer_week: false
+  convention_week: false
+  memorial_week: false
+
+source:
+  wol_week_index: "https://wol.jw.org/ko/wol/dt/r8/lp-ko/2026/5/11"
+  workbook_page: "https://wol.jw.org/ko/wol/d/r8/lp-ko/202026162"
+  part_page: "https://wol.jw.org/ko/wol/pc/r8/lp-ko/202026162/1/0"
+  isaiah_60: "https://wol.jw.org/ko/wol/b/r8/lp-ko/nwtsty/23/60"
+  isaiah_61: "https://wol.jw.org/ko/wol/b/r8/lp-ko/nwtsty/23/61"
+  galatians_4: "https://wol.jw.org/ko/wol/b/r8/lp-ko/nwtsty/48/4"
+  english_crosscheck: "https://wol.jw.org/en/wol/d/r1/lp-e/202026162"
+
+generated_at: 2026-04-29
+protocol_version: "multi-layer-defense v2 (6단)"
+quality_standard: ".claude/shared/intro-and-illustration-quality.md"
+
+instructions_to_subresearchers:
+
+  scripture-deep: |
+    대상 성구:
+      핵심 2개 (낭독 필수) — 사 60:1, 2 / 갈 4:26
+      핵심 보조 — 사 60:3 (요점 2 발췌 낭독 가능)
+      보조 — 사 52:1, 2 · 사 54:1-3 · 스 1:1-4 · 느 12:27, 43 · 학 2:9 · 계 21:2 · 히 12:22 · 사 60:11
+      주변 문맥 — 이사야 60장 전체 + 61장 전체 (성경 읽기 범위)
+
+    중점 작업:
+      1. 신세계역 연구용 본문 verbatim 재조회 — wol.jw.org/ko/wol/b/r8/lp-ko/nwtsty/23/60 · 23/61 · 48/4
+         · 사 60:1, 2 · 사 60:3 · 갈 4:26 본문 정확히 (낭독 본문 정본 확정 — outline.md 잠정 본문은 [확인 필요] 표기, scripture-deep 가 verbatim 으로 교체)
+      2. 각 절의 연구 노트·각주·상호 참조 full 수집
+         · 특히 사 60:1 의 "여자" 의인화의 「통」 항목 (예루살렘 항·여자 항)
+         · 갈 4:26 의 "위에 있는 예루살렘" 「통」 항목 (예루살렘, 위에 있는·하늘의 항)
+      3. 히브리어·헬라어 원어 배경:
+         · 사 60:1 "일어나라"(쿰 קוּם — 부활·회복 동사) · "빛을 비추라"(오리 אוֹרִי 명령형) · "임하다"(보 בּוֹא 동사)
+         · 사 60:1 "여호와의 영광"(케보드 야훼 כְּבוֹד יְהוָה)
+         · 갈 4:26 "위에 있는"(아노 ἄνω) · "어머니"(메테르 μήτηρ)
+      4. 역사적 문맥:
+         · 이사야 60장 = 바빌론 유배 직전 기록 (BCE 8세기 후반) → 1차 성취는 BCE 537년 키루스 칙령 후 귀환
+         · 사 44:28; 45:1 — 키루스 이름 200년 전 예언 (보조 참조)
+         · 학 2:3, 9 — 재건된 성전이 솔로몬 시대보다 영광 적었음 → 부분 성취 증거
+      5. 병행 구절 — 사 52:1, 2 (예루살렘아 깨어 일어나라) 와 사 60:1 의 평행
+      6. 개역한글·새번역·가톨릭 공용 등 **타 한국어 번역과 대조** — 뉘앙스 차이 노트
+
+    저장 파일 (research-bible/260514/):
+      - 01_isa-60-1-2.md  (여자·일어남·빛)
+      - 02_isa-60-3.md    (민족들이 빛을 향해 옴)
+      - 03_gal-4-26.md    (위에 있는 예루살렘·어머니)
+      - 04_isa-60-overview.md  (60장 문맥)
+      - 05_isa-61-overview.md  (61장 문맥 — 성경 읽기 범위)
+      - _selfcheck.md  (🔴 종료 블록 포함)
+
+    피할 것:
+      - 훈련 기억 재구성·본문 요약본 (반드시 WebFetch 재조회 verbatim)
+      - 다른 장 성구 끌어오기 (이사야서 외부는 상호 참조 표기만, 본문 수집 X)
+      - 추정·해석 삽입 (사실만)
+
+    연결 목표:
+      - 사 60:1, 2 → 요점 1 핵심 낭독
+      - 사 60:3 → 요점 2 발췌 낭독
+      - 갈 4:26 → 요점 3 핵심 낭독
+
+    === 모든 서브 공통 의무 (반드시 준수) ===
+    1) 착수 전 Read 의무: `.claude/shared/multi-layer-defense.md` + `.claude/shared/intro-and-illustration-quality.md` + 본 outline.md + 본 meta.yaml
+    2) 산출물 첫 파일 최상단에 🟢 착수 블록 복사·전 항목 ☑ 체크
+    3) `_selfcheck.md` 에 🔴 종료 블록 복사·8 (또는 9) 항목 PASS/FAIL/N·A 판정
+    4) mid-talk10 차등 적용표 발췌 — "14축 활용 최소 3축 / 요점당 예화 후보 2~3개 / 적절성 8필터 필수 전부 / 최근 10년 출판물 직접 인용 권장 회피 (전도인 청중)"
+    5) FAIL 있으면 자체 수정 후 재판정 (최대 2회)
+    6) 할루시네이션 절대 금지 — wol.jw.org 실재 재조회만, 확인 못한 것은 [확인 필요]
+
+  publication-cross-ref: |
+    주제 키워드: "위에 있는 예루살렘", "이사야 60장 회복", "민족들의 귀의", "왕국 선포의 빛", "영적 어머니"
+
+    우선 검색 범위:
+      1. wol 지정 직접 Read (호 출판물 anchor 동일):
+         - 「파24.07」 30면 1, 2항 (요점 1 — 여자 = 고대 예루살렘) — https://wol.jw.org/ko/wol/pc/r8/lp-ko/202026162/1/0
+         - 「파24.07」 30면 3, 4항 (요점 2 — 부분 성취) — 같은 페이지
+         - 「파24.07」 30면 5항 ~ 31면 2항 (요점 3 — 위에 있는 예루살렘 더 큰 성취) — 같은 페이지
+      2. 「통」 (통찰):
+         · "예루살렘" 항 — 고대 예루살렘 / "예루살렘, 위에 있는" 또는 "예루살렘, 하늘의" 항
+         · "여자" / "어머니" 항 — 의인화 용법
+         · "빛" 항 — 영적 의미
+      3. 확장: 「파수대」 연구용 2018-2025 — 이사야 60장 / 갈 4:26 키워드
+      4. 「하느님의 사랑 안에 머무십시오」 관련 장 (영적 어머니로서의 조직)
+      5. 「하느님의 왕국이 통치한다!」 관련 장 (왕국 빛의 확장)
+
+    각 단락 수집 분량: 요점당 **3~5개** 충분. 「파24.07」은 wol 지정이라 본문 자세 수집하되 **원고 직접 낭독 금지**(배경 근거로만).
+
+    저장 파일 (research-topic/260514/):
+      - 01_woman-jerusalem.md     (여자 = 예루살렘 의인화 — 「통」)
+      - 02_partial-fulfillment.md (1차 부분 성취 — 학 2:9·역사)
+      - 03_jerusalem-above.md     (위에 있는 예루살렘 — 갈 4:26·계 21:2·히 12:22)
+      - 04_light-to-nations.md    (민족들의 빛 — 사 60:3 확장)
+      - _selfcheck.md             (🔴 블록)
+
+    피할 것:
+      - 외국어판 단독 인용 (한국어판 있을 때만 한국어 인용)
+      - 회중 개인 이름·특정 지역 언급
+      - 정치·논쟁 현대 사안 (이란·이스라엘 분쟁 등 절대 회피)
+      - 2016년 이전 너무 오래된 자료는 보조로만
+      - 「파24.07」 본문 직접 낭독은 script 단계에서 금지 (참조만)
+
+    연결 목표:
+      - 01 → 요점 1 해설 보강
+      - 02 → 요점 2 해설 보강
+      - 03 → 요점 3 해설 보강 + 결론
+      - 04 → 서론 후크 + 결론 행동 촉구
+
+    === 서브 공통 의무 동일 (위 scripture-deep 6항 그대로) ===
+
+  illustration-finder: |
+    요점별 예화 발굴 지시 (mid-talk10 차등 적용 — 14축 최소 3축 · 요점당 후보 2~3개 · 적절성 8필터 필수 전부):
+
+    요점 1 "여자 = 고대 예루살렘" (2~3개):
+      - 14축 #6 고고학 (★★★ 최상 권장): 키루스 원통 비문 (Cyrus Cylinder, BCE 539, 대영박물관 소장 BM 90920) — 페르시아 키루스가 바빌론 정복 후 유배민 귀환을 허용한 칙령 본문. 이사야가 약 200년 전 그 이름을 미리 기록(사 44:28; 45:1)한 사실의 역사적 발판.
+        · 위키커먼즈·박물관 공개 자료에서 세속 중립 사실만 (이미지는 종교 도상 X)
+      - 14축 #11 시간·유한성: 70년 유배의 의미 — 한 세대 통째 상실 → "여자" 라는 인격적 호칭의 회복적 의미
+      - 14축 #14 상실·회복 공감: "쿰"(일어나라) 의 부활·회복 동사적 뉘앙스
+
+    요점 2 "부분 성취" (2~3개):
+      - 14축 #6 고고학 + #7 지리 예언 성취 (★★★ 최상 "성서 적중 입증형" 권장):
+        · 느헤미야·에스라 시대 재건된 예루살렘이 솔로몬 시대 영광에 못 미친 사실 — 학 2:3 직접 증언
+        · 페르시아·헬라·로마 지배 아래 거듭된 예속 — 1차 성취가 영구적이지 않음
+        · 고고학 자료: 제2성전 시대 예루살렘 발굴 결과 (성벽 규모 등) 위키커먼즈·박물관 공개 자료
+      - 14축 #5 생태계 질서 + #2 우주 (★★ 상): 일출의 빛이 처음 산봉우리에 닿고 평지·골짜기로 확산되는 자연 현상 — 부분 → 전체 성취 패턴의 자연 비유
+      - 14축 #11 시간 유한성: 1차 성취가 영구적이지 않았다는 사실 자체가 더 큰 성취 필요를 가리킴
+
+    요점 3 "위에 있는 예루살렘 더 큰 성취" (2~3개):
+      - 14축 #7 지리 예언 성취 (★★★ 권장): 1세기 그리스도교 회중이 1500여 곳 도시로 빛을 비추기 시작 → 오늘 240여 개국·1,000여 개 언어 왕국 선포 사업으로 확장. (정확 통계는 jw.org 연감·연차 기준 — 출처 4요소 명시 필수)
+      - 원어 어원 축 — "어머니"(메테르 μήτηρ): 단순 비유 X, 영적 출생·양육·정체성 부여 의미 → 위에 있는 예루살렘이 우리에게 영적 어머니 역할
+      - 14축 #14 상실·회복 공감: 영적 어머니로서 위에 있는 예루살렘이 한 사람씩 영원한 평화·온전함으로 양육
+
+    [추가 책무]: 서론에 맞는 삽화·사진 후보도 함께 수집 (intro_image_candidates.json 형식).
+    저장: research-illustration/260514/intro_image_candidates.json
+
+    저장 파일 (research-illustration/260514/):
+      - 01_cyrus-cylinder.md       (고고학 — 키루스 원통)
+      - 02_70-years-exile.md       (유배·회복 공감)
+      - 03_partial-second-temple.md (부분 성취 — 제2성전 영광 비교)
+      - 04_sunrise-pattern.md       (일출 자연 비유)
+      - 05_global-witness-stats.md  (240개국·1000개 언어 진행 성취)
+      - 06_meter-mother-etymology.md (어머니 원어)
+      - 07_intro-images.md          (서론용 외부 사진·이미지 후보 — 키루스 원통·도시 야경 등)
+      - intro_image_candidates.json
+      - _selfcheck.md               (🔴 블록)
+
+    피할 것:
+      - **타 종교 도상** (서양 종교화·성화·이콘·불화·힌두 신상·이슬람 종교 서예·몰몬 공식 삽화) — 위키커먼즈에 있어도 탈락
+      - 상업 스톡 이미지
+      - 성적·폭력적·충격적 장면
+      - 출처 불명 전승·도시전설
+      - 진화론 긍정 전제 (자연 현상은 창조 관점으로 서술)
+      - 특정 정당·정권 언급 (이란·이스라엘 현대 분쟁 절대 회피)
+      - 최근 10년 JW 출판물 예화 직접 재사용 (변형·배경으로만)
+
+    상한: wol 지정 mwb26/2026/174 1장 + 서론용 외부 세속 중립 이미지 1~2장(고고학 유물·도시 야경 등). 종교적 이미지는 wol 전용.
+
+    연결 목표: 각 예화가 어느 요점·어느 구간에서 어떤 연결 다리 문장과 결합될지 명시
+
+    === 서브 공통 의무 동일 ===
+
+  experience-collector: |
+    주제별 경험담 수집:
+
+    주제 A — "회복" (요점 1·2 연결)
+      · 박해·체제 붕괴·개인적 영적 침체 후 다시 일어선 회중 또는 개인 사례
+      · "쿰"(일어나라) 명령에 응답한 모습
+
+    주제 B — "민족들의 귀의·진리의 빛 확장" (요점 3 연결)
+      · 다양한 국가·언어 배경에서 진리를 받아들이고 빛을 비추기 시작한 사례
+      · 청년·이민자·외국 출신 형제·자매 우선 (단, 정치 민감 국가 사례는 회피)
+
+    주제 C — "위에 있는 예루살렘 자녀의 정체성" (요점 3 결론 연결)
+      · 영적 어머니 조직의 양육·인도로 변화된 삶
+      · 봉사 통해 한 사람에게 빛을 비춘 작은 행동의 큰 결과
+
+    우선 출처:
+      - JW 방송 (jw.org/ko/도서관/동영상/) 2020-2025 경험 영상
+      - 「파수대」 공개용·연구용 2018-2025 경험담 섹션
+      - 연감 (있는 경우)
+      - 깨어라! 2018-2025
+
+    수집 형식:
+      - 인물 이름은 공개된 이니셜·성명 그대로 (실명 아동 금지)
+      - 출처 4요소: 출판물명·호수·면·URL
+      - 경험 요점 3~5줄 요약
+      - 어느 요점·어느 구간에 쓸지 태그
+
+    저장 파일 (research-experience/260514/):
+      - 01_arise-restoration.md     (회복·일어남)
+      - 02_nations-coming-to-light.md (민족들의 귀의)
+      - 03_above-jerusalem-identity.md (위에 있는 예루살렘 자녀)
+      - _selfcheck.md               (🔴 블록)
+
+    피할 것:
+      - 실명 공개된 아동 경험
+      - 검증 불가 경험 (공식 출판물 외)
+      - 정치·법적 논쟁 사례 (특히 중동·이란·이스라엘 관련)
+      - 같은 경험담 중복
+
+    연결 목표: 각 경험이 3개 요점 중 어디에 삽입 가능한지 명시. 요점당 1~2 경험 후보.
+
+    === 서브 공통 의무 동일 ===
+
+  application-builder: |
+    4축 적용 카드 발굴 — 요점 3개에 맞게:
+
+    요점 1 적용 (영적 침체에서 일어남):
+      · 가정: 가족 한 명이 영적으로 위축돼 있을 때 격려 한 마디·성구 인용
+      · 직장/학교: 압박·경쟁 속에서 자신의 영적 자세 점검 — "나는 빛을 비추고 있는가, 어둠에 동화되고 있는가"
+      · 회중: 회중 활동 위축된 형제·자매에게 동행 제안
+      · 개인 영성: 매일 아침 5분 기도로 "오늘도 일어나서 빛을 비추겠습니다" 다짐
+
+    요점 2 적용 (부분 → 더 큰 성취 시각):
+      · 가정: 지금의 한계·아쉬움을 더 큰 성취의 약속으로 위로
+      · 직장/학교: 일시적 보상 vs 영원한 보상 시각 유지
+      · 회중: 회중의 작은 진전도 더 큰 성취의 일부임을 격려
+      · 개인 영성: 일상의 어려움을 영원한 시각(롬 8:18) 으로 점검
+
+    요점 3 적용 (위에 있는 예루살렘 자녀로서 빛 비추기):
+      · 가정: 가족원에게 진리의 빛을 한 마디 — 식사 기도·성서 인용
+      · 직장/학교: 비공식 증거 한 번 — 자연스런 대화 중 진리 한 가지
+      · 회중: 새 형제·자매에게 다가가 환영
+      · 개인 영성: "내가 위에 있는 예루살렘의 자녀라면 오늘 어떻게 살아야 하는가" 자기점검
+
+    자기점검 질문: 각 요점당 1~2개 (총 3~6개)
+      예: "이번 주 내가 영적 어둠 속에 있던 누군가에게 빛을 비춘 적이 있는가?"
+      예: "지금 받는 영적 회복이 더 큰 성취의 일부임을 의식하며 살고 있는가?"
+      예: "위에 있는 예루살렘의 자녀로서 어떤 빛을 비추고 있는가?"
+
+    우선 소재:
+      - 「하느님의 사랑 안에 머무십시오」 관련 장
+      - 「기쁜소식」 전도 안내 책
+      - 「하느님의 왕국이 통치한다!」 관련 장
+      - wol 지정 「파24.07」 30~31면 적용 부분 (배경 근거로만, 직접 낭독 X)
+      - jw.org 연감·연차 통계 (240개국·1,000개 언어 등 정확 수치)
+
+    저장 파일 (research-application/260514/):
+      - 01_point1-arise.md          (일어남·격려 카드)
+      - 02_point2-larger-view.md    (더 큰 성취 시각 카드)
+      - 03_point3-shine-light.md    (빛 비추기 행동 카드)
+      - 04_self-questions.md        (자기점검 질문 묶음)
+      - _selfcheck.md               (🔴 블록)
+
+    피할 것:
+      - 정치·국가·법 관련 적용 예시
+      - 실명 회중 인물
+      - 의학적 조언
+      - 과도하게 개인적/사적 예시
+      - 상투적 청중 호명·수사 질문 (`.claude/shared/intro-and-illustration-quality.md` §A-4-bis)
+
+    연결 목표: 각 카드가 원고 어느 지점에 삽입되어 "청중 행동 촉구" 로 기능할지 명시. 특히 결론의 "이번 주 실천 한 가지" 후보 1개("한 사람에게 진리의 빛을 비추는 작은 행동") 는 반드시 강조.
+
+    === 서브 공통 의무 동일 ===
+
+  common_instructions_all_subagents: |
+    === 모든 서브 에이전트 공통 의무 (예외 없음) ===
+
+    1. 착수 전 의무 Read:
+       a. `.claude/shared/multi-layer-defense.md` — 6단 방어 v2 전체
+       b. `.claude/shared/intro-and-illustration-quality.md` — 차등 적용표 내 본인 행
+       c. `research-plan/treasures-talk/260514/outline.md` — 기획 전체
+       d. `research-plan/treasures-talk/260514/meta.yaml` — 본 지시서
+
+    2. 🟢 착수 블록 복사:
+       - 본인 산출물 폴더의 대표 파일(또는 첫 파일) 최상단에
+         `.claude/shared/intro-and-illustration-quality.md` 의 🟢 블록 복사
+       - 모든 ☐→☑ 체크 완료해야 작업 개시
+
+    3. 🔴 종료 블록 복사·판정:
+       - 본인 폴더의 `_selfcheck.md` 에 🔴 블록 복사
+       - 8 (또는 9) 항목 각각 PASS/FAIL/N·A 판정 + 증거
+       - FAIL=0 이어야 통과. FAIL 있으면 자체 수정 후 재판정 (최대 2회)
+
+    4. 할루시네이션 절대 금지:
+       - wol.jw.org 실재 재조회 후 인용
+       - 확인 못 한 항목은 `[확인 필요]` 명시
+       - 성구는 verbatim · 출처 4요소 (출판물명·호수·면·URL)
+
+    5. mid-talk10 차등 적용 규칙 (발췌):
+       - 14축 활용 **최소 3축** (요점당 1축 이상)
+       - 서론 외부 후크 후보 **3~5개**
+       - 요점당 예화 후보 **2~3개**
+       - 적절성 8필터 **필수 전부**
+       - 최근 10년 JW 출판물 직접 인용 **권장 회피** (배경 참조 OK / 「파24.07」은 본 wol 지정이라 배경 근거로 사용하되 원고 낭독 금지)
+       - 삽화 있으면 wol 전용 (mwb26/2026/174 1장)
+
+    6. 보고 완료 시:
+       - `_selfcheck.md` 에 status: PASS | FAILED 명시
+       - 메인 Claude 가 Planner 재호출 (③ 단계) 해서 지시서 대비 검수

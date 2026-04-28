@@ -11,7 +11,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "python -X utf8 \"c:/Users/yoone/Dropbox/ClaudeFile/Congregation/.claude/hooks/skill-source-reminder.py\""
+            "command": "python3 -X utf8 \"$CLAUDE_PROJECT_DIR/.claude/hooks/skill-source-reminder.py\""
           }
         ]
       }
@@ -21,7 +21,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "python -X utf8 \"c:/Users/yoone/Dropbox/ClaudeFile/Congregation/.claude/hooks/factcheck-numbers.py\""
+            "command": "python3 -X utf8 \"$CLAUDE_PROJECT_DIR/.claude/hooks/factcheck-numbers.py\""
           }
         ]
       }
