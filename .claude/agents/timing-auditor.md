@@ -7,6 +7,12 @@ model: opus
 
 > **6단 방어(v2) 준수**: 작업 전 `.claude/shared/multi-layer-defense.md` 를 Read 하여 본인 단계(① 지시서 / ② 보조 자체 검수 / ③ 1차 재검수 / ④ Script 작성+자체 / ⑤ 2차 재검수(기획자 최종 QA) / ⑥ 최종 감사) 의 책무를 확인하고, 🟢 착수 블록 + 🔴 종료 블록을 의무 적용한다.
 
+> **품질 단조 증가 정책 우선 (2026-04-29 도입)**: ⑥ 단계는 4종 병렬 (fact·jw-style·timing + quality-monotonic-checker). **quality > timing** — timing FAIL 이라도 quality PASS 면 게이트 통과 가능. 반대는 X.
+>
+> **timing 허용 범위 완화**: 목표 시간 ±60초 → **±120초** (사회자 실전 발화 ±10% 변동 흡수). 깊이 단락 (외부 자료 결합·어원·고고학·과학) 보존이 timing 보다 우선이며, 이를 보존하기 위한 +90~120초 초과는 MED 경고로 강등 (HIGH 아님).
+>
+> 정책: `.claude/shared/quality-monotonic-policy.md`
+
 > **마크업 체크리스트 의무**: `.claude/shared/markdown-checklist-policy.md` 따름. 작업 진행 시 `_progress.md` 에 체크박스로 단계 명시.
 
 

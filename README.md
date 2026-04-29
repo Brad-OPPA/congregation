@@ -20,6 +20,15 @@
 
 ## 변경 이력
 
+### 2026-04-29 — 품질 단조 증가 시스템 도입 (Phase A)
+
+- **신규 정책 `shared/quality-monotonic-policy.md`** — 슬롯별 절대 하한선 (10분·영보·CBS·파수대 등 11종) + 단조 증가 7축 점검 (글자·성구·출판·외부 14축·시간 마커·구조·깊이 단락)
+- **신규 에이전트 `quality-monotonic-checker`** — ⑥ 단계 4번째 감수자. fact-checker·jw-style-checker·timing-auditor 와 4종 병렬. FAIL 시 자동 재작성 무한 루프 (5회 한도). 사용자 검수 의존 0
+- **신규 헬퍼 `_automation/quality_check.py`** — measure_docx + compare_quality 헬퍼 함수
+- **`shared/multi-layer-defense.md` 갱신** — ⑥ 단계 3종 → 4종 명시 + quality > timing 우선순위
+- **`agents/timing-auditor.md` 갱신** — ±60 → ±120초 완화 (사회자 실전 ±10% 변동 흡수) + quality 우선 명시
+- 검증: next2 파수대 (-77% 사례) → quality_check.py 자동 NO-GO 정확 판정 (HIGH 3 / MED 1)
+
 ### 2026-04-29 — Mac 환경 적응 + 발송 인프라 안정화 + 에이전트 정책 일관화 + 학생 과제 빌더 정착
 
 - **`build_student_assignment.py` 신규 작성** — 학생 과제 5종 (bible_reading + apply_conversation_start/follow_up/bible_study/explaining_beliefs) 통합 빌더. 회중 자동화의 유일한 미작성 빌더 정착. (`congregation-automation` repo 참조)

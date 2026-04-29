@@ -168,13 +168,16 @@
 
 `prayer-composer` (기도문) · `slides-builder` (pptx) · `role-play-scenario-designer` (학생 시연 시나리오)
 
-### 감수 게이트 (3)
+### 감수 게이트 (4) — 2026-04-29 4종으로 확장
 
 | 에이전트 | 용도 | 저장 폴더 |
 | --- | --- | --- |
 | `fact-checker` | 사실·인용·성구 표기 검증 | `research-factcheck/` |
 | `jw-style-checker` | 공식 용어·호칭·신세계역 표기 | `research-style/` |
-| `timing-auditor` | 낭독 시간 측정·조정 제안 | `research-timing/` |
+| `timing-auditor` | 낭독 시간 측정·조정 제안 (±60→±120초 완화) | `research-timing/` |
+| **`quality-monotonic-checker`** ← 신규 | 직전 주차 대비 품질 단조 증가 검증 (글자·성구·출판·외부 14축). FAIL 시 자동 재작성 강제 (5회 한도). 정책: `shared/quality-monotonic-policy.md` | `research-quality/` |
+
+⑥ 단계는 **4종 병렬**. **quality > timing** — timing FAIL 이라도 quality PASS 면 통과.
 
 ## 스킬 ↔ 에이전트 호출 체인
 
@@ -214,10 +217,11 @@
 - 스킬 정의: 글로벌 `C:\Users\yoone\.claude\skills\` (19개)
 - 에이전트 정의: 회중 로컬 `.claude/agents/` (30개)
 - 공유 정책: 회중 로컬 `.claude/shared/`
-  - `multi-layer-defense.md` — 4단/6단 방어 프로토콜
+  - `multi-layer-defense.md` — 4단/6단 방어 프로토콜 (⑥ 4종 병렬, 2026-04-29 갱신)
   - `intro-and-illustration-quality.md` — 서론·예화·삽화 품질 표준
   - `skip-existing-policy.md` — 산출물 존재 시 skip 정책
   - `student-role-play-style.md` — 학생 시연 톤
+  - **`quality-monotonic-policy.md`** ← 신규 (2026-04-29) — 슬롯별 절대 하한선 + 단조 증가 7축 점검 + 재작성 무한 루프 (5회 한도) + quality > timing 우선순위
 - 관련 메모리: `project_meeting_pipelines.md` (mid-study1/2/3 + week-study 경로 맵)
 
 ## 원칙
