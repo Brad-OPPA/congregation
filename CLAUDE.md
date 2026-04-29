@@ -11,7 +11,7 @@
    ↓ Skill(단편, args="now/next1/next2/next3")
 [단편 스킬 11개]  ← 묶음 컨텍스트 받으면 자체 묻기 X
    ↓ Agent(planner) → Agent(script) → Agent(보조 리서치) → 감수 게이트
-[에이전트 29개]  ← research-*/{YYMMDD}/ 저장
+[에이전트 30개]  ← research-*/{YYMMDD}/ 저장
    ↓ content_*.py 생성 → python build_*.py
 [빌더 5개]  ← docx + PDF 자동 변환
    ↓ os.makedirs + doc.save
@@ -141,7 +141,7 @@
 
 ## 사용 에이전트 (subagent)
 
-회중 로컬 `.claude/agents/` 에 29개 에이전트 등록.
+회중 로컬 `.claude/agents/` 에 30개 에이전트 등록.
 
 ### 리서치 (8) — 결과를 `research-*/` 폴더에 저장
 
@@ -160,9 +160,9 @@
 
 `treasures-talk-planner` · `spiritual-gems-planner` · `cbs-planner` · `watchtower-study-planner` · `living-part-planner` · `local-needs-planner` · `student-assignment-planner` · `student-talk-planner`
 
-### 대본 script (7) — 실제 원고 작성
+### 대본 script (8) — 실제 원고 작성
 
-`treasures-talk-script` · `spiritual-gems-script` · `cbs-script` · `living-part-script` · `student-assignment-script` · `student-talk-script` · `chair-script-builder`
+`treasures-talk-script` · `spiritual-gems-script` · `cbs-script` · `living-part-script` · `student-assignment-script` · `student-talk-script` · `chair-script-builder` · `public-talk-script`
 
 ### 특수 빌더 (3)
 
@@ -212,7 +212,7 @@
 
 - Python 3.10+ **필수** (파이프라인 빌더가 요구)
 - 스킬 정의: 글로벌 `C:\Users\yoone\.claude\skills\` (19개)
-- 에이전트 정의: 회중 로컬 `.claude/agents/` (29개)
+- 에이전트 정의: 회중 로컬 `.claude/agents/` (30개)
 - 공유 정책: 회중 로컬 `.claude/shared/`
   - `multi-layer-defense.md` — 4단/6단 방어 프로토콜
   - `intro-and-illustration-quality.md` — 서론·예화·삽화 품질 표준
