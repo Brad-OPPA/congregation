@@ -51,7 +51,7 @@
 
 - **정기 (매주 자동)**: 6개 — `mid-talk10` · `dig-treasures` · `cbs` · `mid-talk5` · `week-study` · `living-part`
 - **부정기 (단독 호출)**: 3개 — `publictalk` · `local-needs` · `chair`
-- **미작성**: 1개 — `build_student_assignment.py` (학생 과제 #1~4)
+- **신규** (2026-04-29): `build_student_assignment.py` — 학생 과제 5종 (bible_reading + apply_conversation_start/follow_up/bible_study/explaining_beliefs) 통합 빌더. build_mid_talk5 helper import + LibreOffice PDF (build_treasures_talk.auto_convert_to_pdf 재사용)
 
 ### 정본 (모든 출력 경로·파일명·skip·버전 규칙의 진실)
 

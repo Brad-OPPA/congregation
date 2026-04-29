@@ -20,7 +20,9 @@
 
 ## 변경 이력
 
-### 2026-04-29 — Mac 환경 적응 + 발송 인프라 안정화 + 에이전트 정책 일관화
+### 2026-04-29 — Mac 환경 적응 + 발송 인프라 안정화 + 에이전트 정책 일관화 + 학생 과제 빌더 정착
+
+- **`build_student_assignment.py` 신규 작성** — 학생 과제 5종 (bible_reading + apply_conversation_start/follow_up/bible_study/explaining_beliefs) 통합 빌더. 회중 자동화의 유일한 미작성 빌더 정착. (`congregation-automation` repo 참조)
 
 - 회중 워크스페이스 `.claude/settings.json` hook command 환경변수화 (Windows 절대경로 → `$CLAUDE_PROJECT_DIR`)
 - next2 (5/14·5/17) 4 슬롯 풀세트 빌드 (10분 연설·영적 보물·CBS·파수대 사회) — 6단 방어 통과, 4 docx + 4 PDF (맑은 고딕 임베드)
