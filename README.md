@@ -20,6 +20,17 @@
 
 ## 변경 이력
 
+### 2026-04-29 — 품질 단조 증가 시스템 (Phase C 완료)
+
+부정기 + 학생 + 특수 빌더 — 모든 단편 스킬 자동 보장:
+- **부정기 5 SKILL** — mid-talk5 · living-part · local-needs · chair · publictalk
+- **학생 4 SKILL** — mid-student1·2·3·4
+- **4 planner** — student-talk · student-assignment · living-part · local-needs
+- **5 script** — student-talk · student-assignment · living-part · chair-script-builder · public-talk-script
+- **3 추가 보조** — qa-designer · wol-researcher · public-talk-builder
+- **3 특수 빌더** — prayer-composer · slides-builder · role-play-scenario-designer
+- 영향: 모든 단편 스킬 (총 13개) 자동 단조 증가 강제
+
 ### 2026-04-29 — 품질 단조 증가 시스템 (Phase B 완료)
 
 - **정기 4 슬롯 SKILL.md 정책 섹션 추가** — mid-talk10 · dig-treasures · cbs · week-study (글로벌 `~/.claude/skills/`)

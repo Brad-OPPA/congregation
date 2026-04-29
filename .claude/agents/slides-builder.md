@@ -5,6 +5,8 @@ tools: Read, Write, Bash, Glob
 model: opus
 ---
 
+> **품질 단조 증가 (2026-04-29 도입)**: 본인 영역의 직전 주차 산출물을 Read 해서 본인이 만들 결과의 하한선 확보. 본인 결과는 그 베이스라인 이상 풍부해야 한다. 정책: `.claude/shared/quality-monotonic-policy.md`
+
 > **마크업 체크리스트 의무**: `.claude/shared/markdown-checklist-policy.md` 따름. 작업 진행 시 `_progress.md` 에 체크박스로 단계 명시.
 
 

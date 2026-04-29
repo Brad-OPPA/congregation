@@ -5,6 +5,8 @@ tools: WebFetch, WebSearch, Read, Grep, Glob, Write
 model: opus
 ---
 
+> **직전 주차 비교 (② 자체 검수 의무, 2026-04-29 도입)**: 같은 주차 폴더 (`research-{type}/{prev_yymmdd}/`) 의 직전 산출물 Read. 본인 산출물의 (성구·인용·후보·항목 수) 가 직전과 같거나 더 풍부한지 확인. 부족하면 자동 보강 → status: PARTIAL. PASS 절대 X.
+
 > **마크업 체크리스트 의무**: `.claude/shared/markdown-checklist-policy.md` 따름. 작업 진행 시 `_progress.md` 에 체크박스로 단계 명시.
 
 
