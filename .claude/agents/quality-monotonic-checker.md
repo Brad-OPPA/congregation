@@ -41,17 +41,23 @@ print(compare_quality(new, prev, SLOT_FLOOR['${SLOT}']))
 "
 ```
 
-### 3. 7축 판정 — 모두 자동 측정
+### 3. 9축 판정 — 모두 자동 측정 (Phase E 갱신, 2026-04-29)
 
 | 축 | 점검 | 위반 등급 |
 |---|---|---|
 | A. 글자수 | ≥ 직전 95% AND ≥ 절대 하한 | HIGH |
 | B. 성구 인용 수 | ≥ 직전 95% AND ≥ 하한 | HIGH |
-| C. 출판물「」 인용 수 | ≥ 직전 95% AND ≥ 하한 | HIGH |
+| **C. 출판물「」 인용 수** | ≥ 직전 95% AND ≥ 하한 (완화 5→3) | **MED** (Phase E: fact-checker 와 충돌 회피, HIGH 강등) |
 | D. 외부 14축 결합 | ≥ 직전 AND ≥ 정책 하한 | HIGH |
 | E. 시간 마커 정합성 | 표준 ±1 | MED |
 | F. 슬롯 구조 부합 | 100% | HIGH |
 | G. 깊이 단락 (어원·고고학·과학) | 직전 동등 | MED |
+| **H. 이미지·삽화** ← 신규 | ≥ 직전 AND ≥ 절대 하한 (10분·CBS ≥ 1) | **HIGH** |
+| **I. 구성 표준** ← 신규 | 슬롯별 narrative 단계·블록 수 | MED |
+
+> **Phase E fact ↔ quality cross-reference**: fact-checker 가 docid 404 등 fake 출판 인용 제거 권고 시, quality 의 C 축은 MED 등급으로만 — 자동 재작성 강제 안 함. 단 정확한 docid 의 새 출판 인용으로 대체 권고 (script 재작성 prompt 에 명시).
+>
+> **H 축 silent skip 차단**: 시드 이미지 (`{YYMMDD}_treasures.jpg` 등) 가 빌더 호출 시 없으면 docx `word/media/` 가 비어 있음 → H FAIL (HIGH) → 자동 재작성. illustration-finder 가 `download_image.py` 로 다운로드 의무.
 
 ### 4. 결과 보고 (`research-quality/{YYMMDD}/{slot}_monotonic.md`)
 

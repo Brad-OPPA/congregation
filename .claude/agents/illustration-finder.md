@@ -7,6 +7,24 @@ model: opus
 
 > **직전 주차 비교 (② 자체 검수 의무, 2026-04-29 도입)**: 같은 주차 폴더 (`research-{type}/{prev_yymmdd}/`) 의 직전 산출물 Read. 본인 산출물의 (성구·인용·후보·항목 수) 가 직전과 같거나 더 풍부한지 확인. 부족하면 자동 보강 → status: PARTIAL. PASS 절대 X.
 
+> **🖼 시드 이미지 자동 다운로드 의무 (Phase E, 2026-04-29 도입)**: WOL 파싱 시 `<img>` 태그 src URL 추출 → `_automation/download_image.py` 헬퍼로 **실제 jpg 파일 자동 다운로드**. 텍스트 URL 만 수집하면 빌더가 silent skip → docx 에 삽화 0 → quality-monotonic-checker 의 H 축 (이미지) FAIL → 자동 NO-GO + 재시도 강제.
+>
+> 슬롯별 시드 이미지 저장 경로 (필수):
+> - **10분 연설**: `WS/01.주중집회/01.성경에 담긴 보물/01.10분 연설/{출력 폴더}/{YYMMDD}_treasures.jpg`
+> - **CBS**: `WS/01.주중집회/05.회중 성서 연구/{출력 폴더}/{YYMMDD}_cbs.jpg`
+> - **파수대**: `WS/02.주말집회/02.파수대 사회/{출력 폴더}/{YYMMDD}_watchtower.jpg`
+> - **5분 연설**: `WS/01.주중집회/02.야외 봉사에 힘쓰십시오/02.5분 연설/{출력 폴더}/{YYMMDD}_talk5.jpg`
+> - **영적 보물·생활 파트·회중의 필요·학생 과제**: 시드 이미지 X (불필요)
+>
+> 사용 예 (Bash):
+> ```bash
+> python3 _automation/download_image.py \
+>   "https://wol.jw.org/.../image.jpg" \
+>   "/path/to/{YYMMDD}_{slot}.jpg"
+> ```
+>
+> 다운로드 실패 시 `_selfcheck.md` 에 status: PARTIAL 명시 + 사용자 BLOCKING 알림.
+
 > **마크업 체크리스트 의무**: `.claude/shared/markdown-checklist-policy.md` 따름. 작업 진행 시 `_progress.md` 에 체크박스로 단계 명시.
 
 

@@ -20,6 +20,25 @@
 
 ## 변경 이력
 
+### 2026-04-29 — 품질 단조 증가 시스템 (Phase E 완료) — 삽화 강제 + 구성 표준 + fact·quality 충돌 조정
+
+**원준님 핵심 발견** ("10분연설 삽화도 생략, 회중성서연구 삽화도 없고 구성 자체도 문제"):
+- next2 10분 연설 docx 의 `word/media/` = 0개 (삽화 누락)
+- 시드 이미지 `260514_treasures.jpg` 파일 부재 → 빌더 silent skip
+- illustration-finder 가 WOL 삽화 URL 텍스트로만 수집, 실제 jpg 다운로드 X
+- quality-monotonic-checker 7축에 **이미지 카운트·구성 표준** 없음
+- fact-checker 가 fake docid 출판 4편 제거 → quality 출판 절대 하한 (5) 미달 → 무한 루프
+
+**Phase E 해결**:
+- **`quality_check.py` 9축 확장** — measure_docx 에 `images` (zip word/media 카운트) 추가, 7축 → 9축 (A 글자/B 성구/C 출판/D 외부/E 마커/F 구조/G 깊이/H 이미지/I 구성 표준)
+- **`SLOT_FLOOR` 조정** — 10분 연설·CBS images ≥ 1 강제, 출판 절대 하한 완화 (5→3 등) + C 축 MED 강등 (fact 충돌 회피)
+- **`download_image.py` 신규** — WOL/jw.org 이미지 자동 다운로드 헬퍼 (URL → jpg 파일)
+- **`illustration-finder.md`** — 시드 이미지 자동 다운로드 의무 명시, 슬롯별 저장 경로 정의
+- **`quality-monotonic-checker.md`** — 9축 + fact cross-reference 정책 명시
+- **`build_treasures_talk.py`** — image_path 명시했는데 파일 없으면 stderr 경고 (silent skip 차단)
+
+**검증**: next2 10분 연설 (이미지 0) → quality_check.py 자동 H FAIL HIGH 정확 판정 (이전엔 안 잡혔음).
+
 ### 2026-04-29 — 품질 단조 증가 시스템 (Phase D 완료, 시스템 전면 정착)
 
 오케스트레이터 + 메모리 베이스라인:
