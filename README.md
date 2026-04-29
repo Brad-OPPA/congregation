@@ -20,6 +20,14 @@
 
 ## 변경 이력
 
+### 2026-04-29 — 품질 단조 증가 시스템 (Phase D 완료, 시스템 전면 정착)
+
+오케스트레이터 + 메모리 베이스라인:
+- **7 일괄 SKILL.md** 정책 추가 — midweek-now·next1·next2·next3 + mid-study1·2·3 (weekly 는 commands/ 위치, 이미 적용 완료)
+- **메모리 `project_quality_baseline.md`** 신규 — 슬롯별 최근 PASS 빌드 메트릭 누적, 베이스라인 자동 갱신 (장기 단조 증가 추적)
+- **메모리 `feedback_phase_step_protocol.md`** 신규 — 다단계 작업 시 매 phase 끝마다 5스텝 (CLAUDE.md/README/commit/push) 의무 정착
+- 영향: 모든 21 스킬 + 30 에이전트 (이번 세션 추가 분 포함) 자동 단조 증가 보장 정착 완료
+
 ### 2026-04-29 — 품질 단조 증가 시스템 (Phase C 완료)
 
 부정기 + 학생 + 특수 빌더 — 모든 단편 스킬 자동 보장:
