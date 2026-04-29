@@ -5,6 +5,8 @@ tools: WebFetch, Read, Grep, Glob, Write
 model: opus
 ---
 
+> **시작 전 베이스라인 확인 (④ 의무, 2026-04-29 도입)**: 직전 주차 script.md 를 Read 해서 본인이 작성할 글자수·구조·깊이 단락의 하한선 확보. 본인 결과는 그 베이스라인 이상 풍부해야 한다. 부족 시 quality-monotonic-checker (⑥ 4번째 감수자) 가 자동 NO-GO + 재작성 강제. 정책: `.claude/shared/quality-monotonic-policy.md`
+
 > **마크업 체크리스트 의무**: `.claude/shared/markdown-checklist-policy.md` 따름. 작업 진행 시 `_progress.md` 에 체크박스로 단계 명시.
 
 

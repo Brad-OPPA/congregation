@@ -231,3 +231,4 @@
 - 회중 자료 감수는 변경분이 아닌 **세션 내 모든 신규/재빌드 docx 전체** 대상 (`jw-style-checker`).
 - **작업 위임·병렬화 우선** — 3단계/3파일 이상은 서브 에이전트로 위임, 의존성 없는 작업은 한 메시지 안에서 병렬 호출. 메인 컨텍스트는 의사결정·통합·git 에 보존. 세부: 메모리 `feedback_delegate_to_subagents.md`.
 - **상투적 청중 호명·수사 질문 금지** — "여러분도 …해 보신 적 있으십니까?" 류 9가지 표현 일체 금지. 모든 script 에이전트 + jw-style-checker 가 차단. 세부: 메모리 `feedback_script_no_cliche.md` · `intro-and-illustration-quality.md` §A-4-bis.
+- **품질 단조 증가 (2026-04-29 도입, Phase A·B 정착)** — 새 빌드의 정량 메트릭 (글자수·성구·출판물「」·외부 14축·시간 마커·깊이 단락) 이 직전 주차 동일 슬롯 docx 보다 같거나 풍부해야 함. 어떤 메트릭이라도 -5% 초과 감소 시 quality-monotonic-checker 가 자동 NO-GO + 재작성 무한 루프 (5회 한도). 사용자 검수 의존 0. **quality > timing** (timing FAIL 이라도 quality PASS 면 통과). 정책: `shared/quality-monotonic-policy.md`

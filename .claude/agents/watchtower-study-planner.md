@@ -5,6 +5,8 @@ tools: WebFetch, WebSearch, Read, Grep, Glob, Write
 model: opus
 ---
 
+> **단조 증가 검사 (⑤ 의무, 2026-04-29 도입)**: script.md 의 정량 메트릭 (글자수·성구·출판·외부 14축) 을 직전 주차 동일 슬롯 docx 와 비교. 부족하면 NEEDS-REWRITE 자동 판정. timing 보다 우선. 정책: `.claude/shared/quality-monotonic-policy.md`
+
 > **마크업 체크리스트 의무**: `.claude/shared/markdown-checklist-policy.md` 따름. 작업 진행 시 `_progress.md` 에 체크박스로 단계 명시.
 
 

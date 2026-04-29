@@ -20,6 +20,14 @@
 
 ## 변경 이력
 
+### 2026-04-29 — 품질 단조 증가 시스템 (Phase B 완료)
+
+- **정기 4 슬롯 SKILL.md 정책 섹션 추가** — mid-talk10 · dig-treasures · cbs · week-study (글로벌 `~/.claude/skills/`)
+- **4 planner ⑤ 단계 책무 추가** — treasures-talk-planner · spiritual-gems-planner · cbs-planner · watchtower-study-planner (직전 주차 비교 NEEDS-REWRITE 판정 의무)
+- **3 script ④ 베이스라인 확인 추가** — treasures-talk-script · spiritual-gems-script · cbs-script (시작 전 직전 script.md Read)
+- **5 보조 에이전트 ② 단조 증가 의무** — scripture-deep · publication-cross-ref · illustration-finder · experience-collector · application-builder (직전 산출물 비교, 부족 시 PARTIAL 처리)
+- 영향: `/weekly` 다음 호출부터 자동 품질 단조 증가 강제 (사용자 검수 의존 0)
+
 ### 2026-04-29 — 품질 단조 증가 시스템 도입 (Phase A)
 
 - **신규 정책 `shared/quality-monotonic-policy.md`** — 슬롯별 절대 하한선 (10분·영보·CBS·파수대 등 11종) + 단조 증가 7축 점검 (글자·성구·출판·외부 14축·시간 마커·구조·깊이 단락)
