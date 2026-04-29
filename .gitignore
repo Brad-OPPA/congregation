@@ -8,6 +8,9 @@ desktop.ini
 # Claude Code 로컬 설정 (PC·환경별로 다름)
 .claude/settings.local.json
 
+# Claude Code 의 secondary git worktree 메타데이터 (자동 생성, 머신별)
+.claude/.claude/
+
 # 오피스 임시파일
 ~$*
 *.tmp
