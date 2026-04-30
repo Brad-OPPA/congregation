@@ -63,6 +63,37 @@ git log --oneline -5
 9. .gitignore 정리 (`.claude/.claude/`, `_debug_*`, `_preview_*`, `*.out.txt`)
 10. HANDOFF 통합 갱신 (이 파일)
 
+## 🚨 다음주 (~2026-05-07) 우선 처리 — 구 노트북 Claude 삭제 후 일괄 정리
+
+**컨텍스트**: 2026-04-30 Mac 으로 META + 자동화 옮김. 새 정본은 `~/Claude/Projects/Congregation/` (이 파일 위치). 구 노트북 (Windows yoone) 에 Claude Code 아직 설치 + 옛 경로 참조 중. 사용자가 "구 노트북 Claude 삭제했어" 신호 주면 아래 5단계 일괄 진행:
+
+1. **구 노트북 잔여 확인** (사용자 직접) — Windows PowerShell:
+   ```
+   cd "C:\Users\yoone\Dropbox\ClaudeFile\Congregation" && git status -s && git log --oneline -3
+   cd "C:\Users\yoone\Dropbox\02.WatchTower\01.▣ 수원 연무 회중\_automation" && git status -s && git log --oneline -3
+   ```
+   비어있으면 OK. 떠 있으면 push (`git add . && git commit -m "구 노트북 잔여" && git push`).
+
+2. **Mac 에서 GitHub 최신 동기화**:
+   ```bash
+   cd ~/Claude/Projects/Congregation && git pull
+   cd ~/Claude/Projects/Congregation/_automation && git pull
+   ```
+
+3. **Dropbox 옛 META 삭제** (비가역 — 사전 확인) — `rm -rf ~/Dropbox/ClaudeFile/Congregation/`
+
+4. **WS `_automation/` 삭제** (비가역 — 사전 확인) — `rm -rf "~/Dropbox/02.WatchTower/01.▣ 수원 연무 회중/_automation/"`. 출력 폴더 (01.주중집회 등) 는 그대로 둠.
+
+5. **문서 갱신**:
+   - 이 HANDOFF.md — 환경 표를 Mac 단독으로
+   - `CLAUDE.md` — 옛 Windows 경로 표기 (`C:\Users\yoone\.claude\skills\` 등) → Mac 경로
+   - `_automation/CLAUDE.md` — 자동 commit 정책 안의 Windows 경로 정리
+
+**관련 메모리**: `~/.claude/projects/-Users-brandon/memory/project_old_laptop_cleanup_pending.md`
+**관련 커밋**: `c5cd946` (congregation-automation) — 빌더 경로 Mac/Windows 양립 (이미 push 됨)
+
+---
+
 ## 🎯 다음 세션 진입점
 
 ### 잔존 작업 (우선순위 낮음)
