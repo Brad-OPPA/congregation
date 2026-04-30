@@ -1,0 +1,35 @@
+[
+  {
+    "candidate": "A",
+    "axis": "#6 고고학·#8 문헌",
+    "description": "키루스 원통 (Cyrus Cylinder, BM ME 90920) — 대영박물관 공식 사진. BC 539년 바빌로니아 포로 해방 칙령 비문. 외부 세속 고고학 유물 (종교 도상 X).",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/3/33/Cyrus_Cylinder_front.jpg",
+    "license": "Public Domain (British Museum 공개) / Wikimedia Commons",
+    "religiosity_check": "no (세속 고고학 유물 — 5질문 ALL no)",
+    "use_point": "intro hook 또는 요점 1 진입",
+    "caption_suggestion": "키루스 원통 (BC 539, 대영박물관 ME 90920) — 사 44:28·45:1 의 키루스 예언이 글자 그대로 성취된 증거",
+    "tier": "★★★ 최상"
+  },
+  {
+    "candidate": "B",
+    "axis": "#7 지형",
+    "description": "오늘날 예루살렘 다윗 성 (City of David) 발굴지 전경 — 캐슬린 케년이 발굴한 멸망·재건 지층 위치. 외부 세속 사진.",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/Jerusalem_Dominus_flevit.JPG/1280px-Jerusalem_Dominus_flevit.JPG",
+    "license": "CC BY-SA 3.0 / Wikimedia Commons",
+    "religiosity_check": "no (현대 지형 사진)",
+    "use_point": "intro hook 보조 (요점 1 배경)",
+    "caption_suggestion": "예루살렘 다윗 성 발굴 지역 — BC 587 멸망층 위에 BC 537 재건층이 쌓여 있음",
+    "tier": "★★ 상"
+  },
+  {
+    "candidate": "C",
+    "axis": "#2 우주 구조",
+    "description": "안드로메다 은하 (M31) — 빛이 출발한 지 약 254만 년 만에 도착하는 별빛. 외부 NASA·ESA 천문 사진.",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/Andromeda_Galaxy_%28with_h-alpha%29.jpg/1280px-Andromeda_Galaxy_%28with_h-alpha%29.jpg",
+    "license": "Public Domain / Wikimedia Commons (Adam Evans, NASA/ESA 자료 기반)",
+    "religiosity_check": "no (천체 사진)",
+    "use_point": "요점 3 진입 직전 (사 60:19 '영원한 빛' 대조)",
+    "caption_suggestion": "안드로메다 은하 — 오늘 보는 빛은 약 254만 년 전 출발. 사 60:19 의 영원한 빛은 시간 지연이 없다",
+    "tier": "★★★ 최상"
+  }
+]

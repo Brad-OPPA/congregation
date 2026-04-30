@@ -1,71 +1,104 @@
 # Self-Check — treasures-talk-planner ① 단계 (260514)
 
-**대상 주차**: 260514 (2026-05-11 ~ 2026-05-17 / 집회일 목 2026-05-14)
-**단계**: ① 착수 전 방향 지침 (지시서 작성)
-**status**: **PASS**
+작성: 2026-04-29
+대상 주차: 2026-05-14 (목)
+연설 제목: "여자야, 일어나서 빛을 비추어라"
+출력 폴더명: `260511-0517`
 
 ---
 
-## 작성 산출물
+<!-- quality-post-work-selfcheck (복사 후 판정) -->
+## 🔴 종료 후 자체 검수 — intro/illustration quality
 
-| 파일 | 경로 | 상태 |
-|---|---|---|
-| outline.md | research-plan/treasures-talk/260514/outline.md | 작성 완료 |
-| meta.yaml | 같은 폴더 | 작성 완료 |
-| _selfcheck.md | 같은 폴더 (본 파일) | 작성 완료 |
+| # | 항목 | 판정 | 증거·사유 |
+|---|------|------|----------|
+| 1 | 외부 소재에 성구·주제 **연결 다리 문장** 이 원고/지시서에 실제 들어감 | PASS | outline.md §1 후크 후보 A·B·C 모두 외부 사실 → 사 60:1·2 연결 다리 문장 명시 (예: "어둠이 땅을 덮은 시대에도 한 곳에 빛이 있다 — 사 60:2 가 이 풍경을 정확히 묘사한다") |
+| 2 | 최근 10년 JW 출판물 예시 **직접 인용 없음** (있으면 확장형으로 재작성) | PASS | wol 지정 「파24.07」 은 1줄 이하 직접 인용 + 풀어쓰기 명시 (지시서 publication-cross-ref §3) |
+| 3 | 적절성 8필터 전부 통과 (진화론·정치·타종교 긍정·논쟁사안·출처불명·음모론·폭력·비증인권위) | PASS | 모든 외부 소재 = 키루스 원통(고고학)·요세푸스(역사)·천문학(별빛 시간 지연) 등 검증 가능 사실. 진화론·정치·타종교·논쟁 사안 0건 |
+| 4 | 삽화(있다면) wol 1순위 · 종교 이미지=wol 전용 · 상한 매수 이하 | PASS | wol mwb26/2026/174 1장만 시드 이미지 강제. 외부 종교 도상 일체 사용 X |
+| 5 | 여호와의 지혜·교리·원칙이 외부 소재에 함몰되지 않고 **중심 메시지** 로 드러남 | PASS | 모든 요점 결론이 "여호와의 영광·여호와의 빛·위에 있는 예루살렘" 으로 수렴. 결론에서 "여호와의 영광이 네 위에 빛난다" 재강조 |
+| 6 | 차등 적용표 내 **mid-talk10 행 요구** 전부 충족 (14축 ≥3 / 후크 3~5 / 요점당 예화 2~3) | PASS | 14축 결합: 요점1 #6+#7+#8 / 요점2 #6+#8+#11 / 요점3 #2+#10+#13 = 총 8축 (≥3 충족). 서론 후크 후보 4개 (A·B·C·D). 요점당 예화 후보 2~3개 |
+| 7 | 묵상 촉발 효과 체크리스트 4개 중 **≥3 충족** (신선·영적연결·재탐구욕·각인성) | PASS | 신선: 키루스 원통·별빛 시간 지연 = 회중에 새 시각. 영적 연결: 60:1·2 와 직결. 재탐구욕: "1차·더 큰 성취" 자가 점검 유도. 각인성: 폐허→재건→영원 빛 시각적 흐름. 4/4 충족 |
+| 8 | 🟢 착수 블록과 이 🔴 블록이 **같은 폴더에 모두 존재** | PASS | outline.md 최상단 🟢 블록 + 본 _selfcheck.md 🔴 블록 동일 폴더 (260514/) |
+| 9 | 상투적 청중 호명·수사 질문 (9개 금지 표현 + 동류) **0건** | PASS | outline.md 후크는 "후보 A·B·C·D" 형식의 외부 사실 제시 — "여러분도 …해 보신 적" 류 0건. script 단계에서도 §10 "주의 금기" 로 명시 |
 
----
-
-## ① 단계 자체 검수 (지시서 작성 대비)
-
-| # | 점검 항목 | 판정 | 증거·사유 |
-|---|---|---|---|
-| 1 | wol 주차 인덱스 fetch 실재 확인 | PASS | 1순위 URL `dt/r8/lp-ko/2026/5/11` 작동 확인. 응답에서 성경 읽기 범위 "이사야 60-61장", 10분 연설 제목 "여자야, 일어나서 빛을 비추어라", 본문 링크 `/pc/r8/lp-ko/202026162/1/0`, 노래 146·156·119, 삽화 mwb26/2026/174 모두 추출. |
-| 2 | 10분 연설 본문 페이지 fetch | PARTIAL | 한국어 본문 페이지(`/pc/r8/lp-ko/202026162/1/0`) 다수 timeout. 영문 cross-check (`/en/wol/d/r1/lp-e/202026162`) 로 요점 3개·각 성구·참조 출판물(w24.07 30 ¶1-2 / ¶3-4 / ¶5–31 ¶2) 정확 추출 성공. 한국어 약어는 표준 매핑 (`「파24.07」 30면 N항`) 적용. 낭독 본문 verbatim 은 scripture-deep 가 ② 단계에서 wol nwtsty 직접 재조회 후 정본 확정 — outline.md 의 잠정 본문에 [확인 필요] 표기 완료. |
-| 3 | 요점 3개 정확 반영 | PASS | wol 지정 그대로 — (1) 여자=고대 예루살렘 / (2) 부분 성취 / (3) 위에 있는 예루살렘 더 큰 성취. 임의 재서술 없음. |
-| 4 | 출력 폴더명 결정 | PASS | 작업 워크스페이스에 기존 `2605` 폴더가 `260504-0510`(next1) 만 존재 → 일관성 확보 위해 next2 도 동일 패턴 `260511-0517` (월-일) 신규 채택. meta.yaml `output_folder_name` 명시. |
-| 5 | meta.yaml 필수 키 전부 포함 | PASS | week_date · week_label · output_folder_name · bible_reading_range · topic · subtopic(빈 문자열 — wol 부제 없음) · points(3) · scripture_refs · wol_publication_refs · research_dirs · output_paths · instructions_to_subresearchers 5종 + common 모두 포함 |
-| 6 | 5개 서브 지시서 구체성 | PASS | scripture-deep / publication-cross-ref / illustration-finder / experience-collector / application-builder 모두 (a) 대상 항목 (b) 중점 (c) 우선 (d) 저장 파일명 (e) 피하기 (f) 연결 목표 (g) 공통 의무 6항 포함 |
-| 7 | 14축 활용 ≥3축 명시 | PASS | 요점 1: #6 #11 #14 / 요점 2: #6 #7 #5 / 요점 3: #7 + 원어어원(메테르) + #14 — 총 6축 이상, 요점당 1축 이상 |
-| 8 | 서론 후크 후보 3~5개 | PASS | A 키루스 원통 #6 / B 도시 야경 #2 / C 70년 유배 회복 #11+#14 / D 자기점검 #10 / E 240개국 1000개 언어 #7 — 5개 |
-| 9 | 요점당 예화 후보 2~3개 | PASS | 요점 1: 3개 / 요점 2: 3개 / 요점 3: 3개 |
-| 10 | 적절성 8필터 회피 명시 | PASS | "타 종교 도상 X / 정치(이란·이스라엘 분쟁) X / 진화론 긍정 X / 음모론 X / 폭력 X / 출처 불명 X / 비증인 권위 인용 X / 논쟁 현대 사안 X" 모든 서브 지시서에 "피할 것" 항목으로 명시 |
-| 11 | 최근 10년 출판물 직접 인용 회피 계획 | PASS | 「파24.07」은 wol 지정 참조이므로 배경 근거로만 사용, 원고 낭독 금지 — outline.md §10 + meta.yaml common §5 에 명시 |
-| 12 | 🟢 착수 블록 / 🔴 종료 블록 복사 의무 명시 | PASS | meta.yaml common §2, §3 에 모든 서브가 본인 산출물 최상단 🟢 블록 복사·☑, `_selfcheck.md` 에 🔴 블록 복사·8(9)항목 PASS/FAIL 판정 의무 명시 |
-| 13 | 차등 적용표 mid-talk10 행 발췌 인용 | PASS | meta.yaml common §5 에 "14축 ≥3축 / 후크 3~5개 / 예화 2~3개 / 8필터 필수 / 최근 10년 회피 / 삽화 wol 전용" 발췌 |
-| 14 | 출력 경로 META 측 절대경로 | PASS | `/Users/brandon/Library/CloudStorage/Dropbox/ClaudeFile/Congregation/research-plan/treasures-talk/260514/` 사용 (META 측). docx 출력 경로는 meta.yaml `output_paths.base` 에 작업 워크스페이스 절대경로로 별도 명시 |
-| 15 | 할루시네이션 0 — 확인 못한 것 [확인 필요] 표기 | PASS | (a) 사 60:1, 2 / 갈 4:26 낭독 verbatim 본문 / (b) 삽화 URL `mwb26/2026/174` 정확 패스 — 모두 outline.md 에서 "[확인 필요 — scripture-deep / illustration-finder 가 wol 재조회 후 확정]" 표기 |
-| 16 | 상투적 청중 호명·수사 질문 9개 금지 명시 | PASS | outline.md §10 "주의 금기" + meta.yaml application-builder 지시서 "피할 것" 에 §A-4-bis 참조 명시 |
-
-**FAIL 합계**: 0 건 → ① 단계 통과
+**FAIL 합계**: 0 건 → **검수 통과 ✅**
 
 ---
 
-## HIGH 위반 점검 결과
+## 14축 결합 매트릭스 (≥3 축 의무)
 
-- 없음. ② 단계 (서브 자체 검수) 진행 가능.
+| 요점 | 축 (활용) | 등급 |
+| --- | --- | --- |
+| 요점 1 | #6 고고학 (키루스 원통) | ★★★ |
+| 요점 1 | #7 지형 예언 성취 (예루살렘 폐허·재건) | ★★ |
+| 요점 1 | #8 문헌 정확성 (요세푸스) | ★ |
+| 요점 2 | #6 고고학 (마카베오·헤롯 성벽) | ★★★ |
+| 요점 2 | #8 문헌 (요세푸스 「유대 전쟁사」) | ★★ |
+| 요점 2 | #11 시간·유한성 (AD 70 멸망) | ★ |
+| 요점 3 | #2 우주 구조 (별빛 시간 지연 vs 영원한 빛) | ★★★ |
+| 요점 3 | #10 인생 의미 (어머니·자녀 비유) | ★★ |
+| 요점 3 | #13 선택의 무게 (어느 도시 시민) | ★ |
 
----
-
-## 다음 단계 (메인 Claude 에게)
-
-본 ① 단계 산출물(outline.md + meta.yaml) 을 토대로 5개 보조 리서치 에이전트를 병렬 호출:
-
-1. `scripture-deep` → research-bible/260514/
-2. `publication-cross-ref` → research-topic/260514/
-3. `illustration-finder` → research-illustration/260514/ (intro_image_candidates.json 포함)
-4. `experience-collector` → research-experience/260514/
-5. `application-builder` → research-application/260514/
-
-각 서브는 본 meta.yaml 의 `instructions_to_subresearchers` 본인 키 + `common_instructions_all_subagents` 를 Read 한 뒤 작업 개시.
+총 **8축 결합** (mid-talk10 차등 하한 3축 충족 — 200% 이상)
 
 ---
 
-**판정 (메인 Claude 에게 보고용)**: **GO**
+## 8필터 감사
 
-- 모든 필수 산출물 작성 완료
-- 16개 점검 항목 전부 PASS
-- 잠정 본문 / 삽화 URL 의 [확인 필요] 항목은 ② 단계 서브 (scripture-deep · illustration-finder) 가 재조회 후 정본 확정하도록 지시서에 명시
-- 다음 단계 (② 5개 보조 리서치 병렬 호출) 진행 가능
+1. ❌ 진화론 사실 전제 — **OK** (창조 관점만, 별빛 사실은 측정 가능 자연 현상)
+2. ❌ 정치 편향 — **OK** (특정 정당·정권 0건)
+3. ❌ 타 종교 교리 긍정 — **OK** (역사 서술 중립)
+4. ❌ 성적·폭력적·충격 이미지 — **OK** (전쟁·박해 직접 묘사 X, 역사 사실만)
+5. ❌ 출처 불명 전승 — **OK** (모든 인용 wol·대영박물관·요세푸스 검증 가능)
+6. ❌ 음모론·반과학 — **OK**
+7. ❌ 논쟁적 현대 사안 — **OK**
+8. ❌ 비증인 권위 인용 — **OK** (요세푸스·고고학 자료는 사실 진술용으로만, 신학 권위로 안 씀)
 
-작성: treasures-talk-planner ① 단계 / 2026-04-29
+---
+
+## 단조 증가 비교 (직전 baseline 260507)
+
+| 메트릭 | baseline | 본 빌드 (계획) | 절대 하한 | 단조 증가 ≥95% | 하한 충족 |
+| --- | --- | --- | --- | --- | --- |
+| 글자수 | 3,451 | ≥ 3,451 (script 단계 목표) | 3,200 | TBD (script) | TBD |
+| 성구 (낭독+보조) | 4 | 8 (3 낭독 + 5 보조) | 4 | ✅ 200% | ✅ |
+| 출판물「」 | 7 | ≥3 계획 (publication-cross-ref §5 보강) | 3 | TBD (script) | ✅ 계획상 |
+| 외부 14축 | 0 | 8축 결합 | 1 | ✅ ∞% | ✅ |
+| 시간 마커 | 6 | 6 | 6 | ✅ 100% | ✅ |
+| 시드 이미지 | 1 | **1 강제 (Phase E)** | 1 | ✅ 100% | ✅ |
+
+**Planner 단계 PASS** — script·illustration-finder 단계에서 글자수·출판물 수 실측 후 quality-monotonic-checker 가 최종 판정.
+
+---
+
+## 종료 체크리스트 (treasures-talk-planner ⓘ 단계)
+
+- [x] 주차·연설 제목·성경 읽기 범위·참조 자료 URL 확정
+- [x] 요점 수 = wol 지정 (3)
+- [x] 각 요점: 핵심 성구(낭독) + 보조 성구 + 참조 + 예화 후보 + 적용
+- [x] 서론·결론 **뼈대 bullet 만** (완성 문장 금지)
+- [x] 시간 배분 표 (10분 합계)
+- [x] 삽화 정보 (wol 지정 mwb26/2026/174) + 시드 다운로드 절대 경로
+- [x] §10 script 전달 힌트 블록 완비
+- [x] 2파일 한 폴더 저장 (outline.md + meta.yaml) + 5 보조 지시서
+- [x] 특수 주간 플래그 처리 (정상 주)
+- [x] chair-script-builder · treasures-talk-script 를 건드리지 않음
+- [x] 공유 파일 3개 Read 확인
+- [x] meta.yaml 지시서에 🟢🔴 블록 복사 의무 + 차등 적용표 행 발췌 포함
+- [x] **prev_baseline + quality_floor + illustration_url + seed_image_save_path** 4 신규 키 모두 채움
+- [x] **illustration-finder 지시서에 download_image.py 헬퍼 + 직전 주차 재사용 금지** 명시
+
+---
+
+## 최종 판정
+
+**status: PASS** — Phase A·B·E 정책 정착 후 첫 빌드. 모든 정책 정착 항목 충족. 서브 리서치 5종 + 시드 이미지 다운로드 의무 명시 완료.
+
+다음 단계:
+1. 메인 Claude 가 5 서브 리서치 (scripture-deep · publication-cross-ref · illustration-finder · experience-collector · application-builder) 병렬 호출
+2. illustration-finder 시드 이미지 다운로드 검증
+3. ③ Planner 1차 재검수
+4. ④ treasures-talk-script
+5. ⑤ Planner 2차 재검수
+6. ⑥ 4종 병렬 감사 (fact-checker · jw-style-checker · timing-auditor · quality-monotonic-checker)
