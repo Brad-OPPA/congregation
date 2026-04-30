@@ -1,6 +1,6 @@
 # 스킬 ↔ 에이전트 상관관계 (2026-04-30 스냅샷)
 
-> 출처: `~/.claude/skills/` (글로벌 스킬 20개) + `~/Claude/Projects/Congregation/.claude/agents/` (회중 에이전트 31개) 직접 추출.
+> 출처: `~/.claude/skills/` (글로벌 스킬 20개) + `~/Claude/Projects/Congregation/.claude/agents/` (회중 에이전트 32개) 직접 추출.
 > 정책 정본: `.claude/shared/multi-layer-defense.md` (6단 방어), `.claude/shared/output-naming-policy.md` (출력 정책).
 
 ---
@@ -11,7 +11,7 @@
 
 | # | 스킬 | Planner | Script | 보조 리서치 / 특수 |
 |---|---|---|---|---|
-| 1 | `/mid-talk10` | treasures-talk-planner | treasures-talk-script | scripture-deep · publication-cross-ref · illustration-finder · experience-collector · application-builder |
+| 1 | `/mid-talk10` | treasures-talk-planner | treasures-talk-script + **assembly-coordinator** | scripture-deep · publication-cross-ref · illustration-finder · experience-collector · application-builder |
 | 2 | `/dig-treasures` | spiritual-gems-planner | spiritual-gems-script | (mid-talk10 과 동일 5종) |
 | 3 | `/mid-student1` | (없음) | student-assignment-script | 단독 — 낭독 단순 |
 | 4 | `/mid-student2` | student-assignment-planner | student-assignment-script | scripture-deep · application-builder · experience-collector + role-play-scenario-designer |
@@ -85,13 +85,14 @@
 
 `treasures-talk-script` · `spiritual-gems-script` · `cbs-script` · `living-part-script` · `student-assignment-script` · `student-talk-script` · `chair-script-builder` · `public-talk-script`
 
-### ⭐ 특수 빌더 (3)
+### ⭐ 특수 빌더·조합 (4)
 
 | 에이전트 | 용도 |
 |---|---|
 | `prayer-composer` | 기도문 (시작·마침) |
 | `slides-builder` | pptx 슬라이드 |
 | `role-play-scenario-designer` | 학생 시연 시나리오 |
+| **`assembly-coordinator`** ⭐ 신규 (2026-04-30) | 10분 연설 본문 흐름 조합·매핑·R1~R10 1차 검증 — script ↔ build 사이 단계, 옵션 B |
 
 ### 🛡 감수 게이트 (4) — 2026-04-29 4종으로 확장
 
@@ -149,7 +150,7 @@
 | LibreOffice (`/Applications/LibreOffice.app` + `soffice` Homebrew) | ✅ |
 | 정본 빌더 12개 syntax | ✅ |
 | Path.home() 경로 4개 (META + 출력) | ✅ |
-| 글로벌 스킬 20개 / 회중 에이전트 31개 / Hooks 2개 | ✅ |
+| 글로벌 스킬 20개 / 회중 에이전트 32개 / Hooks 2개 | ✅ |
 
 ---
 
@@ -180,7 +181,8 @@
 
 ## 📅 변경 이력
 
-- **2026-04-30** — 최초 작성. Dropbox META → `~/Claude/Projects/Congregation/` 합병 직후 스냅샷.
+- **2026-04-30 (1차)** — 최초 작성. Dropbox META → `~/Claude/Projects/Congregation/` 합병 직후 스냅샷.
+- **2026-04-30 (2차)** — `assembly-coordinator` 신규 (10분 연설 옵션 B 조합 단계). 31 → 32 에이전트.
 - 단편 스킬 13개 (CLAUDE.md 명시 11개 + chair + publictalk).
 - 감수 게이트 quality-monotonic-checker 신규 (2026-04-29).
 - Pillow + python-pptx 신규 설치 (2026-04-30).

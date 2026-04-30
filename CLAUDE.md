@@ -141,7 +141,7 @@
 
 ## 사용 에이전트 (subagent)
 
-회중 로컬 `.claude/agents/` 에 30개 에이전트 등록.
+회중 로컬 `.claude/agents/` 에 32개 에이전트 등록 (2026-04-30: assembly-coordinator 신규).
 
 ### 리서치 (8) — 결과를 `research-*/` 폴더에 저장
 
@@ -164,9 +164,9 @@
 
 `treasures-talk-script` · `spiritual-gems-script` · `cbs-script` · `living-part-script` · `student-assignment-script` · `student-talk-script` · `chair-script-builder` · `public-talk-script`
 
-### 특수 빌더 (3)
+### 특수 빌더·조합 (4)
 
-`prayer-composer` (기도문) · `slides-builder` (pptx) · `role-play-scenario-designer` (학생 시연 시나리오)
+`prayer-composer` (기도문) · `slides-builder` (pptx) · `role-play-scenario-designer` (학생 시연 시나리오) · **`assembly-coordinator`** (10분 연설 조합·매핑·R1~R10 1차 검증, 2026-04-30 신규 — script ↔ build 사이 단계)
 
 ### 감수 게이트 (4) — 2026-04-29 4종으로 확장
 
