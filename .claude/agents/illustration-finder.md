@@ -651,3 +651,44 @@ PYWIN="/mnt/c/Users/yoone/AppData/Local/Programs/Python/Python310/python.exe"
 ```
 
 PyMuPDF (fitz) 설치 필요. 페이지 인덱스 알아낸 후 해당 페이지 이미지를 PyMuPDF `.get_images()` / `extract_image()` 로 추출. 또는 단순 페이지 스크린샷도 OK (`page.get_pixmap()`). 추출한 이미지는 `images_outline_official/` 하위 폴더에 `outline_slot{N}_{주제}.jpg` 형식 저장.
+
+---
+
+## 🎤 10분 연설 예 정책 (2026-04-30 도입)
+
+**메모리**: `feedback_speech_main_vs_example.md`. **정량 기준**: `~/Claude/Projects/Congregation/research-meta/10분-연설-표준패턴.md`.
+
+### ⭐⭐ 핵심 정책 — 4 가지 절대 기준
+
+10분 연설 (`treasures-talk-planner` 호출) 시 다음 정책 의무:
+
+1. **다양성 OK** — 일상 사례·역사 사례·자연 관찰·일화 등 폭 넓게 OK
+2. **타종교 X** — 불교·이슬람·힌두·천주교·개신교·라마·부처 등 등장 시 즉시 폐기
+3. **사실 미검증 X** — 출처 일차 자료 URL 없는 일화·도시 전설·미확인 통계 즉시 폐기
+4. **본문 강조점 떠받치는 것만** — 본 주차 「파」·「집교」 단락의 메시지를 보조하는 예만 선별 (외부 14축 학술 자료 폭주 금지)
+
+### 후보 산출 형식 (각 후보별 절대 기준 표시 의무)
+
+각 후보 객체에 다음 필드 추가:
+
+```json
+{
+  "title": "...",
+  "primary_source_url": "https://...",     // ✅ 필수
+  "fact_verified": true,                    // ✅ 필수 (false 면 폐기)
+  "non_other_religion": true,               // ✅ 필수
+  "supports_main_paragraph": "「파24.07」 30면 1-2항",  // ✅ 어느 본 주차 단락 떠받치는지
+  "where_to_place": "예",                   // 예 자리 only — 본문 자리 X
+  "axis": "역사" | "일상" | "자연" | "일화" | "비유"   // 외부 14축 사용 시 표시
+}
+```
+
+### 외부 14축 사용 한계 (10분 연설)
+
+- 본문 자리 **0건** (의무)
+- 예 자리도 **요점당 1개 이하** (모범 자료는 예 자리도 0건이 다수)
+- 외부 14축 사용 시 `axis` 필드 명시 — planner 가 grep 으로 검증
+
+### WOL 시드 이미지 자동 다운로드 (Phase E 의무)
+
+`download_image.py` 로 자동 다운로드 — silent skip 차단. 정책: `~/Claude/Projects/Congregation/.claude/shared/quality-monotonic-policy.md` Phase E.

@@ -372,3 +372,51 @@ planner 가 아직 실행되지 않았습니다. 먼저:
 4단/6단 방어 추적 약화 방지. 재호출이 잦은 경우(예: HIGH 위반으로 재빌드) 이전 검수가 무엇을 잡았는지 흔적이 보존돼야 디버깅·정책 개선에 쓸 수 있다.
 
 자세한 규칙: `.claude/shared/skip-existing-policy.md` §6.
+
+---
+
+## 🎤 연설 본질 정책 책무 (2026-04-30 도입, 옵션 A 조합 책무 강화)
+
+**메모리**: `feedback_speech_main_skeleton.md` · `feedback_speech_main_vs_example.md` · `feedback_speech_no_source_naming.md` · `feedback_builder_assembly_role.md`. **정량 기준**: `~/Claude/Projects/Congregation/research-meta/10분-연설-표준패턴.md`.
+
+### ④ 단계 책무 추가 (script 작성 + 조합)
+
+#### 1. 첫 작업: 본 주차 「파」·「집교」 단락 골격 추출
+- WOL 본 주차 자료 정독 (WebFetch)
+- 「파수대」 단락 1-2항 / 3-4항 / 5항~ 의 핵심 메시지 추출
+- 요점 1·2·3 = 그 단락의 메시지 그대로 (1:1 매핑)
+- **외부 14축 자료가 본문 골격을 채우는 것 금지** — 외부 자료는 예 단계에서만
+
+#### 2. 본문 흐름 작성 (옵션 A 조합 책무)
+- 5 보조 산출물 (`research-bible/`, `research-topic/`, `research-illustration/`, `research-experience/`, `research-application/`) 을 본 주차 「파」 흐름에 매핑
+- 본문 = 「파」 단락 핵심 + scripture-deep 의 성구 보강 + publication-cross-ref 의 보강 (호명 없이)
+- 예 = illustration-finder · experience-collector 산출물에서 본 주차 메시지 떠받치는 것만 선별 (요점당 1개 이하)
+- 적용 = application-builder 카드를 매 요점에 1개 이상 흡수
+
+#### 3. 출처 호명 자체 검증
+- 정규식 `「[^」]+」.*?(짚|정리|보여|알려|밝혀|말하|설명)` 으로 본문 grep
+- 매칭 ≥ 7건 → 자체 폐기 후 재작성
+- 출판물 출처는 docx 끝 references + 각주 윗첨자(p)에만
+
+#### 4. 외부 14축 자체 검증
+- 키루스·요세푸스·케년·고고학·발굴·연대·왕조 등 키워드를 본문 단락 (요점 1·2·3 본문) 안에서 grep
+- 1건이라도 → 본문 위치를 예 자리로 옮기거나 삭제
+
+#### 5. 시간 마커 의무 박힘
+- 서론 끝 (~1'30")
+- 결론 직전 (8'30" 또는 9'30")
+- 중간 (요점 전환 또는 예 도입) 최소 1개
+- 형식: `1'30"`, `8'30"`, `9'30"` 등 (유니코드 prime `′″` 또는 ASCII `'"` 모두 OK)
+
+#### 6. 정량 기준 자체 검증 (script.md 끝에 측정 결과 기록)
+- 글자수 2,090 ~ 3,600
+- 본문/예/적용 비율 50-70 / 8-25 / 19-40
+- 출처 호명 0~6 / 외부 14축 본문 0 / 타종교 0
+- 청중 적용 3~11 단락
+- 시간 마커 3~6개
+
+#### 7. assembly-coordinator 인계 (옵션 B 도입)
+- script.md 완성 후 `assembly-coordinator` 호출
+- 입력: script.md + 5 보조 산출물 + 본 주차 「파」 단락별 매핑표
+- assembly-coordinator 가 spec dict (`content_*.py` 형식) 생성 + 본문 흐름 검증
+- 그 결과를 planner ⑤ 단계로 인계

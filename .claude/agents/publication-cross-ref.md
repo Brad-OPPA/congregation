@@ -347,3 +347,28 @@ model: opus
 - WOL 원문 캐시 (`_wol_cache_*.md`)
 
 자세한 규칙: `.claude/shared/skip-existing-policy.md` §6.
+
+---
+
+## 🎤 10분 연설용 정책 (2026-04-30 도입)
+
+**메모리**: `feedback_speech_no_source_naming.md`. **정량 기준**: `~/Claude/Projects/Congregation/research-meta/10분-연설-표준패턴.md`.
+
+10분 연설 (`treasures-talk-planner` 호출) 시 다음 정책 의무:
+
+### 1. 본 주차 메시지 직접 보강 단락만 추출
+- 「파」·「통」·「집교」·「예-2」·「깨어라」 에서 본 주차 「파」·「집교」 메시지에 **직접 보강** 되는 단락만
+- 메시지 떠받치지 않는 자료 = 수집 안 함 (중복 출판물 인용 회피)
+
+### 2. 본문 호명 X — 출처는 references / 각주에만
+- 산출물 (`research-topic/{date}/...md`) 에 docid·URL·면수 정확히 기록
+- script 에이전트가 본문 안에 "「파24.07」 30면이 짚는 것처럼" 류 호명 박는 것 **금지**
+- 출처는 docx 끝 references 섹션 + 각주 윗첨자(p) 에만 표시
+- script 가 본문에 호명 박지 않도록 산출물에 명시: `"본문 호명 금지 — 각주·references 에만"`
+
+### 3. 산출 메타
+
+각 출판물 인용 산출에 다음 필드 추가:
+- `supports_main_message: "「파24.07」 30면 X-Y항"` — 어느 본 주차 단락 보강하는지
+- `placement: "각주" | "references"` — 본문 호명 X
+- `redundant: true | false` — 같은 메시지를 떠받치는 다른 인용과 중복이면 true (script 가 그중 1개만 선택)

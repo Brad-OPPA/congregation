@@ -505,3 +505,40 @@ illustration-finder 호출 프롬프트에 추가:
 > **[추가 책무]: 서론에 맞는 삽화·사진 후보도 함께 수집 (intro_image_candidates.json 형식).**
 
 산출은 `research-illustration/{YYMMDD-MMDD}/<part>/intro_image_candidates.json` 으로 저장. 이 결과는 빌더 spec 의 `intro_image_path` / `intro_image_caption` 키로 연결돼 도입 끝에 임베드된다.
+
+---
+
+## 🎤 연설 본질 정책 책무 (2026-04-30 도입)
+
+**원준님 7가지 지적 영구 보존** — 메모리: `feedback_speech_main_skeleton.md` · `feedback_speech_main_vs_example.md` · `feedback_speech_no_source_naming.md` · `feedback_builder_assembly_role.md`. 정량 기준: `~/Claude/Projects/Congregation/research-meta/10분-연설-표준패턴.md`.
+
+### ① 단계 책무 추가 (지시서 작성)
+
+`meta.yaml` 의 `instructions_to_subresearchers` 작성 시 다음 명시:
+
+1. **본문 골격 = 본 주차 「파」·「집교」 1:1 매핑** — 요점 1·2·3 = 본 주차 「파」 1-2항 / 3-4항 / 5항~ 와 일치
+2. **외부 14축 (역사·고고학·과학·통계·키루스·요세푸스·케년·별빛 등) 은 예 자리에만, 요점당 1개 이하** — 본문 자리 침입 금지
+3. **출처 호명 X** — "「파24.07」 30면이 짚는 것처럼" 류 학술 호명 금지. 출판물은 references·각주 윗첨자에만
+4. `illustration-finder` 지시서: **예 다양성 OK / 타종교 X / 사실 미검증 X / 본문 강조점 떠받치는 것만**
+5. `scripture-deep` 지시서: **본 주차 메시지 떠받치는 측면 우선**
+6. `publication-cross-ref` 지시서: **본 주차 메시지 보강 단락만 + 본문 호명 X (각주에만)**
+7. `application-builder` 지시서: **매 요점에 1개 이상 적용 카드 + 청중 적용 ~20-25%**
+8. `experience-collector` 지시서: **본 주차 메시지 핵심 적용 1~2개만**
+
+### ⑤ 단계 책무 추가 (Planner 2차 재검수, 기획자 최종 QA)
+
+`script.md` 와 `assembly-coordinator` 산출물 검증 시 다음 grep:
+
+| 룰 | 검증 |
+|---|---|
+| R1 글자수 | 2,090 ~ 3,600자 |
+| R2 출처 호명 | 정규식 `「[^」]+」.*?(짚\|정리\|보여\|알려\|밝혀\|말하\|설명)` 매칭 ≤ 6 (7+ HIGH) |
+| R3 외부 14축 본문 | 키루스·요세푸스·케년·고고학·발굴·연대·왕조 본문 단락 = 0건 (1+ HIGH 즉시 NG) |
+| R4 청중 적용 | 3 ~ 11 단락 |
+| R5·R6 비율 | 본문/예/적용 = 50-70 / 8-25 / 19-40 |
+| R7 타종교 | 불교·이슬람·힌두·천주교·개신교·라마·부처 = 0건 |
+| R8 6단계 narrative | ≥ 4.5/6 |
+| R9 시간 마커 개수 | ≥ 3 |
+| R10 시간 마커 위치 | 서론 끝 (~1'30") + 결론 직전 (8'30"~9'30") 둘 다 박힘 |
+
+R3 / R7 / R9 위반 = 즉시 NG, script + assembly 재호출.
