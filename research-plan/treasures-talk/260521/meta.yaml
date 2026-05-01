@@ -1,0 +1,157 @@
+week_date: 260521
+meeting_date: 2026-05-21
+slug: 사랑많고-동정심-풍부한-도공
+part_type: treasures_talk
+title: "사랑 많고 동정심이 풍부한 도공"
+subtitle: "여호와께서는 동정심을 갖고 우리를 대하시며, 우리가 자신의 실수 때문에 고통을 겪을 때에도 그렇게 하십니다"
+bible_reading_range: "이사야 62-64장"
+time_minutes: 10
+speaker_label: "OO 형제"
+speaker_qualification: "elder_or_ms"
+point_count: 3
+output_folder_name: "260518-0524"
+
+points:
+  - no: 1
+    title: "여호와께서는 동정심을 갖고 우리를 대하시며, 우리가 자신의 실수 때문에 고통을 겪을 때에도 그렇게 하십니다"
+    time_minutes: 2.0
+    scripture: "이사야 63:9"
+    scripture_text: "[NWT 연구판 verbatim — scripture-deep 가 https://wol.jw.org/ko/wol/b/r8/lp-ko/nwtsty/23/63 에서 추출 후 채움]"
+    publication_refs:
+      - label: "「까」 253-254면 7-9항"
+        url: "https://wol.jw.org/ko/wol/d/r8/lp-ko/202026163"
+        note: "본 주차 직접 해설 — 본문 호명 X / 각주에만"
+
+  - no: 2
+    title: "여호와께서는 우리의 잘못으로 생기는 해로운 결과를 막아 주지는 않으시지만, 우리가 계속 충실을 유지하도록 도와주십니다"
+    time_minutes: 2.0
+    scripture: "[「파23.08」 28-29면 8-9항이 인용한 핵심 성구 1개 — 보조 publication-cross-ref + scripture-deep 가 검증 후 verbatim 채움. 후보: 갈 6:7 / 잠 19:3 / 사 48:18 / 신 32:35]"
+    scripture_text: "[verbatim — 보조가 NWT 연구판 추출]"
+    publication_refs:
+      - label: "「파23.08」 28-29면 8-9항"
+        url: "https://wol.jw.org/ko/wol/d/r8/lp-ko/2023488"
+        note: "추정 docid — publication-cross-ref 가 wol 검색으로 정확 docid 검증 의무. 본문 호명 X / 각주에만"
+
+  - no: 3
+    title: "우리가 여호와의 인도에 순응한다면, 그분은 우리가 그분의 눈에 귀중한 사람이 되도록 계속 빚어 주실 것입니다"
+    time_minutes: 2.0
+    scripture: "이사야 64:8"
+    scripture_text: "[NWT 연구판 verbatim — scripture-deep 가 https://wol.jw.org/ko/wol/b/r8/lp-ko/nwtsty/23/64 에서 추출 후 채움]"
+    publication_refs:
+      - label: "「파13」 9/15 20면 15-17항"
+        url: "https://wol.jw.org/ko/wol/d/r8/lp-ko/2013683"
+        note: "추정 docid — publication-cross-ref 가 wol 검색으로 정확 docid 검증 의무. 본문 호명 X / 각주에만"
+
+scripture_reads:
+  - ref: "이사야 63:9"
+    read_aloud: true
+    point_no: 1
+  - ref: "[요점 2 핵심 성구 — 보조가 확정]"
+    read_aloud: true
+    point_no: 2
+  - ref: "이사야 64:8"
+    read_aloud: true
+    point_no: 3
+
+# 결론 직전 4번째 회색 박스 성구 (옵션, R12 보강 — 영적 보물찾기 사 63:10 연계 가능)
+scripture_conclusion: "이사야 63:10  (옵션 — 영적 보물찾기 본 주차 성구 / 결론에 여호와의 참을성·동정심 보강용. script ④ 가 결론 5단락 §1·§2 에 한 번 짜임새 있게 활용 가능)"
+
+illustrations:
+  - no: 182
+    url: "https://wol.jw.org/ko/wol/mp/r8/lp-ko/mwb26/2026/182"
+    caption: "도공이 손으로 진흙을 빚어 도자기를 만드는 모습"
+    use_at: "결론 첫 단락 (R12 — 집교 본 주차 삽화 임베드 + 해설)"
+
+research_dirs:
+  bible:        research-bible/260521/
+  topic:        research-topic/260521/
+  illustration: research-illustration/260521/
+  experience:   research-experience/260521/
+  application:  research-application/260521/
+
+instructions_to_subresearchers:
+  common_preamble: |
+    🟢 착수 전 리마인드 블록 (모든 보조 공통 — 산출물 최상단에 복사·체크 의무):
+    ☐ `.claude/shared/multi-layer-defense.md` (6단 방어 v2) Read 완료
+    ☐ `.claude/shared/intro-and-illustration-quality.md` Read 완료 — mid-talk10 행 확인:
+       - 14축 활용 하한 3축 (예 자리에만)
+       - 서론 외부 후크 후보 3~5개
+       - 요점당 예화 후보 2~3개
+       - 적절성 8필터 필수 전부
+       - 최근 10년 JW 출판물 회피 권장 (회중 청중 위주라 완화 허용)
+    ☐ `research-meta/10분-연설-자동화-구조.md` (확정 정본) §0~§I 숙지 완료
+    ☐ `research-meta/10분-연설-표준패턴.md` §G·§H·§I 숙지 완료
+
+    🔴 종료 후 자체 검수 블록 (`_selfcheck.md` 에 복사·PASS/FAIL 판정 의무):
+    8 항목 (적절성 8필터 + 풍부 베이스라인 + 본 주차 메시지 떠받침 + 본문 호명 X) 전부 PASS 시 완료. FAIL 있으면 자체 재작업 (2회 한도).
+
+  scripture-deep: |
+    본 주차 「까」 253-254면 7-9항 / 「파23.08」 28-29면 8-9항 / 「파13」 9/15 20면 15-17항 이 직접 인용·해설하는 성구 ≥ 6개 NWT 연구판·연구 노트·원어(히브리어) 깊이.
+    필수 성구: 사 63:9 / 사 63:10 / 사 64:8.
+    추가 성구 (요점 2 핵심 성구 후보 검증 의무): 갈 6:7 / 잠 19:3 / 사 48:18 / 신 32:35 중 「파23.08」 8-9항이 직접 인용한 것을 확정.
+    본 주차 메시지 ("도공·동정심·빚으심") 떠받치는 측면 우선. 외부 14축 결합 시 본문 자리 X (예 자리만).
+    본 주차 메시지 핵심 어구 ("도공"·"진흙"·"동정심"·"들어올리시고"·"운반하셨다"·"순응"·"귀중한 사람") 의 히브리어 원어·연구노트 의무 수집.
+    저장: research-bible/260521/ + _selfcheck.md
+
+  publication-cross-ref: |
+    본 주차 「까」·「파23.08」·「파13」 본문에 직접 보강되는 단락 ≥ 5편 (「통」·다른 「파」·「예-2」·「깨어라」·「하」).
+    필수 검증 의무: 「파23.08」 28-29면 8-9항·「파13」 9/15 20면 15-17항 의 정확 docid·URL (wol.jw.org 검색).
+    본 주차 메시지 핵심 ("도공·진흙·동정심·빚으심") 떠받치는 단락만.
+    본문 호명 X — references·각주에만. supports_main_message 필드 명시.
+    저장: research-topic/260521/ + _selfcheck.md
+
+  illustration-finder: |
+    예 다양성 OK / 타종교 X / 사실 미검증 X / 본문 떠받침만.
+    요점당 일상 비유 후보 ≥ 2개 (총 ≥ 6개) — 도공·진흙·아버지·빚으심 주제와 연결.
+    서론 외부 후크 후보 3~5개 (도공 일상·작품 빚는 장인·정원사 묘목 등) — 적절성 8필터 전부 통과.
+    결론용 집교 본 주차 4면 삽화 다운로드 의무: https://wol.jw.org/ko/wol/mp/r8/lp-ko/mwb26/2026/182 (download_image.py 활용).
+    외부 14축 (키루스·요세푸스·BC·고고학·발굴·연대·왕조 등) 본문 자리 박지 X (예 자리도 권장 0).
+    intro_image_candidates.json 형식 함께 수집 (서론에 쓸 도공 비유 이미지 1개).
+    저장: research-illustration/260521/ + _selfcheck.md + intro_image_candidates.json
+
+  experience-collector: |
+    공식 출판물 (「파수대」·연감·JW 방송) 검증된 경험담 ≥ 5개.
+    본 주차 메시지 핵심 적용 ("자기 잘못으로 고통받을 때 여호와의 동정심·도움 / 여호와의 인도에 순응 → 귀중한 사람으로 빚어짐") 떠받치는 것만.
+    실명 공개된 아동 X / 회중 특정 인물 언급 X / 정치·국가 관련 X.
+    2014~2024 자료 우선 (최근 10년 회피 권장 — 회중 청중 완화 허용 OK).
+    저장: research-experience/260521/ + _selfcheck.md
+
+  application-builder: |
+    가정·직장/학교·회중·봉사 4축 적용 카드 ≥ 4개. 매 요점 1개 이상.
+    요점 1 (동정심 가운데 함께하심) — 자기 과거 실수로 괴로워하는 형제·자매에게 격려할 한 가지
+    요점 2 (해로운 결과 가운데 충실 도우심) — 잘못된 선택의 결과로 고생할 때 여호와의 도움 구하는 방법
+    요점 3 (순응 → 귀중한 사람) — 매일 작은 결정에서 여호와의 인도에 순응하는 자기점검 질문 1~2개
+    저장: research-application/260521/ + _selfcheck.md
+
+constraints:
+  - 외부 14축 본문 침입 0건 (R3 — 즉시 NG)
+  - 출처 호명 0~6건 (R2 — 7+ HIGH)
+  - 타종교 키워드 0건 (R7 — 1+ HIGH)
+  - 사용자 NG list (가정 경배·신자·여호와의 임재·수동적) 본문 0건
+  - 모범 정형 표현 박힘 (R15 — 서론 끝·요점 환기·삽화 안내)
+  - 서론 5 흐름 (R14) — 청중 질문 + 흥미 + 주제 + 환기 + 안내
+  - 결론 5 단락 (R17) — 리마인드 + 자문 + 콜백 + 호소 + 약속
+  - 결론 = 집교 본 주차 삽화 임베드 + 해설 (R12)
+  - 결론 = 서론 콜백 (R13 — 서론 흥미 비유 핵심어 매칭)
+  - 서론 ↔ 요점 비유 메시지 중복 X (R16)
+  - 시간 마커 ≥ 3개 (R9) + 서론 끝·결론 직전 박힘 (R10)
+  - 글자수 2,090~3,600자 (R1)
+  - 본문/예/적용 50-70 / 8-25 / 19-40 (R5·R6)
+  - 6단계 narrative ≥ 4.5/6 (R8)
+  - WOL 미검증 표현 자동 차단 (R18)
+
+source:
+  wol_week_index: "https://wol.jw.org/ko/wol/dt/r8/lp-ko/2026/5/18"
+  part_page: "https://wol.jw.org/ko/wol/d/r8/lp-ko/202026163"
+  watchtower_study_article:
+    title: "가장 중요한 일을 계속 우선순위에 두십시오"
+    docid: "2026327"
+    url: "https://wol.jw.org/ko/wol/d/r8/lp-ko/2026327"
+
+special_week_flags:
+  circuit_overseer_week: false
+  convention_week: false
+  memorial_week: false
+
+generated_at: 2026-04-30
+generated_by: treasures-talk-planner (① 단계 — 지시서·outline·meta.yaml)
