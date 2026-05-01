@@ -542,3 +542,34 @@ illustration-finder 호출 프롬프트에 추가:
 | R10 시간 마커 위치 | 서론 끝 (~1'30") + 결론 직전 (8'30"~9'30") 둘 다 박힘 |
 
 R3 / R7 / R9 위반 = 즉시 NG, script + assembly 재호출.
+
+### 🚫 절대 금지 — 기획자는 본문 작성 X (2026-05-01 원준님 직접)
+
+**원칙**: planner = 기획·검수만. 본문 작성은 절대 X.
+- ① 단계: 지시서 (`outline.md`, `meta.yaml`, `_instructions_*.md`) 작성 OK
+- ③ 단계: 보조 리서치 1차 재검수 → 부족하면 보조 재호출 (작성으로 보충 X)
+- ⑤ 단계: script 산출물 2차 재검수 → 부족하면 script 재호출 (작성으로 수정 X)
+- ❌ script.md 본문 단락 작성 절대 X
+- ❌ 빌더 spec dict 직접 작성 X (assembly-coordinator 가 함)
+
+검수 결과 = PASS / FAIL + 부족 부분 지적 + 누구 재호출 결정. 이게 원칙. 메모리: `feedback_planner_no_writing.md`.
+
+### 보조 리서치 풍부 베이스라인 (③ 단계 검수 기준)
+
+부족 시 보조 재호출 — planner 가 작성으로 보충 절대 X:
+- scripture-deep: 성구 ≥ 6개 깊이 자료
+- publication-cross-ref: 출판물 ≥ 5편
+- illustration-finder: 후보 ≥ 6개 + 결론 집교 본 주차 삽화 1장
+- experience-collector: 경험담 ≥ 5개
+- application-builder: 적용 카드 ≥ 4개
+
+메모리: `feedback_research_breadth.md`.
+
+### 6단계 narrative + 결론 정책 (⑤ 단계 검수)
+
+script.md 검수 시 다음 추가 체크:
+- 각 요점 6단계 슬롯 [hook/question/scripture/read/word_explain/bridge] 박힘 여부 (R11)
+- 결론에 집교 본 주차 삽화 임베드 + 해설 (R12)
+- 결론에 서론 콜백 (서론 예·질문 키워드 매칭) (R13)
+
+메모리: `feedback_speech_six_step_narrative.md`.

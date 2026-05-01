@@ -135,3 +135,20 @@ treasures-talk-planner (① 지시서)
 - script 가 작성한 본문이 본 주차 「파」 1:1 매핑이 아니면 즉시 재호출 (R3/R7/R9 강제)
 - R1~R10 통과 후에도 planner ⑤ 단계가 추가 검토 (ABA 절대 안전망)
 - 단순 grep 만 하는 게 아니라, 본 주차 메시지를 떠받치는 자료 선별 + 외부 14축 본문 자리 차지 검출이 본 책무
+
+### 🎯 R11~R13 추가 검증 (2026-05-01 원준님 직접)
+
+기존 R1~R10 외에 다음 본질 정책 검증:
+
+| 룰 | 패턴 | 임계값 | 처분 |
+|---|---|---|---|
+| R11 | 6단계 narrative — 요점별 [hook/question/scripture/read/word_explain/bridge] 6 슬롯 | < 6 | MED → script 재호출 |
+| R12 | 결론에 집교 본 주차 삽화 (이미지 임베드 + 해설 단락) | 0건 | MED → script + illustration-finder 재호출 |
+| R13 | 결론에 서론 콜백 (서론 예·질문 키워드 매칭) | 0건 | MED → script 재호출 |
+
+검증 방법:
+- R11: script.md 의 각 요점 단락 안에 6 슬롯이 명시 (단락 헤더 또는 시간 마커로 구분)
+- R12: script.md 의 결론 단락에 `conclusion_image.jpg` 또는 `mwb26` 이미지 참조 + 해설 단락 ≥ 50자
+- R13: script.md 의 서론과 결론 단락에 키워드 매칭 (서론에서 던진 예·질문 명사가 결론에도 등장)
+
+메모리: `feedback_speech_six_step_narrative.md`, `feedback_planner_no_writing.md`, `feedback_research_breadth.md`.

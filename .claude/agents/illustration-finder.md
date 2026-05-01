@@ -692,3 +692,26 @@ PyMuPDF (fitz) 설치 필요. 페이지 인덱스 알아낸 후 해당 페이지
 ### WOL 시드 이미지 자동 다운로드 (Phase E 의무)
 
 `download_image.py` 로 자동 다운로드 — silent skip 차단. 정책: `~/Claude/Projects/Congregation/.claude/shared/quality-monotonic-policy.md` Phase E.
+
+### 🎯 결론용 집교 삽화 의무 (2026-05-01 원준님 직접)
+
+10분 연설의 결론은 **집교 본 주차 삽화 활용** 이 의무. 다음 산출:
+
+1. **집교 본 주차 삽화 다운로드** — 본 주차 mwb (집회 교재) 4면 삽화 URL
+   - WOL 본 주차 페이지에서 mwb26/2026/{주차} 이미지 추출
+   - `download_image.py` 로 자동 다운로드
+   - 산출 위치: `research-illustration/{주차}/conclusion_image.jpg`
+2. **삽화 해설 자료** — 삽화에 3 요점이 어떻게 녹아 있는지 분석
+   - 산출 위치: `research-illustration/{주차}/conclusion_image_meaning.md`
+   - 내용: 삽화 묘사 + 요점 1·2·3 별 매핑 + 배울 점
+
+### 🎯 풍부 후보 베이스라인 (2026-05-01 원준님 직접)
+
+요점당 흥미 유발 예 후보 ≥ 2개 + 결론 집교 삽화 1장 + 보조 일상 비유 후보. 부족 시 planner ③ 단계가 재호출.
+
+베이스라인:
+- 흥미 유발 예 후보 ≥ 6개 (요점당 2~3개)
+- 결론 집교 삽화 ≥ 1장 + 해설 자료
+- 본문 떠받침 자격 표시 의무 (`supports_main_paragraph` 필드)
+
+메모리: `feedback_research_breadth.md`, `feedback_speech_six_step_narrative.md`.
