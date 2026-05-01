@@ -60,3 +60,22 @@
 
 **status: PASS**
 **Phase E 시드 이미지: PASS**
+
+---
+
+## 🔴 종료 블록 (2026-05-01 보강)
+
+본 보강은 새 본질 정책 (2026-05-01) — 외부 14축 본문 침입 0건 / 예 자리도 권장 0 / 일상 비유 권장 — 에 맞춰 illustration-finder 를 재호출한 결과이다.
+
+- [x] 결론용 집교 본 주차 삽화 다운로드 + 해설 자료 작성
+  - 다운로드: `/Users/brandon/Claude/Projects/Congregation/research-illustration/260514/conclusion_image.jpg` (162,866 bytes)
+  - 해설: `/Users/brandon/Claude/Projects/Congregation/research-illustration/260514/conclusion_image_meaning.md` (장면 묘사 + 요점 1·2·3 매핑 + 배울 점 3개 + 결론 멘트 활용 예)
+- [x] 일상 비유 흥미 유발 예 ≥ 6개 (요점당 2개 이상) — **실제 9개 / 요점당 3개**
+  - 통합 파일: `/Users/brandon/Claude/Projects/Congregation/research-illustration/260514/daily_metaphors.md`
+  - 분포: 요점 1 (사 60:1·2) 3개 — 정전 등불 / 산속 일출 / 새벽 안개 / 요점 2 (사 60:11) 3개 — 약혼 → 결혼 / 씨앗 → 열매 / 책 시리즈 / 요점 3 (갈 4:26) 3개 — 어머니 품 / 가족 식탁 / 모교
+- [x] 외부 14축 후보 4 (cyrus-cylinder · jerusalem-rebuild · partial-fulfillment · starlight-time) 는 본 정책으로 사용 안 함 — 일상 비유로 대체
+  - 4개 파일은 보존하되 본문·예 자리 둘 다 사용 0 (히스토리 참고용 only). daily_metaphors.md §"외부 14축 후보 4개 처분" 참조.
+- [x] 모든 신규 후보 메타 표시 (supports_main_paragraph / where_to_place / axis 일상)
+  - 각 후보 9개에 5축 메타 (supports_main_paragraph · where_to_place · non_other_religion · fact_verified · axis="일상") 모두 명시. daily_metaphors.md §메타 요약 표 참조.
+
+**status (2026-05-01 보강): PASS**
