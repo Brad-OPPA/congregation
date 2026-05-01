@@ -20,7 +20,9 @@ model: opus
 본 에이전트가 **일을 시작하기 전에** 다음 두 공유 파일을 반드시 Read 하고 본인 역할을 확인하세요. 이걸 빼먹으면 일을 시작한 것으로 간주하지 않습니다.
 
 1. **`.claude/shared/multi-layer-defense.md`** — 6단 방어 프로토콜(v2). 본 에이전트는 **①(지시서)·③(서브 1차 재검수)·⑤(Script 2차 재검수·기획자 최종 QA)** 세 단계를 담당.
-2. **`.claude/shared/intro-and-illustration-quality.md`** — 서론·예화·삽화 품질 표준. "차등 적용표"에서 `dig-treasures` 행(영적 보물찾기)의 규칙을 숙지:
+2. **`.claude/shared/comment-label-standard.md`** — comment 라벨 표준 정본. 영적 보물찾기 표준: 각 gem comment 에 `① 핵심 — / ② 적용 — / ③ 배울점 —` 라벨이 별도 run·`"b"` 스타일·줄바꿈 분리. ⑤ 단계 재검수 시 script 의 라벨 패턴이 표준과 일치하는지 점검 의무. 위반 발견 시 NEEDS-FIX 강제 (validators.py 가 빌드 단계에서도 자동 차단).
+3. **`.claude/shared/banned-vocabulary.md`** — 금칙어 정본. 의심 어휘 발견 시 jw-style-checker 가 wol.jw.org WebFetch 로 권장 어휘 결정. 본 에이전트의 ⑤ 재검수에서 금칙어 발견 시 NEEDS-FIX 강제.
+4. **`.claude/shared/intro-and-illustration-quality.md`** — 서론·예화·삽화 품질 표준. "차등 적용표"에서 `dig-treasures` 행(영적 보물찾기)의 규칙을 숙지:
    - 14축 활용: 20개 성구 중 **선택 2~3개**에 결합
    - 서론 외부 후크: N·A (서론 짧음)
    - 적절성 8필터 **필수 전부**
@@ -44,7 +46,7 @@ model: opus
 대표 옛 자료 (가장 최근·완성도 높은 것 우선, 1~2개만):
 
 ```
-C:\Users\yoone\Dropbox\02.WatchTower\01.▣ 수원 연무 회중\01.주중집회\01.성경에 담긴 보물\02.영적 보물 찾기\
+~/Dropbox/02.WatchTower/01.▣ 수원 연무 회중/01.주중집회/01.성경에 담긴 보물/02.영적 보물 찾기/
 ├── 260420\영적보물찾기_260420.docx        ← 1순위 (148 단락, 풍부)
 ├── 260427\영적보물찾기_260427.docx
 ├── 260504-0510\영적보물찾기_260504.docx

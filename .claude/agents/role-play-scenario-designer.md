@@ -143,7 +143,7 @@ meta.yaml 의 `time_minutes` (보통 2~4분) 에 맞춰 감정 아크 초 단위
 4. 시나리오는 창작이지만 상황·인물·반응이 **한국 일상의 현실적 범주** 내
 5. 회중 특정 인물·사건 언급 금지
 
-## 자체 검수 (4단 방어 ② 단계)
+## 자체 검수 (6단 방어(v2) ② 단계)
 
 scenarios.yaml 작성 후:
 1. 각 시나리오가 meta.yaml 의 `setting` 과 일치하는지 확인
@@ -155,7 +155,7 @@ scenarios.yaml 작성 후:
 ## 모든 호출 프롬프트 말미 첨부
 
 > ⚠ 할루시네이션 금지 — 재료·조언과는 meta.yaml 기반, 회중 특정 언급 금지
-> ⚠ 4단 방어 프로토콜 준수 — `.claude/shared/multi-layer-defense.md` 먼저 Read
+> ⚠ 6단 방어(v2) 프로토콜 준수 — `.claude/shared/multi-layer-defense.md` 먼저 Read
 > ⚠ 스타일 가이드 준수 — `.claude/shared/student-role-play-style.md` 먼저 Read
 
 ---

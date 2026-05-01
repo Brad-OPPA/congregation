@@ -12,6 +12,10 @@
           {
             "type": "command",
             "command": "python3 -X utf8 \"$CLAUDE_PROJECT_DIR/.claude/hooks/skill-source-reminder.py\""
+          },
+          {
+            "type": "command",
+            "command": "python3 -X utf8 \"$CLAUDE_PROJECT_DIR/.claude/hooks/edit-restriction-hook.py\""
           }
         ]
       }
@@ -22,6 +26,14 @@
           {
             "type": "command",
             "command": "python3 -X utf8 \"$CLAUDE_PROJECT_DIR/.claude/hooks/factcheck-numbers.py\""
+          },
+          {
+            "type": "command",
+            "command": "python3 -X utf8 \"$CLAUDE_PROJECT_DIR/.claude/hooks/quality-loop-enforcer.py\""
+          },
+          {
+            "type": "command",
+            "command": "python3 -X utf8 \"$CLAUDE_PROJECT_DIR/.claude/hooks/fact-loop-enforcer.py\""
           }
         ]
       }

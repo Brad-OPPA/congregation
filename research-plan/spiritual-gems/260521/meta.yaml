@@ -1,0 +1,234 @@
+week_date: 260521
+week_label: "2026-05-18 ~ 2026-05-24"
+meeting_date: 2026-05-21
+part_type: spiritual_gems
+bible_reading_range: "이사야 62-64장"
+headline_scripture: "이사야 63:9; 64:8"  # 10분 연설 표어 성구
+ten_min_talk_title: "사랑 많고 동정심이 풍부한 도공"
+speaker_label: "OO 형제"
+speaker_qualification: "elder_or_ms"
+time_minutes: 10
+
+# === 공식 질문 2개 (wol verbatim — 절대 변경 X) ===
+official_questions:
+  - number: 1
+    text: "이사야 63:10은 여호와의 참을성에 대해 무엇을 알려 줍니까?"
+    scripture_read: "이사야 63:10"
+    scripture_read_extended: "이사야 63:7-10"  # 사회자 재량 — 7-9 함께 낭독 권장
+    reference: "「통」 \"자비\" 12항"
+    reference_url: "https://wol.jw.org/ko/wol/d/r8/lp-ko/1200002994"
+    target_seconds: 240
+    expected_answers_count: 4
+  - number: 2
+    text: "이번 주 성경 읽기를 통해 어떤 영적 보물을 발견했습니까?"
+    scripture_read: null  # 일반 보물 나누기 질문 — 사회자가 1순위 카드로 사 64:8 준비
+    primary_card_scripture: "이사야 64:8"
+    reference: null
+    reference_url: null
+    target_seconds: 270
+    backup_cards_count: 5  # §3 보강 멘트 카드 A-E
+
+# === 낭독 성구 ===
+scripture_reads:
+  - ref: "이사야 63:10"
+    read_aloud: true
+    role: "official_question_1"
+  - ref: "이사야 63:7-9"
+    read_aloud: true
+    role: "context_for_q1"
+    optional: true
+  - ref: "이사야 64:8"
+    read_aloud: true
+    role: "primary_backup_card_q2"
+
+# === 참조 출판물 ===
+references:
+  - title: "「통찰」 \"자비\" 12항"
+    url: "https://wol.jw.org/ko/wol/d/r8/lp-ko/1200002994"
+    role: "wol_official_reference"
+  - title: "「파수대」 2016년 6월호 6-10면 \"여호와—우리를 빚으시는 분\""
+    url: "https://wol.jw.org/ko/wol/d/r8/lp-ko/2016442"
+    role: "supporting_for_q2_card_C"
+  - title: "신세계역 연구용 이사야 62장"
+    url: "https://wol.jw.org/ko/wol/b/r8/lp-ko/nwtsty/23/62"
+    role: "scripture_text"
+  - title: "신세계역 연구용 이사야 63장"
+    url: "https://wol.jw.org/ko/wol/b/r8/lp-ko/nwtsty/23/63"
+    role: "scripture_text"
+  - title: "신세계역 연구용 이사야 64장"
+    url: "https://wol.jw.org/ko/wol/b/r8/lp-ko/nwtsty/23/64"
+    role: "scripture_text"
+
+# === 20개 성구 후보 (script 가 본문에 사용) ===
+selected_gems:
+  - {n: 1,  ref: "사 62:1",     theme: "시온의 의가 빛날 때까지 잠잠치 않으심"}
+  - {n: 2,  ref: "사 62:2",     theme: "여호와의 입으로 새 이름 받음"}
+  - {n: 3,  ref: "사 62:3",     theme: "여호와 손의 아름다운 면류관"}
+  - {n: 4,  ref: "사 62:4",     theme: "버림받은 → 나의 기쁨이 그 여자에게"}
+  - {n: 5,  ref: "사 62:6, 7",  theme: "잠잠치 않는 파수꾼들"}
+  - {n: 6,  ref: "사 62:10",    theme: "백성을 위해 큰길을 돋우라"}
+  - {n: 7,  ref: "사 62:11, 12", theme: "딸 시온 — 그리워 찾는 도시"}
+  - {n: 8,  ref: "사 63:7",     theme: "충성스러운 사랑(헤세드)의 행적"}
+  - {n: 9,  ref: "사 63:8",     theme: "충성을 버리지 않을 아들들 신뢰"}
+  - {n: 10, ref: "사 63:9",     theme: "백성의 고통에 함께 고통하시는 분"}
+  - {n: 11, ref: "사 63:10",    theme: "성령을 근심하게 함 — 자비의 한계", priority: "official_q1"}
+  - {n: 12, ref: "사 63:11-14", theme: "출애굽 회상 — 거센 물결 통과"}
+  - {n: 13, ref: "사 63:15",    theme: "당신의 동정심이 어디 있습니까 호소"}
+  - {n: 14, ref: "사 63:16",    theme: "여호와는 우리의 아버지"}
+  - {n: 15, ref: "사 63:17",    theme: "방황하게 두지 마십시오 회개 호소"}
+  - {n: 16, ref: "사 64:1",     theme: "하늘을 찢고 내려오셔서 — 강력 개입 갈망"}
+  - {n: 17, ref: "사 64:4",     theme: "기다리는 자를 위해 행동하시는 유일한 분"}
+  - {n: 18, ref: "사 64:6",     theme: "의로운 행동조차 월경 천 같다 — 자기 의의 한계"}
+  - {n: 19, ref: "사 64:8",     theme: "도공이신 아버지·우리는 진흙", priority: "10min_headline + q2_primary_card"}
+  - {n: 20, ref: "사 64:9",     theme: "잘못을 영원히 기억하지 마십시오"}
+
+selected_gems_count: 20
+official_q1_gem_index: 11
+q2_primary_card_gem_index: 19
+
+# === 6단 방어 ① — 서브 리서처 지시서 ===
+instructions_to_subresearchers:
+
+  scripture-deep: |
+    [공통 의무 — 모든 서브 공통]
+    - `.claude/shared/multi-layer-defense.md` Read · 본인 ② 단계 확인
+    - `.claude/shared/intro-and-illustration-quality.md` Read
+    - 차등 적용표 dig-treasures 행 발췌:
+      "14축 활용: 20개 성구 중 선택 2~3개에 결합 / 서론 외부 후크 N·A /
+       요점당 예화 선택 (성구당 짧은 해설) / 삽화 N·A /
+       적절성 8필터 필수 전부 / 최근 10년 출판물 회피 N·A"
+    - 산출물 최상단 🟢 착수 블록 복사·체크. 완료 시 `_selfcheck.md` 🔴 종료 블록 PASS/FAIL.
+    - FAIL 있으면 자체 재작업 (2회 한도).
+    - 호출자 접두사: 파일명 prefix 로 `gems_` 사용 (예: gems_sa-63-10.md, gems_sa-64-8.md).
+
+    [중점]
+    이 주차 핵심 성구 3개 — 사 63:10 (★공식 질문 1) / 사 64:8 (★보물 나누기 1순위 카드)
+    + 보조: 사 63:7-9 (참을성 맥락) · 사 63:16 (아버지 호칭)
+    중점 항목:
+      1. 사 63:10 — "성령을 근심하게 했다" 의 히브리어 「야아체부」(아차브) 어원 + NWT 연구 노트
+         · 「통찰」 "자비" 12항 발췌 (자비의 한계)
+         · 교차 성구: 엡 4:30, 시 78:40-42
+      2. 사 64:8 — 도공(요체르)·진흙(호메르) 어원 + 고대 근동 도공 비유 배경 (보조 14축 #6 고고학·유물 결합 1단락)
+         · 「파수대」 2016/6월호 6-10면 "여호와—우리를 빚으시는 분" 발췌
+         · 교차 성구: 렘 18:1-6 (도공의 집), 롬 9:20, 21
+      3. 사 63:7 헤세드 + 사 63:9 동정심(라카밈) 어원 (간략)
+    피하기:
+      - 다른 장의 성구 끌어오기 (사 62-64장 범위 엄수)
+      - 비증인 학자 견해를 권위로 인용 (8필터 #8)
+      - 진화론·도공의 진화 가설 같은 표현 (8필터 #1)
+    저장: `research-bible/260521/gems_*.md`
+
+  publication-cross-ref: |
+    [공통 의무 — 위 scripture-deep 와 동일 (생략)]
+    호출자 접두사: `gems_`
+
+    [중점]
+    주제 키워드: '여호와의 참을성', '성령을 근심하게', '자비의 한계', '도공·진흙', '아버지로서의 여호와'
+    우선 검색 범위:
+      - 「통찰」 자비 (12항 ★ wol 공식 참조), 인내, 영, 도공, 도공의 그릇, 아버지
+      - 「파수대」 연구용 2016-2025 (특히 2016/6월호 "여호와—우리를 빚으시는 분" 6-10면 ★ 핵심)
+      - 「예수 — 길, 진리, 생명」, 「여호와께 가까이 가십시오」 (해당 장)
+      - 「깨어라!」 무관 — 영적 보물찾기는 거의 사용 X
+    각 핵심 성구당 「파」·「통」·「하」·「예-1」 인용 3~5개 충분.
+    호수·면·URL 4요소 필수 — 가짜 docid 만들지 말 것.
+    피하기:
+      - 외국어판·영문판 직접 인용 (한국어판 기준)
+      - "「파수대」 ○○ 시리즈 기사들" 같은 모호한 집단 인용 (CLAUDE.md §1)
+      - 존재하지 않는 책·기사 만들어내기
+    저장: `research-topic/260521/gems_*.md`
+
+  application-builder: |
+    [공통 의무 — 동일 (생략)]
+    호출자 접두사: `gems_`
+
+    [중점]
+    20개 성구마다 4축 적용 카드 1세트 (가정·직장/학교·회중·개인 영성).
+    특히 우선순위:
+      - 사 63:10 (질문 1): 회중·개인 영성 축 강조 — "오늘 내가 영을 근심하게 하지 않았는가" 자기점검
+      - 사 64:8 (질문 2 카드): 가정·개인 영성 축 강조 — "여호와의 손에 빚어지기 쉬운 부드러운 진흙"
+      - 사 62:6, 7: 야외 봉사 축 — "잠잠치 않는 파수꾼" 끈기
+      - 사 62:10: 야외 봉사 축 — "큰길을 돋우라" 적극성
+    자기점검 질문 1~2개 / 카드.
+    피하기:
+      - 정치·국가 관련 예시 (8필터 #2)
+      - 회중 특정 인물·실명 언급
+      - 논쟁적 현대 사안 (낙태·동성애 등) 강하게 다루기 (8필터 #7)
+    저장: `research-application/260521/gems_*.md`
+
+  experience-collector: |
+    [공통 의무 — 동일 (생략)]
+    호출자 접두사: `gems_`
+
+    [중점]
+    영적 보물찾기는 경험담 사용이 적음 — 그러나 사회자 보강 멘트에서 1~2개 사용 가능.
+    주제: 여호와께 빚어진 경험·시련 중 함께 고통하시는 여호와 체험.
+    출처: 연감·파수대 연구용·JW 방송 2020-2025.
+    수집은 2~3개로 충분.
+    피하기:
+      - 실명 공개된 아동
+      - 검증 불가 전승·도시전설 (8필터 #5)
+      - 외부 비증인 미디어 경험담 (예: 일반 자기계발서)
+    저장: `research-experience/260521/gems_*.md` (선택)
+
+  illustration-finder: |
+    [공통 의무 — 동일 (생략)]
+    호출자 접두사: `gems_`
+
+    [중점]
+    영적 보물찾기는 docx 에 이미지 임베드 X (slot 이미지 카운트 0).
+    그러나 사회자가 사 64:8 도공 비유 설명 시 짧은 비유 표현으로 사용할 수 있는 후보 1~2개.
+    예: 고대 근동 도공 작업장 묘사·라기스·예루살렘 도자기 발굴 같은 14축 #6 (고고학·유물) 결합.
+    [추가 책무]: 도입에 맞는 짧은 비유 후보도 함께 수집 (intro_image_candidates.json — 사용 안 해도 자료로 보존).
+    피하기:
+      - 종교 도상 (외부 종교화·이콘 등 절대 X)
+      - 회중 특정 인물·실명 언급
+    저장: `research-illustration/260521/gems_*.md` + (선택) `intro_image_candidates.json`
+
+# === 산출물 디렉터리 매핑 ===
+research_dirs:
+  bible: research-bible/260521/
+  topic: research-topic/260521/
+  application: research-application/260521/
+  experience: research-experience/260521/
+  illustration: research-illustration/260521/
+
+# === 특수 주간 플래그 ===
+special_week_flags:
+  circuit_overseer_week: false
+  convention_week: false
+  memorial_week: false
+
+# === 출처 ===
+source:
+  wol_week_index: "https://wol.jw.org/ko/wol/dt/r8/lp-ko/2026/5/18"
+  meeting_page: "https://wol.jw.org/ko/wol/meetings/r8/lp-ko/202026/18"
+  generated_at: 2026-05-01
+
+# === 품질 단조 증가 정책 (slot=영적 보물찾기) ===
+quality_floor:
+  char_count_min: 7500
+  scripture_count_min: 50
+  publication_quote_min: 10
+  external_14axes_min: 2
+  structure_required: "20성구 × 3항 (핵심·적용·배울점)"
+  time_marker_required: false  # N·A — 영적 보물찾기는 청중 응답 시간 가변
+  image_count: 0
+
+# === 6단 방어 게이트 매핑 ===
+defense_gates:
+  stage_1_planner_brief: "이 meta.yaml — instructions_to_subresearchers 키"
+  stage_2_sub_selfcheck: "research-*/260521/_selfcheck.md (각 서브)"
+  stage_3_planner_review_research: "research-plan/spiritual-gems/260521/_planner_review.md"
+  stage_4_script_selfcheck: "research-plan/spiritual-gems/260521/_selfcheck.md"
+  stage_5_planner_final_review: "research-plan/spiritual-gems/260521/_planner_final_review.md"
+  stage_6_audit:
+    fact: research-factcheck/260521/
+    style: research-style/260521/
+    timing: "N·A (영적 보물찾기는 timing-auditor 적용 X)"
+    quality_monotonic: research-quality/260521/
+
+batch_context:
+  from_batch: true
+  batch_skill: "mid-study2"
+  batch_mode: "next2"
+  build_action: "new"  # 신규 빌드

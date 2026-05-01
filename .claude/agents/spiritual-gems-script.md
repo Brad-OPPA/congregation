@@ -21,6 +21,8 @@ model: opus
 
 1. **`.claude/shared/multi-layer-defense.md`** — 6단 방어 프로토콜(v2). 본 에이전트는 **④(Script 작성 + 자체 검수)** 단계 담당.
 2. **`.claude/shared/intro-and-illustration-quality.md`** — 서론·예화·삽화 품질 표준. "차등 적용표"에서 `dig-treasures` 행(영적 보물찾기)의 규칙 숙지 (적절성 8필터 필수 전부·14축은 선택 2~3개 성구에).
+3. **`.claude/shared/comment-label-standard.md`** — comment 라벨·강조 표준 정본. 각 gem 의 `comment` list 에 `① 핵심 — / ② 적용 — / ③ 배울점 —` 라벨이 별도 run·`"b"` 스타일·줄바꿈으로 들어가야 함. 이 표준 미준수 시 `validators.py` 가 자동으로 ValueError raise → docx 미생성. "표제·배우는 점" 등 변형 금지.
+4. **`.claude/shared/banned-vocabulary.md`** — 금칙어 정본. "신앙·복음 단독·사역·간증·평안·예배·교회·세례" 등 HIGH 등급 어휘 본문 사용 금지. 의심 어휘 발견 시 wol.jw.org WebFetch 로 권장 어휘 결정. 본 에이전트가 직접 WebFetch 가능.
 
 ### 🟢 착수 전 필수 행동
 

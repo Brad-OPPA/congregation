@@ -54,6 +54,7 @@ print(compare_quality(new, prev, SLOT_FLOOR['${SLOT}']))
 | G. 깊이 단락 (어원·고고학·과학) | 직전 동등 | MED |
 | **H. 이미지·삽화** ← 신규 | ≥ 직전 AND ≥ 절대 하한 (10분·CBS ≥ 1) | **HIGH** |
 | **I. 구성 표준** ← 신규 | 슬롯별 narrative 단계·블록 수 | MED |
+| **J. 라벨 포맷 일관성** ← Phase E 신규 (2026-05-01) | `comment-label-standard.md` 정본의 슬롯별 라벨 패턴과 100% 일치 (영보: ① 핵심·② 적용·③ 배울점 모두 `"b"` 스타일·별도 run·줄바꿈). validators.py 가 1차 차단. 본 검사는 직전 주차와 라벨 패턴 변화 없는지 비교. | **HIGH** |
 
 > **Phase E fact ↔ quality cross-reference**: fact-checker 가 docid 404 등 fake 출판 인용 제거 권고 시, quality 의 C 축은 MED 등급으로만 — 자동 재작성 강제 안 함. 단 정확한 docid 의 새 출판 인용으로 대체 권고 (script 재작성 prompt 에 명시).
 >

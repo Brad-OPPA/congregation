@@ -151,7 +151,7 @@ python send_weekly_mail.py --auto --subject-prefix "[정정] " --notice "정정 
 ### 6. congregation/ 리서치 자료 git 커밋
 
 ```bash
-cd "/mnt/c/Users/yoone/Dropbox/ClaudeFile/Congregation"
+cd ~/Claude/Projects/Congregation
 git add research-wol/ research-bible/ research-illustration/ \
         research-experience/ research-application/ research-qa/ \
         research-style/ research-timing/ research-topic/ \

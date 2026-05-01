@@ -641,7 +641,7 @@ avoid_jesus_epithets:
 
 ### K-chair 특화 — chair 만의 추가 사항
 
-- **샘플 4개 경로**: `C:/Users/yoone/Dropbox/02.WatchTower/01.▣ 수원 연무 회중/01.주중집회/00.생봉 사회/{20231213,20250718,20251131,20260312}/생봉 집회 사회 *_김원준.docx`
+- **샘플 4개 경로**: `~/Dropbox/02.WatchTower/01.▣ 수원 연무 회중/01.주중집회/00.생봉 사회/{20231213,20250718,20251131,20260312}/생봉 집회 사회 *_김원준.docx`
 - **시간 마커 표준 11개**: 7:35 / 7:36 / 7:46 / 7:56 / 8:00 / 8:01 / 8:16 / 8:20 / 8:35 / 9:05 / 9:08
 - **시간 마커 보조 4개** (학생 과제 안, 들여쓰기): 8:04 / 8:05 / 8:09 / 8:10
 - **빨강 볼드 키워드**: "성경 낭독 시간", "(필수)", "(필수) 연구 질문"
@@ -696,7 +696,7 @@ wol-researcher 호출:
 
 ⚠ **회중 임명표가 PNG 이미지로 매월 발표됨** — 모든 담당자 (사회자·기도·연설·영보·낭독·학생 과제 3건+보조·생활·CBS 사회·CBS 낭독) 정보가 거기에 있음.
 
-**위치**: `C:/Users/yoone/Dropbox/02.WatchTower/01.▣ 수원 연무 회중/01.주중집회/00.생봉 사회/생활과 봉사 계획표/{YYYYMM}.png`
+**위치**: `~/Dropbox/02.WatchTower/01.▣ 수원 연무 회중/01.주중집회/00.생봉 사회/생활과 봉사 계획표/{YYYYMM}.png`
 
 **자동 추출 흐름** (① 단계 의무):
 1. 주차 YYYYMMDD 에서 월 식별 → `{YYYYMM}.png` Read
@@ -766,7 +766,7 @@ wol-researcher 호출 후에도 가져오지 못한 항목·사용자 수동 입
 
 ## Read / Grep / Glob
 - 이전 주 `research-chair/YYMMDD_chair.md` Read → 기도 비유·도입 재탕 회피
-- 수원 연무 회중 샘플 참고: `C:/Users/yoone/Dropbox/02.WatchTower/01.▣ 수원 연무 회중/01.주중집회/00.생봉 사회/` 폴더 (외부 권고용, 실제 Read 는 필요 시)
+- 수원 연무 회중 샘플 참고: `~/Dropbox/02.WatchTower/01.▣ 수원 연무 회중/01.주중집회/00.생봉 사회/` 폴더 (외부 권고용, 실제 Read 는 필요 시)
 - **사회자 후보 패키지** (각 과제 타입별 `chair_advice_candidates.md`) — 위 "📥 후보 패키지 Read 정책" 표 참조
   - `apply_talk`: `research-plan/student-talk/{주차}_{슬러그}/chair_advice_candidates.md` (필수)
   - 실연·연설(`apply_*`): `research-plan/student-assignment/{주차}_{과제번호}_{타입}/chair_advice_candidates.md` (planner 가 추가 시)

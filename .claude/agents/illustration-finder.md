@@ -625,7 +625,7 @@ JW 출판물에 실린 고고학/과학 예시를 쓸 땐 반드시 외부 1차 
 본 에이전트가 시각 자료를 찾을 때 **public-talk-script 가 그대로 .md 에 붙여넣을 수 있는 임베드 라인** 까지 산출:
 
 ```markdown
-![{캡션 — 짧고 강의 흐름에 맞춤}](C:\Users\yoone\Dropbox\ClaudeFile\Congregation\research-illustration\publictalk_{NNN}\images_outline\{파일명}.jpg)
+![{캡션 — 짧고 강의 흐름에 맞춤}](~/Dropbox/ClaudeFile/Congregation/research-illustration/publictalk_{NNN}/images_outline/{파일명}.jpg)
 ```
 
 - 슬롯 번호별 어느 요점·어느 단계의 어느 위치(앞·중·뒤) 인지 명시
@@ -646,8 +646,7 @@ public-talk-script 는 이 파일을 Read 해서 그대로 .md 에 임베드. **
 
 S-34_KO.pdf 에서 강연 번호별 페이지 검색 → 페이지 안 이미지 추출:
 ```bash
-PYWIN="/mnt/c/Users/yoone/AppData/Local/Programs/Python/Python310/python.exe"
-"$PYWIN" -c "import fitz; doc=fitz.open(r'경로/S-34_KO.pdf'); [print(i) for i,p in enumerate(doc) if '{NNN}번' in p.get_text()]"
+python3 -c "import fitz; doc=fitz.open(r'경로/S-34_KO.pdf'); [print(i) for i,p in enumerate(doc) if '{NNN}번' in p.get_text()]"
 ```
 
 PyMuPDF (fitz) 설치 필요. 페이지 인덱스 알아낸 후 해당 페이지 이미지를 PyMuPDF `.get_images()` / `extract_image()` 로 추출. 또는 단순 페이지 스크린샷도 OK (`page.get_pixmap()`). 추출한 이미지는 `images_outline_official/` 하위 폴더에 `outline_slot{N}_{주제}.jpg` 형식 저장.

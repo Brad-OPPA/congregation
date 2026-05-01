@@ -37,6 +37,21 @@ FAIL 시 자동 재작성 무한 루프 (5회 한도). 사용자 검수 의존 0
 ## 인자 규약
 `now|next1|next2|next3`
 
+## 📐 라벨·강조 표준 (정본: `.claude/shared/comment-label-standard.md`)
+
+각 gem 의 `comment` list 는 **반드시** 다음 3개 라벨을 별도 run 으로 포함:
+
+```python
+["① 핵심 — ", "b"], ... , ["\n② 적용 — ", "b"], ... , ["\n③ 배울점 — ", "b"], ...
+```
+
+- 라벨 용어: **핵심·적용·배울점** ("표제·배우는 점·핵심내용" 등 변형 금지)
+- 번호 ①·②·③ 필수 / "—" em dash 뒤 공백 1개 / ②·③ 앞 `\n` / 스타일 `"b"` (라벨에 `"yb"` 노랑 강조 X)
+- 노랑 강조 (`"yb"`): 단락당 1-2개 핵심 구문만, verbatim 인용 미터치
+- `validators.py` 가 자동 검증 — 위반 시 docx 미생성
+
+세부: `.claude/shared/comment-label-standard.md`
+
 ## ⚠ WOL-first 수집 규칙
 1. 주차 인덱스: `https://wol.jw.org/ko/wol/dt/r8/lp-ko/YYYY/M/D`
 2. "영적 보물 찾기" 섹션 href 따라갈 것. 공식 질문·참조·성구 매주 바뀜.
@@ -54,7 +69,7 @@ FAIL 시 자동 재작성 무한 루프 (5회 한도). 사용자 검수 의존 0
 jw.org 공개 자료, 장문 verbatim 허용.
 
 ## 저장 위치
-베이스: `C:\Users\yoone\Dropbox\02.WatchTower\01.▣ 수원 연무 회중\01.주중집회\01.성경에 담긴 보물\02.영적 보물 찾기\YYMMDD_M월 D-D일\`
+베이스: `~/Dropbox/02.WatchTower/01.▣ 수원 연무 회중/01.주중집회/01.성경에 담긴 보물/02.영적 보물 찾기/YYMMDD-MMDD/`
 파일명: `영적 보물 찾기_YYMMDD.docx`
 
 ## 포맷
@@ -184,7 +199,7 @@ script.md Read → 기존 `content_sg_*.py` 템플릿에 맞춰 paragraph/스타
 
 ### 8. docx/PDF 렌더
 ```bash
-cd "C:\Users\yoone\Dropbox\02.WatchTower\01.▣ 수원 연무 회중\_automation"
+cd "~/Claude/Projects/Congregation/_automation"
 python content_sg_YYMMDD.py
 ```
 (build_spiritual_gems.py 가 docx + PDF 동시)

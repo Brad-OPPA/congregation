@@ -1,6 +1,6 @@
 ---
 name: week-study
-description: 주말집회 "파수대 연구 사회" 실전 진행 대본(사회자 실시간 script) 을 **이번 주 + 다음 주 + 다다음 주 3주 분량** 자동 생성한다. WOL.JW.ORG 의 주차 파수대 연구 기사 본문은 물론, 관련 출판물(「통찰」·「파수대」 연구용판 과거호·「예수 — 길, 진리, 생명」·「하느님의 사랑 안에 머무십시오」·「깨어라!」 등)까지 심도있게 조사하여 **수준 높은 해설**이 포함된 사회자 대본 docx + PDF 를 만든다. **6단 방어(v2) 프로토콜(`.claude/shared/multi-layer-defense.md`) + 서론·예화·삽화 품질 표준(`.claude/shared/intro-and-illustration-quality.md`) 준수** — 오프닝 후크와 항별 해설에서 외부 실제 자료(고고학·지형·과학·역사) 를 3~5회 결합해 여호와의 지혜를 드러내고, 적절성 8필터(진화론 긍정·정치·타 종교 교리 긍정·논쟁적 현대 사안 등) 전부 통과. Script 생성 후 watchtower-study-planner 가 기획자 최종 QA(⑤ 단계)로 재검수, 이후 fact-checker + jw-style-checker 최종 감사(⑥). 오프닝(환영·시작 노래·주제·표어 성구) → 각 항별 블록(시간 마커·소제목·질문·본문 요약·깊이있는 해설·사회자 대사·성구 낭독·다음 항 안내) → 복습 → 결론 → 마침 노래·기도 → 최종 시간 마커. 트리거 "/week-study", "파수대 사회 만들어 줘", "파수대 사회자료 자동 생성", "파수대 예습", "파수대 사회 3주치".
+description: 주말집회 "파수대 연구 사회" 실전 진행 대본(사회자 실시간 script) 을 **이번 주 + 다음 주 + 다다음 주 3주 분량** 자동 생성한다. WOL.JW.ORG 의 주차 파수대 연구 기사 본문은 물론, 관련 출판물(「통찰」·「파수대」 연구용판 과거호·「예수 — 길, 진리, 생명」·「하느님의 사랑 안에 머무십시오」·「깨어라!」 등)까지 심도있게 조사하여 **수준 높은 해설**이 포함된 사회자 대본 docx + PDF 를 만든다. **6단 방어(v2) 프로토콜(`.claude/shared/multi-layer-defense.md`) + 서론·예화·삽화 품질 표준(`.claude/shared/intro-and-illustration-quality.md`) 준수** — 오프닝 후크와 항별 해설에서 외부 실제 자료(고고학·지형·과학·역사) 를 3~5회 결합해 여호와의 지혜를 드러내고, 적절성 8필터(진화론 긍정·정치·타 종교 교리 긍정·논쟁적 현대 사안 등) 전부 통과. Script 생성 후 watchtower-study-planner 가 기획자 최종 QA(⑤ 단계)로 재검수, 이후 fact-checker + jw-style-checker + timing-auditor + quality-monotonic-checker 4종 최종 감사(⑥). 오프닝(환영·시작 노래·주제·표어 성구) → 각 항별 블록(시간 마커·소제목·질문·본문 요약·깊이있는 해설·사회자 대사·성구 낭독·다음 항 안내) → 복습 → 결론 → 마침 노래·기도 → 최종 시간 마커. 트리거 "/week-study", "파수대 사회 만들어 줘", "파수대 사회자료 자동 생성", "파수대 예습", "파수대 사회 3주치".
 ---
 
 ## 🛡 품질 단조 증가 (필수, 2026-04-29 도입)
@@ -51,8 +51,8 @@ FAIL 시 자동 재작성 무한 루프 (5회 한도). 사용자 검수 의존 0
 
 **한 줄로 한 주차 생성:**
 ```bash
-cd "C:\Users\yoone\Dropbox\02.WatchTower\01.▣ 수원 연무 회중\_automation"
-"C:\Users\yoone\AppData\Local\Programs\Python\Python310\python.exe" generate_week.py <docid> <YYMMDD> "<폴더라벨>"
+cd "~/Claude/Projects/Congregation/_automation"
+"python3" generate_week.py <docid> <YYMMDD> "<폴더라벨>"
 ```
 예: `generate_week.py 2026283 260426 "4월 20-26일"`
 
@@ -129,7 +129,7 @@ article_id 는 meetings 페이지에서 href 로 확인할 것 (추측 금지).
 ## 🤖 전문 에이전트 투입 원칙 (공통)
 
 - 리서치·원재료 수집 단계는 전문 에이전트에게 위임. Claude 본체가 WebFetch 로 직접 긁지 않는다.
-- 산출물은 공용 폴더 `C:\Users\yoone\Dropbox\congregation\research-*\{YYMMDD}\`.
+- 산출물은 공용 폴더 `~/Dropbox/congregation/research-*/{YYMMDD}/`.
 - 이 스킬은 **10개 에이전트 중 9개가 투입되는 가장 무거운 스킬** (public-talk-builder 만 제외).
 - 3주치 × 각 주 9개 에이전트 구성. 주차별로 독립이므로 주차 간에도 병렬 가능.
 
@@ -155,7 +155,7 @@ article_id 는 meetings 페이지에서 href 로 확인할 것 (추측 금지).
 
 ## 참조 포맷
 
-기준 파일: `C:\Users\yoone\Dropbox\02.WatchTower\w04.이전 회중\01.▣ 수원북부회중\▣ 파수대 사회\20240929\파수대 사회 20240929.docx`
+기준 파일: `~/Dropbox/02.WatchTower/w04.이전 회중/01.▣ 수원북부회중/▣ 파수대 사회/20240929/파수대 사회 20240929.docx`
 
 **핵심 포맷 요소 (빌더 `build_watchtower.py` 가 모두 재현):**
 
@@ -181,7 +181,7 @@ article_id 는 meetings 페이지에서 href 로 확인할 것 (추측 금지).
 
 ## 저장 위치
 
-베이스: `C:\Users\yoone\Dropbox\02.WatchTower\01.▣ 수원 연무 회중\02.주말집회\02.파수대 사회\YYMMDD_M월 D-D일\`
+베이스: `~/Dropbox/02.WatchTower/01.▣ 수원 연무 회중/02.주말집회/02.파수대 사회/YYMMDD-MMDD/`
 
 파일명: **`파수대 사회_YYMMDD.docx`** (+ `.pdf`) (2026-04-25 통일 규칙)
 - 예: `파수대 사회_260426.docx`
@@ -291,8 +291,8 @@ Agent(qa-designer)
 ### 6. 빌드 실행
 
 ```bash
-cd "C:\Users\yoone\Dropbox\02.WatchTower\01.▣ 수원 연무 회중\_automation"
-"C:\Users\yoone\AppData\Local\Programs\Python\Python310\python.exe" content_wt_YYMMDD.py
+cd "~/Claude/Projects/Congregation/_automation"
+"python3" content_wt_YYMMDD.py
 ```
 
 빌더가 docx + PDF 를 자동 생성.
@@ -354,7 +354,7 @@ Agent(timing-auditor)
 - **저작권 고려** — 출판물 장문 verbatim 금지. 핵심 논지·키 표현 중심.
 - **실시간 진행 대본** — 예습 노트가 아니라 **사회자가 집회에서 그대로 읽는 대본**. 문장은 소리 내어 읽었을 때 자연스러워야 함.
 - **질문·번호·ㄱㄴ 표기는 WOL 그대로** — 재구성 금지.
-- Python 인터프리터는 `C:\Users\yoone\AppData\Local\Programs\Python\Python310\python.exe` 사용 (Python 3.14 에는 필수 모듈 미설치).
+- Python 인터프리터는 `python3` 사용 (Python 3.14 에는 필수 모듈 미설치).
 
 
 ---

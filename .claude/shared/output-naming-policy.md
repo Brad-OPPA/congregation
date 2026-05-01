@@ -8,7 +8,7 @@
 
 ## 1. 폴더 구조 (생활과 봉사 집회 공식 순서)
 
-루트: `C:\Users\yoone\Dropbox\02.WatchTower\01.▣ 수원 연무 회중\`
+루트: `~/Dropbox/02.WatchTower/01.▣ 수원 연무 회중/`
 
 ```
 01.주중집회/

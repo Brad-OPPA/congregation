@@ -1,6 +1,6 @@
 ---
 name: local-needs
-description: 주중집회 그리스도인 생활 섹션의 **회중의 필요 (local_needs)** 파트 원고 + 슬라이드를 지정된 주차에 대해 생성한다. 인자 `now|next1|next2|next3` (없으면 대화형). 원준님께 **자유 형식 multi-line 브리프** (주제·핵심 내용·성구·할 수 있는 것/없는 것·격려·분량) 입력 받아 local-needs-planner 가 **브리프 요약 → 7 카테고리 후보 확장(성구·출판물·적용·경험담·예화·문답·삽화) → 7개 서브 리서치 지시서** 작성 → 7개 보조 리서치 병렬(wol-researcher·scripture-deep·publication-cross-ref·illustration-finder·qa-designer·application-builder·experience-collector, 모두 필수) → Planner 1차 재검수 → planner 가 script.md + slides_plan.json + meta.yaml 생성 → Planner 2차 재검수 → slides-builder 로 pptx → `build_local_needs.py --pdf` 로 docx + PDF 렌더 (legacy 모드 기본) → fact-checker·jw-style-checker·timing-auditor 3종 최종 감수. **6단 방어(v2) 프로토콜(`.claude/shared/multi-layer-defense.md`)** 준수. 지부 서신·순회감독자 방문 준비는 범위 제외. 트리거 "/local-needs", "회중의 필요 만들어 줘".
+description: 주중집회 그리스도인 생활 섹션의 **회중의 필요 (local_needs)** 파트 원고 + 슬라이드를 지정된 주차에 대해 생성한다. 인자 `now|next1|next2|next3` (없으면 대화형). 원준님께 **자유 형식 multi-line 브리프** (주제·핵심 내용·성구·할 수 있는 것/없는 것·격려·분량) 입력 받아 local-needs-planner 가 **브리프 요약 → 7 카테고리 후보 확장(성구·출판물·적용·경험담·예화·문답·삽화) → 7개 서브 리서치 지시서** 작성 → 7개 보조 리서치 병렬(wol-researcher·scripture-deep·publication-cross-ref·illustration-finder·qa-designer·application-builder·experience-collector, 모두 필수) → Planner 1차 재검수 → planner 가 script.md + slides_plan.json + meta.yaml 생성 → Planner 2차 재검수 → slides-builder 로 pptx → `build_local_needs.py --pdf` 로 docx + PDF 렌더 (legacy 모드 기본) → fact-checker·jw-style-checker·timing-auditor·quality-monotonic-checker 4종 최종 감수. **6단 방어(v2) 프로토콜(`.claude/shared/multi-layer-defense.md`)** 준수. 지부 서신·순회감독자 방문 준비는 범위 제외. 트리거 "/local-needs", "회중의 필요 만들어 줘".
 ---
 
 ## 🛡 품질 단조 증가 (필수, 2026-04-29 도입)
@@ -97,7 +97,7 @@ planner 는 이 브리프를:
 5. [확인 필요] placeholder 허용
 
 모든 Agent 프롬프트 말미:
-> ⚠ 할루시네이션 금지 / ⚠ 4단 방어 프로토콜 준수
+> ⚠ 할루시네이션 금지 / ⚠ 6단 방어(v2) 프로토콜 준수
 
 ## 📖 저작권
 jw.org 공개 자료, 장문 verbatim 허용 (2026-04-22).
@@ -105,13 +105,13 @@ jw.org 공개 자료, 장문 verbatim 허용 (2026-04-22).
 ## 저장 위치 (정본: output-naming-policy.md §1·§2)
 
 ```
-베이스: C:\Users\yoone\Dropbox\02.WatchTower\01.▣ 수원 연무 회중\01.주중집회\04.회중의 필요\{YYMMDD-MMDD}\
+베이스: ~/Dropbox/02.WatchTower/01.▣ 수원 연무 회중/01.주중집회/04.회중의 필요/{YYMMDD-MMDD}/
 산출물: 회중의 필요_{주제}_YYMMDD.docx
         회중의 필요_{주제}_YYMMDD.pdf      (build_local_needs.py 자동 변환)
         회중의 필요_{주제}_YYMMDD.pptx     (slides-builder 가 별도 작성)
 ```
 
-빌더: `C:\Users\yoone\Dropbox\02.WatchTower\01.▣ 수원 연무 회중\_automation\build_local_needs.py`
+빌더: `~/Claude/Projects/Congregation/_automation\build_local_needs.py`
 - 기본 모드 = `legacy` (원준님 옛 형식 — 평문 산문, 인라인 시간 마커, 노랑 하이라이트 키 구문)
 - 옵션 = `modern` (PASTEL 박스·4축·아이콘 라벨)
 - spec 의 `style` 필드로 분기. 누락 시 legacy.
@@ -127,7 +127,7 @@ jw.org 공개 자료, 장문 verbatim 허용 (2026-04-22).
 `local-needs-planner` 는 진입 직후 다음 두 docx 를 Read 해 형식 패턴을 학습한다.
 
 ```
-C:\Users\yoone\Dropbox\02.WatchTower\01.▣ 수원 연무 회중\01.주중집회\04.회중의 필요\
+~/Dropbox/02.WatchTower/01.▣ 수원 연무 회중/01.주중집회/04.회중의 필요/
 ├── 250328\야외봉사의 목적을 달성하는데 지원하는 방법_김원준20250328.docx
 └── 250516\후대를 나타태십시오_김원준250512.docx
 ```
@@ -332,7 +332,7 @@ python build_local_needs.py spec.py out.docx --pdf
 
    → `회중의 필요_{주제}_YYMMDD.docx` + `.pdf` 자동 생성
 
-### 9. 🤖 단계 ⑥ — 최종 감사 3종 병렬
+### 9. 🤖 단계 ⑥ — 최종 감사 4종 병렬
 
 ```
 Agent(fact-checker) → research-factcheck/{YYMMDD}/factcheck_local_needs.md
@@ -349,7 +349,7 @@ HIGH 1건 이상 → 재빌드 (2회까지).
 ## 개정 이력
 - 2026-04-25 v4 — **6단 방어(v2) + 풍부한 자유 형식 multi-line 브리프 입력** + planner 브리프 요약 의무 + 7개 서브 지시서 템플릿 ([전체 요약]·[너의 역할]·[브리프 발췌]·[출력 형식]) + planner 2차 재검수 체크리스트 (브리프 충실성·격려·할 수 있는 것/없는 것) + 빌더 `--pdf` 명시 + 예시 (야외봉사 앱 + 개인정보 보호법) 본문 포함
 - 2026-04-25 v3 — 원준님 옛 형식 (legacy) 빌더 정정 + §0-bis 옛 자료 참고 + 7개 리서치 (wol·qa 추가) + 7카테고리 확장 + style=legacy 기본 + 분류 (단독 부정기 스킬) 명시
-- 2026-04-24 v2 — 4단 방어 + 주제 확장 5카테고리 + 보조 리서치 5개 필수
+- 2026-04-24 v2 — 6단 방어(v2) + 주제 확장 5카테고리 + 보조 리서치 5개 필수
 - 2026-04-23 v1 — 초안
 
 ---

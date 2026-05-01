@@ -1,6 +1,6 @@
 ---
 name: living-part
-description: 주중집회 **그리스도인 생활 파트 (CBS·회중의필요 제외)** 원고 1건을 지정된 주차에 대해 생성한다. 인자 `now|next1|next2|next3`. **4단 방어 프로토콜(`.claude/shared/multi-layer-defense.md`)** 준수. WOL 에서 subtype 자동 파싱 (living_talk / living_discussion / living_video / living_interview / living_qna 5종). living-part-planner → subtype별 보조 리서치 병렬 → Planner 재검수 → living-part-script → Planner 재검수 → docx → fact-checker·jw-style-checker·timing-auditor 최종 감수. 결과 `그리스도인 생활_{제목}_YYMMDD.docx`. 트리거 "/living-part", "생활 파트 만들어 줘".
+description: 주중집회 **그리스도인 생활 파트 (CBS·회중의필요 제외)** 원고 1건을 지정된 주차에 대해 생성한다. 인자 `now|next1|next2|next3`. **6단 방어(v2) 프로토콜(`.claude/shared/multi-layer-defense.md`)** 준수. WOL 에서 subtype 자동 파싱 (living_talk / living_discussion / living_video / living_interview / living_qna 5종). living-part-planner → subtype별 보조 리서치 병렬 → Planner 재검수 → living-part-script → Planner 재검수 → docx → fact-checker·jw-style-checker·timing-auditor·quality-monotonic-checker 최종 감수. 결과 `그리스도인 생활_{제목}_YYMMDD.docx`. 트리거 "/living-part", "생활 파트 만들어 줘".
 ---
 
 ## 🛡 품질 단조 증가 (필수, 2026-04-29 도입)
@@ -13,7 +13,7 @@ FAIL 시 자동 재작성 무한 루프 (5회 한도). 사용자 검수 의존 0
 
 세부: `.claude/shared/quality-monotonic-policy.md` 참조.
 
-# living-part — 그리스도인 생활 파트 (단일 주차, 4단 방어)
+# living-part — 그리스도인 생활 파트 (단일 주차, 6단 방어(v2))
 
 > **출력 경로·파일명 정본**: `.claude/shared/output-naming-policy.md` (2026-04-25 통일).
 
@@ -25,7 +25,7 @@ FAIL 시 자동 재작성 무한 루프 (5회 한도). 사용자 검수 의존 0
 - subtype 5종 자동 분기:
   - `living_talk` · `living_discussion` · `living_video` · `living_interview` · `living_qna`
 
-## 🛡 품질 원칙 — 4단 방어 프로토콜
+## 🛡 품질 원칙 — 6단 방어(v2) 프로토콜
 `.claude/shared/multi-layer-defense.md` 준수. 실행 전 Read.
 **4단**: ① Planner 지시서 → ② 서브 자체 검수 → ③ Planner 재검수 → ④ 3종 최종 감사
 
@@ -42,16 +42,16 @@ FAIL 시 자동 재작성 무한 루프 (5회 한도). 사용자 검수 의존 0
 공식 출판물 확인분만. `[확인 필요]`. 출처 URL. verbatim. 경험담 게재분만.
 
 모든 Agent 말미:
-> ⚠ 할루시네이션 금지 / ⚠ 4단 방어 프로토콜 준수
+> ⚠ 할루시네이션 금지 / ⚠ 6단 방어(v2) 프로토콜 준수
 
 ## 📖 저작권
 jw.org 공개, 장문 verbatim 허용.
 
 ## 저장 위치
-베이스: `C:\Users\yoone\Dropbox\02.WatchTower\01.▣ 수원 연무 회중\01.주중집회\03.그리스도인 생활\YYMMDD_M월 D-D일\`
+베이스: `~/Dropbox/02.WatchTower/01.▣ 수원 연무 회중/01.주중집회/03.그리스도인 생활/YYMMDD-MMDD/`
 파일명: `그리스도인 생활_{제목}_YYMMDD.docx`
 
-## 실행 단계 (4단 방어)
+## 실행 단계 (6단 방어(v2))
 
 ### 1. 주차 확정 + 파트 선택 (다중 파트면 원준님께 질문)
 
@@ -59,7 +59,7 @@ jw.org 공개, 장문 verbatim 허용.
 
 ```
 Agent(living-part-planner)
-  프롬프트: "{YYMMDD} 생활 파트 '{선택_제목}' 기획 1차 (4단 방어 ①).
+  프롬프트: "{YYMMDD} 생활 파트 '{선택_제목}' 기획 1차 (6단 방어(v2) ①).
   subtype 자동 파싱 (living_talk/living_discussion/living_video/living_interview/living_qna).
 
   수집:
@@ -84,7 +84,7 @@ Agent(living-part-planner)
       - living_interview: experience-collector (인터뷰이 유형 맞는 경험담 패턴)
       - living_qna: publication-cross-ref + application-builder
 
-  ⚠ 할루시네이션 / 4단 방어."
+  ⚠ 할루시네이션 / 6단 방어(v2)."
 ```
 
 ### 3. 🤖 ② — subtype별 보조 리서치 병렬
@@ -96,25 +96,25 @@ Agent(publication-cross-ref)
   프롬프트: "meta.yaml + instructions.publication-cross-ref.
   part_title/subtitle 로 wol 횡단 3-5개 단락 (출처 URL).
   research-topic/{YYMMDD}/cross-ref.md + _selfcheck.md.
-  ⚠ 할루시네이션 / 4단 방어."
+  ⚠ 할루시네이션 / 6단 방어(v2)."
 
 Agent(application-builder)  [living_talk/discussion/qna]
   프롬프트: "meta.yaml + instructions.application-builder.
   주제 실생활 적용 4축 각 2-3개 + 자기점검.
   research-application/{YYMMDD}/ + _selfcheck.md.
-  ⚠ 할루시네이션 / 4단 방어."
+  ⚠ 할루시네이션 / 6단 방어(v2)."
 
 Agent(experience-collector)  [living_talk/interview]
   프롬프트: "meta.yaml + instructions.experience-collector.
   주제 부합 공식 경험담 2-3개 (출처 URL·실명 주의).
   research-experience/{YYMMDD}/ + _selfcheck.md.
-  ⚠ 할루시네이션 / 4단 방어."
+  ⚠ 할루시네이션 / 6단 방어(v2)."
 
 Agent(qa-designer)  [living_discussion]
   프롬프트: "meta.yaml + instructions.qa-designer.
   토의 질문 + 청중 답변 유도 후속 질문 + 예상 답변 골격.
   research-qa/{YYMMDD}/ + _selfcheck.md.
-  ⚠ 할루시네이션 / 4단 방어."
+  ⚠ 할루시네이션 / 6단 방어(v2)."
 ```
 
 ### 4. 🤖 ③ — living-part-planner 재검수
@@ -141,7 +141,7 @@ Agent(living-part-script)
   research-plan/living-part/{YYMMDD}_{슬러그}/script.md.
 
   ② 자체 검수: 모든 인용 원본 재조회, _selfcheck_script.md.
-  ⚠ 할루시네이션 / 4단 방어."
+  ⚠ 할루시네이션 / 6단 방어(v2)."
 ```
 
 ### 6. 🤖 ③ — living-part-planner script 재검수
@@ -160,7 +160,7 @@ python content_living_YYMMDD.py
 ```
 (`build_living_part.py` 추후 작성, subtype 5종 지원)
 
-### 8. 🤖 ④ — 최종 감사 3종 병렬
+### 8. 🤖 ④ — 최종 감사 4종 병렬
 
 ```
 Agent(fact-checker) → research-factcheck/{YYMMDD}/factcheck_living.md
@@ -174,7 +174,7 @@ HIGH 1건 이상 → 재빌드 (2회까지).
 - ③ 재검수 통과 + ④ 감수 카운트
 
 ## 개정 이력
-- 2026-04-24 v2 — 4단 방어 적용
+- 2026-04-24 v2 — 6단 방어(v2) 적용
 - 2026-04-23 v1 — living-part-planner/script 2단 초안
 
 ---

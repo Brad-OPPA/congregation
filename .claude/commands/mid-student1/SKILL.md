@@ -1,6 +1,6 @@
 ---
 name: mid-student1
-description: 주중집회 ③번 "성경 낭독 (bible_reading)" 학생 과제 1건 원고를 지정된 주차에 대해 생성한다. 인자 `now|next1|next2|next3`. **4단 방어 축약형 적용** — 낭독은 구조가 단순해 planner 불필요, script 가 직접 WOL 파싱 + ② 자체 검수 → ④ fact-checker·jw-style-checker·timing-auditor 최종 감사. student-assignment-script 단독 호출로 낭독 본문 verbatim + 강세·쉼 지시·7축 평가 포인트 원고 생성. 남학생 전용 (S-38-KO 11항). 결과 `성경 낭독_YYMMDD.docx`. 트리거 "/mid-student1", "성경 낭독 과제 만들어 줘".
+description: 주중집회 ③번 "성경 낭독 (bible_reading)" 학생 과제 1건 원고를 지정된 주차에 대해 생성한다. 인자 `now|next1|next2|next3`. **6단 방어(v2) 축약형 적용** — 낭독은 구조가 단순해 planner 불필요, script 가 직접 WOL 파싱 + ② 자체 검수 → ④ fact-checker·jw-style-checker·timing-auditor 최종 감사. student-assignment-script 단독 호출로 낭독 본문 verbatim + 강세·쉼 지시·7축 평가 포인트 원고 생성. 남학생 전용 (S-38-KO 11항). 결과 `성경 낭독_YYMMDD.docx`. 트리거 "/mid-student1", "성경 낭독 과제 만들어 줘".
 ---
 
 ## 🛡 품질 단조 증가 (필수, 2026-04-29 도입)
@@ -13,7 +13,7 @@ FAIL 시 자동 재작성 무한 루프 (5회 한도). 사용자 검수 의존 0
 
 세부: `.claude/shared/quality-monotonic-policy.md` 참조.
 
-# mid-student1 — 성경 낭독 학생 과제 (단일 주차, 4단 방어 축약형)
+# mid-student1 — 성경 낭독 학생 과제 (단일 주차, 6단 방어(v2) 축약형)
 
 > **출력 경로·파일명 정본**: `.claude/shared/output-naming-policy.md` (2026-04-25 통일).
 
@@ -24,7 +24,7 @@ FAIL 시 자동 재작성 무한 루프 (5회 한도). 사용자 검수 의존 0
 - **남학생 전용** (S-38-KO 11항)
 - 야외봉사 학생과제는 `/mid-student2/3/4`, 5분 연설은 `/mid-talk5`
 
-## 🛡 품질 원칙 — 4단 방어 축약형
+## 🛡 품질 원칙 — 6단 방어(v2) 축약형
 - 낭독은 기획 단계가 필요 없어 **① Planner 지시서·③ Planner 재검수 생략**
 - ② script 자체 검수 + ④ 최종 감사만 적용
 - 전체 프로토콜: `.claude/shared/multi-layer-defense.md`
@@ -44,7 +44,7 @@ FAIL 시 자동 재작성 무한 루프 (5회 한도). 사용자 검수 의존 0
 3. 출처 URL 필수
 
 ## 저장 위치
-베이스: `C:\Users\yoone\Dropbox\02.WatchTower\01.▣ 수원 연무 회중\01.주중집회\01.성경에 담긴 보물\03.성경 낭독\YYMMDD_M월 D-D일\`
+베이스: `~/Dropbox/02.WatchTower/01.▣ 수원 연무 회중/01.주중집회/01.성경에 담긴 보물/03.성경 낭독/YYMMDD-MMDD/`
 파일명: `성경 낭독_YYMMDD.docx`
 
 ⚠ **섹션 분류 근거**: 성경 낭독은 프로그램 3번이자 "성경에 담긴 보물" 섹션의 마지막 항목 (10분 연설 1번, 영적 보물찾기 2번, 성경 낭독 3번). 4~6번(학생 과제 실연) 과 7번(5분 연설) 부터가 "야외봉사에 힘쓰십시오" 섹션이므로 성경 낭독은 해당 섹션에 **포함되지 않음**.
@@ -101,18 +101,18 @@ Agent(student-assignment-script)
     HIGH 위반 있으면 스스로 수정 후 재검수 (2회 시도).
 
   한 문장 60음절 이내, 실전 낭독용.
-  ⚠ 할루시네이션 금지 / ⚠ 4단 방어 프로토콜 준수 (.claude/shared/multi-layer-defense.md Read)."
+  ⚠ 할루시네이션 금지 / ⚠ 6단 방어(v2) 프로토콜 준수 (.claude/shared/multi-layer-defense.md Read)."
 ```
 
 ### 3. docx 렌더
 
 ```bash
-cd "C:\Users\yoone\Dropbox\02.WatchTower\01.▣ 수원 연무 회중\_automation"
+cd "~/Claude/Projects/Congregation/_automation"
 python content_student1_YYMMDD.py
 ```
 (`build_student_assignment.py` 추후 작성)
 
-### 4. 🤖 ④ — 최종 감사 3종 병렬
+### 4. 🤖 ④ — 최종 감사 4종 병렬
 
 ```
 Agent(fact-checker)
@@ -136,7 +136,7 @@ HIGH 1건 이상 → 재빌드 (2회까지).
 - ④ HIGH/MEDIUM/LOW 카운트
 
 ## 개정 이력
-- 2026-04-24 v2 — 4단 방어 축약형 (①③ 생략, ②④ 적용) + fact-checker + timing-auditor 필수화
+- 2026-04-24 v2 — 6단 방어(v2) 축약형 (①③ 생략, ②④ 적용) + fact-checker + timing-auditor 필수화
 - 2026-04-23 v1 — script 단독 초안
 
 ---

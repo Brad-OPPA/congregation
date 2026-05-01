@@ -1,6 +1,6 @@
 ---
 name: mid-student3
-description: 주중집회 야외봉사 섹션 **학생 과제 #2 (WOL 5번 슬롯)** 원고 1건을 지정된 주차에 대해 생성한다. 인자 `now|next1|next2|next3`. **4단 방어 프로토콜(`.claude/shared/multi-layer-defense.md`)** 준수. WOL 과제 타입 자동 파싱. student-assignment-planner(과제번호 3) → 3개 보조 리서치(scripture-deep·experience-collector·application-builder) → Planner 재검수 → student-assignment-script → Planner 재검수 → docx → fact-checker·jw-style-checker·timing-auditor 최종 감수. 결과 `학생 과제_{타입}_YYMMDD.docx`. 트리거 "/mid-student3", "학생과제 2 만들어 줘".
+description: 주중집회 야외봉사 섹션 **학생 과제 #2 (WOL 5번 슬롯)** 원고 1건을 지정된 주차에 대해 생성한다. 인자 `now|next1|next2|next3`. **6단 방어(v2) 프로토콜(`.claude/shared/multi-layer-defense.md`)** 준수. WOL 과제 타입 자동 파싱. student-assignment-planner(과제번호 3) → 3개 보조 리서치(scripture-deep·experience-collector·application-builder) → Planner 재검수 → student-assignment-script → Planner 재검수 → docx → fact-checker·jw-style-checker·timing-auditor·quality-monotonic-checker 최종 감수. 결과 `학생 과제_{타입}_YYMMDD.docx`. 트리거 "/mid-student3", "학생과제 2 만들어 줘".
 ---
 
 ## 🛡 품질 단조 증가 (필수, 2026-04-29 도입)
@@ -13,7 +13,7 @@ FAIL 시 자동 재작성 무한 루프 (5회 한도). 사용자 검수 의존 0
 
 세부: `.claude/shared/quality-monotonic-policy.md` 참조.
 
-# mid-student3 — 야외봉사 학생 과제 #2 (WOL 5번 슬롯, 4단 방어)
+# mid-student3 — 야외봉사 학생 과제 #2 (WOL 5번 슬롯, 6단 방어(v2))
 
 > **출력 경로·파일명 정본**: `.claude/shared/output-naming-policy.md` (2026-04-25 통일).
 
@@ -24,7 +24,7 @@ FAIL 시 자동 재작성 무한 루프 (5회 한도). 사용자 검수 의존 0
 - 타입 WOL 자동 파싱 (apply_conversation_start / apply_follow_up / apply_bible_study / apply_explaining_beliefs)
 - 구조는 `/mid-student2` 와 동일. **차이점: 과제번호 3, WOL 5번 슬롯**.
 
-## 🛡 품질 원칙 — 4단 방어 프로토콜
+## 🛡 품질 원칙 — 6단 방어(v2) 프로토콜
 `.claude/shared/multi-layer-defense.md` 준수. 실행 전 Read.
 
 ## 인자 규약
@@ -37,22 +37,22 @@ FAIL 시 자동 재작성 무한 루프 (5회 한도). 사용자 검수 의존 0
 `/mid-student2` 와 동일.
 
 ## 저장 위치
-베이스: `C:\Users\yoone\Dropbox\02.WatchTower\01.▣ 수원 연무 회중\01.주중집회\02.야외 봉사에 힘쓰십시오\01.학생 과제\YYMMDD_M월 D-D일\`
+베이스: `~/Dropbox/02.WatchTower/01.▣ 수원 연무 회중/01.주중집회/02.야외 봉사에 힘쓰십시오/01.학생 과제/YYMMDD-MMDD/`
 파일명: `학생 과제_{타입}_YYMMDD.docx` (mid-student2 와 동일 타입 매핑)
 
-## 실행 단계 (4단 방어)
+## 실행 단계 (6단 방어(v2))
 
 mid-student2 와 동일하되 아래만 다름:
 
 ### 2. 🤖 ① + ② — student-assignment-planner 1차
 ```
 Agent(student-assignment-planner)
-  프롬프트: "{YYMMDD} 학생 과제 #2 (WOL 5번 슬롯) 기획 1차 (4단 방어 ①).
+  프롬프트: "{YYMMDD} 학생 과제 #2 (WOL 5번 슬롯) 기획 1차 (6단 방어(v2) ①).
   과제번호 3 고정, 타입 WOL 자동 파싱. [mid-student2 와 동일 수집·지시서 구조]
   저장: `research-plan/student-assignment/{YYMMDD}_3_{타입}/`
   meta.yaml.assignment_number = 3.
   ⭐⭐ instructions_to_subresearchers 3개(scripture-deep·experience-collector·application-builder).
-  ⚠ 할루시네이션 / 4단 방어."
+  ⚠ 할루시네이션 / 6단 방어(v2)."
 ```
 
 ### 2.5. 🤖 role-play-scenario-designer 호출
@@ -83,7 +83,7 @@ fact-checker + jw-style-checker + timing-auditor (3~4분 목표).
 mid-student2 와 동일.
 
 ## 개정 이력
-- 2026-04-24 v2 — 4단 방어 + 3개 보조 리서치
+- 2026-04-24 v2 — 6단 방어(v2) + 3개 보조 리서치
 - 2026-04-23 v1 — 초안
 
 

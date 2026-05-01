@@ -83,7 +83,7 @@ jw.org·wol.jw.org 공개 자료. 장문 verbatim 허용. 출처 URL 필수.
 ## 저장 위치
 
 ### 본 산출물 (docx + PDF)
-베이스: `C:\Users\yoone\Dropbox\02.WatchTower\01.▣ 수원 연무 회중\01.주중집회\00.생봉 사회\YYYYMMDD\`
+베이스: `~/Dropbox/02.WatchTower/01.▣ 수원 연무 회중/01.주중집회/00.생봉 사회/YYYYMMDD/`
 
 파일명: `생봉 집회 사회 YYYYMMDD.docx` / `.pdf`
 - 예: `생봉 집회 사회 20260507.docx`
@@ -296,7 +296,7 @@ Agent(chair-script-builder)  [최종 QA 모드 — ⑤ 단계]
 ### 8. build_chair.py 호출 — docx/PDF 변환
 
 ```bash
-cd "C:\Users\yoone\Dropbox\02.WatchTower\01.▣ 수원 연무 회중\_automation"
+cd "~/Claude/Projects/Congregation/_automation"
 python build_chair.py --week YYYYMMDD
 ```
 
@@ -307,7 +307,7 @@ python build_chair.py --week YYYYMMDD
 - 무대 지시 회색 이탤릭
 - 출력: `00.생봉 사회/YYYYMMDD/생봉 집회 사회 YYYYMMDD.docx` + `.pdf` (libreoffice 또는 docx2pdf)
 
-### 9. 🤖 ⑥ 단계 — 최종 통합 감사 (3개 병렬)
+### 9. 🤖 ⑥ 단계 — 최종 통합 감사 (4종 병렬)
 
 ```
 Agent(fact-checker)

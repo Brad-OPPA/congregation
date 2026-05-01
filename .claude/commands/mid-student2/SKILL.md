@@ -1,6 +1,6 @@
 ---
 name: mid-student2
-description: 주중집회 야외봉사 섹션 **학생 과제 #1 (WOL 4번 슬롯)** 원고 1건을 지정된 주차에 대해 생성한다. 인자 `now|next1|next2|next3`. **4단 방어 프로토콜(`.claude/shared/multi-layer-defense.md`)** 준수. WOL 에서 과제 타입 자동 파싱 (apply_conversation_start / apply_follow_up / apply_bible_study / apply_explaining_beliefs). student-assignment-planner(과제번호 2) → 3개 보조 리서치(scripture-deep·experience-collector·application-builder) → Planner 재검수 → student-assignment-script → Planner 재검수 → docx → fact-checker·jw-style-checker·timing-auditor 최종 감수. 결과 `학생 과제_{타입}_YYMMDD.docx`. 트리거 "/mid-student2", "학생과제 1 만들어 줘".
+description: 주중집회 야외봉사 섹션 **학생 과제 #1 (WOL 4번 슬롯)** 원고 1건을 지정된 주차에 대해 생성한다. 인자 `now|next1|next2|next3`. **6단 방어(v2) 프로토콜(`.claude/shared/multi-layer-defense.md`)** 준수. WOL 에서 과제 타입 자동 파싱 (apply_conversation_start / apply_follow_up / apply_bible_study / apply_explaining_beliefs). student-assignment-planner(과제번호 2) → 3개 보조 리서치(scripture-deep·experience-collector·application-builder) → Planner 재검수 → student-assignment-script → Planner 재검수 → docx → fact-checker·jw-style-checker·timing-auditor·quality-monotonic-checker 최종 감수. 결과 `학생 과제_{타입}_YYMMDD.docx`. 트리거 "/mid-student2", "학생과제 1 만들어 줘".
 ---
 
 ## 🛡 품질 단조 증가 (필수, 2026-04-29 도입)
@@ -13,7 +13,7 @@ FAIL 시 자동 재작성 무한 루프 (5회 한도). 사용자 검수 의존 0
 
 세부: `.claude/shared/quality-monotonic-policy.md` 참조.
 
-# mid-student2 — 야외봉사 학생 과제 #1 (WOL 4번 슬롯, 4단 방어)
+# mid-student2 — 야외봉사 학생 과제 #1 (WOL 4번 슬롯, 6단 방어(v2))
 
 > **출력 경로·파일명 정본**: `.claude/shared/output-naming-policy.md` (2026-04-25 통일).
 
@@ -28,7 +28,7 @@ FAIL 시 자동 재작성 무한 루프 (5회 한도). 사용자 검수 의존 0
   - `apply_explaining_beliefs` 우리의 신앙 설명하기 (실연 또는 연설)
 - 성경 낭독은 `/mid-student1`, 5분 연설은 `/mid-talk5`
 
-## 🛡 품질 원칙 — 4단 방어 프로토콜
+## 🛡 품질 원칙 — 6단 방어(v2) 프로토콜
 `.claude/shared/multi-layer-defense.md` 준수. 실행 전 Read.
 **4단**: ① Planner 지시서 → ② 서브 자체 검수 → ③ Planner 재검수 → ④ 3종 최종 감사
 
@@ -45,14 +45,14 @@ FAIL 시 자동 재작성 무한 루프 (5회 한도). 사용자 검수 의존 0
 과제 타입·장면·시간·학습 요점 WOL verbatim. 대사는 학습 요점 원칙 적용. [확인 필요] placeholder 허용.
 
 모든 Agent 말미:
-> ⚠ 할루시네이션 금지 / ⚠ 4단 방어 프로토콜 준수
+> ⚠ 할루시네이션 금지 / ⚠ 6단 방어(v2) 프로토콜 준수
 
 ## 저장 위치
-베이스: `C:\Users\yoone\Dropbox\02.WatchTower\01.▣ 수원 연무 회중\01.주중집회\02.야외 봉사에 힘쓰십시오\01.학생 과제\YYMMDD_M월 D-D일\`
+베이스: `~/Dropbox/02.WatchTower/01.▣ 수원 연무 회중/01.주중집회/02.야외 봉사에 힘쓰십시오/01.학생 과제/YYMMDD-MMDD/`
 파일명: `학생 과제_{타입}_YYMMDD.docx`
 - 타입: apply_conversation_start→대화시작 / apply_follow_up→관심자라기 / apply_bible_study→제자되도록돕기 / apply_explaining_beliefs→신앙설명
 
-## 실행 단계 (4단 방어)
+## 실행 단계 (6단 방어(v2))
 
 ### 1. 주차 확정 + 폴더
 
@@ -60,7 +60,7 @@ FAIL 시 자동 재작성 무한 루프 (5회 한도). 사용자 검수 의존 0
 
 ```
 Agent(student-assignment-planner)
-  프롬프트: "{YYMMDD} 학생 과제 #1 (WOL 4번 슬롯) 기획 1차 (4단 방어 ①).
+  프롬프트: "{YYMMDD} 학생 과제 #1 (WOL 4번 슬롯) 기획 1차 (6단 방어(v2) ①).
   과제번호 2 고정. 타입 WOL 자동 파싱.
 
   수집:
@@ -78,7 +78,7 @@ Agent(student-assignment-planner)
     3개 서브(scripture-deep·experience-collector·application-builder) 지시서.
     실연 대사 품질 보강 목적.
 
-  ⚠ 할루시네이션 / 4단 방어."
+  ⚠ 할루시네이션 / 6단 방어(v2)."
 ```
 
 ### 2.5. 🤖 role-play-scenario-designer 호출 — 가상 상황극 시나리오 설계
@@ -101,7 +101,7 @@ Agent(role-play-scenario-designer)
     - meta.yaml 의 setting 과 일치 / 3~5개가 서로 다른 집주인 유형 커버 /
       조언과 체현 자연스러움 / 회중 특정 언급 없음
     _selfcheck_scenarios.md 작성.
-  ⚠ 할루시네이션 / 4단 방어 / 스타일 가이드 준수."
+  ⚠ 할루시네이션 / 6단 방어(v2) / 스타일 가이드 준수."
 ```
 
 이 단계는 `apply_explaining_beliefs(연설)` 일 때는 **생략** (회중 대상이라 시나리오 불필요). meta.yaml 의 `subtype: talk` 이면 skip.
@@ -113,20 +113,20 @@ Agent(scripture-deep)
   프롬프트: "meta.yaml + instructions.scripture-deep.
   scenario_prompt 의 제시 성구가 있다면 그 성구 심층 (NWT 연구용 + 연구 노트 + 상호 참조).
   research-bible/{YYMMDD}/ + _selfcheck.md.
-  ⚠ 할루시네이션 / 4단 방어."
+  ⚠ 할루시네이션 / 6단 방어(v2)."
 
 Agent(experience-collector)
   프롬프트: "meta.yaml + instructions.experience-collector.
   assignment_type 과 setting 에 부합하는 비슷한 상황 공식 경험담 2-3개.
   '이런 반응에 이렇게 응답' 패턴 중심.
   research-experience/{YYMMDD}/ + _selfcheck.md.
-  ⚠ 할루시네이션 / 4단 방어."
+  ⚠ 할루시네이션 / 6단 방어(v2)."
 
 Agent(application-builder)
   프롬프트: "meta.yaml + instructions.application-builder.
   거부·관심 유발 실제 적용 + 상대자 반응 예시 (대사 현실성).
   research-application/{YYMMDD}/ + _selfcheck.md.
-  ⚠ 할루시네이션 / 4단 방어."
+  ⚠ 할루시네이션 / 6단 방어(v2)."
 ```
 
 ### 4. 🤖 ③ — student-assignment-planner 재검수
@@ -180,7 +180,7 @@ Agent(student-assignment-script)
     - 학습 요점 본문 팜플렛 원문 일치
     - 스타일 가이드 위반 체크 (`[요점 적용]` 주석 남았는지, 딱딱한 설교조 등)
     _selfcheck_script.md 작성.
-  ⚠ 할루시네이션 / 4단 방어."
+  ⚠ 할루시네이션 / 6단 방어(v2)."
 ```
 
 ### 6. 🤖 ③ — student-assignment-planner script 재검수
@@ -199,7 +199,7 @@ python content_student2_YYMMDD.py
 ```
 (`build_student_assignment.py` 추후 작성)
 
-### 8. 🤖 ④ — 최종 감사 3종 병렬
+### 8. 🤖 ④ — 최종 감사 4종 병렬
 
 ```
 Agent(fact-checker) → research-factcheck/{YYMMDD}/factcheck_student2.md
@@ -213,7 +213,7 @@ HIGH 1건 이상 → 재빌드 (2회까지).
 - placeholder 확인, ③ 재검수 통과, ④ HIGH/MEDIUM/LOW
 
 ## 개정 이력
-- 2026-04-24 v2 — 4단 방어 + 3개 보조 리서치 필수 (원준님 품질 지침)
+- 2026-04-24 v2 — 6단 방어(v2) + 3개 보조 리서치 필수 (원준님 품질 지침)
 - 2026-04-23 v1 — planner/script 2단 초안
 
 ---
