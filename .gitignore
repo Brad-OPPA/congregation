@@ -1,3 +1,6 @@
+# 하위 앱 (독립 git repo)
+apps/
+
 # OS·편집기 잡파일
 .DS_Store
 Thumbs.db
