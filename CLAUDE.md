@@ -47,6 +47,25 @@
 
 재생성 시 `_verN_` 자동 부여 (디스크 최대 +1). publictalk 만 별도 정책.
 
+---
+
+## 🎤 10분 연설 자동화 (확정 정본 2026-05-01)
+
+`/mid-talk10 {now|next1|next2|next3}` — **사용자 입력 1회로 4종 게이트 PASS 까지 자동 작동**.
+
+흐름: planner ① → 5 보조 ② → planner ③ → script ④ → assembly ⑤ → planner ⑥ → 빌드 ⑦ → **🚨 4종 게이트 자동 호출 ⑧** (`fact-checker` · `jw-style-checker` (WOL 최근 10년 + 사용자 NG list) · `timing-auditor` · `quality-monotonic-checker`) → FAIL 1건 이상 시 **자동 재작성** (해당 영역 재호출, 5회 한도) → PASS → 사용자 검수.
+
+원준님 개입 = 입력 1회 + 검수 1회 = **총 2회**.
+
+**세부 명세 (호출 체인 / R1~R18 자동 검증 룰 / 모범 정형 표현 / 사용자 NG list / WOL 최근 10년 검증 / 12 메모리 정책 / 단계별 trigger·input·output·재시도)**:
+> 📘 `~/Claude/Projects/Congregation/research-meta/10분-연설-자동화-구조.md` (확정 정본)
+> 📘 `~/Claude/Projects/Congregation/research-meta/10분-연설-표준패턴.md` (R1~R18)
+
+**12 정책 메모리** (`~/.claude/projects/-Users-brandon/memory/`):
+`feedback_speech_no_source_naming` · `feedback_speech_main_skeleton` · `feedback_speech_main_vs_example` · `feedback_speech_six_step_narrative` · `feedback_speech_intro_5flow` · `feedback_speech_no_redundant_metaphor` · `feedback_speech_natural_flow` · `feedback_planner_no_writing` · `feedback_research_breadth` · `feedback_builder_assembly_role` · `feedback_wol_term_verification` · `feedback_terms_user_specific_ng` · `feedback_six_gates_mandatory`
+
+**확정 정본 — 더 이상 변경 X**. 다음 주차 (`/mid-talk10 next3` 등) 동일 퀄리티 자동 보장.
+
 ### 빌더 분류 (2026-04-25 기준)
 
 - **정기 (매주 자동)**: 6개 — `mid-talk10` · `dig-treasures` · `cbs` · `mid-talk5` · `week-study` · `living-part`
