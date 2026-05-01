@@ -6,21 +6,27 @@
 ## ⚡ 새 세션 첫 할 일
 
 ```bash
-pwd  # 기대: /Users/brandon/Library/CloudStorage/Dropbox/ClaudeFile/Congregation
-     # 또는 02.WatchTower/01.▣ 수원 연무 회중 (작업 워크스페이스)
+pwd  # 기대: /Users/brandon/Claude/Projects/Congregation (META — 이 폴더)
+     # 또는 ~/Dropbox/02.WatchTower/01.▣ 수원 연무 회중/ (출력 폴더)
 git status -s
 git log --oneline -5
 ```
 
-## 🧭 환경 — Mac/Windows 양립 (2026-04-29 안정화)
+## 🧭 환경 — Mac 단독 (2026-05-01 마이그레이션 완료)
 
-| 항목 | Mac (현재) | Windows |
-|---|---|---|
-| 메타 워크스페이스 | `~/Library/CloudStorage/Dropbox/ClaudeFile/Congregation/` | `C:\Users\yoone\Dropbox\ClaudeFile\Congregation\` |
-| 작업 워크스페이스 | `~/Library/CloudStorage/Dropbox/02.WatchTower/01.▣ 수원 연무 회중/` | `C:\Users\yoone\Dropbox\02.WatchTower\01.▣ 수원 연무 회중\` |
-| Hook command | `python3 -X utf8 "$CLAUDE_PROJECT_DIR/.claude/hooks/*.py"` (양립) | 동일 |
-| PDF 변환 | LibreOffice (`/Applications/LibreOffice.app`) 우선 + docx2pdf fallback | docx2pdf 우선 |
-| 폰트 | 맑은 고딕 (`~/Library/Fonts/malgun.ttf`) + Noto Sans KR 백업 | OS 기본 맑은 고딕 |
+| 항목 | 위치 |
+|---|---|
+| **메타 워크스페이스 (정본)** | `~/Claude/Projects/Congregation/` |
+| **빌더 코드** | `~/Claude/Projects/Congregation/_automation/` (별도 git repo: congregation-automation) |
+| **출력 폴더 (docx/PDF)** | `~/Dropbox/02.WatchTower/01.▣ 수원 연무 회중/01.주중집회/`, `02.주말집회/` (Dropbox 동기화 유지) |
+| **글로벌 슬래시 명령** | `~/.claude/commands/` → 심링크 → `Congregation/.claude/commands/` (회중 폴더에서만 작동) |
+| **회중 에이전트** | `Congregation/.claude/agents/` (32개) |
+| **Hook command** | `python3 -X utf8 "$CLAUDE_PROJECT_DIR/.claude/hooks/*.py"` |
+| **PDF 변환** | LibreOffice (`/Applications/LibreOffice.app` + Homebrew `soffice`) 우선 + docx2pdf fallback |
+| **폰트** | 맑은 고딕 (`~/Library/Fonts/malgun.ttf`) + Noto Sans KR 백업 |
+| **Python** | 3.14.4 (Homebrew) — python-docx 1.2.0 / lxml 6.1.0 / Pillow 12.2.0 / python-pptx 1.0.2 / requests 2.33.1 |
+
+> **마이그레이션 이력**: 2026-04-30 ~ 05-01 — Dropbox 옛 META + WS `_automation/` + claude-migration 백업 380MB 휴지통 이동 (`~/.Trash/dropbox-cleanup-260501/`, 회복 가능). 구 노트북 (Windows yoone) Claude Code 는 사용자 직접 삭제 예정 — Mac=GitHub 동기화 확인 완료 (잔여 push 없음).
 
 ## 🛠 핵심 인프라 (2026-04-29 정착)
 
@@ -63,31 +69,27 @@ git log --oneline -5
 9. .gitignore 정리 (`.claude/.claude/`, `_debug_*`, `_preview_*`, `*.out.txt`)
 10. HANDOFF 통합 갱신 (이 파일)
 
-## 🚨 다음주 (~2026-05-07) 우선 처리 — 구 노트북 Claude 삭제 후 일괄 정리
+## ✅ 2026-05-01 마이그레이션 완료 — Mac 단독 환경 정착
 
-**컨텍스트**: 2026-04-30 Mac 으로 META + 자동화 옮김. 새 정본은 `~/Claude/Projects/Congregation/` (이 파일 위치). 구 노트북 (Windows yoone) 에 Claude Code 아직 설치 + 옛 경로 참조 중. 사용자가 "구 노트북 Claude 삭제했어" 신호 주면 아래 5단계 일괄 진행:
+5단계 정리 작업 모두 완료:
 
-1. **구 노트북 잔여 확인** (사용자 직접) — Windows PowerShell:
-   ```
-   cd "C:\Users\yoone\Dropbox\ClaudeFile\Congregation" && git status -s && git log --oneline -3
-   cd "C:\Users\yoone\Dropbox\02.WatchTower\01.▣ 수원 연무 회중\_automation" && git status -s && git log --oneline -3
-   ```
-   비어있으면 OK. 떠 있으면 push (`git add . && git commit -m "구 노트북 잔여" && git push`).
+| # | 항목 | 상태 |
+|---|---|---|
+| 1 | 구 노트북 git push 잔여 확인 | ✅ Mac=GitHub 동기화 (양 repo `752880e`/`4fa97ff` 일치, 잔여 0) |
+| 2 | Mac git pull | ✅ pull 할 것 없음 (이미 최신) |
+| 3 | Dropbox 옛 META 삭제 (`Dropbox/ClaudeFile/Congregation/`) | ✅ 휴지통 이동 (152 MB) |
+| 4 | WS `_automation/` 삭제 | ✅ 휴지통 이동 (12 MB) |
+| 5 | 문서 갱신 (HANDOFF + CLAUDE.md Mac 단독) | ✅ 이 갱신으로 완료 |
 
-2. **Mac 에서 GitHub 최신 동기화**:
-   ```bash
-   cd ~/Claude/Projects/Congregation && git pull
-   cd ~/Claude/Projects/Congregation/_automation && git pull
-   ```
+추가 정리:
+- ✅ `~/.claude/skills/` broken 심링크 제거
+- ✅ `~/.claude/commands/` → `Congregation/.claude/commands/` 심링크 정상 작동 (21개 슬래시 명령)
+- ✅ `mid-talk10/SKILL.md` 우리 정책 갱신 새 위치로 복사
+- ✅ Dropbox claude-migration + _claude-global 백업 정리 (211 MB + 5.1 MB 휴지통)
+- 휴지통 위치: `~/.Trash/dropbox-cleanup-260501/` (380 MB) — 30일 후 자동 영구 삭제
 
-3. **Dropbox 옛 META 삭제** (비가역 — 사전 확인) — `rm -rf ~/Dropbox/ClaudeFile/Congregation/`
-
-4. **WS `_automation/` 삭제** (비가역 — 사전 확인) — `rm -rf "~/Dropbox/02.WatchTower/01.▣ 수원 연무 회중/_automation/"`. 출력 폴더 (01.주중집회 등) 는 그대로 둠.
-
-5. **문서 갱신**:
-   - 이 HANDOFF.md — 환경 표를 Mac 단독으로
-   - `CLAUDE.md` — 옛 Windows 경로 표기 (`C:\Users\yoone\.claude\skills\` 등) → Mac 경로
-   - `_automation/CLAUDE.md` — 자동 commit 정책 안의 Windows 경로 정리
+**남은 책임 (사용자 직접)**:
+- 구 노트북 (Windows yoone) Claude Code 앱 삭제 — Mac 정본 동기화 끝났으니 안전. Dropbox 옛 위치는 이미 사라짐 (Mac 휴지통 이동 동기화)
 
 **관련 메모리**: `~/.claude/projects/-Users-brandon/memory/project_old_laptop_cleanup_pending.md`
 **관련 커밋**: `c5cd946` (congregation-automation) — 빌더 경로 Mac/Windows 양립 (이미 push 됨)

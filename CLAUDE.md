@@ -11,7 +11,7 @@
    ↓ Skill(단편, args="now/next1/next2/next3")
 [단편 스킬 11개]  ← 묶음 컨텍스트 받으면 자체 묻기 X
    ↓ Agent(planner) → Agent(script) → Agent(보조 리서치) → 감수 게이트
-[에이전트 30개]  ← research-*/{YYMMDD}/ 저장
+[에이전트 32개]  ← research-*/{YYMMDD}/ 저장
    ↓ content_*.py 생성 → python build_*.py
 [빌더 5개]  ← docx + PDF 자동 변환
    ↓ os.makedirs + doc.save
@@ -215,7 +215,7 @@
 
 - Python 3.10+ **필수** (파이프라인 빌더가 요구)
 - 스킬 정의: 회중 로컬 `Congregation/.claude/commands/` (`~/.claude/commands/` 심링크)
-- 에이전트 정의: 회중 로컬 `.claude/agents/` (30개)
+- 에이전트 정의: 회중 로컬 `.claude/agents/` (32개 — 2026-04-30 assembly-coordinator 신규)
 - 공유 정책: 회중 로컬 `.claude/shared/`
   - `multi-layer-defense.md` — 4단/6단 방어 프로토콜 (⑥ 4종 병렬, 2026-04-29 갱신)
   - `intro-and-illustration-quality.md` — 서론·예화·삽화 품질 표준
