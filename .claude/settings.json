@@ -1,8 +1,8 @@
 {
   "permissions": {
     "allow": [
-      "Edit(~/.claude/skills/mid-student3/**)",
-      "Bash(python -c ' *)"
+      "Edit(~/.claude/commands/mid-student3/**)",
+      "Bash(python3 -c ' *)"
     ]
   },
   "hooks": {
