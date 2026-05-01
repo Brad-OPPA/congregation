@@ -1,18 +1,52 @@
-# 메인 Claude 직접 Edit 제약 정책
+# 메인 Claude 직접 Edit 제약 정책 (v2 — 단순/복잡 분리)
 
-> **메인 Claude 는 회중 자료의 콘텐츠 영역을 직접 Edit/Write 하지 않는다.**
-> 모든 콘텐츠 정정은 검증 게이트를 거친 에이전트(jw-style-checker·script 등) 를 통해서만.
-> 작성: 2026-05-01 / 트리거: 본 세션 "사역→봉사" 직관 정정 사고
+> **무조건 위임 X — 단순한 정정은 메인 직접·복잡 정정만 Agent 위임.**
+> 효율과 안전의 균형: 1~3 글자 치환 같은 명백한 정정에 Agent 호출 오버헤드 X.
+> 작성: 2026-05-01 v1 / 갱신: 2026-05-01 v2 (사용자 결정 — "무조건 위임" 원칙 폐기)
 
-## 1. 금지 영역 (메인 Claude Edit/Write 차단)
+## 1. 정책 분류
 
-| 경로 | 사유 |
-|---|---|
-| `/Users/brandon/Dropbox/02.WatchTower/01.▣ 수원 연무 회중/**/*.docx` | 검증 게이트 우회 위험 — 디스크 직접 편집 금지 |
-| `/Users/brandon/Claude/Projects/Congregation/_automation/content_*.py` | 데이터 파일 — Agent (script + 일반 변환) 만 작성·수정 가능 |
-| `/Users/brandon/Claude/Projects/Congregation/research-plan/**/script.md` | script 에이전트만 작성 |
-| `/Users/brandon/Claude/Projects/Congregation/research-plan/**/outline.md` · `meta.yaml` | planner 에이전트만 작성 |
-| `/Users/brandon/Claude/Projects/Congregation/research-{bible,topic,application,experience,illustration,qa,wol,prayer,public-talk}/**/*.md` | 보조 리서치 에이전트만 작성 |
+### A. 메인 Claude 직접 Edit **허용** (단순 정정)
+
+다음 조건 모두 충족 시 메인 직접 처리 OK:
+
+1. **wol.jw.org 직접 fetch 로 정답 확인 후** 정정
+2. **명백한 글자 단위 위반** — 추측·창작·해석 0:
+   - NWT verbatim 글자 어긋남 (wol fetch 비교 후 글자 단위 교체)
+   - 사용자 NG 표기 (예: "한놈" → "힌놈")
+   - 가짜 docid·잘못된 면 번호 **삭제** (대체 출처 추가는 Agent)
+   - 어순·맞춤법·띄어쓰기 정정
+3. **1~3 라인 이내 변경** (단락 재작성 X)
+4. **의미·구조 변경 없음** — 표기·표현만 정정
+
+### B. Agent 위임 **의무** (복잡 정정)
+
+다음 중 하나라도 해당하면 Agent 호출 의무:
+
+1. **단락 재작성·구조 변경** (5+ 라인)
+2. **새 자료·콘텐츠 추가** (출처·통계·예화·경험담 신규)
+3. **어조·관점·강조점 변경**
+4. **wol fetch 로도 정답이 명확하지 않음** — 해석 필요
+5. **다중 위치 의미적 정합성** (한 곳 수정이 다른 곳 영향)
+6. **사용자 직관 정정 사고 위험 영역** (예: 신학 어휘·교리 용어)
+
+### C. 절대 Edit 금지 영역 (v2 유지)
+
+- 회중 docx 디스크 직접 편집 금지 — 항상 빌더 통해서만
+- 메모리 (`~/.claude/projects/.../memory/`) 의 사용자 권한 영역
+
+## 2. 영역별 메인 Edit 허용 매트릭스
+
+| 경로 | 단순 정정 (A) | 복잡 정정 (B) |
+|---|---|---|
+| `/Dropbox/02.WatchTower/.../*.docx` | ❌ 절대 금지 (빌더 통해서만) | ❌ 절대 금지 |
+| `/_automation/content_*.py` | ✅ **허용** (메인 직접 OK) | ⚠ Agent 위임 의무 |
+| `/research-plan/**/script.md` | ✅ **허용** (단순 표기 정정) | ⚠ spiritual-gems-script 재호출 |
+| `/research-plan/**/outline.md` · `meta.yaml` | ✅ **허용** (단순 정정) | ⚠ spiritual-gems-planner 재호출 |
+| `/research-{bible,topic,...}/**/*.md` | ✅ **허용** | ⚠ 해당 보조 재호출 |
+| `/_automation/*.py` (빌더·validators) | ✅ 허용 | ✅ 허용 |
+| `.claude/shared/*.md` · `.claude/agents/*.md` · `.claude/hooks/*.py` | ✅ 허용 | ✅ 허용 |
+| `.claude/settings.json` | ✅ 허용 | ✅ 허용 |
 
 ## 2. 허용 영역 (메인 Claude Edit/Write 가능)
 
@@ -27,17 +61,20 @@
 | `/Users/brandon/Claude/Projects/Congregation/CLAUDE.md` · `_automation/CLAUDE.md` | 프로젝트 지침 |
 | `/Users/brandon/.claude/plans/*.md` | plan 파일 |
 
-## 3. 의심 어휘 발견 시 절차
+## 3. 의심 어휘 발견 시 절차 (v2 — 분류별)
 
-메인 Claude 가 콘텐츠 (script.md·content_*.py·docx) 안에서 의심 어휘를 발견하면 — **직접 Edit 금지**. 다음 절차 의무:
+### 3-A. 명백한 단순 정정 (메인 직접 OK)
 
-1. `jw-style-checker` 에이전트 호출 (대상 파일 명시)
-2. 에이전트가 `banned-vocabulary.md` + WOL WebFetch 로 권장 어휘 결정
-3. 에이전트의 보고서에 따라 `spiritual-gems-script` (또는 해당 script 에이전트) 재호출 → script 가 정정
-4. 정정된 script.md 를 일반 변환 Agent (general-purpose) 에 위임 → content_*.py 갱신
-5. 빌더 재실행 → validators.py 가 자동 검증 → 통과 시 docx 디스크 안착
+WOL fetch 로 정답이 명확하면 메인 직접:
+- 표기 (예: "한놈" → "힌놈") — wol 검색 결과로 결정
+- NWT verbatim 글자 단위 어긋남 — wol nwtsty fetch 비교
+- 가짜 docid·면 번호 — 인용 자체 삭제
 
-**메인 Claude 의 직접 Edit 단계 0개.**
+### 3-B. 복잡한 의심 어휘 (Agent 위임)
+
+- 신학 어휘 (예: "사역" → ?·"신학" → ?) — wol 매치 다양해 해석 필요 → jw-style-checker
+- 표 밖 의심 어휘 + 권장 대안 모호 → jw-style-checker WOL WebFetch 의무
+- 다중 위치 의미 변경 → 해당 script 에이전트 재호출
 
 ## 4. 위반 사례 (학습용)
 
@@ -55,4 +92,5 @@
 
 ## 6. 변경 이력
 
-- 2026-05-01: 초판 신설. "사역→봉사" 직관 정정 사고 후 정책 정립.
+- 2026-05-01 v1: 초판 신설. "사역→봉사" 직관 정정 사고 후 "무조건 위임" 정책.
+- 2026-05-01 v2: **사용자 결정 — "무조건 위임 원칙 폐기"**. 단순/복잡 분리 정책 도입. WOL fetch 로 정답이 명확한 글자 단위 정정은 메인 직접 허용 (Agent 호출 오버헤드 절약). 복잡 정정 (5+ 라인·새 자료·해석 필요) 만 Agent 의무.

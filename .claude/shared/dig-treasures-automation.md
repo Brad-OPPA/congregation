@@ -182,6 +182,48 @@
 
 ---
 
-## §8. 변경 이력
+## §8. 메인 Claude 정정 — 단순/복잡 분리 정책 (Phase E v2-bis, 2026-05-01)
+
+"무조건 위임" 원칙 폐기. 정정 종류 따라:
+
+### A. 메인 Claude 직접 Edit 허용 (단순 정정)
+- WOL fetch 로 정답이 명확한 글자 단위 위반
+- NWT verbatim 어순·표기 정정
+- 사용자 NG 표기 (예: "한놈" → "힌놈")
+- 가짜 docid·면 번호 삭제
+- 1~3 라인 이내 변경
+- 의미·구조 변경 없음
+
+### B. Agent 위임 의무 (복잡 정정)
+- 단락 재작성·구조 변경 (5+ 라인)
+- 새 자료·내용 추가
+- 어조·관점·강조점 변경
+- 다중 위치 의미 변경
+- WOL fetch 로 정답 모호 (해석 필요)
+
+세부: `.claude/shared/main-claude-edit-policy.md` v2
+
+## §9. fact-checker docx 직접 추출 의무 (Phase E v2-bis)
+
+fact-checker 가 docx 검수 시 script.md·캐시된 옛 본문 의존 금지. 반드시 docx 자체 텍스트 추출 후 검사:
+
+```bash
+unzip -p "{docx_path}" word/document.xml | grep -E "{검사_패턴}"
+```
+
+**사유**: 260528 빌드 사고 — fact-checker 가 script.md 본문 또는 옛 docx 캐시 참조하여 false positive 보고. docx 가 정정 반영됐는데 미정정으로 잘못 판단 → fact-loop-enforcer false trigger. 정책 갱신: `.claude/agents/fact-checker.md` §🔴 v2-bis.
+
+## §10. Stop hook 3종 강제 메커니즘
+
+| hook | 트리거 조건 | 차단 효과 |
+|---|---|---|
+| `factcheck-numbers.py` | 미검증 수치·통계 발견 | sys.exit 2 (응답 차단) |
+| `quality-loop-enforcer.py` | quality-monotonic-checker NO-GO 보고서 (30분 안 작성) | sys.exit 2 + 재작성 메시지 |
+| `fact-loop-enforcer.py` | research-factcheck/{YYMMDD}/factcheck_*.md HIGH ≥1 | sys.exit 2 + 재호출 메시지 |
+
+bypass: `QUALITY_LOOP_BYPASS=1` / `FACT_LOOP_BYPASS=1` 환경변수 (긴급용).
+
+## §11. 변경 이력
 
 - 2026-05-01 v1: Phase E v2 — 영적 보물찾기 자동화 v2 신설. gem-coordinator + gem-narrative-standard + validators 5 함수 통합. CLAUDE.md 간소화 + 본 가이드 신설.
+- 2026-05-01 v2 (본 세션 추가): "무조건 위임" 폐기 → 단순/복잡 분리 (§8) + fact-checker docx 직접 추출 의무 (§9) + Stop hook 3종 (§10) + 4축 균형·다각도·깊이 강제 폐기 (정보 측정만, 자연스러움 우선) + fact-loop-enforcer.py + edit-restriction-hook.py 신설.
