@@ -98,7 +98,7 @@
 
 ## 사용 스킬 (slash command)
 
-글로벌 `C:\Users\yoone\.claude\skills\` 에 19개 스킬 등록.
+회중 로컬 `Congregation/.claude/commands/` 에 등록 (`~/.claude/commands/` 심볼릭 링크). 회중 폴더에서만 작동.
 
 ### 주중집회 (목요일) — 3개 섹션
 
@@ -214,7 +214,7 @@
 ## 환경
 
 - Python 3.10+ **필수** (파이프라인 빌더가 요구)
-- 스킬 정의: 글로벌 `C:\Users\yoone\.claude\skills\` (19개)
+- 스킬 정의: 회중 로컬 `Congregation/.claude/commands/` (`~/.claude/commands/` 심링크)
 - 에이전트 정의: 회중 로컬 `.claude/agents/` (30개)
 - 공유 정책: 회중 로컬 `.claude/shared/`
   - `multi-layer-defense.md` — 4단/6단 방어 프로토콜 (⑥ 4종 병렬, 2026-04-29 갱신)
