@@ -230,11 +230,19 @@ Agent(public-talk-builder)
   - research-application/publictalk_{NNN}/
   - research-qa/{NNN}_rhetorical_{YYMMDD}.md
 
-  체크: ① 각 리서치가 기획서 지시 대로 자료 모았나 ② 누락·오류 있나 ③ public-talk-script 가 통합 작성하기 충분한 자료인가.
+  체크 (R 룰 grep 의무 — Phase 1-G, 2026-05-02):
+  - R1 글자수 후보: 보조 리서치 합산 ≥ 12,000자 (script 가 6,500~9,000 으로 추릴 풍부 베이스라인)
+  - R3 성구 후보: scripture-deep 산출물에 낭독 후보 ≥ 10개 (script 가 6~8 선정)
+  - R4 외부 14축 후보: illustration-finder + publication-cross-ref 합쳐 ≥ 8축 사용
+  - R5 이미지 후보: illustration-finder 산출물에 wol/jwb 우선 ≥ 5장 + ext 백업 ≥ 3장
+  - R6 청중 인터랙션 후보: qa-designer 산출물에 ≥ 15개
+  - R8 서론 후크 후보: qa-designer G-mode2-4b 5종 중 1종 + A/B/C 3안 모두 존재
+  - R-J5 친숙한 비유 후보: illustration-finder 에 일상 비유 ≥ 5개
 
-  부족하면 해당 에이전트 재호출 지시. 충분하면 PASS 선언 후 단계 C 진입.
+  R 룰 1건이라도 미달 시 해당 에이전트 재호출 지시. 모두 PASS 면 단계 C 진입.
 
-  결과 저장: research-public-talk/{NNN}_planner_review_research_{YYMMDD}.md"
+  결과 저장: research-public-talk/{NNN}_planner_review_research_{YYMMDD}.md
+  형식: 각 R 룰별 측정값·PASS/FAIL·근거 파일 경로 표 의무"
 ```
 
 PASS 후에만 단계 C 진입.
@@ -580,6 +588,34 @@ JW 출판물(파·깨·통찰)에 실린 예시도 사용 가능. 단 그대로 
 
 **이 12개 기준을 단계 C 원고 작성 시 체크리스트로 사용할 것.**
 
+### [단계 C-1] **publictalk-assembly-coordinator** (Phase 3-C, 2026-05-02)
+
+public-talk-script 가 .md 원고를 산출한 직후, **publictalk-assembly-coordinator** 를 호출하여 R 룰 정량 grep + 골자 1:1 매핑 + 보조 리서치 활용도 1차 검증.
+
+```
+Agent(publictalk-assembly-coordinator)
+  프롬프트: "공개 강연 {NNN}「{제목}」 ver{N} 원고 조합·매핑·R 룰 검증.
+
+  입력:
+  - 기획서: research-public-talk/{NNN}_{YYMMDD}.md
+  - 원고: research-public-talk/{NNN}_{슬러그}_원고_ver{N}_{YYMMDD}.md
+  - 보조 리서치 6종 (research-bible/topic/illustration/experience/application/qa)
+  - 골자 PDF (S01.공개강연/골자/...)
+
+  R1~R20 + R-Conv + R-J1~J5 정량 grep 표 작성.
+  골자 1:1 매핑 표 작성.
+  보조 리서치 활용도 표 작성.
+  HIGH 위반 발견 시 public-talk-script 재호출 권고 (수정 지점 라인 번호 명시).
+  PASS 시 public-talk-builder 2차 재검수 진입 권고.
+
+  결과 저장: research-public-talk/{NNN}_assembly_report_ver{N}_{YYMMDD}.md
+  [할루시네이션 금지 공통 문구]"
+```
+
+PASS 후 단계 C-2 진입. HIGH 위반 시 단계 C 재실행 (자동 재작성 5회 한도).
+
+정본: `research-meta/공개강연-자동화-구조.md` §2 R 룰 / `.claude/agents/publictalk-assembly-coordinator.md`.
+
 ### [단계 C-2] **public-talk-builder 2차 재검수 = 기획자 최종 QA** (Planner 2차 — 6단 방어 v2 ⑤단계)
 
 public-talk-script 가 .md 원고 작성·자체 검수까지 마친 직후, **기획자가 한 번 더 본다**:
@@ -590,16 +626,42 @@ Agent(public-talk-builder)
 
   단계 A 의 기획서 vs 단계 C 의 .md 원고 (research-public-talk/{NNN}_{슬러그}_원고_ver{N}_{YYMMDD}.md) 비교.
 
-  체크:
-  ① 기획서의 30분 흐름·요점 시간·시각 자료 슬롯·낭독 위치 모두 원고에 반영됐나
-  ② 원고가 기획서 의도에서 벗어난 부분 (즉흥 추가·누락) 있나
-  ③ 청중 호칭·금칙어·8필터·시인성 등 12개 영구 규칙 위반 있나
-  ④ 골자 파트 시간 ±0 어긋나는 단락 있나
+  체크 (R1~R20 + R-Conv + R-J 자동 grep 의무 — Phase 1-G, 2026-05-02):
 
-  HIGH 위반 발견 시 public-talk-script 재호출 (수정 지점 명시).
-  통과면 PASS → 단계 D 빌드 진입.
+  [정량 R 룰]
+  - R1 글자수 6,500~9,000 (30분 = 25분 낭독 × 280자/분)
+  - R2 시간 마커 ≥ 12 (서론·요점1·2·3·결론 + 30초 단위 분할)
+  - R3 낭독 성구 6~8 + 언급 성구 4~6
+  - R4 외부 14축 사용 ≥ 5축 (성서 적중 9 + 사유 촉발 5 중)
+  - R5 임베드 이미지 ≤ 5 (wol/jwb 비율 ≥ 60%)
+  - R6 청중 인터랙션 ≥ 12 (2~3분당 1개)
+  - R7 사용자 NG list grep = 0 (가정 경배·여호와의 임재·수동적·신자 단독)
+  - R8 서론 첫 3문장 — 후크·문제제기·연결 다리 모두 존재
+  - R9 「」 출판물 인용 + URL ≥ 5
+  - R10 신세계역 verbatim 인용 블록 (성구 6~8개 모두) 존재
+  - R20 결론 행동 촉구 — 구체적 (날짜·시간·장소 또는 즉시 가능 행동)
 
-  결과 저장: research-public-talk/{NNN}_planner_review_script_ver{N}_{YYMMDD}.md"
+  [의견 반영 R 룰]
+  - R-Conv 결론에 "오늘 배운 3가지" 명시 (사용자 의견 ②)
+
+  [예수의 가르침 5요소]
+  - R-J1 간결성 — 평균 문장 길이 ≤ 28자 (한국어 호흡)
+  - R-J2 논리 — 각 요점 = 성구 → 추론 → 결론 3단 구조
+  - R-J3 사고 자극 질문 — 수사적 질문 ≥ 12개 (분당 0.4개)
+  - R-J4 인상 깊은 수사 — 대조·반복·점층 등 ≥ 6회
+  - R-J5 친숙한 비유 — 일상 비유 ≥ 3 (요점당 1개)
+
+  [정성 체크]
+  - 기획서의 30분 흐름·요점 시간·시각 자료 슬롯·낭독 위치 모두 원고에 반영됐나
+  - 원고가 기획서 의도에서 벗어난 부분 (즉흥 추가·누락) 있나
+  - 골자 파트 시간 ±0 어긋나는 단락 있나
+
+  HIGH 위반 (R7 NG list / R10 verbatim 누락 / R-Conv 결론 3가지 누락 등) 발견 시 public-talk-script 재호출 (수정 지점 명시).
+  R1~R6 정량 미달 시 해당 보조 에이전트 재호출 + script 재호출.
+  모두 PASS 면 단계 D 빌드 진입.
+
+  결과 저장: research-public-talk/{NNN}_planner_review_script_ver{N}_{YYMMDD}.md
+  형식: R 룰별 측정값·PASS/FAIL·재호출 대상·근거 라인 번호 표 의무"
 ```
 
 PASS 후 단계 D 빌드 진입. (이 단계가 누락되면 본체가 작성 망친 것을 누구도 못 잡고 빌드까지 감 → 이번 회차 전까지의 퇴보 원인 중 하나.)
@@ -617,7 +679,7 @@ FOLDER = fr"~/Dropbox/02.WatchTower/02.▣ 집회(Meetings)/S01.공개강연/김
 os.makedirs(FOLDER, exist_ok=True)
 ```
 
-**스펙 파일**: `_automation\content_publictalk_{NUMBER}.py` (기존 mid-study1 의 `content_YYMMDD.py` 방식 차용)
+**스펙 파일**: `_automation/content_publictalk_{NUMBER}.py` (기존 mid-study1 의 `content_YYMMDD.py` 방식 차용)
 
 구조: `spec` 딕셔너리 — 공개 강연용 필드 (mid-study1 의 10분 구조를 30분으로 확장):
 
@@ -647,9 +709,18 @@ style: `b`=bold, `r`=red(EE0000), `y`=yellow highlight, `t`=time marker, `i`=ita
 
 ### [단계 E] docx + PDF 생성
 
+**🛡 빌드 직전 자동 차단 (Phase 1-D, 2026-05-02)**: `build_publictalk.py` 가 `validators.validate_md_text()` 를 호출해 다음 HIGH 위반 1건이라도 발견 시 ValueError 로 docx 디스크 안착 차단:
+- §2 금칙어 (신앙·복음·사역·간증·교회·세례 등 18개) — 정본 `shared/banned-vocabulary.md`
+- §2-bis 사용자 NG list (가정 경배·여호와의 임재·수동적·신자 단독)
+- §2-ter 추상·창작 의심 표현 (...의 임재 명사형·1차/2차 강림·성례·은혜의 보좌)
+
+NWT verbatim 인용 블록 (`> *성구*` 또는 `> 성구`) 은 자동 제외. FAIL 시 public-talk-script 자동 재호출 (단계 F-2 의 자동 재작성 루프와 동일).
+
+
+
 **빌더 파일 존재 여부 확인**:
 ```bash
-ls "~/Claude/Projects/Congregation/_automation\build_publictalk.py"
+ls "$HOME/Claude/Projects/Congregation/_automation/build_publictalk.py"
 ```
 
 **빌더가 없으면** (최초 실행) — `build_treasures_talk.py` (mid-study1 빌더) 를 템플릿으로 복사하여 `build_publictalk.py` 생성. 차이점:
@@ -674,29 +745,53 @@ S01.공개강연/김원준 공개강연/{NUMBER}_{SLUG}/{NUMBER}_{SLUG}_ver1.doc
 
 같은 파일명 존재 시 → `_ver2_`, `_ver3_` 순으로 버전 올림.
 
-### [단계 F] 최종 감수 게이트 (병렬)
+### [단계 F] 최종 감수 게이트 (4종 병렬, ⑥단계)
 
-docx 생성 직후 **두 감수 에이전트 병렬 호출**:
+docx 생성 직후 **4종 감수 에이전트 한 메시지에 병렬 호출** (`shared/multi-layer-defense.md` ⑥단·`shared/quality-monotonic-policy.md` 준수):
 
 ```
+Agent(fact-checker)
+  프롬프트: "방금 생성한 공개 강연 docx ({docx_path}) 의 사실·인용·성구 표기 검증.
+  ① 「파수대」/「깨어라」/「통찰」 등 출판물 인용이 wol.jw.org 에 실제 존재하는지 WebFetch 교차 확인 (호수·면·기사 제목 일치 필수).
+  ② 신세계역 연구용 성구 본문 verbatim 대조 (URL 패턴 wol.jw.org/ko/wol/b/r8/lp-ko/nwtsty/...).
+  ③ 외부 1차 자료 (역사·고고학·과학·유명인 발언) 출처 URL 유효성·날짜·인물 정확성.
+  ④ 경험담이 공식 출판물 게재본인지 확인 — 창작·각색 발견 시 HIGH 위반.
+  fake docid·존재하지 않는 출판물 인용은 즉시 제거 권고 (quality-monotonic-checker 의 C 축 MED 강등 trigger).
+  결과: research-factcheck/publictalk_{번호}_{YYMMDD}.md
+  [할루시네이션 금지 공통 문구]"
+
 Agent(jw-style-checker)
   프롬프트: "방금 생성한 공개 강연 docx ({docx_path}) 의 공식 용어·호칭·어투 감수.
   신세계역 성구 표기, 경어체 일관성, 높임법 (여호와께서·예수께서),
   '교회→회중' · '하나님→여호와' · '목사→장로/봉사의 종' 준수,
-  정치/민족 중립 표현 확인.
+  정치/민족 중립 표현 확인. `shared/banned-vocabulary.md` 정본 금칙어 자동 스캔.
   특히 공개 강연은 비증인 청중도 포함되므로 내부 용어를 과하게 쓰지 않았는지 점검.
+  '형제 여러분/사랑하는 형제 자매 여러분' 등 공개 강연 금칙 호칭 발견 시 HIGH 위반.
   수정 지점 리스트 + 수정본을 research-style/publictalk_{번호}/ 에 저장.
   [할루시네이션 금지 공통 문구]"
 
 Agent(timing-auditor)
   프롬프트: "방금 생성한 공개 강연 docx ({docx_path}) 의 낭독 시간을 단락별로 시뮬레이션.
-  목표 30분 = 1800초 (사회자 오프닝·마무리 120초 제외하면 강연자 낭독 1680초 내외).
+  목표 30분 = 1800±120초 (quality-monotonic-policy 완화 기준 — quality > timing 우선).
+  사회자 오프닝·마무리 120초 제외하면 강연자 낭독 1680초 내외.
   서론·요점1·2·3·결론 각 구간 시간 마커 vs 실제 예상 낭독 시간 비교.
   초과·부족분과 삭제/축약/유지 추천을 research-timing/publictalk_{번호}/ 에 저장.
   [할루시네이션 금지 공통 문구]"
+
+Agent(quality-monotonic-checker)
+  프롬프트: "방금 생성한 공개 강연 docx ({docx_path}) 의 품질 단조 증가 검증.
+  비교 기준: 같은 강연 번호의 직전 ver docx (없으면 직전 강연 번호의 최신 ver).
+  9축 메트릭 자동 측정: 글자수 / 성구 인용 수 / 출판물「」 인용 수 / 외부 14축 (성서 적중 9 + 사유 촉발 5) 사용 수 / 시간 마커 수 / 깊이 단락 수 / 임베드 이미지 수 / 청중 인터랙션 수 / 수사적 질문 수.
+  기준: ≥ 95% (직전 평균) AND ≥ 절대 하한 (`shared/quality-monotonic-policy.md`).
+  fact-checker 가 fake docid 출판 인용 제거했으면 C 축 MED 강등 (cross-reference).
+  FAIL 1건 이상 시 자동 재작성 trigger (5회 한도). PASS 시 단계 G 로 진행.
+  결과: research-quality/publictalk_{번호}_{YYMMDD}.md
+  [할루시네이션 금지 공통 문구]"
 ```
 
-감수 결과에 **핵심 수정 지점이 있으면 한 번만 재빌드** (`_ver2_`). 작은 어투 이슈는 사용자 판단에 맡기고 보고에 포함.
+**자동 재작성 (사용자 검수 의존 0)**: 4종 중 1건이라도 FAIL → 해당 영역 재호출 (style FAIL → public-talk-script 재호출 / quality FAIL → 보강 리서치 재호출 / timing FAIL 단독 + quality PASS → 통과). 최대 5회 한도 후 사용자 수동 검토 요청.
+
+**quality > timing 우선순위**: timing-auditor 가 ±120초 초과를 보고해도 quality-monotonic-checker 가 PASS 이면 빌드 통과 (정책: `shared/quality-monotonic-policy.md`).
 
 ### [단계 F-2] 재감수 게이트 ⭐ 필수 (사용자 지침 2026-04-23)
 
@@ -718,6 +813,44 @@ Agent(timing-auditor)  # 재감수
 ```
 
 **재감수 루프 상한**: 최대 2회 (`_re1_`, `_re2_`). 2회 후에도 중대 위반 남으면 사용자에게 수동 검토 요청.
+
+### [단계 F-3] ⑨ 결과 처리 — 자동 재작성 분기 (Phase 1-F, 2026-05-02)
+
+단계 F (4종 게이트) 와 단계 F-2 (재감수) 결과를 메인 Claude 가 자동 분기. **사용자 검수 의존 0** — mid-talk10 ⑨단계와 동일 패턴.
+
+```
+[단계 F·F-2 결과 → ⑨ 분기 로직]
+
+if all 4 gates PASS:
+    → 단계 G 보고 (최종 docx + 사용자 검수 단계로)
+elif quality-monotonic PASS AND only timing FAIL (±120 초과 단순 분량):
+    → 단계 G 보고 (quality > timing 우선 — 정책: shared/quality-monotonic-policy.md)
+elif fact-checker FAIL:
+    → public-talk-script 재호출 (수정 지점: research-factcheck/publictalk_{번호}_*.md 의 HIGH 항목)
+    → 단계 D~F 재실행 (자동 재빌드 + 재감수)
+elif jw-style-checker FAIL (NG list / 의심 어휘 / 금칙어):
+    → public-talk-script 재호출 (해당 단어 치환 지시)
+    → 단계 D~F 재실행
+elif quality-monotonic FAIL (9축 중 직전 95% 미달 또는 절대 하한 미달):
+    → 보강 필요 영역 파악 (글자수/성구/외부 14축/이미지 등) → 해당 보조 에이전트 재호출 → public-talk-script 재호출
+    → 단계 D~F 재실행
+
+루프 카운터: ver1 → ver2 → ver3 → ver4 → ver5 (자동 재작성 5회 한도)
+ver5 후에도 1건 이상 FAIL → 사용자에게 BLOCKING 알림 (수동 개입 요청)
+```
+
+**재작성 trigger 매핑**:
+| FAIL 게이트 | 재호출 대상 | 수정 지점 |
+|---|---|---|
+| fact-checker | public-talk-script | 가짜 출판물 인용 제거·성구 verbatim 정정 |
+| jw-style-checker | public-talk-script | NG list / 금칙어 / 의심 어휘 치환 |
+| timing-auditor (단독) | (skip — quality > timing) | — |
+| quality-monotonic (글자수) | public-talk-script | 단락 보강 |
+| quality-monotonic (성구) | scripture-deep + public-talk-script | 추가 성구 인용 |
+| quality-monotonic (외부 14축) | illustration-finder + public-talk-script | 외부 1차 자료 추가 |
+| quality-monotonic (이미지) | illustration-finder | 시드 이미지 다운로드 강제 |
+
+**원준님 개입 = 입력 1회 + 검수 1회 = 총 2회** (mid-talk10 정본과 동일).
 
 ### [단계 G] 확인 및 보고
 
@@ -765,13 +898,25 @@ fi
 - **빌드 실패** (Python 에러) → 에러 로그 전체 사용자에게 보여주고 재시도 여부 확인
 - **docx2pdf 실패** — Word 가 설치돼 있어야 변환됨. 실패하면 docx 만 저장하고 "PDF 는 수동 변환 필요" 안내
 
+## 📚 정본·참조 문서 (Phase 1-3 도입 후)
+
+| 문서 | 용도 |
+|---|---|
+| `research-meta/공개강연-자동화-구조.md` | **확정 정본** — 호출 체인·R1~R20+R-Conv+R-J 룰 명세·자동 재작성 5회 한도 |
+| `.claude/shared/banned-vocabulary.md` | 금칙어 §2 / 사용자 NG §2-bis / 의심 어휘 §2-ter — validators.py 자동 차단 |
+| `.claude/shared/publictalk-formal-expressions.md` | **모범 정형 표현 사전** — 서론 후크 5종×3안 / 성구 유도 / 청중 인터랙션 / 결론 5단락 / 시각자료 도입 |
+| `.claude/shared/quality-monotonic-policy.md` | 품질 단조 증가 9축 — quality > timing |
+| `.claude/agents/publictalk-assembly-coordinator.md` | 단계 C-1 — R 룰 자체 grep + 골자 매핑 + 보조 리서치 활용도 |
+
+`public-talk-script` 와 `publictalk-assembly-coordinator` 는 위 5개 문서를 모두 Read 후 작업 개시.
+
 ## 🔧 파이프라인 파일 (초기 구축 필요)
 
 최초 실행 시 다음 파일들이 없을 수 있음. 있는지 확인하고 없으면 mid-study1 의 파일들을 템플릿으로 생성:
 
-- `_automation\build_publictalk.py` — docx + PDF 포맷터 (30분 분량 레이아웃)
-- `_automation\content_publictalk_{NUMBER}.py` — 각 강연별 스펙 (실행 시마다 생성)
-- `_automation\build_all_publictalks.py` (선택) — 생성된 모든 공개강연 스펙 일괄 재빌드
+- `_automation/build_publictalk.py` — docx + PDF 포맷터 (30분 분량 레이아웃)
+- `_automation/content_publictalk_{NUMBER}.py` — 각 강연별 스펙 (실행 시마다 생성)
+- `_automation/build_all_publictalks.py` (선택) — 생성된 모든 공개강연 스펙 일괄 재빌드
 
 ## 🎯 기억할 점
 

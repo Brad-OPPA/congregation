@@ -87,6 +87,34 @@
 
 **확정 정본 — 더 이상 변경 X**. 다음 주차 (`/week-study` 등) 동일 퀄리티 자동 보장.
 
+---
+
+## 🎙️ 공개 강연 자동화 (확정 정본 2026-05-02)
+
+`/publictalk {번호}` — **사용자 입력 1회로 골자 PDF Read → 6 보조 리서치 → assembly 검증 → 4종 게이트 PASS 까지 자동 작동**.
+
+흐름: 골자 PDF Read (S-34_KO_NNN.docx 또는 PB_NNN-KO*.pdf) ① → public-talk-builder = 기획자 (설계도 + 6개 에이전트 지시서) ② → 6개 보조 리서치 병렬 (scripture-deep · illustration-finder · experience-collector · application-builder · publication-cross-ref · qa-designer mode 2) ③ → public-talk-builder 1차 재검수 (R 룰 후보 풍부도) ④ → public-talk-script = 30분 서술형 원고 ⑤ → **publictalk-assembly-coordinator (R1~R20 + R-Conv + R-J1~J5 자체 grep, Phase 3-C 2026-05-02 신규)** ⑥ → public-talk-builder 2차 재검수 ⑦ → 빌드 (validators.validate_md_text 자동 차단 + docx2pdf → soffice fallback) ⑧ → **🚨 4종 게이트 자동 호출 ⑨** (`fact-checker` · `jw-style-checker` · `timing-auditor` (1800±120초) · `quality-monotonic-checker`) → FAIL 1건 이상 시 **자동 재작성** (해당 영역 재호출, 5회 한도 ver1→ver5) → PASS → 사용자 검수.
+
+원준님 개입 = 입력 1회 + 검수 1회 = **총 2회**.
+
+**세부 명세 (호출 체인 / R1~R20 + R-Conv + R-J1~J5 자동 검증 룰 / 모범 정형 표현 / 자동 재작성 5회 한도 / 외부 자료 우선순위)**:
+> 📘 `~/Claude/Projects/Congregation/research-meta/공개강연-자동화-구조.md` (확정 정본)
+> 📘 `~/Claude/Projects/Congregation/.claude/shared/publictalk-formal-expressions.md` (모범 정형 표현 사전 — 서론 후크 5종×3안·성구 유도·결론 5단락)
+
+**핵심 차이점 (vs 10분 연설)**:
+
+- 30분 서술형 — 6,500~9,000자 (R1), 시간 마커 ≥ 12 (R2), 낭독 성구 6~8개 (R3)
+- 비증인 청중 포함 — 내부 용어 절제, "여러분" 호명만 (서론 호명 7종 금지)
+- 외부 1차 자료 ≥ 5축 (R4) — 14축 (성서 적중 9 + 사유 촉발 5) 활용
+- 시각자료 ≤ 5장 (R5), wol/jwb 비율 ≥ 60%
+- 결론 R-Conv "오늘 우리는 세 가지를… 첫째·둘째·셋째…" 의무 (사용자 의견 ② 2026-05-02)
+- 예수의 가르침 5요소 R-J1~J5 (간결성·논리·질문·수사·비유) 자동 측정 (사용자 의견 ③ 2026-05-02)
+- 한 번 실행 = 1편 (3주치 개념 없음 — 강연자 로테이션)
+
+**확정 정본 — 더 이상 변경 X**. 다음 강연 번호 (`/publictalk N`) 동일 퀄리티 자동 보장.
+
+---
+
 ### 빌더 분류 (2026-04-25 기준)
 
 - **정기 (매주 자동)**: 6개 — `mid-talk10` · `dig-treasures` · `cbs` · `mid-talk5` · `week-study` · `living-part`
