@@ -55,6 +55,40 @@
 
 5-Layer 모두 ✅ — 사용자 검수 부담 0 도달.
 
+### 7. source_archive 시스템 도착 — docx 옆 _source/ 폴더 자동 생성
+
+사용자 요청 ("앞으로 소스관련 폴더 만들어서 삽화를 꼭 같이 저장해") 반영:
+
+- 신규: `_automation/source_archive.py` — 빌드 직후 docx 옆 `_source/` 디렉토리 자동 생성
+- 4 주요 빌더 (`build_treasures_talk` / `build_cbs_v10` / `build_spiritual_gems` / `build_watchtower`) build 끝부분에 hook 추가
+- 보존 내용:
+  - `spec.py` — spec dict Python literal 직렬화 (사람이 읽기 좋음)
+  - `spec_meta.json` — 빌드 시각·MD5·이미지 목록·script.md 위치
+  - `images/` — spec 안의 모든 image_path 실제 binary 사본 (MD5 함께)
+  - `script.md` — research-plan/{slot}/{week}/script.md 사본 (있을 때)
+- 효과: WOL 사이트 변경·이미지 교체로 인한 재현 불가 차단 + 사용자가 docx 검수 시 옆 폴더에서 즉시 spec/이미지 확인
+
+### 8. 10분 260604 spec 정정 + 재빌드 — 사용자 명시 정정
+
+사용자 보고: "삽화 위치도 틀리고, 삽화 소개도 없어  아예삭제하고 다시 새로 만들어"
+
+근본 원인:
+
+- mwb 6월호 10분 슬롯 = 정확히 2장 (page 200 본문 + page 202 도입). agent 가 page 200 을 "표지 삽화" 로 mislabel
+- intro 끝 → 도입 삽화 (mwb_202) 가 갑자기 등장, 대본에 소개 멘트 없음
+- before_illustration 1줄로 짧음 (본문 삽화 도입 부실)
+
+정정 (직접 — 사용자 명시 우선):
+
+- intro 끝에 도입 삽화 소개 1단락 추가 ("문 앞에서 노크하기 전, 한 형제가 잠시 멈춰 조용히 기도하는 모습…")
+- illustration_caption 의 "표지 삽화" → "본문 삽화" 라벨 정정
+- before_illustration 2단락으로 확장 (예레미야 자세·청중 반응·함께 계신 분 — 본문 삽화 흐름 미리 짚어줌)
+- 재빌드 → docx 292KB + PDF 447KB + `_source/` (spec.py 18KB / script.md 13KB / mwb_200.jpg 134KB / mwb_202.jpg 116KB / spec_meta.json) 자동 생성
+
+향후 동일 패턴 차단:
+
+- script-agent 가 mwb 본문 페이지 (200/202 등) 를 "표지" 로 부르는 mislabel — Layer 2 의무 명시 (Read 카탈로그) + Layer 4 anchor 검증으로 catch 가능. 추가로 illustration intro 흐름 의무는 jw-style-checker 보강 필요.
+
 ---
 
 ## 📌 그 전 세션 (2026-05-02 후반) — CBS 자동화 정본 확정 + BOOTSTRAP·메타룰 정착
