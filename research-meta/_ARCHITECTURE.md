@@ -174,13 +174,40 @@ mwb 안 분기 자동 파싱 → subtype별 보조 리서치
 
 ---
 
-## Layer 5 — NWT verbatim 검증 (TODO, HARD GATE 4)
+## Layer 4.5 — 흐름·순서 검증 (HARD GATE 3.5, 사용자 가르침 2026-05-03)
+
+원준님 가르침: **"빌더와 에이전트가 문제없이 만들도록 강제로 차단해야"**.
+
+`validators.verify_image_flow_auto()` + `verify_spec_flow_direction()` — 4 빌더 build 시작 시 자동 호출.
+
+### (a) 이미지 위치 ↔ mwb 카탈로그 순서
+
+- mwb 본문의 이미지 등장 순서 = 의도된 시각 흐름 순서 (위→아래 = 과거 본 → 현대 적용)
+- preflight `images[0]` = `spec.intro_image_path` (도입 위치)
+- preflight `images[1]` = `spec.image_path` (결론 적용 위치)
+- 거꾸로 박으면 `FlowOrderHardFail` raise — 빌드 차단
+
+### (b) spec 단락 흐름 시간 정방향
+
+10분 연설 정형: **(과거) 성구 본 → 배울점 → (현대) 적용**.
+
+차단 패턴 (HARD FAIL):
+- "결과(담대) 보여준 후 → 처음부터 가능?·정반대" 시간 역순 의문법
+- "M년을 사이에 둔 옛 인물의 모습 그대로" 현대→과거 비유
+- "오늘 우리 모습 → 과거 예레미야 그대로" 현대→과거 비교
+- "이 모습 = X 그대로" 현대 그림 → 과거 인물 동일시
+
+agent prompt (`treasures-talk-script.md`) 에 정형 구조 + 이미지 위치 의무 박힘.
+
+---
+
+## Layer 5 — NWT verbatim 검증 (HARD GATE 4)
 
 - 성구 인용 본문 ↔ NWT cache 글자 단위 비교
-- 정규화 (smart quote, 공백) 후 fuzzy match
-- 불일치 = HARD FAIL
+- 정규화 (smart quote, 공백, `+` 각주 마커) 후 fuzzy match
+- 불일치 = HARD FAIL (`ScriptureVerbatimHardFail`)
 
-이게 추가되면 "눅 22:31, 32 verbatim 미일치" 같은 인시던트 자동 차단.
+작동 — `_automation/nwt_cache.py` + `validators.verify_spec_scriptures`. 4 빌더 hook.
 
 ---
 
