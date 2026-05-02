@@ -2,7 +2,7 @@
 name: spiritual-gems-planner
 description: 주중집회 ②번 **영적 보물찾기(10분)** 기획 전용 에이전트. 주차 성경 읽기 범위에서 wol.jw.org 에 명시된 **공식 질문 2개** + 표어 성구를 파싱하고, 각 질문에 대한 예상 답변·성구 낭독 지시·확장 질문·참조 자료(「통」·「파」·「예-1」·「하」)·교차 성구를 수집한다. 또한 주차 성경 읽기 범위 전체에서 사회자가 비상 보강용으로 알고 있을 **주요 성구 후보 10~20개** 도 별도 리스트로 추출. **진입 시 옛 docx 1~2개 Read 의무** — 들여쓰기 위계(① 질문 L=144 / 성구 L=432) · 2블록 구조 · 종료 멘트 등 형식 패턴을 학습한 뒤 작업 시작. 원고 자체는 작성하지 않고 `spiritual-gems-script` 가 소비할 재료 패키지를 `research-plan/spiritual-gems/{주차}/` 에 `outline.md` + `meta.yaml` 2파일로 저장. 트리거 "영보 기획", "spiritual-gems-planner", "영적 보물찾기 자료", 주중 ② 영적 보물찾기 담당자 지원 시.
 tools: WebFetch, WebSearch, Read, Grep, Glob, Write
-model: opus
+model: sonnet
 ---
 
 > **단조 증가 검사 (⑤ 의무, 2026-04-29 도입)**: script.md 의 정량 메트릭 (글자수·성구·출판·외부 14축) 을 직전 주차 동일 슬롯 docx 와 비교. 부족하면 NEEDS-REWRITE 자동 판정. timing 보다 우선. 정책: `.claude/shared/quality-monotonic-policy.md`

@@ -37,35 +37,18 @@ FAIL 시 자동 재작성 무한 루프 (5회 한도). 사용자 검수 의존 0
 ## 인자 규약
 `now|next1|next2|next3`
 
-## 📐 라벨·강조·다각도·4축 표준 (정본 종합)
+## 📐 라벨·강조·다각도·4축 + gem-coordinator — 정본 참조
 
-각 gem 의 `comment` list 는 **반드시** 다음 3개 라벨을 별도 run 으로 포함:
-
-```python
-["① 핵심 — ", "b"], ... , ["\n② 적용 — ", "b"], ... , ["\n③ 배울점 — ", "b"], ...
-```
-
-- 라벨 용어: **핵심·적용·배울점** (변형 금지)
-- 번호 ①·②·③ 필수 / "—" em dash 뒤 공백 1개 / ②·③ 앞 `\n` / 스타일 `"b"`
-- 노랑 강조 (`"yb"`): 단락당 1-2개 핵심 구문, verbatim 인용 미터치
-- **다각도 (권고)**: 각 gem ③ 배울점에 어원·평행·고고·신약 성취·일상·교리 등 자연 서술. validators 가 키워드 매칭으로 측정 (강제 X — 권고 측정만)
-- **적용 영역**: 통독 범위 주제에 가장 자연스러운 1~2 영역만 (4축 모두 강제 적용 X — 자연스러움 우선)
-- **자기점검 질문**: 20 gem 중 ≥10개에 의문문 + `"yb"` 강조
-
-`validators.py` 가 빌드 시 10 룰 자동 차단 — 위반 시 docx 미생성.
-
-세부: `.claude/shared/comment-label-standard.md` + `gem-narrative-standard.md` + `dig-treasures-automation.md` (전체 흐름·hook·정량 메트릭).
-
-## 🔧 gem-coordinator 단계 (Phase E v2, 2026-05-01 추가)
-
-④ Script 산출 직후, ⑤ Planner 2차 재검수 진입 전에 `gem-coordinator` 호출:
-
-- 5 보조 산출물 ↔ 5블록 (도입·Q1·Q2·20성구×3항·마무리) 자동 매핑
-- R1~R10 정량 룰 grep (글자·성구·출판·14축·깊이·4축·다각도·라벨·NWT verbatim·docid)
-- spec dict 드래프트 생성 → 메인 검수 후 `_automation/content_sg_*.py` 이동
-- NEEDS-FIX 시 메인이 spiritual-gems-script 또는 5 보조 재호출
-
-세부: `.claude/agents/gem-coordinator.md`
+> **2026-05-02 압축** — 라벨 용어·다각도·4축·자기점검·gem-coordinator R1~R10 본문은 **정본 일원화**.
+>
+> | 영역 | 정본 |
+> |---|---|
+> | 라벨 용어 (① 핵심 / ② 적용 / ③ 배울점) | `.claude/shared/comment-label-standard.md` |
+> | 다각도·4축·R1~R10·자기점검 / Phase E v2 / hook·정량 메트릭 | `.claude/shared/dig-treasures-automation.md` |
+> | gem narrative 표준 | `.claude/shared/gem-narrative-standard.md` |
+> | gem-coordinator (5블록 매핑·spec dict 드래프트) | `.claude/agents/gem-coordinator.md` |
+>
+> `validators.py` 가 빌드 시 10 룰 자동 차단 — 위반 시 docx 미생성. spiritual-gems-planner·script·gem-coordinator 는 위 정본 의무 Read.
 
 ## ⚠ WOL-first 수집 규칙
 1. 주차 인덱스: `https://wol.jw.org/ko/wol/dt/r8/lp-ko/YYYY/M/D`

@@ -388,154 +388,18 @@ Agent(timing-auditor)
 
 ---
 
-## 서론 이미지 옵션 (2026-04-25 보강)
+## 🎤 본문 정책·영구 규칙·R 룰·정형 표현 — 정본 참조
 
-빌더 spec dict 에 다음 키를 선택적으로 추가하면 도입 마지막 단락 직후 이미지가 임베드된다:
-
-```python
-spec = {
-    ...
-    "intro_image_path": "C:/path/to/intro.jpg",   # 선택
-    "intro_image_caption": "도입 삽화 — '오늘의 봉사' 앱 화면",  # 선택
-    "intro_image_width": 4.0,                      # 선택 (기본 4.0 인치)
-    ...
-}
-```
-
-후보는 illustration-finder 의 `intro_image_candidates.json` 산출물에서 가져온다 (planner 가 매핑).
-
-> **마크업 체크리스트**: 각 에이전트는 자기 폴더 `_progress.md` 에 체크박스로 진행 표시. 정책: `.claude/shared/markdown-checklist-policy.md`.
-
----
-
-## 🎤 연설 본질 정책 (2026-04-30 도입, 원준님 7가지 지적 영구화)
-
-10분 연설은 **연설** 이지 학술 보고가 아니다. 메트릭 통과 ≠ 본질 통과. 다음 정책 모두 의무.
-
-### 본문 = 본 주차 「파」·「집교」 흐름 (1:1 매핑)
-- 본문 척추 = 본 주차 「파수대」·「집회교범」 단락의 메시지·논지 그대로
-- 요점 1·2·3 = 본 주차 「파」 단락 1-2항 / 3-4항 / 5항~ 등과 1:1 매핑
-- 본문 자리에 외부 14축 (역사·고고학·과학·통계·키루스·요세푸스·케년·별빛 등) 박는 것 **금지**
-- 메모리: `feedback_speech_main_skeleton.md`
-
-### 예 = 본문을 이해하기 쉽게 하는 보조 도구
-- 외부 14축은 **예 자리에만** 박되, 요점당 1개 이하 (모범 자료는 예 자리도 0)
-- 예 다양성 OK / 타종교 X / 사실 미검증 X
-- 메모리: `feedback_speech_main_vs_example.md`
-
-### 출처 호명 X
-- 본문에 "「파24.07」 30면 X-Y항이 짚는 것처럼" 류 학술 호명 금지
-- 출판물 출처 = docx 끝 references 섹션·각주 윗첨자(p)에만 표시
-- 본문은 화자가 자기 말로 풀어 말한다
-- 메모리: `feedback_speech_no_source_naming.md`
-
-### 빌더 = 조합 (옵션 A + B 병행)
-- **옵션 A**: `treasures-talk-script` 가 5 보조 자료 + 본 주차 「파」 흐름을 본문으로 엮는 **조합 책무 강화** (④ 단계)
-- **옵션 B**: 신규 **`assembly-coordinator`** 에이전트 — script.md 와 빌더 사이에서 본 주차 「파」 흐름 ↔ 5 보조 자료 매핑 + 본문 흐름 검증 + spec dict 생성
-- 호출 체인: planner → 5 보조 → planner 1차 재검수 → script (본문 작성) → **assembly-coordinator (조합·매핑·검증)** → planner 2차 재검수 → content_*.py + build_*.py
-- 메모리: `feedback_builder_assembly_role.md`
-
-### 정량 기준 (research-meta/10분-연설-표준패턴.md)
-| 항목 | 기준 |
-|---|---|
-| 글자수 | 2,090 ~ 3,600자 |
-| 본문 / 예 / 적용 비율 | 50-70 / 8-25 / 19-40 |
-| 출처 호명 | 0 ~ 6건 (0이 정확, 7+ HIGH) |
-| 외부 14축 본문 침입 | 0건 (1+ HIGH 즉시 NG) |
-| 청중 적용 단락 | 3 ~ 11 |
-| 시간 마커 | 3 ~ 6개 (서론 1'30" + 결론 8'30"/9'30" + 중간 요점·예 진입) |
-| 6단계 narrative | 5/6 이상 (도입→성구→낭독→설명→예→적용) |
-| 타종교 키워드 | 0건 |
-| 핵심 한 문장 박힘 | 안 함 (대신 톤·방향 일관) |
-
-### 자동 검증 룰 (jw-style-checker R1~R13)
-세부: `~/Claude/Projects/Congregation/research-meta/10분-연설-표준패턴.md` §E + §H.
-
----
-
-## 🎯 6단계 narrative 의무 + 결론 정책 (2026-05-01 원준님 확정)
-
-### 출판물 = 성구 배경 설명
-각 요점 = [성구] + [그 성구를 풀어주는 「파」·「통」·「집교」 배경 설명]. 출판물 자체가 본문이 아님.
-
-### 각 요점의 6단계 흐름 (의무)
-
-1. **흥미 유발 예** — 주제에 적절한 예 (출판물에 있으면 좋고, 없어도 다양한 예 OK)
-2. **질문** — 그 예에서 요점으로 환기
-3. **답 = 성구** — 질문의 답이 성구에 나옴
-4. **성구 낭독** — verbatim
-5. **단어·문구·문맥 풀이** — 성구 안 단어를 「파」·「통」·WOL 검색해서 의미 풀어냄
-6. **다음 요점 연결**
-
-### 결론 단계 (3가지 의무)
-
-1. **집회 교재 본 주차 삽화 활용** — 삽화 보여주기 + 배운 3 요점이 어떻게 녹아 있는지 + 배경·배울 점
-2. **전체 내용 간단 요약** — 주제와 연관해서 짧게
-3. **서론 콜백** — 서론에서 던진 예·질문·이미지를 결론에서 다시 환기
-
-### 책무 분리
-
-- **planner** = 기획·검수만 (① ③ ⑤ 단계). **본문 작성 절대 X**
-- **script** = 본문 작성 (④ 단계)
-- 메모리: `feedback_planner_no_writing.md`
-
-### 보조 리서치 풍부 의무
-
-자료 부실 = 본문 부실. 베이스라인:
-- scripture-deep ≥ 6개 / publication-cross-ref ≥ 5편 / illustration-finder ≥ 6개 + 집교 삽화 1장 / experience-collector ≥ 5개 / application-builder ≥ 4개
-
-부족 시 planner ③ 단계가 보조 재호출 (작성으로 보충 X). 메모리: `feedback_research_breadth.md`
-
-### 관련 메모리 7종
-- `feedback_speech_no_source_naming.md` — 출처 호명 X
-- `feedback_speech_main_vs_example.md` — 본문/예 분리
-- `feedback_speech_main_skeleton.md` — 본문 = 「파」 1:1 매핑
-- `feedback_builder_assembly_role.md` — 빌더 조합 (옵션 A+B)
-- `feedback_speech_six_step_narrative.md` — 6단계 + 결론 정책 + 모범 정형 표현
-- `feedback_planner_no_writing.md` — 기획자 작성 금지
-- `feedback_research_breadth.md` — 풍부 검색 의무
-- `feedback_speech_intro_5flow.md` ⭐ 2026-05-01 — 서론 5 흐름 (모범 PDF 직접 모방)
-- `feedback_speech_no_redundant_metaphor.md` ⭐ — 서론 ↔ 요점 비유 메시지 중복 X
-- `feedback_speech_natural_flow.md` ⭐ — 자연스러운 흐름 (모범 PDF 직접 모방)
-- `feedback_wol_term_verification.md` ⭐ — WOL 미검증 추측 표현 금지 (jw-style-checker 자동 의무)
-- `feedback_six_gates_mandatory.md` ⭐ — 빌드 후 4종 게이트 자동 호출 의무
-
----
-
-## 🚨 빌드 후 4종 게이트 자동 호출 의무 (2026-05-01 도입)
-
-`build_treasures_talk.py` 빌드 직후, **메인은 반드시 4 Agent 를 한 메시지에 병렬 호출**:
-
-| Agent | 책무 |
-|---|---|
-| **`fact-checker`** | 사실·인용·성구 표기 (research-factcheck/{YYMMDD}/) |
-| **`jw-style-checker`** | 공식 용어·신세계역 표기 + **WOL 표현 우선 원칙 의무** (의심 용어 grep + wol.jw.org 검증) (research-style/) |
-| **`timing-auditor`** | 낭독 시간 ±120초 (research-timing/) |
-| **`quality-monotonic-checker`** | 직전 주차 대비 품질 단조 증가 (research-quality/) |
-
-### 결과 처리
-
-| 결과 | 처분 |
-|---|---|
-| **4종 모두 PASS** | 사용자 검수 단계로 (산출물 절대경로 + 검증 결과 표 보고) |
-| **1건 이상 FAIL** | 자동 재작성 (FAIL 영역 → script·assembly·planner 재호출, 5회 한도) |
-| **재작성 5회 초과** | 사용자에게 BLOCKING 알림 |
-
-**누락 = 정책 위반**. 메인이 "v_N 빌드 완료, 검수 부탁드립니다" 하면서 **4종 게이트 호출 결과 표 없으면 정책 위반**.
-
-세부: `feedback_six_gates_mandatory.md` + `~/Claude/Projects/Congregation/research-meta/10분-연설-표준패턴.md` §I.
-
----
-
-## 🎤 모범 PDF 정형 표현 의무 (2026-05-01 R15 룰)
-
-다음 정형 표현 모두 박힘 의무 (script ④ 단계):
-
-| 위치 | 모범 표현 |
-|---|---|
-| 서론 끝 | "**그 점을 이사야 OO장 OO절에서 함께 확인해 보겠습니다.**" |
-| 요점 → 다음 요점 환기 | "**바로 이어지는 OO장 OO절에서 그 답을 찾아볼 수 있습니다.**" 또는 "**OO장 OO절을 함께 읽어 보겠습니다.**" |
-| 마지막 요점 → 삽화 | "**삽화를 함께 보시겠습니다.**" |
-| 결론 5 단락 | 요점 리마인드 + 자문점 + 서론 콜백 + 적용 호소 + 마무리 약속 |
-
-모범 PDF (`260507·260326·260108`) 직접 모방. 메모리: `feedback_speech_natural_flow.md`.
+> **2026-05-02 압축** — 본문 정책·R 룰·정형 표현·6단계 narrative·서론 이미지 옵션·4종 게이트 결과 처리는 **정본 일원화**. 토큰 절감 + 회귀 방지.
+>
+> | 영역 | 정본 |
+> |---|---|
+> | 12 영구 규칙 (본문/예 분리·출처 호명 X·6단계 narrative·결론 3가지 의무·책무 분리 등) | `research-meta/10분-연설-자동화-구조.md` |
+> | R1~R18 정량 룰 명세 (글자수·성구·출판·외부 14축·시간 마커·깊이 단락 등) | `research-meta/10분-연설-표준패턴.md` |
+> | 모범 PDF 정형 표현 (서론 후크·성구 유도·결론 행동 촉구) | `research-meta/10분-연설-자동화-구조.md` §정형 표현 |
+> | 서론 이미지 옵션 (옵션 A 골자 본문 / 옵션 B 외부 후크) | 정본 §서론 이미지 |
+> | 4종 게이트 자동 분기 (fact·style·timing·quality-monotonic) | 정본 §자동 재작성 (5회 한도) |
+> | 사용자 NG list + 의심 어휘 | `.claude/shared/banned-vocabulary.md` §2-bis / §2-ter |
+> | 관련 메모리 7종 | `~/.claude/projects/-Users-brandon-Claude/memory/feedback_speech_*.md` |
+>
+> treasures-talk-planner · treasures-talk-script · assembly-coordinator 는 **위 정본 의무 Read** 후 작업.
