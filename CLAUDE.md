@@ -98,45 +98,9 @@
 
 ---
 
-## 📒 자동화 구조 파일 메타룰 (2026-05-02 확정)
+## 📒 자동화 구조 메타룰
 
-**원칙**: 스킬이 자동화 정본으로 확정되면 (= ⑥ 4종 게이트 PASS, 본문 변경 X 약속 가능 단계), `research-meta/{스킬명}-자동화-구조.md` 파일을 **별도로 생성**한다.
-
-이 파일들은 다음을 포함:
-
-1. 핵심 원칙 표 (10~12 항목)
-2. 호출 체인 (① ~ ⑨ 단계, 사용자 입력 1회 + 검수 1회 명시)
-3. 자동 검증 룰 (스킬별 prefix — 10분=R1~R18, 파수대=W1~W12, 공개강연=R1~R20, CBS=C1~C12)
-4. WOL 접근 URL 패턴
-5. 시간 마커 표준 (스킬별 분량)
-6. SPEC dict 또는 spec 파일 표준 구조
-7. Mac 경로 패턴 (`Path.home()` 의무)
-8. 4종 게이트 종합 판정 우선순위 (quality > timing)
-9. 정정 시 메인 Claude 정책 (Phase E — 단순/복잡 분리)
-10. 시행착오 (회귀 방지)
-11. 외부 14축 후보 (스킬별 임계)
-12. 베이스라인 메트릭
-13. 개정 이력
-
-**현재 정착 완료 (4개)**:
-
-| 스킬 | 자동화 구조 파일 | 정착 일자 |
-|---|---|---|
-| `/mid-talk10` | `10분-연설-자동화-구조.md` + `10분-연설-표준패턴.md` | 2026-05-01 |
-| `/week-study` | `파수대-사회-자동화-구조.md` | 2026-05-02 |
-| `/publictalk` | `공개강연-자동화-구조.md` | 2026-05-02 |
-| `/cbs` | `회중성서연구-자동화-구조.md` | 2026-05-02 |
-
-**아직 정착 전 (스킬 완성 시 추가)**:
-
-- `/dig-treasures` → `영적보물찾기-자동화-구조.md` (Phase E v2 가 거의 정착, 차주 빌드 후 확정)
-- `/mid-talk5` → `5분연설-자동화-구조.md`
-- `/living-part` → `그리스도인생활-자동화-구조.md`
-- `/mid-student1~4` → `학생과제-자동화-구조.md`
-- `/local-needs` → `회중의필요-자동화-구조.md`
-- `/chair` → `사회자대본-자동화-구조.md`
-
-각 스킬이 6단 방어(v2) PASS 회수 ≥ 2 + 사용자 만족 → 정본 확정 → 구조 파일 생성. 형식은 4개 정착 파일 그대로 따른다.
+스킬 6단 방어(v2) PASS ≥ 2 + 사용자 만족 → `research-meta/{스킬명}-자동화-구조.md` 정본 생성. 표준 형식 13개 항목·정착 4개·미정착 6개 목록: `research-meta/_template-and-meta-rules.md`
 
 ---
 
@@ -165,38 +129,9 @@
 
 `Congregation/.claude/shared/output-naming-policy.md`
 
-### 🏆 회중의 필요 ver4 검증 표준 패턴 (2026-04-25 원준님 확정)
+### 🏆 회중의 필요 ver4 검증 표준 패턴 (2026-04-25 확정)
 
-회중의 필요 (`/local-needs`) 빌드 시 다음 패턴을 **표준** 으로 따른다. 표본: `04.회중의 필요/260504-0510/회중의 필요_야외봉사 슬기롭게_260507_ver4_.docx`.
-
-**제목·톤** — 능동·격려형 ("우리는 …할 수 있습니다"). 부정·경계형 ("신중함·조심") 금지.
-
-**5단 흐름** (10분 기준)
-| 단계 | 시간 마커 | 책무 |
-|---|---|---|
-| 도입 | 1'30" | 일상 도구·상황 + 핵심 성구 + 능동 가치 |
-| 요점 1 | 3'30" | 대상의 출처·근본·책임 명확화 (오해 방지) |
-| 요점 2 | 6' | 할 수 있는 것 ✓ + **할 수 없는 것 ❌ 목록 5가지** + 관련 법·규정 한 줄 + 항목별 빨강 사유 |
-| 요점 3 | 8'30" | 문제 발생 시 행동 절차 (즉시 보고 대상 명시 — 집단감독자·장로) |
-| 결론 | 9'30" | 격려·축복 + 마무리 성구 + "함께 …합시다" |
-
-**시각** — 인라인 시간 마커 5개 (빨강 #EE0000 볼드 우측정렬), 노랑 하이라이트 (전환어+핵심어구), 성구 좌측 0.4-0.5" 들여쓰기 (박스 X), 평문 산문 (4축 라벨 X).
-
-**성구** — 4~5개 분산 (도입·각 요점·결론), 신세계역 verbatim, URL+호수·면 명시.
-
-**pptx 6장**
-1. 제목 (파랑) + 핵심 성구
-2. 출처 명확화 (✕ 카드 + ✓ 카드)
-3. 할 수 없는 것 N가지 (빨강 + 16pt italic 회색 사유 footer)
-4. 할 수 있는 것 (파랑)
-5. 문제 발생 시 (초록) — 보고 대상 명시
-6. 격려·축복 (황금색) + 마무리 성구
-
-**폰트 사이즈** — 어르신 친화: 제목 48pt / 헤더 40pt / 본문 32pt / 카드 22~30pt / 작은 글씨 16pt italic 회색 #6E6E6E (세부: planner §ver4 패턴).
-
-**법적·외부 규정** — 주제 관련 법(한국 법 우선) 한 줄 + 항목별 사유 표기 ("법 위반 가능"·"민감 정보 저장 우려"). 단정적 법 해석 X — "제한합니다·우려" 같은 신중 표현.
-
-세부: `local-needs-planner.md` §"🏆 ver4 검증 표준 패턴".
+5단 흐름 (도입·요점 1·요점 2·요점 3·결론, 10분) / pptx 6장 / 어르신 친화 폰트 / 능동·격려 톤. 세부: `research-meta/local-needs-ver4-standard.md`
 
 ## 주요 활동
 
@@ -204,106 +139,14 @@
 - 주말집회 (일요일) 원고 준비
 - 3주 선행 자료 생성 — 이번 주 + 다음 주 + 다다음 주
 
-## 사용 스킬 (slash command)
+## 사용 스킬·에이전트
 
-회중 로컬 `Congregation/.claude/commands/` 에 등록 (`~/.claude/commands/` 심볼릭 링크). 회중 폴더에서만 작동.
-
-### 주중집회 (목요일) — 3개 섹션
-
-#### Ⅰ. 하느님의 말씀에서 보물찾기
-
-| 스킬 | 위치 | 용도 |
-| --- | --- | --- |
-| `/mid-talk10` | ① | "성경에 담긴 보물" 10분 연설 |
-| `/dig-treasures` | ② | "영적 보물찾기" 문답 (성구 20개 × 3항) |
-| `/mid-student1` | ③ | 성경 낭독 학생 과제 (남학생 전용) |
-
-#### Ⅱ. 봉사 직무에 향상되십시오
-
-| 스킬 | 용도 |
-| --- | --- |
-| `/mid-student2`~`/mid-student4` | 야외봉사 학생 시연 과제 |
-| `/mid-talk5` | 야외봉사 마지막 5분 연설 (남학생) |
-
-#### Ⅲ. 그리스도인 생활
-
-| 스킬 | 용도 |
-| --- | --- |
-| `/living-part` | 생활 파트 (talk / discussion / video / interview / qna 자동 분기) |
-| `/local-needs` | 회중의 필요 (장로의회 주제 입력 → 원고 + pptx) |
-| `/cbs` | ⑩ 회중성서연구 사회 30분 (주중집회의 마지막 파트) |
-
-### 주말집회 (일요일)
-
-| 스킬 | 위치 | 용도 |
-| --- | --- | --- |
-| `/publictalk` | ① | 공개 강연 30분 (로컬 골자 PDF 기반) |
-| `/week-study` | ② | 파수대 연구 사회 — 3주치 일괄 |
-
-### 일괄 (3주치 또는 통합)
-
-| 스킬 | 용도 |
-| --- | --- |
-| `/midweek-now`·`next1`·`next2`·`next3` | 주중집회 10개 파트 일괄 (회중의 필요 제외) |
-| `/mid-study1`·`/mid-study2`·`/mid-study3` | 10분연설 / 영적보물 / CBS 각 3주치 (legacy) |
-
-## 사용 에이전트 (subagent)
-
-회중 로컬 `.claude/agents/` 에 32개 에이전트 등록 (2026-04-30: assembly-coordinator 신규).
-
-### 리서치 (8) — 결과를 `research-*/` 폴더에 저장
-
-| 에이전트 | 용도 | 저장 폴더 |
-| --- | --- | --- |
-| `wol-researcher` | 주차 프로그램·본문·성구·삽화 목록화 | `research-wol/` |
-| `publication-cross-ref` | 주제 횡단 (파·깨·통·예-1·JW방송) | `research-topic/` |
-| `scripture-deep` | 성구 심층 (번역·원어·배경·병행) | `research-bible/` |
-| `illustration-finder` | 예화·비유·서론·결론 초안 | `research-illustration/` |
-| `qa-designer` | 문답 블록 설계 | `research-qa/` |
-| `application-builder` | 실생활 적용 카드 | `research-application/` |
-| `experience-collector` | 공식 경험담 수집 | `research-experience/` |
-| `public-talk-builder` | 공개 강연 30분 아웃라인·재료 | `research-public-talk/` |
-
-### 기획 planner (8) — 스킬별 지시서 작성
-
-`treasures-talk-planner` · `spiritual-gems-planner` · `cbs-planner` · `watchtower-study-planner` · `living-part-planner` · `local-needs-planner` · `student-assignment-planner` · `student-talk-planner`
-
-### 대본 script (8) — 실제 원고 작성
-
-`treasures-talk-script` · `spiritual-gems-script` · `cbs-script` · `living-part-script` · `student-assignment-script` · `student-talk-script` · `chair-script-builder` · `public-talk-script`
-
-### 특수 빌더·조합 (4)
-
-`prayer-composer` (기도문) · `slides-builder` (pptx) · `role-play-scenario-designer` (학생 시연 시나리오) · **`assembly-coordinator`** (10분 연설 조합·매핑·R1~R10 1차 검증, 2026-04-30 신규 — script ↔ build 사이 단계)
-
-### 감수 게이트 (4) — 2026-04-29 4종으로 확장
-
-| 에이전트 | 용도 | 저장 폴더 |
-| --- | --- | --- |
-| `fact-checker` | 사실·인용·성구 표기 검증 | `research-factcheck/` |
-| `jw-style-checker` | 공식 용어·호칭·신세계역 표기 | `research-style/` |
-| `timing-auditor` | 낭독 시간 측정·조정 제안 (±60→±120초 완화) | `research-timing/` |
-| **`quality-monotonic-checker`** ← 신규 | 직전 주차 대비 품질 단조 증가 검증 (글자·성구·출판·외부 14축). FAIL 시 자동 재작성 강제 (5회 한도). 정책: `shared/quality-monotonic-policy.md` | `research-quality/` |
-
-⑥ 단계는 **4종 병렬**. **quality > timing** — timing FAIL 이라도 quality PASS 면 통과.
-
-## 스킬 ↔ 에이전트 호출 체인
-
-각 스킬이 실제 호출하는 에이전트 (`SKILL.md` 직접 파싱). 모든 스킬은 종료 시 **공통 감수 게이트** (`fact-checker` + `jw-style-checker` + `timing-auditor`) 를 통과.
-
-| 스킬 | planner | script | 보조 리서치 / 특수 |
-| --- | --- | --- | --- |
-| `/mid-talk10` | treasures-talk-planner | treasures-talk-script | scripture-deep · publication-cross-ref · illustration-finder · experience-collector · application-builder |
-| `/dig-treasures` | spiritual-gems-planner | spiritual-gems-script | 위와 동일 (timing-auditor 제외 — 시간 제약 없음) |
-| `/mid-student1` | (없음) | student-assignment-script | 단독 호출 |
-| `/mid-student2`·`/mid-student3` | student-assignment-planner | student-assignment-script | scripture-deep · application-builder · experience-collector + role-play-scenario-designer |
-| `/mid-student4` | student-assignment-planner | student-assignment-script | role-play-scenario-designer |
-| `/mid-talk5` | student-talk-planner | student-talk-script | scripture-deep · publication-cross-ref · illustration-finder · experience-collector · application-builder |
-| `/living-part` | living-part-planner | living-part-script | subtype별 보조 (qa-designer · application-builder · experience-collector · publication-cross-ref 등) |
-| `/local-needs` | local-needs-planner | (planner 가 직접 작성) | scripture-deep · publication-cross-ref · application-builder · experience-collector · illustration-finder + slides-builder |
-| `/cbs` | cbs-planner | cbs-script | qa-designer · scripture-deep · publication-cross-ref · application-builder + (선택) experience-collector · illustration-finder |
-| `/week-study` | watchtower-study-planner | (planner 가 직접 작성) | wol-researcher · scripture-deep · publication-cross-ref · qa-designer · application-builder · experience-collector · illustration-finder · public-talk-builder |
-| `/publictalk` | — | — | public-talk-builder 가 기획·통합. scripture-deep · publication-cross-ref · illustration-finder · experience-collector · application-builder · qa-designer |
+- **스킬** 18개 — 회중 로컬 `Congregation/.claude/commands/` (회중 폴더에서만 작동)
+- **에이전트** 32개 — `.claude/agents/` = planner 8 / script 8 / 보조 리서치 8 / 특수 4 / 게이트 4
+- **정기** (매주 자동) 6개: `mid-talk10` · `dig-treasures` · `cbs` · `mid-talk5` · `week-study` · `living-part`
+- **부정기** (단독 호출) 3개: `publictalk` · `local-needs` · `chair`
+- **게이트** ⑥ 단계 4종 병렬 (`fact-checker` + `jw-style-checker` + `timing-auditor` + `quality-monotonic-checker`), **quality > timing** 우선
+- 전체 표 + 스킬↔에이전트 호출 체인: `research-meta/skills-and-agents-index.md`
 
 ## 훅 (자동 실행)
 
