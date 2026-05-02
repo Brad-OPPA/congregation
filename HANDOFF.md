@@ -68,7 +68,37 @@
   - `script.md` — research-plan/{slot}/{week}/script.md 사본 (있을 때)
 - 효과: WOL 사이트 변경·이미지 교체로 인한 재현 불가 차단 + 사용자가 docx 검수 시 옆 폴더에서 즉시 spec/이미지 확인
 
-### 8. 10분 260604 spec 정정 + 재빌드 — 사용자 명시 정정
+### 9. Layer 4.5 흐름·순서 강제 차단 (사용자 가르침 — 빌더 architecture 보강)
+
+원준님 가르침: **"빌더와 에이전트가 문제없이 만들도록 강제로 차단해야"**.
+
+매번 spec 한 줄씩 수동 정정 ≠ 진짜 자동화. 빌더가 빌드 시점에 HARD GATE 로 차단해야 같은 mistake 재발 0.
+
+**신규 validators (`FlowOrderHardFail`)**:
+
+- `verify_image_flow_auto()` — preflight `_preflight_{slot}.json` 카탈로그의 이미지 등장 순서 ↔ spec 의 `intro_image_path` / `image_path` 위치 매칭. 첫 그림 = 도입 (과거 본보기), 둘째 그림 = 결론 (현대 적용). 거꾸로 박으면 차단.
+- `verify_spec_flow_direction()` — spec 단락 안 시간 역순 4종 패턴 차단:
+  1. "담대 → 처음부터 가능?·정반대" 결과 후 시작 의문법
+  2. "M년을 사이에 둔 옛 인물 모습 그대로" 현대→과거 비유
+  3. "오늘 우리 → 과거 인물 그대로" 비교
+  4. "이 모습 = X 그대로" 현대 그림 → 과거 인물 동일시
+
+**4 빌더 hook**:
+
+- `build_treasures_talk`: image_flow + flow_direction (10분은 두 그림이 흐름의 핵심)
+- `build_cbs_v10` / `build_spiritual_gems` / `build_watchtower`: flow_direction (시간 정방향만)
+
+**agent prompt** (`treasures-talk-script.md`) 머리말에 정형 구조 + 이미지 위치 의무 박힘.
+
+**End-to-end 검증 (3 케이스 모두 PASS)**:
+
+- 이미지 swap → 빌드 차단 ✅
+- 시간역순 텍스트 삽입 → 빌드 차단 ✅
+- 정상 spec → regression 없이 통과 ✅
+
+`_ARCHITECTURE.md` 에 Layer 4.5 신규 섹션 명시. 같은 mistake (시간 역순, 이미지 거꾸로) 가 어떤 future agent run 에서도 build 시점에 자동 차단됨.
+
+### 10. 10분 260604 spec 정정 + 재빌드 — 사용자 명시 정정
 
 사용자 보고: "삽화 위치도 틀리고, 삽화 소개도 없어  아예삭제하고 다시 새로 만들어"
 
