@@ -174,30 +174,78 @@ mwb 안 분기 자동 파싱 → subtype별 보조 리서치
 
 ---
 
-## Layer 4.5 — 흐름·순서 검증 (HARD GATE 3.5, 사용자 가르침 2026-05-03)
+## Layer 4.5 — 표준 구조·흐름 검증 (HARD GATE 3.5, 사용자 가르침 2026-05-03 갱신)
 
-원준님 가르침: **"빌더와 에이전트가 문제없이 만들도록 강제로 차단해야"**.
+원준님 가르침: **"빌더와 에이전트가 문제없이 만들도록 강제로 차단해야"** + 정본 표준 5 단계 구조 (10분프로 전용).
 
-`validators.verify_image_flow_auto()` + `verify_spec_flow_direction()` — 4 빌더 build 시작 시 자동 호출.
-
-### (a) 이미지 위치 ↔ mwb 카탈로그 순서
-
-- mwb 본문의 이미지 등장 순서 = 의도된 시각 흐름 순서 (위→아래 = 과거 본 → 현대 적용)
-- preflight `images[0]` = `spec.intro_image_path` (도입 위치)
-- preflight `images[1]` = `spec.image_path` (결론 적용 위치)
-- 거꾸로 박으면 `FlowOrderHardFail` raise — 빌드 차단
-
-### (b) spec 단락 흐름 시간 정방향
+### (a) `verify_spec_flow_direction()` — 시간 정방향 강제 (모든 빌더 공통)
 
 10분 연설 정형: **(과거) 성구 본 → 배울점 → (현대) 적용**.
 
-차단 패턴 (HARD FAIL):
+차단 패턴 (HARD FAIL `FlowOrderHardFail`):
 - "결과(담대) 보여준 후 → 처음부터 가능?·정반대" 시간 역순 의문법
 - "M년을 사이에 둔 옛 인물의 모습 그대로" 현대→과거 비유
 - "오늘 우리 모습 → 과거 예레미야 그대로" 현대→과거 비교
 - "이 모습 = X 그대로" 현대 그림 → 과거 인물 동일시
 
-agent prompt (`treasures-talk-script.md`) 에 정형 구조 + 이미지 위치 의무 박힘.
+### (b) `verify_treasures_talk_structure()` — 정본 표준 5 단계 강제 (10분프로 전용)
+
+⚠ **공개강연·CBS·영보·파수대 빌더에 절대 hook X**. `build_treasures_talk` 만.
+
+정본 (`research-meta/10분-연설-자동화-구조.md` G-2/G-3):
+
+```text
+1. 서론 (intro)
+   - video_cue 있음 → 간단 주제 소개 + "[동영상 「…」 시청]" cue
+   - video_cue 없음 → 흥미 일으키는 도입 (R14 5 흐름)
+2. 요점 1·2·3 (각 6단계 narrative)
+3. 삽화 단계 (illustrations list — 한 자리, N장 차례로)
+   각 그림 = caption (≥ 20자) + explanation (≥ 60자)
+4. 적용점 끌어내기 (application — 생각해 볼 점 질문 ? 의무)
+5. 결론 마무리 (conclusion — 요점 리마인드 + 서론 콜백 의무)
+```
+
+신 spec 형식:
+
+```python
+spec = {
+    "intro": [...],
+    "video_cue": "예레미야 소개",   # 옵션
+    "scripture_1/2/3": ..., "after_scripture_1/2/3": [...],
+    "before_illustrations": [...],
+    "time_marker_illustrations": "7'30\"",
+    "illustrations": [
+        {"image_path": ..., "caption": ..., "explanation": [...]},
+        ...
+    ],
+    "time_marker_application": "8'00\"",
+    "application": [...],
+    "time_marker_conclusion": "8'30\"",
+    "conclusion": [...],
+}
+```
+
+backward compat — 구식 슬롯 (`intro_image_path` / `image_path` 단일) 사용 시 stderr WARN 만 (1 개월 grace), 신 슬롯 (`illustrations`) 사용 시 위 조건 위반이면 HARD FAIL.
+
+### (c) 공개강연 (publictalk) 과의 차이 — 혼동 금지
+
+| 빌더 | 삽화 처리 위치 |
+|---|---|
+| **10분프로** (treasures_talk) | 모든 그림이 **삽화 단계 한 자리** (요점 끝 → 적용 직전) 차례로 |
+| **공개강연** (publictalk) | 삽화가 **나올 때마다 그 요점 구간**에서 분산 |
+
+`verify_treasures_talk_structure` 는 10분프로 전용. 공개강연 빌더에 적용 X.
+
+### 어제 삭제된 잘못된 validator (정정 이력)
+
+| 함수 | 삭제 이유 |
+|---|---|
+| `verify_image_flow_against_mwb_anchor` | "intro_image=mwb첫째 / image_path=mwb둘째" 두 자리 분리 강제 — 표준은 한 자리 |
+| `verify_image_flow_auto` | 동일 잘못된 가정 |
+| `_verify_image_pair_order` | 동일 |
+| `verify_illustration_intros` | "intro 단락에 그림 도입 멘트" 강제 — 표준에선 intro 에 그림 없음 |
+
+agent prompt (`treasures-talk-script.md`) 머리말에 정본 표준 5 단계 + 동영상 분기 + 공개강연 차이 명시 박힘.
 
 ---
 
