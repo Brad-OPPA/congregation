@@ -1,0 +1,245 @@
+# 영적 보물찾기 — 260604 (2026-06-04 목요일)
+# 통독: 예레미야 1-3장
+# 표어: 렘 2:13 (두 가지 악) + 렘 3:22 (회복)
+# 빌드 시점: 2026-05-02 (CLAUDE.md 압축 후 첫 빌드 — 동등성 검증)
+
+week_date: 260604
+weekly_folder: 260601-0607
+bible_reading_range: 예레미야 1-3장
+wol_index: https://wol.jw.org/ko/wol/dt/r8/lp-ko/2026/6/1
+wol_jer1: https://wol.jw.org/ko/wol/b/r8/lp-ko/nwtsty/24/1
+wol_jer2: https://wol.jw.org/ko/wol/b/r8/lp-ko/nwtsty/24/2
+wol_jer3: https://wol.jw.org/ko/wol/b/r8/lp-ko/nwtsty/24/3
+
+official_questions:
+  - q1:
+      verbatim: "렘 2:28—여호와께서 불충실한 유대 사람들에게 하신 말씀에서 무엇을 배울 수 있습니까?"
+      references:
+        - "「예레」 43면 3항 (= 「예레미야의 본보기를 따라」 4장 \"믿을 수 없는 마음을 경계하십시오\" 3항)"
+      ref_url: "https://wol.jw.org/ko/wol/d/r8/lp-ko/1102010143"
+  - q2:
+      verbatim: "이번 주 성경 읽기를 통해 어떤 영적 보물을 발견했습니까?"
+      references: []
+
+headline_scripture:
+  ref_jer213: "예레미야 2:13"
+  text_jer213: "‘내 백성이 두 가지 악한 일을 저질렀기 때문이다. 그들은 생명의 물의 근원인 나를 버렸고, 자기들을 위해 저수조를, 물을 담을 수 없는 터진 저수조를 팠다.’"
+  ref_jer322: "예레미야 3:22"
+  text_jer322: "“돌아오너라, 너희 변절한 아들들아. 내가 너희의 변절한 마음을 고쳐 줄 것이다.” “우리가 여기 있습니다! 우리가 주께 왔습니다. 오 여호와여, 주는 우리의 하느님이시기 때문입니다.”"
+
+# 20성구 선정 (렘 1장 6 + 렘 2장 9 + 렘 3장 5) — 핵심 ★ 4 절
+selected_gems:
+  # 예레미야 1장 (6개)
+  - chapter_verse: "렘 1:5"
+    nwt_verbatim: "“내가 너를 모태에서 짓기도 전에 너를 알았고, 네가 태어나기도 전에 너를 성별하였다. 내가 너를 민족들에게 보낼 예언자로 삼았다.”"
+    selection_reason: ★ 모태 선택·여호와의 예지·각 사람 사랑
+    suggested_angles: [어원(야다), 평행(시 139:13-16, 갈 1:15), 신약 성취]
+    application_focus: 개인 영성
+
+  - chapter_verse: "렘 1:6"
+    nwt_verbatim: "그러나 내가 말했다. “아, 주권자인 주 여호와여! 저는 아직 아이라서 말할 줄 모릅니다.”"
+    selection_reason: 자격 없다는 느낌·모세·기드온 평행
+    suggested_angles: [평행(출 4:10·삿 6:15), 일상]
+    application_focus: 회중·전도
+
+  - chapter_verse: "렘 1:7, 8"
+    nwt_verbatim: "그러자 여호와께서 나에게 말씀하셨다. “‘저는 아직 아이입니다’라고 말하지 마라. 내가 누구에게 보내든지 너는 가야 하며, 내가 무엇을 명령하든지 너는 말해야 한다. 그들의 모습을 보고 두려워하지 마라. 내가 너와 함께 있어 너를 구해 줄 것이기 때문이다. 여호와의 말이다.”"
+    selection_reason: 두려움 극복·여호와의 임재 약속 (능동형)
+    suggested_angles: [평행(시 27:1·마 28:20), 일상]
+    application_focus: 전도
+
+  - chapter_verse: "렘 1:9"
+    nwt_verbatim: "그러고 나서 여호와께서 손을 내밀어 나의 입에 대셨다. 여호와께서 말씀하셨다. “내가 나의 말을 너의 입에 넣어 주었다.”"
+    selection_reason: 말씀 권능 부여
+    suggested_angles: [평행(사 6:7·단 10:16)]
+    application_focus: 전도
+
+  - chapter_verse: "렘 1:11, 12"
+    nwt_verbatim: "여호와의 말씀이 또 나에게 임했다. “예레미야야, 무엇이 보이느냐?” 내가 대답했다. “아몬드나무 가지가 보입니다.” 여호와께서 나에게 말씀하셨다. “잘 보았다. 나는 내 말을 이루기 위해 온전히 깨어 있다.”"
+    selection_reason: ★ 아몬드 어원 언어 유희 (샤케드 / 쇼케드)
+    suggested_angles: [어원, 자연(이스라엘 1-2월 만개)]
+    application_focus: 개인 영성
+
+  - chapter_verse: "렘 1:18, 19"
+    nwt_verbatim: "“오늘 내가 너를 요새 도시와 철 기둥과 구리 성벽으로 만들어 온 땅에 맞서게 하고, 유다의 왕들과 그 방백들에게, 그 제사장들과 그 땅의 백성에게 맞서게 하였다. 그들이 분명 너와 싸우겠지만, 너를 이기지 못할 것이다. 내가 너와 함께 있어 너를 구해 줄 것이기 때문이다. 여호와의 말이다.”"
+    selection_reason: 보호 약속·요새·기둥·성벽 3중 비유
+    suggested_angles: [평행(시 18:2·롬 8:31), 고고]
+    application_focus: 회중
+
+  # 예레미야 2장 (9개)
+  - chapter_verse: "렘 2:2"
+    nwt_verbatim: "“가서 예루살렘의 귀에 외쳐라. ‘여호와가 이렇게 말한다. “나는 네가 젊은 시절에 보인 정성을, 네가 약혼 시절에 나타낸 사랑을, 광야에서, 씨 뿌리지 못하는 땅에서 나를 따랐던 것을 잘 기억하고 있다.”’”"
+    selection_reason: 첫 사랑·여호와의 따뜻한 회상
+    suggested_angles: [평행(계 2:4 에베소 첫 사랑), 일상]
+    application_focus: 개인 영성
+
+  - chapter_verse: "렘 2:5"
+    nwt_verbatim: "여호와께서 말씀하신다. “너희의 조상이 나에게서 무슨 허물을 발견했기에 내게서 그토록 멀리 떠나, 무가치한 우상들을 따라 걷다가 그들 자신도 무가치한 자가 되었느냐?”"
+    selection_reason: ★ 우상을 따르는 자가 우상처럼 무가치해진다 — 본질 변화 원칙
+    suggested_angles: [평행(시 115:8·요일 5:21), 교리]
+    application_focus: 개인 영성
+
+  - chapter_verse: "렘 2:11"
+    nwt_verbatim: "어느 민족이 자기의 신들을 신이 아닌 것들과 바꾼 적이 있느냐? 그런데 내 백성은 나의 영광을 쓸모없는 것과 바꾸었다."
+    selection_reason: 역사 도전 — 이방 민족도 자기 신은 안 바꾼다
+    suggested_angles: [고고(이집트·앗수르 다신교 천 년 유지), 일상]
+    application_focus: 개인 영성
+
+  - chapter_verse: "렘 2:13"
+    nwt_verbatim: "‘내 백성이 두 가지 악한 일을 저질렀기 때문이다. 그들은 생명의 물의 근원인 나를 버렸고, 자기들을 위해 저수조를, 물을 담을 수 없는 터진 저수조를 팠다.’"
+    selection_reason: ★ 표어 성구 — 두 가지 악 (포기·대체)
+    suggested_angles: [어원(보르 = 저수조), 고고(가나안 회벽 저수조), 평행(요 4:14)]
+    application_focus: 개인 영성
+
+  - chapter_verse: "렘 2:18"
+    nwt_verbatim: "그런데 네가 어찌하여 시홀의 물을 마시려고 이집트로 향하는 길로 가고 싶어 하느냐? 어찌하여 ‘강’의 물을 마시려고 아시리아로 향하는 길로 가고 싶어 하느냐?"
+    selection_reason: 동맹 외교의 헛됨 — 시홀(나일)·강(유프라테스)
+    suggested_angles: [고고(이집트·아시리아 동맹 시도), 평행(사 30:1-2)]
+    application_focus: 개인 영성
+
+  - chapter_verse: "렘 2:19"
+    nwt_verbatim: "네 악이 너를 시정하고 네 불충실함이 너를 책망해야 마땅하다. 너의 하느님 여호와를 버린 것이 얼마나 악하고 쓰라린 것인지 알고 또 깨달아라."
+    selection_reason: 자초한 결과·자기 책임
+    suggested_angles: [평행(잠 1:31·갈 6:7), 일상]
+    application_focus: 개인 영성
+
+  - chapter_verse: "렘 2:21"
+    nwt_verbatim: "“나는 너를 아주 좋은 붉은 포도나무로, 순수한 종자로 심었다. 그런데 어찌하여 너는 내 앞에서 이방 포도나무의 질 나쁜 가지로 바뀌었느냐?”"
+    selection_reason: 포도나무 변질 — 좋은 종자에서 나쁜 가지로
+    suggested_angles: [평행(사 5:1-2·요 15:1-5), 자연(접목 농법)]
+    application_focus: 개인 영성
+
+  - chapter_verse: "렘 2:22"
+    nwt_verbatim: "‘네가 소다로 씻고 잿물을 많이 쓰더라도, 너의 죄는 여전히 내 앞에 얼룩으로 남아 있을 것이다.’ 주권자인 주 여호와의 말이다."
+    selection_reason: 인간 정화의 한계
+    suggested_angles: [평행(시 51:2-7·히 9:14), 자연(고대 화학)]
+    application_focus: 개인 영성
+
+  - chapter_verse: "렘 2:32"
+    nwt_verbatim: "처녀가 자기의 장신구를, 신부가 자기의 가슴띠를 잊을 수 있겠느냐? 그런데 내 백성은 아주 오랜 세월 동안 나를 잊고 지냈다."
+    selection_reason: 잊을 수 없는 것을 잊은 백성
+    suggested_angles: [평행(시 137:5-6), 일상]
+    application_focus: 개인 영성
+
+  # 예레미야 3장 (5개)
+  - chapter_verse: "렘 3:1"
+    nwt_verbatim: "사람들은 이렇게 말한다. “어떤 남자가 자기 아내를 내보내서 그 여자가 그를 떠나 다른 남자의 아내가 된다면, 그가 그 여자를 다시 받아들일 수 있겠느냐?” 그 땅이 아주 더럽혀진 것이 아니냐?"
+    selection_reason: 율법 한계 vs 여호와의 은혜
+    suggested_angles: [평행(신 24:1-4·호 3:1)]
+    application_focus: 회중
+
+  - chapter_verse: "렘 3:12"
+    nwt_verbatim: "가서 북쪽을 향해 이 말을 선포하여라. ‘“돌아오너라, 변절한 이스라엘아.” 여호와의 말이다.’ ‘“내가 노를 품고 너희를 내려다보지 않을 것이다. 나는 충성스럽기 때문이다.” 여호와의 말이다.’"
+    selection_reason: 충성스러움·돌아오라는 부르심
+    suggested_angles: [어원(헤세드), 평행(시 86:5)]
+    application_focus: 회중
+
+  - chapter_verse: "렘 3:15"
+    nwt_verbatim: "“그리고 내가 내 마음에 드는 목자들을 너희에게 주리니, 그들이 지식과 통찰력으로 너희를 먹일 것이다.”"
+    selection_reason: 마음에 드는 목자 — 장로 양육
+    suggested_angles: [평행(엡 4:11-13), 신약]
+    application_focus: 회중
+
+  - chapter_verse: "렘 3:17"
+    nwt_verbatim: "“그때에 사람들은 예루살렘을 여호와의 왕좌라고 부를 것이다. 모든 민족이 여호와의 이름을 위해 예루살렘에 모이겠고, 다시는 자기들의 악한 마음을 고집스럽게 따르지 않을 것이다.”"
+    selection_reason: ★ 모든 민족 모임 — 전도 핵심
+    suggested_angles: [신약(계 21:24·사 2:2-4), 평행]
+    application_focus: 회중·전도
+
+  - chapter_verse: "렘 3:22"
+    nwt_verbatim: "“돌아오너라, 너희 변절한 아들들아. 내가 너희의 변절한 마음을 고쳐 줄 것이다.” “우리가 여기 있습니다! 우리가 주께 왔습니다. 오 여호와여, 주는 우리의 하느님이시기 때문입니다.”"
+    selection_reason: ★ 회복 핵심 — 마음을 고쳐 주시는 여호와
+    suggested_angles: [어원(슈브), 평행(호 14:4), 교리]
+    application_focus: 개인 영성
+
+research_dirs:
+  bible: research-bible/260604/
+  topic: research-topic/260604/
+  application: research-application/260604/
+  experience: research-experience/260604/
+  illustration: research-illustration/260604/
+
+instructions_to_subresearchers:
+  scripture-deep: |
+    공유 파일 6개 Read 의무 (multi-layer-defense·intro-illustration·comment-label·gem-narrative·banned-vocabulary·dig-treasures-automation).
+    🟢 착수 + 🔴 종료 _selfcheck.md 의무. 호출자 접두사 `gems_`.
+    중점:
+    - 20성구 NWT verbatim 검증 (위 selected_gems 와 글자 단위 일치 — wol.jw.org/ko/wol/b/r8/lp-ko/nwtsty/24/{1,2,3} 재조회)
+    - 핵심 어원: 렘 1:5 "야다"(알다), 렘 1:11-12 "샤케드/쇼케드"(아몬드/깨어 있음 — 언어 유희), 렘 2:13 "보르"(저수조), 렘 3:22 "슈브"(돌아오다)
+    - 평행 성구 ≥5/성구: 렘 1:5 ↔ 시 139:13-16·갈 1:15·눅 1:15·롬 9:11 / 렘 2:13 ↔ 요 4:14·요 7:37-39·계 21:6 / 렘 3:22 ↔ 호 14:4·약 4:8
+    - 신약 성취: 렘 1:5 → 갈 1:15 (바울 모태 부르심), 렘 2:13 → 요 4:14 (예수 = 생명의 물), 렘 3:17 → 계 21:24 (모든 민족 모임)
+    피하기: 영혼 불멸 시사·다른 장 끌어오지 말 것·이모지 X.
+
+  publication-cross-ref: |
+    공유 파일 6개 Read. 🟢🔴 의무. 접두사 `gems_`.
+    중점:
+    - 「예레」 43면 3항 verbatim — 공식 질문 1 핵심 ("신" 정의·우상 만드는 마음)
+    - 「예레」 1장 (렘 1:5-8 부르심·소년 예레미야)
+    - 「통찰」 1권 "예레미야 (예언자)" 항목 (1200002421) — 이름 어원·소명 배경
+    - 「통찰」 1권 "아나돗" (1200000269) — 베냐민·예루살렘 북북동 5km
+    - 「통찰」 2권 "예레미야서" (1200002422) — 기록 시기·신빙성·연대
+    - 신세계역 연구 노트 — 렘 1:11 아몬드, 렘 2:13 저수조
+    - docid 실존 검증 (가짜 절대 금지)
+    피하기: 호수·면 추정 X·외국어판 끌어오지 말 것·"파수대 2024년 X월호" 식 미검증 인용 금지.
+
+  application-builder: |
+    공유 파일 6개 Read. 🟢🔴 의무. 접두사 `gems_`.
+    중점:
+    - 4축 강제 폐기 (자연스러움 우선)
+    - 자기점검 질문 ≥10 gem 에 1개씩 — 의문문 + 노랑 강조
+    - 렘 1:5 (모태 선택 - 자기 가치) / 렘 1:6 (자격 없음 - 회중 봉사) / 렘 1:11-12 (여호와의 깨어있음 - 약속 신뢰) / 렘 2:13 (두 가지 악 - 우선순위) / 렘 3:22 (회복 - 회개) 중점
+    피하기: 상투적 청중 호명 ("여러분도 …해 보신 적") 절대 금지·정죄형 X·"가정 경배"·"신자" 단독·"여호와의 임재" 명사형 X.
+
+  experience-collector: |
+    공유 파일 6개 Read. 🟢🔴 의무. 접두사 `gems_`.
+    핵심 5~8 성구 매칭: 렘 1:5 (모태 선택 격려) / 렘 1:6-8 (자격없음 극복 — 젊은 형제 봉사 직무) / 렘 1:11-12 (여호와의 깨어있음 - 약속 성취) / 렘 2:13 (대체물 비교 — 직장·돈 등 우상) / 렘 3:22 (회복 — 돌아온 형제).
+    공식 경험담 verbatim 출처·호수·면 명시. 연감·파수대·"삶"·JW 방송.
+    피하기: 실명 공개된 아동·verbatim 미확인 ⚠️ 플래그 명시.
+
+  illustration-finder: |
+    공유 파일 6개 Read. 🟢🔴 의무. 접두사 `gems_`.
+    핵심 5~8 성구: 렘 1:1 (아나돗 = 현재 아나타 마을 — 14축 #6·#7) / 렘 1:11-12 (아몬드나무 — 14축 #5 자연) / 렘 1:13 (끓는 솥 북쪽 — 14축 #7 지형) / 렘 2:13 (가나안 저수조·회벽 균열 — 14축 #6 고고) / 렘 2:18 (시홀=나일·강=유프라테스 동맹 정치 — 14축 #6·#8) / 렘 2:21 (포도나무 접목 — 14축 #5) / 렘 2:22 (소다·잿물 = 탄산나트륨·고대 화학 — 14축 #5).
+    1차 자료 ≥2건 교차. 적절성 8필터 전부.
+    피하기: 종교 도상 X·이모지 X·서양 종교화 X.
+
+phase_e_v2_compliance:
+  policy_files_read: [multi-layer-defense.md, intro-and-illustration-quality.md, comment-label-standard.md, gem-narrative-standard.md, banned-vocabulary.md, dig-treasures-automation.md]
+  enforcement:
+    - "🟢🔴 블록 의무 (모든 보조)"
+    - "호출자 접두사 gems_ 일관"
+    - "라벨 표준 ① 핵심·② 적용·③ 배울점 (이모지 X)"
+    - "다각도 권고 (어원·평행·고고·신약 성취·일상·교리 키워드 매칭, 강제 X)"
+    - "적용 영역 자연스러움 우선 (4축 강제 X)"
+    - "할루시네이션 차단 (가짜 docid X·NWT verbatim 글자 단위·사용자 NG·의심 어휘)"
+    - "메인 Claude 직접 정정 금지 (이번 빌드는 에이전트 자격 실행 — 정정 권한 ON)"
+
+block_structure:
+  - block: 도입
+    duration_sec: 30
+    content: "통독 범위 + 표어 성구 + 주제 1줄"
+  - block: 공식 질문 1 (렘 2:28 우상)
+    duration_sec: 240
+    content: "성구 낭독 + 「예레」 43면 3항 verbatim + 적용"
+  - block: 공식 질문 2 (보물 발견)
+    duration_sec: 240
+    content: "1순위 카드 (렘 1:5 모태 또는 렘 2:13 두 가지 악) + 청중 자율"
+  - block: 영적 보물 (20성구 × 3항)
+    duration_sec: 60
+    content: "장별 그룹핑 — 렘 1장 6 + 렘 2장 9 + 렘 3장 5"
+  - block: 마무리
+    duration_sec: 30
+    content: "표어 재각인 + 행동 권면"
+
+# 베이스라인 메트릭 (260528)
+baseline_260528:
+  chars: 10120
+  scripture: 70
+  publications: 16
+  external: 7
+  depth_paragraphs: 5
+  target_95pct:
+    chars: 9614
+    scripture: 67
+    publications: 15
+    external: 7
+    depth_paragraphs: 5
