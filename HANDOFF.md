@@ -1,7 +1,32 @@
-# 🚚 세션 인수인계 — 2026-04-29 정본
+# 🚚 세션 인수인계 — 2026-05-02 정본
 
 이 파일은 **새 세션이 시작될 때 자동으로 읽어야 합니다**.
 직전 세션 노트는 `HANDOFF_260425_overnight.md` (보존, 참고용).
+
+---
+
+## 📌 최근 세션 (2026-05-02) — 파수대 사회 자동화 정본 확정
+
+### 1. 260517 (5월 11–17일) 파수대 사회 1주 빌드
+- 사용자 요청: `/week-study 다다음주만`
+- 기사: docid `2026321`, "온 우주에서 가장 높으신 분인 여호와를 신뢰하십시오", 시 83:18
+- 17 블록 + 5 소제목 + 4 삽화 + 3 복습 질문
+- **흐름**: WOL 스크래핑 (urllib timeout → requests shim) → 베이스 docx → 5 보조 리서치 병렬 → add_cue 4 라운드 깊이 보강 → 재빌드 → jw-style 금칙어 0건 검증
+- **품질 메트릭 (vs 260510 baseline)**: chars 109% / 성구 96% / 출판물「」 100% / 외부 14축 8개 ✅ 모두 PASS
+- **산출**: `~/Dropbox/02.WatchTower/01.▣ 수원 연무 회중/02.주말집회/02.파수대 사회/260511-0517/파수대 사회_260517.docx` (566 KB) + PDF (1.05 MB)
+- **리서치 자료**: `research-{topic,bible,application,illustration,experience}/260517/`
+
+### 2. 파수대 자동화 구조 문서화 (10분 연설과 동일 패턴)
+- 신규: `research-meta/파수대-사회-자동화-구조.md` (확정 정본, 11 섹션)
+  - 호출 체인 ① ~ ⑩ / W1~W12 검증 룰 / urllib shim 표준 코드 / add_cue 4 라운드 / 외부 14축 후보 / 자산 위치 / 시행착오 정리
+- `CLAUDE.md` 갱신: **📜 파수대 연구 사회 자동화 (확정 정본 2026-05-02)** 섹션 추가 (10분 연설 섹션 직후)
+- 다음 주차 (`/week-study`) 호출 시 동일 퀄리티 자동 보장
+
+### 3. 환경 메모
+- macOS Python 3.14 의 urllib 이 wol.jw.org 에 timeout 발생 — `requests` 로 monkey-patch shim 표준화 (정본 §4)
+- pip 모듈 설치는 `--user --break-system-packages` 필수 (Homebrew Python PEP 668)
+
+---
 
 ## ⚡ 새 세션 첫 할 일
 

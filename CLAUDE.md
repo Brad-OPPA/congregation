@@ -66,6 +66,27 @@
 
 **확정 정본 — 더 이상 변경 X**. 다음 주차 (`/mid-talk10 next3` 등) 동일 퀄리티 자동 보장.
 
+---
+
+## 📜 파수대 연구 사회 자동화 (확정 정본 2026-05-02)
+
+`/week-study` — 3주치 기본 (또는 `/week-study {특정주차만}`) — **사용자 입력 1회로 베이스 스크래핑 → 깊이 보강 → 4종 게이트 PASS 까지 자동 작동**.
+
+흐름: skip 정책 묶음 확인 ① → WOL 주차 인덱스 → docid 추출 ② → 베이스 스크래핑 + 스캐폴드 docx ③ → **5 보조 리서치 병렬 dispatch ④** (publication-cross-ref · scripture-deep · application-builder · illustration-finder · experience-collector) → 통합 + add_cue 깊이 보강 ⑤ → 재빌드 ⑥ → 품질 메트릭 자체 검증 (95% 미달 시 add_cue 라운드 추가, 최대 4회) ⑦ → **🚨 4종 게이트 자동 호출 ⑧** (`fact-checker` · `jw-style-checker` · `timing-auditor` · `quality-monotonic-checker`) → FAIL 1건 이상 시 **자동 재작성** (5회 한도) → PASS → 사용자 검수.
+
+원준님 개입 = 입력 1회 + 검수 1회 = **총 2회**.
+
+**세부 명세 (호출 체인 / W1~W12 자동 검증 룰 / urllib timeout 회피 shim / add_cue 4 라운드 깊이 보강 표준 / 외부 14축 후보 / 자산 위치 / 시행착오)**:
+> 📘 `~/Claude/Projects/Congregation/research-meta/파수대-사회-자동화-구조.md` (확정 정본)
+
+**핵심 차이점 (vs 10분 연설)**:
+- 베이스 스캐폴드는 `scrape_wt.py` + `spec_from_article()` 자동 (17블록·5소제목·삽화·복습 자동 파싱)
+- 깊이는 `add_cue(numbers, runs)` 호출 목록 — block 단위 host_cue 주입
+- 직전 주차 95% 미달 시 add_cue 추가 라운드 (1차~4차 표준)
+- 「」 출판물 인용 ≥ 10, 외부 14축 ≥ 3 (week-study 차등 적용표 행)
+
+**확정 정본 — 더 이상 변경 X**. 다음 주차 (`/week-study` 등) 동일 퀄리티 자동 보장.
+
 ### 빌더 분류 (2026-04-25 기준)
 
 - **정기 (매주 자동)**: 6개 — `mid-talk10` · `dig-treasures` · `cbs` · `mid-talk5` · `week-study` · `living-part`
