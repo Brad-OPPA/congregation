@@ -1,0 +1,129 @@
+week_date: "260604"
+week_folder: "260601-0607"
+bible_reading_range: "예레미야 1-3장"
+topic: "“두려워하지 마라. 내가 너와 함께 있다”"
+subtopic: "여호와의 격려를 받아 두려움을 이기고 좋은 소식을 전하는 우리"
+
+# WOL 인덱스 정보
+wol_week_url: "https://wol.jw.org/ko/wol/dt/r8/lp-ko/2026/6/1"
+wol_mwb_docid: "202026165"
+wol_mwb_url: "https://wol.jw.org/ko/wol/d/r8/lp-ko/202026165"
+
+# 본 주차 「집교」 본문 요지 (10분 연설 머릿말 — 그대로)
+mwb_brief: |
+  [동영상 「예레미야 소개」를 보여 준다.]
+  예레미야처럼 일부 사람들은 좋은 소식을 전하고 싶어 하지만 두려움을 느끼거나
+  자격이 없다고 생각합니다 (렘 1:6).
+  여호와께서는 우리가 그분의 뜻을 행하도록 자격을 갖추게 해 주시고 힘을 주십니다
+  (렘 1:8, 9; 「파10」 1/15 9면 7-8항; 표지 삽화 참조).
+
+# 결론 삽화 — mwb 본 주차 표지 삽화 (예레미야가 예루살렘에서 거짓 숭배자들에게
+# 여호와의 심판의 소식을 전하는 장면)
+conclusion_illustration:
+  caption: "본 주차 「집회 교재」 표지 삽화 — 예레미야가 예루살렘에서 거짓 숭배자들에게 여호와의 심판의 소식을 전함"
+  source: "mwb 2026 6월호 표지"
+
+# 3 요점 표어 성구 (직접 wol.jw.org 확인)
+points:
+  - no: 1
+    title: "예레미야의 두려움 — ‘저는 아직 아이라서 말할 줄 모릅니다’"
+    scripture_ref: "예레미야 1:6"
+    scripture_text_nwt: "그러나 내가 말했다. “아, 주권자인 주 여호와여! 저는 아직 아이라서 말할 줄 모릅니다.”"
+    pub_ref: "「파10」 1/15 9면 7항"
+  - no: 2
+    title: "여호와의 약속 — ‘두려워하지 마라. 내가 너와 함께 있다’"
+    scripture_ref: "예레미야 1:8"
+    scripture_text_nwt: "그들의 모습을 보고 두려워하지 마라. 내가 너와 함께 있어 너를 구해 줄 것이기 때문이다. 여호와의 말이다."
+    pub_ref: "「파10」 1/15 9면 7항 (예레미야 1:8, 19; 15:20)"
+  - no: 3
+    title: "여호와께서 자격을 갖추게 하심 — ‘내가 나의 말을 너의 입에 넣어 주었다’"
+    scripture_ref: "예레미야 1:9"
+    scripture_text_nwt: "그러고 나서 여호와께서 손을 내밀어 나의 입에 대셨다. 여호와께서 말씀하셨다. “내가 나의 말을 너의 입에 넣어 주었다.”"
+    pub_ref: "「파10」 1/15 9면 8항"
+
+scripture_refs:
+  - "예레미야 1:6"
+  - "예레미야 1:7"
+  - "예레미야 1:8"
+  - "예레미야 1:9"
+  - "예레미야 1:17"
+  - "예레미야 1:19"
+  - "예레미야 15:20"
+  - "잠언 3:5, 6"
+  - "마태 11:28, 29"
+
+wol_publication_refs:
+  - label: "「파10」 1/15 9면 7-8항 (여호와께 속하는 것 — 과분한 친절)"
+    url: "https://wol.jw.org/ko/wol/d/r8/lp-ko/2010042"
+  - label: "본 주차 「집회 교재」 (mwb 2026 6월호)"
+    url: "https://wol.jw.org/ko/wol/d/r8/lp-ko/202026165"
+  - label: "신세계역 연구용 — 예레미야 1장"
+    url: "https://wol.jw.org/ko/wol/b/r8/lp-ko/nwt/24/1"
+  - label: "WOL 주차 페이지 (260601-0607)"
+    url: "https://wol.jw.org/ko/wol/dt/r8/lp-ko/2026/6/1"
+
+research_dirs:
+  bible:        research-bible/260604/
+  topic:        research-topic/260604/
+  illustration: research-illustration/260604/
+  experience:   research-experience/260604/
+  application:  research-application/260604/
+
+# 시간 배분 (10분 = 600초)
+time_budget:
+  intro: 90        # 0'00" — 1'30"
+  point_1: 150     # 1'30" — 4'00"  (요점 1 = 두려움)
+  point_2: 120     # 4'00" — 6'00"  (요점 2 = 함께 계신다)
+  point_3: 90      # 6'00" — 7'30"  (요점 3 = 자격을 갖추게 하심)
+  illustration: 60 # 7'30" — 8'30"  (결론 삽화 — 표지 삽화)
+  conclusion: 60   # 8'30" — 9'30"  (결론)
+
+# 6단 방어(v2) ① 단계 — 5 보조 리서치 지시서
+instructions_to_subresearchers:
+  scripture-deep: |
+    중점 — 예레미야 1:6, 1:8, 1:9 (3 표어 성구) + 1:7, 1:17-19 (보조).
+    각 성구 신세계역 연구용 verbatim + 연구 노트 + 상호 참조 + 핵심 단어 원어
+    (히브리어 "나아르"=아이/소년, "아니 잇트카"=내가 너와 함께 있다 등) 심층 조사.
+    출처: https://wol.jw.org/ko/wol/b/r8/lp-ko/nwt/24/1
+    (피하기: 다른 장 끌어오지 말 것. 본 주차 1-3장 범위 내.)
+  publication-cross-ref: |
+    중점 — 「파10」 1/15 9면 7-8항 (2010042) 정확한 본문 + 「통찰」 "예레미야" 항목 +
+    「예레미야의 메시지를 통해 살아 있는 여호와에게 가까이」 (jr) 책 1장 관련 단락.
+    검색 범위: 위 3개 우선. 추가로 「파」 연구용 2014-2024 중 "예레미야 두려움 자격" 관련 단락 2-3개.
+    각 인용 docid + URL 명시.
+    (피하기: 외국어판 인용·과거 너무 옛날 호 인용 X)
+  illustration-finder: |
+    요점 1 (두려움) — 일상 비유 2개 (예: 처음 학교 발표 / 새 직장 첫 출근 같은 이해 쉬운 그림)
+    요점 2 (여호와의 약속) — 일상 비유 2개 (예: 부모가 아이의 손을 잡고 함께 걸어가는 모습 / 코치가 옆에서 함께 뛰는 모습)
+    요점 3 (자격을 갖추게 하심) — 일상 비유 2개 (예: 베테랑이 신참에게 도구를 건네는 모습 / 부모가 아이에게 단어를 가르치는 모습)
+    서론 후크 — 청중 직접 질문 후보 3-5개 (전도 활동에서 두려움을 느낀 적 있는가? 류).
+    결론 삽화 — 본 주차 「집교」 표지 삽화 (예레미야가 예루살렘에서 거짓 숭배자들에게 여호와의 심판의 소식을 전함) 다운로드.
+    (피하기: 회중 특정 인물 언급 / 외부 14축 본문 침입 X — 예 자리도 0건 권장)
+  experience-collector: |
+    중점 — 두려움을 이기고 전도한 형제·자매 경험담 1-2개.
+    범위: jw.org / 「파수대」 연구용 2014-2024 / 연감.
+    피하기: 실명 공개된 미성년자 / 사망자.
+    (10분 연설은 경험담 강제 X — 1-2개 자연스러운 자리만 사용)
+  application-builder: |
+    중점 — 5축 (가정·직장/학교·회중·전도·개인 영성) 적용점 각 요점별 1-2개.
+    특히 봉사·전도 두려움 극복 → 청중 일상 적용에 강조.
+    자기점검 질문 1-2개 (결론 직전).
+    (피하기: 정치/국가 관련 예시·강제적 결단 요구 X)
+
+# 보조 리서치 베이스라인 (R 룰 + 직전 260528 기준)
+research_baseline:
+  scripture_min: 6
+  publication_min: 5
+  illustration_candidates_min: 6
+  experience_min: 1
+  application_cards_min: 4
+
+# 직전 주차 메트릭 (단조 증가 베이스라인)
+prev_baseline_260528:
+  chars: 4335
+  scriptures: 7         # 본 spec 기준 7개 인용
+  publications_kakko: 7
+  time_markers: 6
+  external_14axis: 2
+  depth_paragraphs: 4
+  image: 1
