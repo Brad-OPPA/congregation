@@ -63,6 +63,20 @@ FAIL 시 자동 재작성 무한 루프 (5회 한도). 사용자 검수 의존 0
 
 **예외**: 사용자가 처음부터 `/publictalk 179` 처럼 번호를 같이 주거나, `/publictalk 179 로컬` 처럼 소스까지 주면 1-2단계 스킵 가능. 단 제목·표어 성구 확인(3단계 마지막 줄)은 **반드시** 거쳐서 빨리 잘못 가는 걸 막을 것.
 
+### ⭐ Stage 0 — 메인 사전 종합 분석 (의무, 2026-05-02)
+
+builder 호출 직전, 메인 Claude 가 **자율 종합** — 사용자 명시 지시 없이도:
+
+1. **골자 폴더 `ls`** — 같은 폴더의 .jpg/.png N장 추출 (시각자료 1·2 정확본)
+2. **누적 메모리 Read** — `~/.claude/projects/-Users-brandon-Claude/memory/feedback_*.md` (골자 고정·본문 호명 0·사회자 섹션 0·메타 번역체 회피·서론·결론 연계·시각자료 4단계·인물 성별·신선한 후크·R-Conv·70:30 등)
+3. **같은 강연 번호 이전 ver 검수 보고서** — `research-{factcheck/style/timing/quality}/publictalk_{NNN}_*` + `research-public-talk/{NNN}_planner_*` Read → 누적 결함 회피 매트릭스
+4. **모범 강연 (2024 특별강연·mid-talk10) 패턴** 비교
+5. 위 종합을 builder 지시서에 **사전 박힘** → illustration-finder·script 가 자율 반영
+
+→ **사용자 추가 지시 0회 목표**. "골자 봐라"·"4단계 통합해라"·"매칭률 100%"·"서론·결론 연계" 같은 것 일일이 알려줄 필요 없게.
+
+상세 명세: `research-meta/공개강연-자동화-구조.md` §1 [Stage 0]
+
 ## 🚫 할루시네이션 절대 금지 (최상위 규칙)
 
 이 스킬이 호출하는 모든 Agent (public-talk-builder · scripture-deep · publication-cross-ref · illustration-finder · experience-collector · application-builder · jw-style-checker · timing-auditor) 는 아래를 준수:
