@@ -115,6 +115,87 @@
 
 ---
 
+## 📖 회중 성서 연구 사회 자동화 (확정 정본 2026-05-02)
+
+`/cbs {now|next1|next2|next3}` — **사용자 입력 1회로 WOL 파싱 → 6 보조 리서치 → 4종 게이트 PASS 까지 자동 작동**.
+
+흐름: cbs-planner ① (WOL "8. 회중 성서 연구" href 추적·docid 1102016XXX 검증) → 6 보조 병렬 ② (qa·scripture·topic·application + experience·illustration) → cbs-planner ③ 1차 재검수 → cbs-script ④ → cbs-planner ⑤ 2차 재검수 → content_cbs_{YYMMDD}.py + WOL 이미지 다운로드 → build_cbs_v10 ⑥ (docx + LibreOffice PDF) → **🚨 4종 게이트 자동 호출 ⑦** (`fact-checker` · `jw-style-checker` · `timing-auditor` (1800±120초) · `quality-monotonic-checker`) → FAIL 1건 이상 시 **자동 정정 + 재빌드** (5회 한도) → PASS → 사용자 검수.
+
+원준님 개입 = 입력 1회 + 검수 1회 = **총 2회**.
+
+**세부 명세 (호출 체인 / C1~C12 자동 검증 룰 / publication symbol jy/lfb 분리 정책 / 시간 마커 8개 표준 / SPEC dict 표준 / Mac 경로 / 시행착오)**:
+> 📘 `~/Claude/Projects/Congregation/research-meta/회중성서연구-자동화-구조.md` (확정 정본)
+
+**핵심 차이점 (vs 10분 연설 / 파수대)**:
+
+- 30분 사회자 실시간 진행, **낭독자 별도** (`[낭독자 — 문단 N]` 마커)
+- 「훈」 책 (lfb 1102016XXX) 본문은 어린이용 표현 — 사회자 보강 멘트로 깊이 추가
+- **publication symbol 분리 의무**: 회중 통칭 "훈" = lfb (「내가 좋아하는 성경 이야기」), 「예수」 책 (jy 1102014XXX) 와 별도 책. script 에서 전면="훈" / 횡단="「예수」 책 NN장" 분리 표기
+- 시간 마커 8개 (`4'·7'·10'·15'·18'·21'·23'·29'`) 빨강 볼드 우측정렬
+- 출판물「」 ≥ 3, 외부 14축 ≥ 2 (cbs 차등 적용표 행)
+- 4종 게이트 **quality > timing** — timing FAIL 라도 quality PASS 면 통과
+
+**확정 정본 — 더 이상 변경 X**. 다음 주차 (`/cbs next1` 등) 동일 퀄리티 자동 보장.
+
+---
+
+## 📒 자동화 구조 파일 메타룰 (2026-05-02 확정)
+
+**원칙**: 스킬이 자동화 정본으로 확정되면 (= ⑥ 4종 게이트 PASS, 본문 변경 X 약속 가능 단계), `research-meta/{스킬명}-자동화-구조.md` 파일을 **별도로 생성**한다.
+
+이 파일들은 다음을 포함:
+
+1. 핵심 원칙 표 (10~12 항목)
+2. 호출 체인 (① ~ ⑨ 단계, 사용자 입력 1회 + 검수 1회 명시)
+3. 자동 검증 룰 (스킬별 prefix — 10분=R1~R18, 파수대=W1~W12, 공개강연=R1~R20, CBS=C1~C12)
+4. WOL 접근 URL 패턴
+5. 시간 마커 표준 (스킬별 분량)
+6. SPEC dict 또는 spec 파일 표준 구조
+7. Mac 경로 패턴 (`Path.home()` 의무)
+8. 4종 게이트 종합 판정 우선순위 (quality > timing)
+9. 정정 시 메인 Claude 정책 (Phase E — 단순/복잡 분리)
+10. 시행착오 (회귀 방지)
+11. 외부 14축 후보 (스킬별 임계)
+12. 베이스라인 메트릭
+13. 개정 이력
+
+**현재 정착 완료 (4개)**:
+
+| 스킬 | 자동화 구조 파일 | 정착 일자 |
+|---|---|---|
+| `/mid-talk10` | `10분-연설-자동화-구조.md` + `10분-연설-표준패턴.md` | 2026-05-01 |
+| `/week-study` | `파수대-사회-자동화-구조.md` | 2026-05-02 |
+| `/publictalk` | `공개강연-자동화-구조.md` | 2026-05-02 |
+| `/cbs` | `회중성서연구-자동화-구조.md` | 2026-05-02 |
+
+**아직 정착 전 (스킬 완성 시 추가)**:
+
+- `/dig-treasures` → `영적보물찾기-자동화-구조.md` (Phase E v2 가 거의 정착, 차주 빌드 후 확정)
+- `/mid-talk5` → `5분연설-자동화-구조.md`
+- `/living-part` → `그리스도인생활-자동화-구조.md`
+- `/mid-student1~4` → `학생과제-자동화-구조.md`
+- `/local-needs` → `회중의필요-자동화-구조.md`
+- `/chair` → `사회자대본-자동화-구조.md`
+
+각 스킬이 6단 방어(v2) PASS 회수 ≥ 2 + 사용자 만족 → 정본 확정 → 구조 파일 생성. 형식은 4개 정착 파일 그대로 따른다.
+
+---
+
+## 🚀 새 기기 복구 (BOOTSTRAP)
+
+다른 컴퓨터에서 GitHub 백업만으로 0 → 100% 복구하려면:
+
+> 📘 `~/Claude/Projects/Congregation/BOOTSTRAP.md` (확정 정본 2026-05-02)
+
+핵심:
+
+- **GitHub 가 진실의 원천** — `congregation` (META) + `congregation-automation` (\_automation) 양쪽 푸시 의무
+- **Dropbox 는 docx/PDF 출력 동기화** — 빌더가 `~/Dropbox/02.WatchTower/01.▣ 수원 연무 회중/` 에 출력
+- **비밀 파일 GitHub 미포함** — `weekly_secrets.py`·`kakao_tokens.json` 새 기기에서 수동 재구성 (`weekly_secrets.example.py` 템플릿 활용)
+- **하드코딩 경로 금지** — 모든 빌더는 `Path.home()` 패턴 (Mac·Linux 양립)
+
+---
+
 ### 빌더 분류 (2026-04-25 기준)
 
 - **정기 (매주 자동)**: 6개 — `mid-talk10` · `dig-treasures` · `cbs` · `mid-talk5` · `week-study` · `living-part`

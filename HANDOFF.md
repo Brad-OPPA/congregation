@@ -5,9 +5,61 @@
 
 ---
 
-## 📌 최근 세션 (2026-05-02) — 파수대 사회 자동화 정본 확정
+## 📌 최근 세션 (2026-05-02 후반) — CBS 자동화 정본 확정 + BOOTSTRAP·메타룰 정착
+
+### 1. 260514 (5/14 목) CBS 「훈」 84-85장 빌드 — 6단 방어(v2) PASS
+
+- `/cbs next1` — 84장 "예수께서 물 위를 걸으시다" + 85장 "안식일에 눈먼 사람을 고치시다"
+- 흐름: cbs-planner ① → 6 보조 병렬 ② (qa·scripture·topic·application + experience·illustration) → planner ③ 1차 재검수 → cbs-script ④ → planner ⑤ 2차 재검수 → 빌드 ⑥ → 4종 게이트 ⑦
+- 게이트 v1: timing PASS / quality PASS / fact HIGH 4 / style HIGH 1 → 정정 후 v2 모두 PASS
+- 정정 사항 (5건 HIGH + 3건 MED): 마 14:30·벧전 3:15 verbatim, 「예수」 44장 표현, 요 9:7 노트 출처, 라벨 em dash, "진리의 은혜", 플라나스테 어원, 「예수」 53장 야경시
+- 산출: `~/Dropbox/.../05.회중 성서 연구/260511-0517/회중 성서 연구_훈84-85장_260514.docx` (312 KB) + PDF (653 KB)
+- vs 260507 (옛, 비표준 파일명): 글자 +40% / 출판물 +850% / 외부 14축 +275% / 깊이 단락 +120%
+
+### 2. publication symbol jy/lfb 분리 정책 (정본 확정)
+
+- **회중 통칭 "훈"** = 실제 발행물 `lfb` (Learn From the Bible / 「내가 좋아하는 성경 이야기」), docid `1102016XXX`
+- **「예수」 책** = `jy` (Jesus — The Way), docid `1102014XXX`
+- 옛 docx (260205·260423·260507) 모두 jy 표기 잘못 — 신규 빌드부터 lfb 정본
+- script 표기 분리 의무: 전면 = "훈"·"「내가 좋아하는 성경 이야기」" / 횡단 = "「예수」 책 NN장"
+- fact-checker 가 publication symbol 검증 의무
+
+### 3. CBS 자동화 구조 문서화 (10분 연설·파수대·공개강연과 동일 패턴)
+
+- 신규: `research-meta/회중성서연구-자동화-구조.md` (확정 정본, 13 섹션)
+  - 호출 체인 ① ~ ⑨ / C1~C12 검증 룰 / publication symbol 분리 정책 / 시간 마커 8개 / SPEC dict 표준 / Mac 경로 / 시행착오 / 14축 후보 / 베이스라인 메트릭
+- `CLAUDE.md` 갱신: **📖 회중 성서 연구 사회 자동화 (확정 정본 2026-05-02)** 섹션 추가
+
+### 4. 자동화 구조 메타룰 확정
+
+- 스킬이 정본 확정되면 (= ⑥ 4종 게이트 PASS, 변경 X 약속) `research-meta/{스킬명}-자동화-구조.md` 별도 파일 생성
+- 13 항목 표준 포맷 (핵심 원칙·호출 체인·검증 룰·WOL URL·시간 마커·SPEC·Mac 경로·게이트·정정 정책·시행착오·14축·베이스라인·개정 이력)
+- 정착 4개: 10분 연설·파수대·공개강연·CBS / 미정착 6개: dig-treasures·mid-talk5·living-part·mid-student1~4·local-needs·chair
+
+### 5. 새 기기 복구 안전장치 (BOOTSTRAP)
+
+- 신규: `BOOTSTRAP.md` — GitHub 백업만으로 0→100% 복구하는 9-Step 절차
+  - 의존성 (Python·LibreOffice·폰트·gh·Dropbox)
+  - repo clone (META + \_automation 양쪽)
+  - 심링크 (`~/.claude/commands` → `Congregation/.claude/commands`)
+  - `weekly_secrets.py` 수동 재구성 (`weekly_secrets.example.py` 템플릿 활용)
+  - Kakao OAuth 재발급 (`kakao_auth.py`)
+  - 동작 검증 4개 (build import · PDF 변환 · Gmail SMTP · Kakao 토큰)
+- 신규: `_automation/weekly_secrets.example.py` — 빈 값 템플릿 (GitHub 커밋 안전)
+- `CLAUDE.md` 갱신: **🚀 새 기기 복구 (BOOTSTRAP)** 섹션 추가
+
+### 6. _automation 양쪽 repo push 완료
+
+- `congregation` (META): `799e75a` CBS 260514 6단 방어(v2) PASS (30 files / +5503)
+- `congregation-automation`: `6fd155c` raw_hun_84/85 + Mac 경로 새 함수
+- 추가 commit (이 세션 끝에): BOOTSTRAP + CBS 자동화 구조 + CLAUDE.md 갱신
+
+---
+
+## 📌 이전 세션 (2026-05-02 전반) — 파수대 사회 자동화 정본 확정
 
 ### 1. 260517 (5월 11–17일) 파수대 사회 1주 빌드
+
 - 사용자 요청: `/week-study 다다음주만`
 - 기사: docid `2026321`, "온 우주에서 가장 높으신 분인 여호와를 신뢰하십시오", 시 83:18
 - 17 블록 + 5 소제목 + 4 삽화 + 3 복습 질문
@@ -17,12 +69,14 @@
 - **리서치 자료**: `research-{topic,bible,application,illustration,experience}/260517/`
 
 ### 2. 파수대 자동화 구조 문서화 (10분 연설과 동일 패턴)
+
 - 신규: `research-meta/파수대-사회-자동화-구조.md` (확정 정본, 11 섹션)
   - 호출 체인 ① ~ ⑩ / W1~W12 검증 룰 / urllib shim 표준 코드 / add_cue 4 라운드 / 외부 14축 후보 / 자산 위치 / 시행착오 정리
 - `CLAUDE.md` 갱신: **📜 파수대 연구 사회 자동화 (확정 정본 2026-05-02)** 섹션 추가 (10분 연설 섹션 직후)
 - 다음 주차 (`/week-study`) 호출 시 동일 퀄리티 자동 보장
 
 ### 3. 환경 메모
+
 - macOS Python 3.14 의 urllib 이 wol.jw.org 에 timeout 발생 — `requests` 로 monkey-patch shim 표준화 (정본 §4)
 - pip 모듈 설치는 `--user --break-system-packages` 필수 (Homebrew Python PEP 668)
 
@@ -79,6 +133,7 @@ git log --oneline -5
 ## 📊 직전 세션 (2026-04-29) 누적 변경
 
 ### 양쪽 repo push 완료
+
 - `congregation` (META): `7cdcff0`+ (agents 30 + CLAUDE.md + README + 9 mld reference)
 - `congregation-automation`: `f25e532`+ (README_WEEKLY 변경 이력 + 코드 5개 commit)
 
