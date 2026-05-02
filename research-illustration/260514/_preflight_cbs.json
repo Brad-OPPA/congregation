@@ -1,0 +1,24 @@
+{
+  "ok": true,
+  "slot": "cbs",
+  "week": "260514",
+  "chapters": {
+    "1102016094": [
+      {
+        "src": "https://wol.jw.org/ko/wol/mp/r8/lp-ko/lfb/2017/827",
+        "alt": ""
+      },
+      {
+        "src": "https://wol.jw.org/ko/wol/mp/r8/lp-ko/lfb/2017/828",
+        "alt": ""
+      }
+    ],
+    "1102016095": [
+      {
+        "src": "https://wol.jw.org/ko/wol/mp/r8/lp-ko/lfb/2017/837",
+        "alt": ""
+      }
+    ]
+  },
+  "errors": []
+}
