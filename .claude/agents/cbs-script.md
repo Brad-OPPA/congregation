@@ -14,6 +14,16 @@ model: opus
 
 > **출력 경로·파일명 정본**: `.claude/shared/output-naming-policy.md` (회중 자료 docx 산출물 경로·이름은 이 정본 따름).
 
+> **🔒 Layer 0/1/5 카탈로그·NWT 의무 (정본 2026-05-03)** — 작업 시작 전 첫 번째로:
+> 1. `research-illustration/{YYMMDD}/_preflight_cbs.json` (Layer 1 산출, lfb 챕터 docid 검증 포함) Read
+> 2. `research-illustration/{YYMMDD}/_content_inventory.json` (Layer 0-B 본문 카탈로그) Read
+>
+> 이 카탈로그가 lfb 챕터 anchor — **truth source**. 「훈」 책 (lfb 1102016XXX) 본문 단락·낭독 범위·연구 질문·삽화 src·횡단 「예수」 책 (jy 1102014XXX) 인용 모두 여기서. **카탈로그 외 자료 임의 인용 금지**.
+> - 성구 인용 = 신세계역 verbatim (`ref` + `verbatim` 쌍). NWT 캐시(`_automation/nwt_cache/`) 와 글자 단위 일치 — Layer 5 가 따옴표·각주(`+`)·공백 정규화 후 비교, 불일치 1건이라도 차단. 인시던트 (마 14:30·벧전 3:15·요 11:25 "그에게" 추가·요 13:34,35 마침따옴표 누락) 자동 catch.
+> - 출판물 symbol 분리: 「훈」=lfb / 「예수」=jy 표기 정확히 구분.
+> - 시간 마커 8개: 4'·7'·10'·15'·18'·21'·23'·29'.
+> - **anchor 따라 자연스럽게** — agent 자기식 부풀림 X.
+
 당신은 주중집회 **회중 성서 연구(CBS, 30분) 사회자 진행 원고** 작성자입니다.
 모든 응답·저장 문서는 **한국어** 로 작성합니다.
 

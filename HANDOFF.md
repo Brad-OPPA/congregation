@@ -1,11 +1,63 @@
-# 🚚 세션 인수인계 — 2026-05-02 정본
+# 🚚 세션 인수인계 — 2026-05-03 정본
 
 이 파일은 **새 세션이 시작될 때 자동으로 읽어야 합니다**.
 직전 세션 노트는 `HANDOFF_260425_overnight.md` (보존, 참고용).
 
 ---
 
-## 📌 최근 세션 (2026-05-02 후반) — CBS 자동화 정본 확정 + BOOTSTRAP·메타룰 정착
+## 📌 최근 세션 (2026-05-03 후반·심야 자동) — 5-Layer 신뢰 모델 완성
+
+### 1. Layer 5 NWT verbatim 검증 도착 — `_automation/nwt_cache.py` + `verify_spec_scriptures`
+
+- 모듈: `_automation/nwt_cache.py` (66 책 한국어 이름→번호, ref 파서, WOL 챕터 fetch + 절별 추출, 캐시 저장, verbatim 비교)
+- 캐시 위치: `_automation/nwt_cache/{book:02d}_{chap:03d}.json`
+- WOL HTML 패턴: `<span id="v{B}-{C}-{V}-{N}" class="v">…</span>` — 한 절이 여러 span 으로 분할되는 경우 (시구 단위) 모두 합쳐 한 절로 저장
+- 정규화: NFC + smart quote → straight + `+`·`*` 각주 마커 제거 + 공백 통일
+- validators API: `verify_spec_scriptures(spec, builder_name, fail_hard=True)` — spec 재귀 walker 가 5종 키 쌍 인식 (`ref+verbatim`, `ref+text`, `verse_ref+verse`, `wol_scripture_ref+wol_scripture`, `scripture_ref+scripture_text`)
+- 4 빌더 hook 완료 — `NWT_VERIFY=0` 환경변수 opt-out
+
+### 2. Layer 4 정정 — 3 빌더의 silent swallow 제거 (가짜 PASS 차단)
+
+- build_cbs_v10 / build_spiritual_gems / build_watchtower 가 `verify_docx_against_inventory_auto` 를 `try/except: pass` 로 감싸 SeedImageHardFail 까지 silence — Layer 4 게이트 무력화 상태였음
+- 정정: try/except 제거. 카탈로그 미존재는 wrapper 가 silent skip, anchor 불일치만 propagate.
+- build_treasures_talk 는 처음부터 정상 → 4 빌더 모두 작동 일관
+
+### 3. Layer 5 audit — 기존 spec 의 진짜 verbatim 미일치 catch
+
+- CBS 260521 spec: 4 인용 중 2건 진짜 미일치
+  - **요한복음 11:25** — claimed "예수께서 **그에게** 말씀하셨다" (1단어 추가)
+  - **요한복음 13:34, 35** — 마침따옴표 누락
+- 영보·10분 260521/260604: 0건 (또는 ref+verbatim 쌍 자체 없음 — 별도 형식)
+- CBS 260521 spec 직접 정정 X (Phase E main-claude-edit-policy 준수). 다음 CBS 빌드부터 Layer 5 자동 차단 → cbs-script 재작성 강제.
+
+### 4. Agent prompt 의무 명시 — 4 정의 갱신
+
+`treasures-talk-script.md` / `spiritual-gems-script.md` / `cbs-script.md` / `watchtower-study-planner.md` 머리말에 "🔒 Layer 0/1/5 카탈로그·NWT 의무" 블록 추가:
+
+- preflight 산출물 + content_inventory 첫째 Read
+- mwb anchor = truth source, 카탈로그 외 자료 임의 인용 금지
+- 동영상 cue verbatim·성구 NWT verbatim·삽화 src 매칭만
+- "anchor 따라 자연스럽게 — agent 자기식 부풀림 X"
+
+### 5. Preflight 5 슬롯 추가 — 학생·5분·생활·회중필요·사회자
+
+`preflight.py` 에:
+
+- `preflight_mid_student(week, num)` — 학생 과제 1~4 (mwb 야외봉사 섹션 h3 슬롯 검증)
+- `preflight_mid_talk5(week)` — 5분 연설
+- `preflight_living_part(week)` — 생활 파트 + subtype 자동 분류 (talk/discussion/video/interview/qna)
+- `preflight_local_needs(week, topic)` — 장로의회 주제 미입력 시 manual 안내
+- `preflight_chair(week, lfb_docids=...)` — 모든 주중 슬롯 합산
+
+총 9 슬롯 지원: mid-talk10·cbs·week-study·dig-treasures·mid-student1~4·mid-talk5·living-part·local-needs·chair
+
+### 6. _ARCHITECTURE.md 완성도 표 갱신
+
+5-Layer 모두 ✅ — 사용자 검수 부담 0 도달.
+
+---
+
+## 📌 그 전 세션 (2026-05-02 후반) — CBS 자동화 정본 확정 + BOOTSTRAP·메타룰 정착
 
 ### 1. 260514 (5/14 목) CBS 「훈」 84-85장 빌드 — 6단 방어(v2) PASS
 

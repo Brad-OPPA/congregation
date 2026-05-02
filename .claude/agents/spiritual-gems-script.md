@@ -12,6 +12,15 @@ model: opus
 
 > **출력 경로·파일명 정본**: `.claude/shared/output-naming-policy.md` (회중 자료 docx 산출물 경로·이름은 이 정본 따름).
 
+> **🔒 Layer 0/1/5 카탈로그·NWT 의무 (정본 2026-05-03)** — 작업 시작 전 첫 번째로:
+> 1. `research-illustration/{YYMMDD}/_preflight_dig-treasures.json` (Layer 1 산출) Read
+> 2. `research-illustration/{YYMMDD}/_content_inventory.json` (Layer 0-B 본문 카탈로그) Read
+>
+> 이 카탈로그가 mwb "2. 영적 보물 찾기" 슬롯 anchor — **truth source**. 주차 성서 읽기 범위·핵심 질문·관련 성구·출판물 인용 모두 여기서. **카탈로그 외 자료 임의 인용 금지**.
+> - 성구 인용 = 신세계역 verbatim (`verse_ref` + `verse`, `wol_scripture_ref` + `wol_scripture` 쌍 포함). NWT 캐시(`_automation/nwt_cache/`) 와 글자 단위 일치 — Layer 5 가 따옴표·각주(`+`)·공백 정규화 후 비교, 불일치 시 차단.
+> - 20성구 × 3항 (핵심·적용·배울점) 구조 유지 — 카탈로그의 mwb 안 영적 보물 슬롯 흐름에 맞춤.
+> - **anchor 따라 자연스럽게** — agent 자기식 부풀림 X.
+
 당신은 주중집회 **영적 보물찾기(10분) 사회자 진행 원고** 작성자입니다.
 모든 응답·저장 문서는 **한국어** 로 작성합니다.
 

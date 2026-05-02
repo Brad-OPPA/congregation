@@ -242,18 +242,28 @@ mwb 안 분기 자동 파싱 → subtype별 보조 리서치
 
 ---
 
-## 완성도 체크 (2026-05-03 현재)
+## 완성도 체크 (2026-05-03 갱신 — 5-Layer 신뢰 모델 완료)
 
 | Layer | 상태 |
 |---|---|
-| 0-A 이미지 카탈로그 | ✅ 작동 (slot_image_inventory.py) |
-| 0-B 본문 카탈로그 | ✅ 작동 (slot_content_inventory.py) |
-| 0-C NWT verbatim 캐시 | ❌ TODO |
-| 1 Preflight | ✅ 작동 (4 슬롯), 학생·living·local·chair 추가 필요 |
-| 2 Agent prompt 의무 | ❌ TODO (treasures-talk-script.md 등에 명시 X) |
-| 3 spec ↔ catalog | ✅ 작동 (10개 빌더 hook) |
-| 4 docx ↔ anchor | ⚠ 작동 (manual only, builder hook X) |
-| 5 NWT verbatim | ❌ TODO |
+| 0-A 이미지 카탈로그 | ✅ 작동 (`slot_image_inventory.py`) |
+| 0-B 본문 카탈로그 | ✅ 작동 (`slot_content_inventory.py`) |
+| 0-C NWT verbatim 캐시 | ✅ 작동 (`nwt_cache.py` — `_automation/nwt_cache/{book:02d}_{chap:03d}.json`) |
+| 1 Preflight | ✅ 작동 (`preflight.py` — 9 슬롯: mid-talk10/cbs/week-study/dig-treasures/mid-student1~4/mid-talk5/living-part/local-needs/chair) |
+| 2 Agent prompt 의무 | ✅ 갱신 (4 agent: treasures-talk-script / spiritual-gems-script / cbs-script / watchtower-study-planner — Layer 0/1/5 의무 Read 박힘) |
+| 3 spec ↔ catalog | ✅ 작동 (`verify_spec_against_inventory_auto`, 10 빌더 hook) |
+| 4 docx ↔ anchor | ✅ 작동 (`verify_docx_against_inventory_auto`, 4 빌더 build 끝 자동 호출. silent swallow 제거 — SeedImageHardFail propagate) |
+| 5 NWT verbatim | ✅ 작동 (`verify_spec_scriptures` + `nwt_cache.compare_verbatim`. 4 빌더 hook. `+`·`*`·smart-quote·공백 정규화 후 비교. `NWT_VERIFY=0` 환경변수 opt-out) |
+
+### Layer 5 audit 결과 (2026-05-03 — 기존 spec 검증)
+
+기존 빌드 spec 에 NWT verbatim audit 실행:
+- **CBS 260521**: 4 인용 중 2건 진짜 미일치 발견
+  - 요한복음 11:25 — claimed "예수께서 그에게 말씀하셨다" vs NWT "예수께서 말씀하셨다" (1단어 추가)
+  - 요한복음 13:34, 35 — 마침따옴표 누락 (`...` vs `...."` 종결)
+- **영보 260521·260604, 10분 260521·260604**: 미일치 0건 (또는 ref+verbatim 쌍 자체 없음)
+
+CBS 260521 spec 직접 정정은 메인 Claude 정책상 금지 (Phase E §main-claude-edit-policy.md). 다음 CBS 빌드부터 Layer 5 자동 차단 → script agent 재작성.
 
 ---
 
