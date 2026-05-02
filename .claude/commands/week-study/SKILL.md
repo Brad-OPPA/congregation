@@ -3,6 +3,26 @@ name: week-study
 description: 주말집회 "파수대 연구 사회" 실전 진행 대본(사회자 실시간 script) 을 **이번 주 + 다음 주 + 다다음 주 3주 분량** 자동 생성한다. WOL.JW.ORG 의 주차 파수대 연구 기사 본문은 물론, 관련 출판물(「통찰」·「파수대」 연구용판 과거호·「예수 — 길, 진리, 생명」·「하느님의 사랑 안에 머무십시오」·「깨어라!」 등)까지 심도있게 조사하여 **수준 높은 해설**이 포함된 사회자 대본 docx + PDF 를 만든다. **6단 방어(v2) 프로토콜(`.claude/shared/multi-layer-defense.md`) + 서론·예화·삽화 품질 표준(`.claude/shared/intro-and-illustration-quality.md`) 준수** — 오프닝 후크와 항별 해설에서 외부 실제 자료(고고학·지형·과학·역사) 를 3~5회 결합해 여호와의 지혜를 드러내고, 적절성 8필터(진화론 긍정·정치·타 종교 교리 긍정·논쟁적 현대 사안 등) 전부 통과. Script 생성 후 watchtower-study-planner 가 기획자 최종 QA(⑤ 단계)로 재검수, 이후 fact-checker + jw-style-checker + timing-auditor + quality-monotonic-checker 4종 최종 감사(⑥). 오프닝(환영·시작 노래·주제·표어 성구) → 각 항별 블록(시간 마커·소제목·질문·본문 요약·깊이있는 해설·사회자 대사·성구 낭독·다음 항 안내) → 복습 → 결론 → 마침 노래·기도 → 최종 시간 마커. 트리거 "/week-study", "파수대 사회 만들어 줘", "파수대 사회자료 자동 생성", "파수대 예습", "파수대 사회 3주치".
 ---
 
+## 🚨 STAGE 0 — Preflight 의무 (2026-05-03, 4-Layer 신뢰 모델)
+
+```bash
+cd ~/Claude/Projects/Congregation/_automation
+python3 preflight.py week-study {YYMMDD}
+python3 slot_content_inventory.py {YYMMDD} {mwb_doc_url}
+```
+
+FAIL → 즉시 정지 (agent 0, 토큰 0). PASS → 카탈로그 저장.
+
+## 🚨 Agent 의무 — content_inventory 사용
+
+planner/script prompt 첫 줄: "의무 Read: `research-illustration/{YYMMDD}/_content_inventory.json` — mwb anchor (paragraphs·videos·scriptures·publications) 따라 골격. 카탈로그 외 자료 X."
+
+설계도면: `research-meta/_ARCHITECTURE.md` §week-study
+
+## 🚨 Layer 4 자동 검증
+
+빌더 build 직후 `verify_docx_against_inventory_auto(out_path, "파수대", builder_name)` 자동 호출 — anchor 누락 시 `SeedImageHardFail`.
+
 ## 🛡 품질 단조 증가 (필수, 2026-04-29 도입)
 
 ⑥ 단계는 **4종 병렬 감사** (fact-checker · jw-style-checker · timing-auditor · **quality-monotonic-checker**).

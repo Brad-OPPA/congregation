@@ -3,6 +3,26 @@ name: cbs
 description: 주중집회 ⑩번 "회중성서연구 사회 (30분)" 원고 1편을 지정된 주차에 대해 생성한다. 인자 `now|next1|next2|next3` (없으면 대화형). **6단 방어(v2) 프로토콜(`.claude/shared/multi-layer-defense.md`)** 준수 — ① Planner 가 지시서 전달 → ② 각 서브 자체 검수 → ③ Planner 재검수 → ④ fact-checker·jw-style-checker·timing-auditor·quality-monotonic-checker 최종 게이트. cbs-planner → 4개 보조(qa-designer·scripture-deep·publication-cross-ref·application-builder) + 선택 2개(experience-collector·illustration-finder) → Planner 재검수 → cbs-script → Planner 재검수 → `content_cbs_YYMMDD.py` → `build_cbs.py` 로 docx/PDF. 트리거 "/cbs", "회중성서연구 만들어 줘", "CBS 원고".
 ---
 
+## 🚨 STAGE 0 — Preflight 의무 (2026-05-03, 4-Layer 신뢰 모델)
+
+```bash
+cd ~/Claude/Projects/Congregation/_automation
+python3 preflight.py cbs {YYMMDD}
+python3 slot_content_inventory.py {YYMMDD} {mwb_doc_url}
+```
+
+FAIL → 즉시 정지 (agent 0, 토큰 0). PASS → 카탈로그 저장.
+
+## 🚨 Agent 의무 — content_inventory 사용
+
+planner/script prompt 첫 줄: "의무 Read: `research-illustration/{YYMMDD}/_content_inventory.json` — mwb anchor (paragraphs·videos·scriptures·publications) 따라 골격. 카탈로그 외 자료 X."
+
+설계도면: `research-meta/_ARCHITECTURE.md` §cbs
+
+## 🚨 Layer 4 자동 검증
+
+빌더 build 직후 `verify_docx_against_inventory_auto(out_path, "회중 성서 연구", builder_name)` 자동 호출 — anchor 누락 시 `SeedImageHardFail`.
+
 ## 🛡 품질 단조 증가 (필수, 2026-04-29 도입)
 
 ⑥ 단계는 **4종 병렬 감사** (fact-checker · jw-style-checker · timing-auditor · **quality-monotonic-checker**).

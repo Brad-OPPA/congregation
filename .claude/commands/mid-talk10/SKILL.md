@@ -3,6 +3,32 @@ name: mid-talk10
 description: 주중집회 ①번 "성경에 담긴 보물 — 10분 연설" 원고 1편을 지정된 주차에 대해 생성한다. 인자 `now|next1|next2|next3` (없으면 대화형). **6단 방어(v2) 프로토콜(`.claude/shared/multi-layer-defense.md`) + 서론·예화·삽화 품질 표준(`.claude/shared/intro-and-illustration-quality.md`)** 준수 — ① Planner 지시서(🟢 착수 블록 복사 의무 포함) → ② 서브 자체 검수(🔴 종료 블록) → ③ Planner 1차 재검수 → ④ Script 작성+자체 검수 → ⑤ Planner 2차 재검수(기획자 최종 QA) → ⑥ fact-checker·jw-style-checker·timing-auditor·quality-monotonic-checker 최종 게이트. treasures-talk-planner → 5개 보조 리서치(scripture-deep·publication-cross-ref·illustration-finder·experience-collector·application-builder) → Planner 1차 재검수 → treasures-talk-script → **assembly-coordinator (조합·매핑·R1~R10 1차 검증, 옵션 B 2026-04-30 도입)** → Planner 2차 재검수 → `content_YYMMDD.py` 스펙 변환 → `build_treasures_talk.py` 로 4페이지 docx/PDF 렌더 → 4종 최종 감수 (fact·jw-style·timing·quality-monotonic). 트리거 "/mid-talk10", "10분 연설 만들어 줘".
 ---
 
+## 🚨 STAGE 0 — Preflight 의무 (2026-05-03, 4-Layer 신뢰 모델)
+
+**모든 agent 호출 전 의무 실행** — 재료 못 확보 시 빌드 시작 차단:
+
+```bash
+cd ~/Claude/Projects/Congregation/_automation
+python3 preflight.py mid-talk10 {YYMMDD}
+python3 slot_content_inventory.py {YYMMDD} {mwb_doc_url}
+```
+
+FAIL → 즉시 정지 (agent 0, 토큰 0). PASS → `_preflight_*.json` + `_content_inventory.json` 카탈로그 저장.
+
+## 🚨 Agent 의무 — content_inventory 사용
+
+planner/script 호출 시 prompt 첫 줄:
+> 의무 Read: `research-illustration/{YYMMDD}/_content_inventory.json` — mwb 본문 anchor (paragraphs·videos·scriptures·publications) 따라 골격. 양념(5 보조 리서치)은 anchor 보강만. 동영상 cue + 핵심 성구 verbatim + 표지 삽화 참조 의무.
+
+사용자 정형 7-슬롯 구조 (`research-meta/_ARCHITECTURE.md` §10분 연설):
+서론(동영상+주제) → 요점1·2·3(성구+양념) → 자문점 → 삽화 → 결론
+
+## 🚨 Layer 4 자동 검증
+
+`build_treasures_talk.py` build 직후 `verify_docx_against_inventory_auto()` 자동 호출 — 동영상·성구·출판물 cue 등장 검증. 누락 시 `SeedImageHardFail`.
+
+설계도면 정본: `research-meta/_ARCHITECTURE.md`
+
 ## 🛡 품질 단조 증가 (필수, 2026-04-29 도입)
 
 ⑥ 단계는 **4종 병렬 감사** (fact-checker · jw-style-checker · timing-auditor · **quality-monotonic-checker**).

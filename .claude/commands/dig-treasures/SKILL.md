@@ -3,6 +3,26 @@ name: dig-treasures
 description: 주중집회 ②번 "영적 보물찾기" 원고 1편을 지정된 주차에 대해 생성한다. 인자 `now|next1|next2|next3` (없으면 대화형). **6단 방어(v2) 프로토콜(`.claude/shared/multi-layer-defense.md`) + 서론·예화·삽화 품질 표준(`.claude/shared/intro-and-illustration-quality.md`)** 준수 — ① Planner 지시서(🟢 착수 블록 포함) → ② 서브 자체 검수(🔴 종료 블록) → ③ Planner 1차 재검수 → ④ Script 작성+자체 검수 → ⑤ Planner 2차 재검수(기획자 최종 QA) → ⑥ fact-checker + jw-style-checker 최종 게이트 (시간 제약 없는 포맷이라 timing-auditor 제외). spiritual-gems-planner → 5개 보조 리서치(scripture-deep·publication-cross-ref·application-builder·experience-collector·illustration-finder) → Planner 1차 재검수 → spiritual-gems-script → Planner 2차 재검수 → `content_sg_YYMMDD.py` → `build_spiritual_gems.py` docx/PDF. 20개 성구 × 3항(핵심·적용·배울점). 트리거 "/dig-treasures", "영적 보물찾기 만들어 줘", "영보 만들어줘".
 ---
 
+## 🚨 STAGE 0 — Preflight 의무 (2026-05-03, 4-Layer 신뢰 모델)
+
+```bash
+cd ~/Claude/Projects/Congregation/_automation
+python3 preflight.py dig-treasures {YYMMDD}
+python3 slot_content_inventory.py {YYMMDD} {mwb_doc_url}
+```
+
+FAIL → 즉시 정지 (agent 0, 토큰 0). PASS → 카탈로그 저장.
+
+## 🚨 Agent 의무 — content_inventory 사용
+
+planner/script prompt 첫 줄: "의무 Read: `research-illustration/{YYMMDD}/_content_inventory.json` — mwb anchor (paragraphs·videos·scriptures·publications) 따라 골격. 카탈로그 외 자료 X."
+
+설계도면: `research-meta/_ARCHITECTURE.md` §dig-treasures
+
+## 🚨 Layer 4 자동 검증
+
+빌더 build 직후 `verify_docx_against_inventory_auto(out_path, "영적 보물", builder_name)` 자동 호출 — anchor 누락 시 `SeedImageHardFail`.
+
 ## 🛡 품질 단조 증가 (필수, 2026-04-29 도입)
 
 ⑥ 단계는 **4종 병렬 감사** (fact-checker · jw-style-checker · timing-auditor · **quality-monotonic-checker**).
