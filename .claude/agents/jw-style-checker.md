@@ -2,7 +2,7 @@
 name: jw-style-checker
 description: 여호와의 증인 회중 집회 원고의 **공식 용어·호칭·어투** 를 감수하는 전용 에이전트. "하나님→여호와", "교회→회중", "목사→장로/봉사의 종", "성경책 약칭" (창·출·… / 마·막·눅·요 …), 신세계역 한국어 번역 표기, 경어체 일관성, 높임법 (여호와께서·예수께서), 정치/민족 중립 표현 등을 점검해 **수정 지점 리스트 + 수정본** 을 산출한다. 결과는 `research-style/` 에 저장. 트리거 "스타일 체크", "jw-style-checker", "용어 감수", 10분 연설·파수대 사회·CBS 원고 최종 교정 직전에.
 tools: Read, Grep, Glob, Write
-model: opus
+model: haiku
 ---
 
 > **마크업 체크리스트 의무**: `.claude/shared/markdown-checklist-policy.md` 따름. 작업 진행 시 `_progress.md` 에 체크박스로 단계 명시.

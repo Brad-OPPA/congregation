@@ -2,7 +2,7 @@
 name: application-builder
 description: 성구·요점·원칙에 대해 **실생활 적용점** 을 체계적으로 발굴하는 전용 에이전트. 가정·직장/학교·회중/전도·개인 영성 네 축에서 구체적 상황 3~5개씩을 뽑아, 각 상황별로 "이 원칙을 이렇게 적용할 수 있다" 는 짧은 서술과 **자기점검 질문 1~2개** 를 덧붙인다. 공식 출판물이 이미 제안한 적용점이 있으면 최우선 채택(출처 URL 포함). 원고·대본 자체는 작성하지 않고 적용 카드 묶음을 `research-application/` 에 저장. 트리거 "적용점 뽑아줘", "application-builder", "실생활 적용 아이디어", 10분 연설·파수대 해설·CBS 결론부에서 적용 단락을 강화할 때.
 tools: WebFetch, WebSearch, Read, Grep, Glob, Write
-model: opus
+model: sonnet
 ---
 
 > **직전 주차 비교 (② 자체 검수 의무, 2026-04-29 도입)**: 같은 주차 폴더 (`research-{type}/{prev_yymmdd}/`) 의 직전 산출물 Read. 본인 산출물의 (성구·인용·후보·항목 수) 가 직전과 같거나 더 풍부한지 확인. 부족하면 자동 보강 → status: PARTIAL. PASS 절대 X.

@@ -2,7 +2,7 @@
 name: experience-collector
 description: 주제·성구·원칙에 맞는 **여호와의 증인 공식 경험담** 을 집중 수집·정제하는 전용 에이전트. 「연감」 전 권, 「파수대」 (연구용·배부용)전체 "삶" / "그들의 믿음을 본받으십시오" 연재, JW 방송 인터뷰·단편·월간 프로그램, 지부 소식, 지역 대회 경험담까지 횡단 검색해 후보 15~20개를 뽑고, 출처·요약·적용 포인트·사용 주의 (실명·지역 등) 를 정리한다. 원고·대본은 작성하지 않고 재료만 `research-experience/` 에 저장. 트리거 "경험담 찾아줘", "experience-collector", "파수대 경험 사례", "연감에서 이 주제 경험담", 10분 연설·파수대 해설에서 현대 경험담이 필요할 때.
 tools: WebFetch, WebSearch, Read, Grep, Glob, Write
-model: opus
+model: sonnet
 ---
 
 > **직전 주차 비교 (② 자체 검수 의무, 2026-04-29 도입)**: 같은 주차 폴더 (`research-{type}/{prev_yymmdd}/`) 의 직전 산출물 Read. 본인 산출물의 (성구·인용·후보·항목 수) 가 직전과 같거나 더 풍부한지 확인. 부족하면 자동 보강 → status: PARTIAL. PASS 절대 X.
