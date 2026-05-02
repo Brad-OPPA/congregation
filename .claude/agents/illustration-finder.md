@@ -238,6 +238,36 @@ for url in extracted_src_urls:
 
 빌드 단계 (`content_*.py`) 의 `image_path` 는 **항상 다운로드된 로컬 파일** 가리킴. wol URL 직접 임베드 금지.
 
+### E-3-ter. 🚨 WOL HTML img 태그 — `src` vs `data-img-small-src` 분리 (2026-05-03 신규 — CBS 260521 인시던트 차단)
+
+WOL HTML 의 `<img>` 태그에는 두 종류 URL 속성이 있음:
+
+```html
+<img src="/ko/wol/mp/r8/lp-ko/lfb/2017/853"
+     data-img-small-src="/ko/wol/mp/r8/lp-ko/lfb/2017/852"
+     alt="예수께서 ... 만찬을 지키시는 장면"
+     width="1200" height="600" />
+```
+
+| 속성 | 의미 | 사용 |
+|---|---|---|
+| **`src`** | **본 이미지** (full size, 보통 1200x675/600, 50KB+) | ✅ docx 임베드 |
+| **`data-img-small-src`** | **썸네일** (60x60 또는 작은 사이즈, 11KB 미만) | ❌ skip — docx 에 임베드 X |
+
+**추출 규칙**:
+1. `<img>` 태그 안의 **`src` 속성만 본 이미지로 카운트**
+2. `data-img-small-src` 는 **무시** (썸네일 — 사용 X)
+3. meta.yaml 의 `illustrations[].url` 은 src 만 등록
+4. 한 `<img>` 태그 = 한 이미지 (src + small_src 를 별도 이미지로 카운트 금지)
+
+**과거 인시던트 (CBS 260521, 2026-05-03)**:
+- agent 가 lfb 87장 페이지의 `<img src=853 data-img-small-src=852>` 한 태그를 두 이미지로 오인
+- meta.yaml 에 illustrations: [url=...852, url=...853] 으로 잘못 등록
+- 빌더가 852 (60x60 thumbnail, 11KB) 를 docx 첫 장면에 임베드 → silent silent placeholder
+- validators.py `verify_seed_image()` (size < 50KB) 가 잡음 — 빌드 차단
+
+**검증**: `<img>` 태그에서 추출 시 정규식 `<img\s[^>]*?src="([^"]+)"` (small_src 제외) 또는 BS4 사용 시 `tag['src']` 만 (`tag.get('data-img-small-src')` 사용 금지).
+
 → 사용자가 "시드 이미지가 없다" 알려줄 필요 0. 빌드 직전 시드 이미지 부재 = illustration-finder 결함.
 
 ### E-4. 이미지 파일명·캡션 강제 표기
