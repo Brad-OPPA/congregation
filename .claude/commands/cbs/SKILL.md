@@ -286,8 +286,37 @@ Agent(cbs-planner)  [script 재검수 모드]
     - NEEDS-REWRITE 이면 script 에게 전달할 구체 수정 지시."
 ```
 
-### 7. content_cbs_YYMMDD.py 스펙 변환
-script.md Read → 기존 `content_cbs_*.py` 템플릿에 맞춰 paragraph/스타일/시간 마커/하이퍼링크 변환. **원고 새로 쓰지 않음.**
+### 7. content_cbs_YYMMDD.py 자동 변환 (헬퍼)
+
+```bash
+cd ~/Claude/Projects/Congregation/_automation
+python3 script_to_content_cbs.py {YYMMDD}
+```
+
+헬퍼가 `script.md` + `meta.yaml` → SPEC dict 자동 변환. Agent 호출 불필요. 회귀 테스트 골든 (260514·260521·260528) 으로 검증된 매핑 사용.
+
+**자동 추출되는 필드** (구조적·verbatim):
+- `version`, `doc_intro_topic`, `doc_intro_reader` (READER placeholder)
+- `chapters[].title`, `is_first`, `timers` (8개 표준 시간 마커)
+- `chapters[].reading_paragraphs` (meta.yaml verbatim, smart-quote 변환)
+- `chapters[].key_scripture.{quote,ref,url}` (url 은 nwtsty 자동 생성)
+- `chapters[].required_question.question` (script.md 노란박스)
+- `chapters[].required_question.answer_items` (청중 답변 + 사회자 보강 첫째/둘째/셋째 split)
+- `chapters[].illustration.scenes[].{question,image_path}` (image_path 는 `lfb_{N}_{seq}.jpg` 자동 생성)
+- `chapters[].thanks_line` (chapter[1] 만, READER placeholder)
+- `chapters[].transition_out`, `next_chapter_reading_prompt` (chapter[0] 만)
+
+**합성이 필요한 필드** (헬퍼는 best-effort 후 검수 권고 — script.md 에 1:1 매칭 안 됨):
+- `extra_deep_points` — 사회자 보강의 핵심 단락 정리
+- `scripture_commentary[].relation` — 성구별 해설
+- `reference_materials` — 출판물 인용 표를 SPEC 형식으로 (`label`/`url`/`summary` 3필드)
+- `illustration.scenes[].bg_text` — 삽화 묘사 + 캡션 결합
+- `illustration.short_application` — 두 삽화 통합 적용
+- `takeaway.q1_scripture_lesson` / `q2_about_jehovah` — 참조 성구·여호와 정리
+
+새 패턴 등장 시 `_automation/test_script_to_content_cbs.py` 골든 추가 후 헬퍼 보강. 회귀 결과는 `python3 test_script_to_content_cbs.py` 로 확인.
+
+⚠️ 합성 필드는 cbs-script Agent 의 prose 와 SPEC 의 prose 가 다르게 큐레이션된 경우가 있어 fully-automatic 1:1 변환은 **현재 60-72% 매치**. 나머지는 메인 Claude 의 검수·정정으로 채움.
 
 ### 8. docx/PDF 렌더
 

@@ -222,6 +222,24 @@ model: opus
 | **A. 후크·예화 삽화** (사물·역사·자연·일상 비유) | 체임벌린, 네온사인, 마라톤, 진시황 | 1~3순위 선행 조회 **권장**. 비슷한 분위기가 없으면 4순위 외부 OK |
 | **B. 성구/내용 적용 삽화** (성경 장면·왕국 진리·신세계 장면·영적 교훈) | 바벨탑, 대홍수, 이사야 11장 낙원, 왕국 전파 지도, 신세계 가족 | 1~3순위 선행 조회 **의무**. 못 찾을 때만 4순위, 각 건마다 "사용자 승인 필요" 플래그 |
 
+### E-3-bis. ⭐ 자동 다운로드 의무 (2026-05-02 신규 — 자동화 결함 차단)
+
+src URL 추출만 하고 끝내는 것 = 자동화 실패. illustration-finder 는 산출물 작성 직전에 **모든 wol/jwb/ext 이미지 src URL 을 즉시 curl 으로 다운로드** 의무.
+
+```bash
+# 의무 단계 (산출물 저장 전):
+for url in extracted_src_urls:
+    target = "research-illustration/{slot}/images/{prefix}_{name}.jpg"
+    curl -sL "$url" -o "$target"
+    file "$target" | grep "JPEG\|PNG"  # 검증
+```
+
+다운로드 실패 시 → `_selfcheck.md` 에 `image_download_failed: <url>` 기록 + status: PARTIAL. 메인 Claude 가 빌드 전 검토.
+
+빌드 단계 (`content_*.py`) 의 `image_path` 는 **항상 다운로드된 로컬 파일** 가리킴. wol URL 직접 임베드 금지.
+
+→ 사용자가 "시드 이미지가 없다" 알려줄 필요 0. 빌드 직전 시드 이미지 부재 = illustration-finder 결함.
+
 ### E-4. 이미지 파일명·캡션 강제 표기
 
 수집해서 `research-illustration/publictalk_{번호}/images/` 에 저장할 때 **파일명 접두어**로 소스 계층을 식별:
