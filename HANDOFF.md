@@ -187,6 +187,48 @@ git log --oneline -5
 | 3 | Noto Sans KR 빌더 폰트 변경 | 선택적 — 현재 맑은 고딕 등록으로 충분 |
 | 4 | publictalk_132_V2 + publictalk_033·040 등 untracked | 다른 세션 산출물, 진행 중인지 끝났는지 미확인 |
 
+### 🛠 토큰·시간 최적화 — 이월 작업 (2026-05-02 보류, publictalk 작업 충돌)
+
+**전체 계획**: `~/.claude/plans/mutable-plotting-platypus.md` (사용자 승인 완료)
+**전제**: CBS 품질 그대로 유지 (단조 증가, HIGH 0, NWT verbatim, 할루시네이션 0)
+**예상 효과**: 토큰 -34%, 시간 -37%, 매 세션 컨텍스트 -29%
+
+**보류 사유**: A·B·C 모두 publictalk 관련 파일을 동시 편집해 publictalk 스킬 조정 작업과 충돌 위험. publictalk 마무리되면 재개.
+
+| 영역 | 작업 | 충돌 |
+|---|---|---|
+| A | `Congregation/CLAUDE.md` 385→150줄 + `research-meta/{automation-meta-rules,local-needs-ver4-standard,agents-index,automation-flows-summary}.md` 4개 신규 | "공개 강연 자동화 (확정 정본)" 섹션 압축 — publictalk 정책 변경 중이면 충돌 |
+| B | `.claude/shared/agent-common-rules.md` 신규 + 32 agents 머리말 일괄 치환 | publictalk 관련 10+ 에이전트 머리말 변경 |
+| C | 8 agents model 다운그레이드 (Opus→Sonnet 6 + Opus→Haiku 2): illustration-finder, qa-designer, wol-researcher, slides-builder, role-play-scenario-designer, public-talk-builder, assembly-coordinator, gem-coordinator | `public-talk-builder` 직접 수정 |
+| D | `_automation/script_to_content_cbs.py` 신규 + cbs SKILL.md 7단계 갱신 | publictalk 무관, 충돌 X — **이번 세션에서 완료 (60-72% 부분 자동화)** |
+
+#### 영역 D 완료 결과 (2026-05-02 부분 성공)
+
+- 헬퍼: `_automation/script_to_content_cbs.py` (1,222줄) + 회귀 `_automation/test_script_to_content_cbs.py` (165줄)
+- 회귀 테스트 결과: 260514 68.7% / 260521 71.7% / 260528 60.7% leaf 매치 (전부 FAIL)
+- **자동 추출 완벽**: version·timers·reading_paragraphs·key_scripture·required_question.question·illustration.scenes 구조·thanks_line·transition_out 등 구조적·verbatim 필드
+- **합성 필요 (Agent 보강)**: extra_deep_points·scripture_commentary[].relation·reference_materials·illustration.bg_text/answer/short_application·takeaway.q1/q2 — script.md 의 보강 단락이 SPEC dict 에서 다른 어휘·다른 단락 구조로 큐레이션됨
+- 실용 효과: cbs-script Agent 가 SPEC 작성 부담 ~30-40% 감소 (구조 골격 자동, 합성만 채움). 1 Agent 호출 완전 제거는 못 함.
+
+#### Path A — 100% 자동화 향후 작업 (publictalk 작업 후)
+
+100% 1:1 변환 가능하려면 cbs-script 에이전트가 다음을 script.md 에 verbatim 박도록 형식 변경 필요:
+
+- `### 사회자 깊이 단락` (4-5개 산문) → `extra_deep_points`
+- `### 성구 해설` (각 성구별 1-2단락) → `scripture_commentary[].relation`
+- `### 출판물 인용 표` (label/url/summary 3컬럼 markdown table) → `reference_materials`
+- `### 삽화 배경 설명` + `### 삽화 적용` → `illustration.scenes[].bg_text/answer`
+- `### 두 삽화 통합 적용` → `illustration.short_application`
+- `### 참조 성구 정리` + `### 여호와에 대해 배움` → `takeaway.q1_scripture_lesson`/`q2_about_jehovah`
+
+cbs-script.md (에이전트 정의) 의 출력 형식 섹션을 위 헤더 패턴으로 강화 + cbs SKILL.md 5단계의 cbs-script 호출 프롬프트에 명시. 작업 시간 ~1-2시간. 적용 후 헬퍼 회귀 테스트 100% PASS 가능.
+
+**재개 진입점** (publictalk 작업 완료 후):
+
+```
+계획 ~/.claude/plans/mutable-plotting-platypus.md 의 영역 A·B·C 진행해 줘.
+```
+
 ### 즉시 가능
 
 - `/midweek-now` 등 다른 스킬 — 새 주차 자료 생성

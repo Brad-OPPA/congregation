@@ -100,25 +100,12 @@
 
 ## 📖 회중 성서 연구 사회 자동화 (확정 정본 2026-05-02)
 
-`/cbs {now|next1|next2|next3}` — **사용자 입력 1회로 WOL 파싱 → 6 보조 리서치 → 4종 게이트 PASS 까지 자동 작동**.
+`/cbs {now|next1|next2|next3}` — 사용자 입력 1회 + 검수 1회. cbs-planner ① (WOL "8. 회중 성서 연구" href 추적·docid 1102016XXX 검증) → 6 보조 병렬 ② → planner ③ → cbs-script ④ → planner ⑤ → content_cbs + WOL 이미지 → build_cbs_v10 ⑥ → 4종 게이트 ⑦ (timing 1800±120초, quality > timing).
 
-흐름: cbs-planner ① (WOL "8. 회중 성서 연구" href 추적·docid 1102016XXX 검증) → 6 보조 병렬 ② (qa·scripture·topic·application + experience·illustration) → cbs-planner ③ 1차 재검수 → cbs-script ④ → cbs-planner ⑤ 2차 재검수 → content_cbs_{YYMMDD}.py + WOL 이미지 다운로드 → build_cbs_v10 ⑥ (docx + LibreOffice PDF) → **🚨 4종 게이트 자동 호출 ⑦** (`fact-checker` · `jw-style-checker` · `timing-auditor` (1800±120초) · `quality-monotonic-checker`) → FAIL 1건 이상 시 **자동 정정 + 재빌드** (5회 한도) → PASS → 사용자 검수.
+> 📘 모든 세부 (호출 체인 / C1~C12 / publication symbol jy/lfb 분리 / 시간 마커 8개 / SPEC dict / 시행착오): `research-meta/회중성서연구-자동화-구조.md` (확정 정본)
+> 📘 script.md → SPEC 부분 자동화 헬퍼 (60-72%): `_automation/script_to_content_cbs.py` + `test_script_to_content_cbs.py`
 
-원준님 개입 = 입력 1회 + 검수 1회 = **총 2회**.
-
-**세부 명세 (호출 체인 / C1~C12 자동 검증 룰 / publication symbol jy/lfb 분리 정책 / 시간 마커 8개 표준 / SPEC dict 표준 / Mac 경로 / 시행착오)**:
-> 📘 `~/Claude/Projects/Congregation/research-meta/회중성서연구-자동화-구조.md` (확정 정본)
-
-**핵심 차이점 (vs 10분 연설 / 파수대)**:
-
-- 30분 사회자 실시간 진행, **낭독자 별도** (`[낭독자 — 문단 N]` 마커)
-- 「훈」 책 (lfb 1102016XXX) 본문은 어린이용 표현 — 사회자 보강 멘트로 깊이 추가
-- **publication symbol 분리 의무**: 회중 통칭 "훈" = lfb (「내가 좋아하는 성경 이야기」), 「예수」 책 (jy 1102014XXX) 와 별도 책. script 에서 전면="훈" / 횡단="「예수」 책 NN장" 분리 표기
-- 시간 마커 8개 (`4'·7'·10'·15'·18'·21'·23'·29'`) 빨강 볼드 우측정렬
-- 출판물「」 ≥ 3, 외부 14축 ≥ 2 (cbs 차등 적용표 행)
-- 4종 게이트 **quality > timing** — timing FAIL 라도 quality PASS 면 통과
-
-**확정 정본 — 더 이상 변경 X**. 다음 주차 (`/cbs next1` 등) 동일 퀄리티 자동 보장.
+핵심 차이 (vs 10분/파수대): 30분 사회자, 낭독자 별도, 「훈」=lfb / 「예수」=jy 분리 표기, 시간 마커 8개 빨강 볼드, quality > timing 우선순위.
 
 ---
 
