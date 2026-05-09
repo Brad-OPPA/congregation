@@ -104,7 +104,9 @@
 ### 현재 상태
 - ✅ v1 (자동 빌드 — 형편없음, 이미지 0, 출판물 4)
 - ✅ v2_ver2_ (recap commentary 추가 — 이미지 3, 출판물 8~9, monotonic PASS)
-- 🔄 v3 (4축 적용 추가, b5xv293ph 진행 중)
+- ✅ v3 (4축 적용 + 12블록 출판물 보강 — char=24232, pub=45, scripture=139, img=3)
+- ✅ **v3 = OK build 1호** (사용자 "지금까지 한 것 중 제일 마음에 듦" 명시 2026-05-09)
+- ✅ v4 dry-run (다음 주차 자동 적용 검증) — 서론 4축 + 결론 stock 제거 + 핵심 성구 5요소 + "표어 성구" NG fix 자동 작동 확인
 
 ### v2 메트릭 vs baseline
 | | v2 | baseline |
@@ -118,9 +120,19 @@
 | **monotonic 종합** | **PASS** | (가중치 합산) |
 
 ### 미해결
-- 「출판물」 인용 9 < baseline 13.3 (68%) — v3 보강 후 재확인
-- 사용자 docx 직접 검토 — OK 또는 추가 보강 결정
-- OK 시점 도달 시 `mark_ok_build.py` 도구 만들어서 baseline 동결
+- ~~「출판물」 인용 9 < baseline 13.3 (68%) — v3 보강 후 재확인~~ ✅ v3 = 45 (211% baseline)
+- ~~사용자 docx 직접 검토 — OK 또는 추가 보강 결정~~ ✅ v3 OK 명시
+- ~~OK 시점 도달 시 `mark_ok_build.py` 도구 만들어서 baseline 동결~~ ✅ 도구 생성 + v3 등록 완료
+
+### 다음 주차 자동 적용 (2026-05-09 빌더 코드 패치)
+빌더 코드에 박힌 자동화 — stderr 리마인더 의존 X, 다음 주차부터 자동 작동:
+- `scrape_wt._build_intro_paragraph` — "알아보십시오 함께 살펴보겠습니다" 이중 종결어 fix
+- `scrape_wt._key_scripture_section` — 5요소 dict list 반환 (verbatim + study_note + cross_refs + context_link + publication_quote)
+- `scrape_wt.spec_from_article` — `intro_points_preview` + `intro_recap_preview` 새 필드 자동 채움 (소제목 + 복습 질문 verbatim)
+- `scrape_wt.spec_from_article` — 결론 stock 제거 + 4축 환기 자동 합성 (소제목 회상 + 4축 적용 권면 + 마무리)
+- `build_watchtower._render_opening` — 4축 (③요점 미리 ④복습 질문 미리) 출력
+- `build_watchtower._render_key_scripture_items` — 5요소 dict list 들여쓰기 출력 (str fallback 유지)
+- `quality_baseline.compute_baseline` — OK builds 우선 사용 (없으면 직전 N 주차 fallback)
 
 ---
 

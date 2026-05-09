@@ -251,3 +251,10 @@ OK baseline 등록 방법:
 - **2026-05-09 v1** — 사용자 5/25-31 빌드 검토 후 표준 명문화. §1 형식 + §2 깊이 + §3 검사 메트릭 + §4 학습 누적 메커니즘 + §5 사례. 출판물 인용 "광범위 탐색 → 적합 1개" 원칙·항당 모든 성구 깊이 의무 명시.
 - **2026-05-09 v2** — §6 슬롯별 특이 의무 섹션 추가. 파수대 오프닝 (4축 짧게) + 결론 (짧게 마무리) 구조 명시.
 - **2026-05-09** — §6.1 에 추가: **복습 섹션 의무** — 결론 직전에 '어떻게 대답하시겠습니까?' (이탤릭) + 3가지 복습 질문 + 각 질문에 사회자 해설/답 (단순 키워드...
+- **2026-05-09 v3** — 사용자 v3 OK 시점 → 빌더 코드에 표준 영구 박음 (stderr 의존 → 자동화). 변경 사항:
+  - **§6.1 파수대 서론 4축 자동화** — `scrape_wt.spec_from_article()` 가 `intro_points_preview` (소제목 기반 요점 미리) + `intro_recap_preview` (복습 질문 verbatim 미리) 새 spec 필드 자동 채움. `build_watchtower._render_opening` 가 두 필드 출력. → 다음 주차부터 자동 4축.
+  - **§6.1 파수대 결론 4축 자동화** — `spec_from_article` 가 결론에 서론 stock 박는 버그 fix (이전: `_build_intro_paragraph` 결과를 conclusion.paragraphs[1] 에 또 넣음). 새 결론 = "기사를 통해, → 우리는 [소제목들] 을 살펴보았습니다 → 4축 적용 권면 → 마무리". → 다음 주차부터 자동.
+  - **§6.1 서론 종결어 fix** — `_build_intro_paragraph` 가 "알아보십시오 함께 살펴보겠습니다" 이중 종결어 만드는 버그 fix. 명령형 (-십시오) / 평서형 (-습니다) 종결로 끝나면 stock "함께 살펴보겠습니다" 추가하지 않음.
+  - **§2.1 핵심 성구 해설 5요소 자동 출력** — `_key_scripture_section` 반환 형식 변경: `str` → `list[dict]` (5요소: ref+verbatim+url, study_note, cross_refs, context_link, publication_quote). `build_watchtower._render_key_scripture_items` 헬퍼가 5요소 들여쓰기 출력. study_note·cross_refs·publication_quote 는 보조 에이전트 (publication-cross-ref) 가 추후 보강 — 빌더는 placeholder 노출하여 누락 시 의식적으로 채울 수 있음.
+  - **§3 quality_baseline OK builds 우선** — `mark_ok_build.py` 도구로 사용자가 OK 한 빌드를 `.claude/shared/ok-builds.json` 등록. `quality_baseline.compute_baseline()` 가 OK 등록 빌드를 baseline 으로 우선 사용 (없으면 직전 N 주차 fallback). 사용자가 도달한 만족 수준이 ≥ 85% 자동 유지.
+  - **OK build 1호 등록** — 5/31 v3 (`파수대 사회_260531_ver3_.docx`): char=24232, pub_quotes=45, scripture=139, image=3, long_para=137. 사용자 명시 "지금까지 한 것 중 제일 마음에 듦" (2026-05-09).

@@ -1,0 +1,25 @@
+{
+  "version": 1,
+  "builds": {
+    "week-study": [
+      {
+        "marked_at": "2026-05-09 21:12:04",
+        "docx_path": "/Users/brandon/Dropbox/02.WatchTower/01.▣ 수원 연무 회중/02.주말집회/02.파수대 사회/260525-0531/파수대 사회_260531_ver3_.docx",
+        "file_name": "파수대 사회_260531_ver3_.docx",
+        "reason": "260531 v3 — 사용자 지금까지 한 것 중 제일 마음에 듦 (2026-05-09)",
+        "metrics": {
+          "char_count": 24232,
+          "paragraph_count": 378,
+          "image_count": 3,
+          "publication_quotes": 45,
+          "scripture_refs": 139,
+          "time_markers": 19,
+          "indent_blocks": 0,
+          "bold_runs": 218,
+          "highlight_runs": 64,
+          "long_paragraphs": 137
+        }
+      }
+    ]
+  }
+}
