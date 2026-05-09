@@ -90,9 +90,23 @@ agent-postcheck-hook 의 detect_team 확장 + USER_NG_VOCAB 추가
 
 8/8 테스트 통과.
 
-### 3순위 — 보강 4 (`user-ng-auto-learn`)
-사용자가 "이거 또 쓰지 마" 라고 한 번 지적 → `banned-vocabulary.md` 자동 추가.
-UserPromptSubmit hook 확장 또는 별도 hook.
+### 3순위 — 보강 4 (`user-ng-auto-learn`) ✅ 완료 (2026-05-09 v3)
+**반-자동 학습** 형태로 구현:
+- `_automation/add_user_ng.py` — CLI 스크립트
+  - `--word "어휘" --replacement "권장" --reason "사유"`: 자동 등록
+  - `--list`: 현재 등록 목록
+  - 중복 자동 skip
+- `agent-postcheck-hook` 동적 파싱
+  - banned-vocabulary.md 의 "## 2-bis" 섹션 자동 read
+  - 새 NG 추가 시 다음 hook 호출부터 즉시 적용 (재시작 불필요)
+  - 파일 read 실패 시 hardcoded fallback (4개)
+
+사용자 자연어 요청 시 흐름:
+1. 사용자: "수동적이라는 어휘 또 쓰지마"
+2. 메인 Claude: `python3 _automation/add_user_ng.py --word "수동적" --replacement "능동적"`
+3. 정본 갱신 → 다음 빌드부터 자동 차단
+
+테스트: 4 케이스 모두 통과 (등록·중복·즉시 반영·정리)
 
 ---
 

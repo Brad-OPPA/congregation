@@ -79,13 +79,53 @@ BANNED_VOCAB = {
     # "평안" 은 NWT 성구 verbatim ("평안히") 와 충돌 — 일단 제외
 }
 
-# HIGH: 사용자 직접 NG 어휘 (모든 회중 팀 공통, 10분 연설 정본에서 추출)
-USER_NG_VOCAB = {
-    "가정 경배": "가족 성서 연구",
-    "신자": "형제 자매",
-    "여호와의 임재": "여호와의 도움/축복",
-    "수동적": "(능동적 표현으로 대체)",
+# HIGH: 사용자 직접 NG 어휘 — banned-vocabulary.md "## 2-bis" 섹션 동적 파싱
+# add_user_ng.py 로 추가된 항목이 다음 hook 호출부터 즉시 적용됨.
+VOCAB_FILE_PATH = "/Users/brandon/Claude/Projects/Congregation/.claude/shared/banned-vocabulary.md"
+USER_NG_SECTION = "## 2-bis. 사용자 직접 명시 NG 표현 (HIGH 즉시 NG)"
+USER_NG_NEXT = "## 2-ter."
+
+# Fallback (정본 파일 read 실패 시)
+USER_NG_FALLBACK = {
+    "가정 경배": "가족 숭배",
+    "신자": "형제·자매",
+    "여호와의 임재": "여호와의 영광",
+    "수동적": "능동적",
 }
+
+
+def load_user_ng_vocab() -> dict:
+    """banned-vocabulary.md 의 2-bis 섹션 표 → {ng: replacement} dict."""
+    try:
+        from pathlib import Path
+        text = Path(VOCAB_FILE_PATH).read_text(encoding="utf-8")
+    except Exception:
+        return USER_NG_FALLBACK
+
+    start = text.find(USER_NG_SECTION)
+    if start < 0:
+        return USER_NG_FALLBACK
+    end = text.find(USER_NG_NEXT, start)
+    section = text[start:end] if end > 0 else text[start:]
+
+    vocab: dict = {}
+    for line in section.splitlines():
+        line = line.strip()
+        if not line.startswith("|") or line.startswith("|---") or line.startswith("| NG 표현"):
+            continue
+        cells = [c.strip() for c in line.split("|")]
+        if len(cells) >= 3:
+            ng = re.sub(r"\*\*([^*]+)\*\*", r"\1", cells[1]).strip()
+            ng_core = re.split(r"\s*\(", ng)[0].strip()
+            rep = re.sub(r"\*\*([^*]+)\*\*", r"\1", cells[2]).strip()
+            rep_core = rep.split(" / ")[0].strip()  # 첫 번째 옵션
+            if ng_core and rep_core:
+                vocab[ng_core] = rep_core
+    return vocab or USER_NG_FALLBACK
+
+
+# 모듈 로드 시 한 번 (hook 매번 새 프로세스라 캐싱 의미 X)
+USER_NG_VOCAB = load_user_ng_vocab()
 
 # MID: 도입 외 "함께 [성구] 보시겠습니다" 다회 등장 (P2 위반)
 P2_LOOK_PATTERN = re.compile(r"함께\s+[가-힣]+\s*\d+\s*[:：]\s*\d+(?:[~∼\-]\s*\d+)?\s*(?:절\s*)?(?:을|를)?\s*보시겠습니다")
