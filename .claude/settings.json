@@ -37,6 +37,15 @@
             "command": "python3 -X utf8 \"$CLAUDE_PROJECT_DIR/.claude/hooks/protect-canonical-dropbox.py\""
           }
         ]
+      },
+      {
+        "matcher": "Skill",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 -X utf8 \"$CLAUDE_PROJECT_DIR/.claude/hooks/skill-standard-loader.py\""
+          }
+        ]
       }
     ],
     "PostToolUse": [
