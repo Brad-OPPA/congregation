@@ -28,13 +28,16 @@ desktop.ini
 *.log
 logs/
 
-# 리서치 임시 산출물 (subagent 결과 폴더는 사용자 판단으로 추후 추가)
-# research-topic/
-# research-bible/
-# research-illustration/
-# research-qa/
-# research-application/
-# research-timing/
-# research-style/
-# research-experience/
-# research-public-talk/
+# 리서치 중간 산출물 (파이프라인 재생성 가능 — Vercel 긴 파일명 오류 방지)
+research-bible/
+research-experience/
+research-illustration/
+research-qa/
+research-application/
+research-timing/
+research-style/
+research-topic/
+research-plan/living-part/
+research-plan/local-needs/
+research-public-talk/S-34_split/
+# research-public-talk/ 전체는 아직 아님 (골자 PDF 외 중요 파일 포함 가능)
