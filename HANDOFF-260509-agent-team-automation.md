@@ -53,6 +53,36 @@ cd ~/Claude/Projects/Congregation && git log --oneline 28c2130..47331c3 47331c3 
 
 ---
 
+## 🎯 실전 검증 결과 (2026-05-09)
+
+**4팀 라이브 dedup 테스트** — 각 팀 정본 폴더 최신 docx 로 직전 docx 와 단락 유사도 검사:
+
+### 1차 결과 (false positive 다수 발견)
+| 슬롯 | 단락 | HIGH | 분석 |
+|---|---:|---:|---|
+| cbs | 76 | 6 | 사회자 진행 멘트 ("함께 낭독") false positive |
+| week-study | 244 | 35 | 표준 인사말·URL 참조 false positive |
+| mid-talk10 | 39 | 4 | WOL URL 참조 단락 false positive |
+| dig-treasures | 109 | 55 | 메타 헤더·고정 라벨 false positive |
+
+### 보강 후 (commit ddaa942)
+| 슬롯 | 단락 | HIGH | WARN | 결과 |
+|---|---:|---:|---:|---|
+| cbs | 36 | **0** | 0 | ✅ PASS |
+| week-study | 126 | **0** | 15 | ⚠️ WARN (60분 특성, 정상) |
+| mid-talk10 | 16 | **0** | 0 | ✅ PASS |
+| dig-treasures | 35 | **0** | 0 | ✅ PASS |
+
+→ **전부 PASS**. dedup 도구 실용성 확보.
+
+**보강 내용** (`dedup_against_history.py`):
+1. MIN_PARA_LEN 30 → 100 (짧은 진행 멘트 자동 제외)
+2. STANDARD_PHRASES 17개 어구 (사회자 인사말·메타 헤더·고정 라벨)
+3. URL 단락 30% 이상이면 참조 단락 판정
+4. 가이드 라벨 (•/※ 시작 짧은 단락) 자동 제외
+
+---
+
 ## ✅ 이미 검증된 것
 
 - **agent-prebrief-hook**: 3 케이스 통과 (회중의 필요 팀 발동, CBS 통과, Edit 통과)
