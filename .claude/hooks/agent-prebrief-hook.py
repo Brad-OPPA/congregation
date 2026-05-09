@@ -197,6 +197,15 @@ def detect_team(subagent_type: str, description: str, prompt: str) -> str | None
 
 
 def main() -> int:
+    """PreToolUse hook 정식 방식 (2026-05-09 v2):
+
+    stdout JSON 으로 `updatedInput.prompt` 반환 → Task 도구의 prompt 필드 자체를
+    팀 브리핑 + 원본 prompt 형태로 augmentation. 서브에이전트가 시작 시점에
+    가이드라인 포함된 prompt 를 받음.
+
+    이전 v1 (stderr + exit 1) 은 메인 Claude 만 보였고 서브에이전트는 못 받음 —
+    실전 검증으로 발견된 한계 (HANDOFF-260509 참조).
+    """
     try:
         data = json.load(sys.stdin)
     except Exception:
@@ -206,10 +215,12 @@ def main() -> int:
         return 0
 
     tool_input = data.get("tool_input", {}) or {}
+    original_prompt = tool_input.get("prompt", "") or ""
+
     team = detect_team(
         tool_input.get("subagent_type", "") or "",
         tool_input.get("description", "") or "",
-        tool_input.get("prompt", "") or "",
+        original_prompt,
     )
     if not team:
         return 0
@@ -218,9 +229,45 @@ def main() -> int:
     if not briefing:
         return 0
 
+    # 새 prompt = 팀 브리핑 + 구분선 + 원본 prompt
+    augmented = (
+        briefing
+        + "\n\n"
+        + "─" * 60 + "\n"
+        + "위 정본 가이드라인을 반드시 준수하며 아래 task 를 수행하십시오.\n"
+        + "(에이전트는 정본 파일을 본인이 Read 한 뒤 작업 시작 권장)\n"
+        + "─" * 60 + "\n\n"
+        + original_prompt
+    )
+
+    # Dual output (호환성 + fallback):
+    #
+    # 1) stdout JSON — PreToolUse hookSpecificOutput.updatedInput
+    #    (Claude Code 환경이 Task prompt augmentation 을 지원하면 자동 작동.
+    #     2026-05-09 검증: macOS Claude Code CLI 에서는 Task 도구의 prompt
+    #     augmentation 미지원 — 그래도 미래 환경 대비 유지.)
+    output = {
+        "hookSpecificOutput": {
+            "hookEventName": "PreToolUse",
+            "permissionDecision": "allow",
+            "updatedInput": {**tool_input, "prompt": augmented},
+        }
+    }
+    print(json.dumps(output, ensure_ascii=False))
+
+    # 2) stderr — 메인 Claude 알림 (의식적 prepend 권고)
+    #    위 stdout JSON 이 실제로 적용 안 됐을 경우 메인 Claude 가 이 메시지를
+    #    보고 task 호출 prompt 에 직접 정본을 prepend 하도록 유도.
+    sys.stderr.write(
+        f"\n🛡️ [회중 자료 팀 — '{team}' 호출 감지]\n"
+        f"메인 Claude 의무: Task 호출 prompt 에 다음 정본 가이드라인을 직접 prepend.\n"
+        f"(Claude Code Task 도구는 hook 으로 prompt 자동 augmentation 미지원 검증됨)\n"
+        f"\n팀 브리핑 (이 task prompt 맨 위에 인용 의무):\n"
+    )
+    sys.stderr.write("─" * 60 + "\n")
     sys.stderr.write(briefing)
-    sys.stderr.write(f"\n→ 위 정본을 task 프롬프트에 인용/링크. 에이전트는 본인이 Read 의무.\n")
-    return 1
+    sys.stderr.write("─" * 60 + "\n")
+    return 0
 
 
 if __name__ == "__main__":

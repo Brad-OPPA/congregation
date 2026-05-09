@@ -194,6 +194,41 @@ agent-postcheck-hook 의 detect_team 확장 + USER_NG_VOCAB 추가
 
 ---
 
+## 🚨 핵심 발견 (2026-05-09 v3) — Task 도구는 hook prompt augmentation 미지원
+
+**실전 검증 결과** (서브에이전트 직접 보고):
+1. PreToolUse hook 의 stderr 메시지는 **서브에이전트에게 전달 안 됨**
+2. PreToolUse hook 의 stdout JSON `hookSpecificOutput.updatedInput.prompt` 는 **Task 도구에서 작동 안 함**
+   (spec 자체는 Anthropic 공식 docs 100% 준수했지만, Task 도구가 특수 케이스)
+3. 다른 도구 (Bash/Edit) 는 `updatedInput` 작동 가능성 있음 (미검증)
+
+### 해결 방법 — 메인 Claude 의식적 prepend (옵션 B)
+
+`_automation/team_briefings.py` 모듈로 brief 텍스트 일원화.
+메인 Claude 가 회중 팀 Task 호출 시 의무적으로:
+
+```python
+# 의사 코드
+from team_briefings import get_briefing_for_team, prepend_to_prompt
+
+brief = get_briefing_for_team("local-needs")
+augmented = prepend_to_prompt(user_brief, brief)
+Agent(subagent_type="local-needs-planner", prompt=augmented, ...)
+```
+
+또는 더 간단히 — `python3 _automation/team_briefings.py {팀}` CLI 로 텍스트 받아 prepend.
+
+### 검증 통과 (2026-05-09)
+실제 task 호출 시 brief 를 prepend 하니 서브에이전트가 정본 가이드라인 인식 ✅
+- "P1~P13 정본 가이드라인이 prompt 맨 위에 있나요?" → "Yes"
+- "P1, P3, P7 인용" → 정확히 인용
+
+### CLAUDE.md 규칙 추가 (회중 워크스페이스)
+> "🛡️ 회중 팀 에이전트 호출 시 정본 prepend 의무" 섹션 신설.
+> 메인 Claude 가 매 세션 첫 응답 전 점검 + Task 호출 시 prepend 의무.
+
+---
+
 ## 🔄 이 핸드오프 갱신 규칙
 
 다음 세션이 작업 끝낼 때 **반드시 이 파일 갱신**:

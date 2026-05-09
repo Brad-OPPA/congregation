@@ -1,5 +1,9 @@
 # 회중 작업 공간 (congregation)
 
+## 세션 시작
+
+이 폴더 열리면 첫 응답 전에: `git -C ~/Claude/Projects/Congregation pull --ff-only` (로컬 변경사항 있으면 사용자 알림 후 스킵)
+
 이 폴더는 김원준 형제의 **여호와의증인 회중 활동** 관련 맥락입니다. 사용자는 한국어 답변을 선호합니다.
 
 ## 한눈에 보는 구조 (2026-04-25 기준)
@@ -140,11 +144,38 @@
 
 ## 훅 (자동 실행)
 
-회중 워크스페이스 `.claude/settings.json` 에 등록.
+회중 워크스페이스 `.claude/settings.json` 에 등록 (2026-05-09 v3 갱신).
 
 | 이벤트 | 훅 | 동작 |
 | --- | --- | --- |
-| `Stop` (응답 종료) | `.claude/hooks/factcheck-numbers.py` | 회중 자료의 숫자·연도·통계 사실 재검증 |
+| `PreToolUse` Task | `agent-prebrief-hook.py` | 5팀 (cbs/week-study/mid-talk10/dig-treasures/local-needs) 정본 brief 를 stderr 출력 → 메인 Claude 의식적 prepend 의무 |
+| `PreToolUse` Edit/Write | `pre-tool-guard.py` + `content-zone-guard.py` | 보호 파일 차단 / content_*.py 규칙 강제 |
+| `PreToolUse` Bash | `protect-canonical-dropbox.py` | 회중 정본 폴더·_final.docx destructive 명령 차단 |
+| `PostToolUse` Task | `agent-postcheck-hook.py` | 5팀 결과물 P1~P13·금칙어·동적 사용자 NG 즉시 검사 |
+| `UserPromptSubmit` | `skill-source-reminder.py` + `edit-restriction-hook.py` | 스킬·에이전트 질문 시 SKILL.md 강제 read |
+| `Stop` (응답 종료) | `factcheck-numbers.py`, `quality-loop-enforcer.py`, `fact-loop-enforcer.py`, `version-cleanup-prompt.py` | 사실/품질 재검증 + 자동 재작성 + 정리 |
+| `SessionStart` | `session-start-git-pull.py` | git pull --ff-only |
+
+## 🛡️ 회중 팀 에이전트 호출 시 정본 prepend 의무 (2026-05-09 도입)
+
+**Claude Code 의 Task 도구는 hook 으로 prompt augmentation 미지원** (실전 검증).
+따라서 메인 Claude 가 회중 팀 에이전트 (`local-needs-*`, `cbs-*`, `wt-*`, `treasures-talk-*`, `spiritual-gems-*`, `gem-*`) 를 Task 로 호출할 때 다음 형식으로 prompt 직접 prepend 한다:
+
+```
+[회중 자료 팀 — {팀명} 정본 가이드라인]
+
+(agent-prebrief-hook 의 stderr 메시지를 그대로 인용 — 5팀 공통 의무 + 팀별 특이 의무)
+
+────────────────────────────────────────
+위 정본을 반드시 준수하며 아래 task 수행.
+────────────────────────────────────────
+
+{원래 task prompt}
+```
+
+`agent-prebrief-hook` stderr 가 보일 때 그 내용을 그대로 task prompt 맨 위에 박아넣음. 이 의무를 거르면 서브에이전트가 P1~P13 / 금칙어 / NWT 책 이름 의무 모르고 시작 → postcheck 게이트에서 잡혀 재작성 사이클 발생.
+
+**대안** (자동화 향상): 5팀 brief 텍스트는 `_automation/team_briefings.py` 에 함수로 노출 — 메인 Claude 가 import 하여 prepend 가능 (TODO).
 
 ## 데이터 출처
 
@@ -169,9 +200,12 @@
 
 - 원고는 wol.jw.org 공식 내용만 근거. 추측·외부 해석 최소화.
 - 성구 참조·교재 인용 정확히. **"예배"** 단어 금지 — "집회" 등 공식 용어만.
+- **🔴 모든 성경 인용은 [신세계역 성서 연구용 판 (nwtsty)] 만 사용** (원준님 확정 2026-05-07). WOL URL 패턴: `https://wol.jw.org/ko/wol/b/r8/lp-ko/nwtsty/{book_num}/{chap}` (`scrape_wt.py::fetch_nwt_verse()` 가 이미 이 URL 사용 중). 책 이름이 일반 NWT 2014 와 다른 경우 주의 — 예: **빌립보서** (연구용) vs 필리피 (일반), **로마서** (연구용) vs 로마 (일반), **유다서** (연구용) vs 유다 (일반). 빌드 시 fact-checker 가 nwtsty verbatim 으로 검증 의무. 세부: `research-meta/local-needs-v6-speech-form-patterns.md` §P4.
 - 회중 자료 감수는 변경분이 아닌 **세션 내 모든 신규/재빌드 docx 전체** 대상 (`jw-style-checker`).
 - **작업 위임·병렬화 우선** — 3단계/3파일 이상은 서브 에이전트로 위임, 의존성 없는 작업은 한 메시지 안에서 병렬 호출. 메인 컨텍스트는 의사결정·통합·git 에 보존. 세부: 메모리 `feedback_delegate_to_subagents.md`.
 - **상투적 청중 호명·수사 질문 금지** — "여러분도 …해 보신 적 있으십니까?" 류 9가지 표현 일체 금지. 모든 script 에이전트 + jw-style-checker 가 차단. 세부: 메모리 `feedback_script_no_cliche.md` · `intro-and-illustration-quality.md` §A-4-bis.
 - **품질 단조 증가 (2026-04-29 도입, Phase A·B·C·D·E 정착)** — 새 빌드의 정량 메트릭 (글자수·성구·출판물「」·외부 14축·시간 마커·깊이 단락·**이미지·구성 표준**) 이 직전 주차 동일 슬롯 docx 보다 같거나 풍부해야 함. quality-monotonic-checker 가 **9축** 자동 NO-GO + 재작성 무한 루프 (5회 한도). 사용자 검수 의존 0. **quality > timing** (timing FAIL 이라도 quality PASS 면 통과). **fact ↔ quality cross-reference**: fact-checker 가 fake docid 출판 인용 제거 시 quality C 축 MED 강등. **이미지 silent skip 차단**: illustration-finder 가 `download_image.py` 로 시드 이미지 자동 다운로드 의무. 정책: `shared/quality-monotonic-policy.md`
 - **메인 Claude 직접 정정 금지 (Phase E, 2026-05-01)** — 메인은 docx·content_*.py·script.md·outline.md 등 콘텐츠 파일을 직접 Edit/Write 하지 않는다. 의심 어휘·라벨 오류 발견 시 반드시 jw-style-checker (또는 해당 script 에이전트) 호출 → WOL WebFetch 검증 → script 재작성 → Agent 가 content_*.py 변환 → 빌더 (`validators.py` 자동 차단) 재실행. 메인의 직관 정정·임시 변환 우회 차단. 정책: `shared/main-claude-edit-policy.md`. 정본 단일화: `shared/banned-vocabulary.md` (금칙어) + `shared/comment-label-standard.md` (라벨).
+- **🔒 사용자 직접 손질본 보호 (Phase F, 2026-05-07)** — 사용자가 Word 에서 직접 작성·손질한 docx (`_final.docx`, `_final2.docx` 등) 는 **메인 Claude 가 절대 손대지 않는다**. 자동 빌더 (python-docx) 로 덮어쓰기 금지 — Mac Word 한글 폰트 매핑 깨짐 사고 4회 (final2 작업 2026-05-07) 증명됨. 사용자가 손질본 위에 추가 변경 요청 시 메인 Claude 는 **markdown 패치 형태** (`final_to_finalN_패치.md`) 로만 변경사항 정리 — 사용자가 Word 에서 직접 적용 → `_finalN.docx` 저장. 자동 빌드 docx 는 baseline 자료 (`_verN_`) 로만 보존. 회중 발송 정본은 무조건 사용자 작성 docx + Word 직접 PDF 내보내기. 정책: `research-meta/local-needs-final-output-routing.md` §4.
+- **🔍 자동 변환물 시각 검증 의무 (Phase F-bis, 2026-05-07)** — 메인 Claude 가 docx → PDF, pptx → PNG 같은 **자동 변환·생성 결과물을 정본 폴더에 저장하기 전에 반드시 본인이 직접 시각 확인** 한다. 한글 깨짐 사용자가 매번 발견하게 두는 것 금지. 절차: (1) sandbox 변환은 한글 폰트 누락 위험 → **host osascript + macOS 의 LibreOffice/PowerPoint 사용 권장** (사용자 Mac 폰트 정상 매핑), (2) 변환 후 `pdftoppm` 등으로 PNG 생성 → file tool `Read` 로 직접 본인이 확인, (3) 깨짐 발견 시 절대 정본 폴더에 저장하지 말고 사용자에게 보고 + 우회 방법 제안, (4) 정상 확인된 산출물만 Dropbox 정본 폴더에 저장. **사용자 짜증 방지 = 메인 Claude 의 직접 검증 의무**. 정책: `research-meta/local-needs-final-output-routing.md` §4-bis.
 - **영적 보물찾기 자동화 v2 (Phase E v2, 2026-05-01)** — 매주 자동 빌드 시 동일 퀄리티 보장. 자동화 구조 세부사항 (전체 흐름·5 보조 자료 수집 의무·검증 자동화 표·hook 작동 시점·정량 메트릭·회귀 적용 절차·단순/복잡 정정 분리) 은 `shared/dig-treasures-automation.md` 참조. 핵심 강제 메커니즘: validators 빌드 시 자동 차단 (라벨·금칙어·사용자 NG·의심 어휘) + gem-coordinator (R1~R10 측정) + Stop hook 3종 (factcheck·quality-loop·fact-loop) 자동 재호출 강제. 다각도·14축·깊이·4축 균형은 정보 측정만 (자연스러움 우선, 강제 X). 메인 Claude 정정은 단순(WOL fetch 정답 명확) 직접 / 복잡(해석 필요) Agent 위임.
