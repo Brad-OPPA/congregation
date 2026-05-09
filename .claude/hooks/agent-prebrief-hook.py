@@ -57,6 +57,13 @@ COMMON_BRIEFING = f"""\
 
 🚫 메인 Claude 직접 정정 금지 (Phase E): {SHARED}/main-claude-edit-policy.md
    content_*.py / script.md / docx 메인이 직접 Edit X.
+
+🔁 직전 주차 중복 회피 (Phase G, 모든 회중 자료 슬롯 공통)
+   빌드 직후 ⑥ 4종 게이트 직전에 dedup 검사 의무:
+     python3 _automation/run_dedup_for_slot.py <slot> <new.docx>
+   slot: local-needs / cbs / week-study / mid-talk10 / dig-treasures /
+         mid-talk5 / living-part / student
+   - HIGH (≥ 0.80) → 재작성 / WARN (≥ 0.65) → 참고
 """
 
 
@@ -80,9 +87,6 @@ LOCAL_NEEDS_SPEC = f"""\
    {META}/local-needs-final-output-routing.md
    • 정본 경로: ~/Dropbox/.../01.주중집회/04.회중의 필요/{{YYMMDD-MMDD}}/
    • 🚫 사용자 _final.docx 자동 갱신 금지 (markdown 패치로만)
-
-🔁 직전 주차 중복 회피 (Phase G): 빌드 직후 dedup_against_history.py 호출 의무
-   python3 _automation/dedup_against_history.py --new <docx> --history-dir <폴더>
 """
 
 CBS_SPEC = f"""\

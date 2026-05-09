@@ -9,14 +9,16 @@
 회중의 필요 (local-needs) 스킬을 **자율 작동 팀 에이전트** 형태로 보강.
 사용자분이 원한 그림: "주제·내용 입력 → 에이전트들이 PreTool 훅으로 규칙 미리 알고 시작 → 끝나고 PostTool 로 검증 → 중복 없이 빌드 → 초안 보고".
 
-### 신규 자산 4종
+### 신규 자산 6종
 
 | # | 파일 | 역할 | 위치 |
 |---|---|---|---|
-| 1 | `agent-prebrief-hook.py` | Task 호출 직전 팀 규칙집(P1~P13) stderr 주입 | `.claude/hooks/` |
-| 2 | `agent-postcheck-hook.py` | Task 결과 직후 위반 즉시 검사 | `.claude/hooks/` |
+| 1 | `agent-prebrief-hook.py` | Task 호출 직전 5팀 규칙집 stderr 주입 | `.claude/hooks/` |
+| 2 | `agent-postcheck-hook.py` | Task 결과 직후 위반 즉시 검사 (동적 NG 파싱) | `.claude/hooks/` |
 | 3 | `protect-canonical-dropbox.py` | Bash destructive 명령으로부터 정본 보호 | `.claude/hooks/` |
-| 4 | `dedup_against_history.py` | 새 docx vs 직전 주차 단락 유사도 검사 | `_automation/` |
+| 4 | `dedup_against_history.py` | 새 docx vs 직전 주차 단락 유사도 검사 (라이브러리) | `_automation/` |
+| 5 | `add_user_ng.py` | 사용자 NG 어휘 자동 등록 도구 | `_automation/` |
+| 6 | `run_dedup_for_slot.py` | 8슬롯 dedup 통합 wrapper (slot 이름만 주면 OK) | `_automation/` |
 
 ### 보강 적용 흐름 (지금 가동 중)
 
