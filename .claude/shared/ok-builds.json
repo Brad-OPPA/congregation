@@ -3,21 +3,21 @@
   "builds": {
     "week-study": [
       {
-        "marked_at": "2026-05-09 21:12:04",
-        "docx_path": "/Users/brandon/Dropbox/02.WatchTower/01.▣ 수원 연무 회중/02.주말집회/02.파수대 사회/260525-0531/파수대 사회_260531_ver3_.docx",
-        "file_name": "파수대 사회_260531_ver3_.docx",
-        "reason": "260531 v3 — 사용자 지금까지 한 것 중 제일 마음에 듦 (2026-05-09)",
+        "marked_at": "2026-05-09 23:55:03",
+        "docx_path": "/Users/brandon/Dropbox/02.WatchTower/01.▣ 수원 연무 회중/02.주말집회/02.파수대 사회/260525-0531/파수대 사회_260531_ver10_.docx",
+        "file_name": "파수대 사회_260531_ver10_.docx",
+        "reason": "v10 — 4축 해설 정본화 (본문 verbatim + 심도 해설 진짜 깊이 17 + 핵심성구 narrative 21 + 인용 자동 하이라이트 + 문답식 함께 배우는 톤). 사용자 명시 OK 2026-05-09.",
         "metrics": {
-          "char_count": 24232,
-          "paragraph_count": 378,
+          "char_count": 35404,
+          "paragraph_count": 411,
           "image_count": 3,
-          "publication_quotes": 45,
-          "scripture_refs": 139,
+          "publication_quotes": 91,
+          "scripture_refs": 209,
           "time_markers": 19,
-          "indent_blocks": 0,
-          "bold_runs": 218,
-          "highlight_runs": 64,
-          "long_paragraphs": 137
+          "indent_blocks": 1,
+          "bold_runs": 240,
+          "highlight_runs": 120,
+          "long_paragraphs": 144
         }
       }
     ]
