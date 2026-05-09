@@ -319,10 +319,14 @@ def handle_pretool_task(data: dict) -> int:
 
     sys.stderr.write(
         f"\n🛡️ [validate-on-task-call] 회중 팀 '{team}' 호출 감지\n"
-        f"메인 Claude 의무: 아래 정본을 task prompt 에 prepend.\n"
+        f"메인 Claude 의무: 아래 정본 + 통합 체크리스트를 task prompt 에 prepend.\n"
     )
     sys.stderr.write("─" * 60 + "\n")
     sys.stderr.write(briefing)
+    # 통합 체크리스트 (모든 회중 팀 공통)
+    checklist = load_canonical_checklist()
+    if checklist:
+        sys.stderr.write(checklist)
     sys.stderr.write("─" * 60 + "\n")
     return 0  # 차단 X — stderr 만
 
@@ -376,6 +380,37 @@ def handle_posttool_task(data: dict) -> int:
     return 1  # stderr 알림 신호 — 차단 X
 
 
+CHECKLIST_FILE = SHARED / "canonical-build-checklist.md"
+
+
+def load_canonical_checklist() -> str:
+    """canonical-build-checklist.md 핵심 발췌 (메인 Claude 의무 prepend)."""
+    if not CHECKLIST_FILE.exists():
+        return ""
+    try:
+        text = CHECKLIST_FILE.read_text(encoding="utf-8")
+    except Exception:
+        return ""
+    # § 1·9·12·13 핵심만 추출 (전체는 너무 김)
+    return (
+        "\n📋 [회중 자료 빌드 통합 체크리스트 — 정본 v1]\n"
+        f"   정본: {CHECKLIST_FILE}\n"
+        "\n핵심 의무 (전부 충족 의무):\n"
+        "  ① 항 commentary 5필드 = 공식 질문 → 답 → 심도 → 핵심성구 → 적용 → 실생활 → 각주 fetch (1 흐름)\n"
+        "  ② 본문 verbatim, 자동 강조 X\n"
+        "  ③ 서론 4축 + 함께 배우는 톤 (들어보시기 X)\n"
+        "  ④ 결론 인물 회상 (소제목 stock X) + 표어 재인용\n"
+        "  ⑤ 핵심 성구 = 서술형 1 문단 (5요소, placeholder X)\n"
+        "  ⑥ 본문 각주 발견 → fetch → depth 통합\n"
+        "  ⑦ 적용 4축 + 자기점검 + 구체 실생활\n"
+        "  ⑧ 금칙어 0: 표어성구·들어보시기·신앙·신자(단독)·가정경배·수동적·사역·예배\n"
+        "  ⑨ 외부 14축 ≥ 5 자연 결합 (지리·역사·고고학·언어학·자연사)\n"
+        "  ⑩ 빛나는 발견 명시 (어근·평행·수미상관 등)\n"
+        "  ⑪ baseline 100% (5/31 v11 OK: char ≥ 46325 / pub ≥ 124 / scripture ≥ 260 / image ≥ 3 / long_para ≥ 168)\n"
+        "\n빌드 전 메인 Claude 자가 점검 — 미달 시 단계 4·5 에이전트 재호출.\n"
+    )
+
+
 def handle_pretool_skill(data: dict) -> int:
     tool_input = data.get("tool_input", {}) or {}
     skill_name = tool_input.get("skill", "")
@@ -384,6 +419,10 @@ def handle_pretool_skill(data: dict) -> int:
     summary = load_quality_standard_summary()
     sys.stderr.write("\n" + "=" * 60 + "\n")
     sys.stderr.write(summary)
+    # 통합 체크리스트 prepend
+    checklist = load_canonical_checklist()
+    if checklist:
+        sys.stderr.write(checklist)
     sys.stderr.write("=" * 60 + "\n")
     return 0
 
