@@ -75,6 +75,16 @@ LOCAL_NEEDS_BRIEFING = f"""\
    — content_*.py / script.md / docx 메인이 직접 Edit X.
      의심 어휘 발견 시 jw-style-checker 또는 본 에이전트 재호출.
 
+🔁 직전 주차 중복 회피 (Phase G, 2026-05-09 신설)
+   빌드 직후 다음 도구로 직전 docx 와의 단락 단위 유사도 검사 의무:
+     python3 _automation/dedup_against_history.py \\
+       --new <빌드된 docx 경로> \\
+       --history-dir "~/Dropbox/.../01.주중집회/04.회중의 필요/"
+   - HIGH 위반 (유사도 ≥ 0.80) → 재작성 권고
+   - WARN (≥ 0.65) → 참고
+   "지난주에 같은 이야기" 자동 차단. 도입 illustration / 결론 한 문장 등이
+   직전 주차에서 그대로 복제되는 사고를 방지한다.
+
 → 위 정본을 task 프롬프트에 인용/링크해서 에이전트에 명시적으로 전달하십시오.
    에이전트는 읽었다 가정하지 말고 본인이 Read 의무.
 """
