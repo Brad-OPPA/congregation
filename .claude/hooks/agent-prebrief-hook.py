@@ -26,6 +26,25 @@ from pathlib import Path
 PROJECT_ROOT = Path("/Users/brandon/Claude/Projects/Congregation")
 META = PROJECT_ROOT / "research-meta"
 SHARED = PROJECT_ROOT / ".claude" / "shared"
+AUTOMATION = PROJECT_ROOT / "_automation"
+
+# quality_baseline 모듈 import (단조 증가 baseline 자동 주입용)
+sys.path.insert(0, str(AUTOMATION))
+try:
+    from quality_baseline import compute_baseline, format_baseline_brief
+    _BASELINE_AVAILABLE = True
+except Exception:
+    _BASELINE_AVAILABLE = False
+
+
+# 팀 → 슬롯 매핑 (baseline 추출 시 사용)
+TEAM_TO_SLOT = {
+    "local-needs":   "local-needs",
+    "cbs":           "cbs",
+    "week-study":    "week-study",
+    "mid-talk":      "mid-talk10",  # 기본은 10분 연설
+    "dig-treasures": "dig-treasures",
+}
 
 
 # ─────────────────────────────────────────────────────────────────────
@@ -229,13 +248,25 @@ def main() -> int:
     if not briefing:
         return 0
 
-    # 새 prompt = 팀 브리핑 + 구분선 + 원본 prompt
+    # 🆕 단조 증가 baseline 자동 추출 (직전 주차 평균 → 의무 메트릭)
+    baseline_section = ""
+    if _BASELINE_AVAILABLE:
+        slot = TEAM_TO_SLOT.get(team)
+        if slot:
+            try:
+                bl = compute_baseline(slot, n=3)
+                baseline_section = "\n\n" + format_baseline_brief(bl)
+            except Exception:
+                pass  # baseline 실패해도 brief 는 진행
+
+    # 새 prompt = 팀 브리핑 + baseline + 구분선 + 원본 prompt
     augmented = (
         briefing
+        + baseline_section
         + "\n\n"
         + "─" * 60 + "\n"
-        + "위 정본 가이드라인을 반드시 준수하며 아래 task 를 수행하십시오.\n"
-        + "(에이전트는 정본 파일을 본인이 Read 한 뒤 작업 시작 권장)\n"
+        + "위 정본 가이드라인 + baseline 의무를 준수하며 아래 task 를 수행하십시오.\n"
+        + "할수록 퀄리티가 올라가야 합니다 (단조 증가).\n"
         + "─" * 60 + "\n\n"
         + original_prompt
     )
@@ -256,17 +287,20 @@ def main() -> int:
     print(json.dumps(output, ensure_ascii=False))
 
     # 2) stderr — 메인 Claude 알림 (의식적 prepend 권고)
-    #    위 stdout JSON 이 실제로 적용 안 됐을 경우 메인 Claude 가 이 메시지를
-    #    보고 task 호출 prompt 에 직접 정본을 prepend 하도록 유도.
     sys.stderr.write(
         f"\n🛡️ [회중 자료 팀 — '{team}' 호출 감지]\n"
-        f"메인 Claude 의무: Task 호출 prompt 에 다음 정본 가이드라인을 직접 prepend.\n"
-        f"(Claude Code Task 도구는 hook 으로 prompt 자동 augmentation 미지원 검증됨)\n"
-        f"\n팀 브리핑 (이 task prompt 맨 위에 인용 의무):\n"
+        f"메인 Claude 의무: Task 호출 prompt 에 다음 정본 + baseline 을 직접 prepend.\n"
+        f"\n[1/2] 팀 정본 가이드라인:\n"
     )
     sys.stderr.write("─" * 60 + "\n")
     sys.stderr.write(briefing)
     sys.stderr.write("─" * 60 + "\n")
+
+    if baseline_section.strip():
+        sys.stderr.write("\n[2/2] 단조 증가 baseline (할수록 퀄리티 올라가야 함):\n")
+        sys.stderr.write("─" * 60 + "\n")
+        sys.stderr.write(baseline_section)
+        sys.stderr.write("─" * 60 + "\n")
     return 0
 
 
