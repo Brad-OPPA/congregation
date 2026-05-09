@@ -29,11 +29,25 @@ import sys
 # ─────────────────────────────────────────────────────────────────────
 
 def detect_team(subagent_type: str, description: str, prompt: str) -> str | None:
+    """v2: 5팀 모두 감지."""
     haystack = " ".join([
         subagent_type or "", description or "", (prompt or "")[:500]
     ]).lower()
+
     if "local-needs" in haystack or "회중의 필요" in haystack or "회중의필요" in haystack:
         return "local-needs"
+    if "week-study" in haystack or "파수대" in haystack or "watchtower" in haystack \
+            or "wt-" in haystack or "wt_" in haystack:
+        return "week-study"
+    if "cbs" in haystack or "회중 성서 연구" in haystack or "회중성서연구" in haystack:
+        return "cbs"
+    if "dig-treasures" in haystack or "영적 보물" in haystack or "spiritual-gems" in haystack \
+            or "gem-" in haystack:
+        return "dig-treasures"
+    if "mid-talk" in haystack or "10분 연설" in haystack or "10분연설" in haystack \
+            or "5분 연설" in haystack or "treasures-talk" in haystack:
+        return "mid-talk"
+
     return None
 
 
@@ -63,6 +77,14 @@ BANNED_VOCAB = {
     "간증": "경험담",
     # "복음" 은 "좋은 소식" 안에 끼면 OK 라 단순 검사 어려움 — 일단 제외
     # "평안" 은 NWT 성구 verbatim ("평안히") 와 충돌 — 일단 제외
+}
+
+# HIGH: 사용자 직접 NG 어휘 (모든 회중 팀 공통, 10분 연설 정본에서 추출)
+USER_NG_VOCAB = {
+    "가정 경배": "가족 성서 연구",
+    "신자": "형제 자매",
+    "여호와의 임재": "여호와의 도움/축복",
+    "수동적": "(능동적 표현으로 대체)",
 }
 
 # MID: 도입 외 "함께 [성구] 보시겠습니다" 다회 등장 (P2 위반)
@@ -97,6 +119,18 @@ def check_violations(text: str) -> dict:
             context = text[max(0, idx - 30):idx + 30].replace("\n", " ")
             high.append({
                 "type": "BANNED_VOCAB",
+                "found": word,
+                "should_be": replacement,
+                "context": f"…{context}…",
+            })
+
+    # HIGH 3: 사용자 직접 NG (회중 전체 공통)
+    for word, replacement in USER_NG_VOCAB.items():
+        idx = text.find(word)
+        if idx >= 0:
+            context = text[max(0, idx - 30):idx + 30].replace("\n", " ")
+            high.append({
+                "type": "USER_NG_VOCAB",
                 "found": word,
                 "should_be": replacement,
                 "context": f"…{context}…",
@@ -179,8 +213,8 @@ def main() -> int:
         tool_input.get("description", ""),
         tool_input.get("prompt", ""),
     )
-    if team != "local-needs":
-        return 0  # v1: local-needs 만 검사
+    if not team:
+        return 0  # 회중 외 팀은 통과
 
     text = extract_response_text(data)
     if not text or len(text) < 20:
@@ -194,8 +228,14 @@ def main() -> int:
     if not high and not mid:
         return 0  # 위반 없음
 
-    # 위반 보고
-    lines = ["🔍 [agent-postcheck] 회중의 필요 팀 에이전트 결과 검사"]
+    # 위반 보고 (팀 라벨 동적)
+    team_labels = {
+        "local-needs": "회중의 필요", "cbs": "회중 성서 연구",
+        "week-study": "파수대 사회", "mid-talk": "10분 연설",
+        "dig-treasures": "영적 보물찾기",
+    }
+    label = team_labels.get(team, team)
+    lines = [f"🔍 [agent-postcheck] {label} 팀 에이전트 결과 검사"]
 
     if high:
         lines.append(f"\n🚨 HIGH 위반 {len(high)}건 — 즉시 재작성 권고:")
