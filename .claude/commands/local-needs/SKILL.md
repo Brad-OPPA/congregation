@@ -3,6 +3,26 @@ name: local-needs
 description: 주중집회 그리스도인 생활 섹션의 **회중의 필요 (local_needs)** 파트 원고 + 슬라이드를 지정된 주차에 대해 생성한다. 인자 `now|next1|next2|next3` (없으면 대화형). 원준님께 **자유 형식 multi-line 브리프** (주제·핵심 내용·성구·할 수 있는 것/없는 것·격려·분량) 입력 받아 local-needs-planner 가 **브리프 요약 → 7 카테고리 후보 확장(성구·출판물·적용·경험담·예화·문답·삽화) → 7개 서브 리서치 지시서** 작성 → 7개 보조 리서치 병렬(wol-researcher·scripture-deep·publication-cross-ref·illustration-finder·qa-designer·application-builder·experience-collector, 모두 필수) → Planner 1차 재검수 → planner 가 script.md + slides_plan.json + meta.yaml 생성 → Planner 2차 재검수 → slides-builder 로 pptx → `build_local_needs.py --pdf` 로 docx + PDF 렌더 (legacy 모드 기본) → fact-checker·jw-style-checker·timing-auditor·quality-monotonic-checker 4종 최종 감수. **6단 방어(v2) 프로토콜(`.claude/shared/multi-layer-defense.md`)** 준수. 지부 서신·순회감독자 방문 준비는 범위 제외. 트리거 "/local-needs", "회중의 필요 만들어 줘".
 ---
 
+## 🛡️ 팀 에이전트 호출 시 정본 prepend 의무 (2026-05-09 도입)
+
+이 SKILL 이 planner / 보조 / script 에이전트를 Task 로 호출할 때 메인 Claude 는 정본 가이드라인을 prompt 맨 위에 직접 prepend 한다 (Claude Code Task 도구는 hook 으로 prompt augmentation 미지원 검증됨).
+
+```python
+# 호출 예시 — 각 에이전트 호출 직전
+from team_briefings import get_briefing_for_team, prepend_to_prompt
+
+brief = get_briefing_for_team("local-needs")
+augmented = prepend_to_prompt(original_prompt, brief)
+Agent(subagent_type="local-needs-planner", prompt=augmented, ...)
+```
+
+또는 CLI:
+```bash
+python3 _automation/team_briefings.py local-needs
+```
+
+세부: Congregation/CLAUDE.md "회중 팀 에이전트 호출 시 정본 prepend 의무" 섹션.
+
 ## 🔁 직전 주차 중복 회피 (Phase G, 2026-05-09 도입)
 
 ⑥ 4종 게이트 직전에 **dedup 검사 의무**:

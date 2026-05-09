@@ -23,6 +23,26 @@ planner/script prompt 첫 줄: "의무 Read: `research-illustration/{YYMMDD}/_co
 
 빌더 build 직후 `verify_docx_against_inventory_auto(out_path, "영적 보물", builder_name)` 자동 호출 — anchor 누락 시 `SeedImageHardFail`.
 
+## 🛡️ 팀 에이전트 호출 시 정본 prepend 의무 (2026-05-09 도입)
+
+이 SKILL 이 planner / 보조 / script 에이전트를 Task 로 호출할 때 메인 Claude 는 정본 가이드라인을 prompt 맨 위에 직접 prepend 한다 (Claude Code Task 도구는 hook 으로 prompt augmentation 미지원 검증됨).
+
+```python
+# 호출 예시 — 각 에이전트 호출 직전
+from team_briefings import get_briefing_for_team, prepend_to_prompt
+
+brief = get_briefing_for_team("dig-treasures")
+augmented = prepend_to_prompt(original_prompt, brief)
+Agent(subagent_type="spiritual-gems-planner", prompt=augmented, ...)
+```
+
+또는 CLI:
+```bash
+python3 _automation/team_briefings.py dig-treasures
+```
+
+세부: Congregation/CLAUDE.md "회중 팀 에이전트 호출 시 정본 prepend 의무" 섹션.
+
 ## 🔁 직전 주차 중복 회피 (Phase G, 2026-05-09 도입)
 
 ⑥ 4종 게이트 직전에 **dedup 검사 의무**:
