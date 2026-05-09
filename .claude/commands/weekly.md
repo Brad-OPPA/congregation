@@ -71,11 +71,27 @@ for idx, d in enumerate(weeks):
 print(f"누락 슬롯: {missing}")
 ```
 
-### 3. 누락 파트만 스킬 호출
+### 3. 누락 파트만 스킬 호출 — ⚡ **병렬 호출 의무 (2026-05-09 도입)**
 
 각 파트 스킬은 내부적으로 3주치를 한꺼번에 만드므로 **슬롯 단위가 아닌 파트 단위**로 호출 (한 번 호출 = 3주치).
 
-어느 주차 하나라도 누락되어 있으면 해당 파트 스킬을 1회 호출:
+**핵심 — 4 슬롯 (treasures / gems / cbs / watchtower) 은 서로 의존성 없음.**
+메인 Claude 는 **한 응답 메시지에 누락된 모든 Skill 을 동시 호출** 해야 한다 (Anthropic 도구 호출 시스템이 한 메시지의 다중 도구 호출을 자동 병렬 실행).
+
+```python
+# ❌ 잘못 — 순차 (4시간)
+Skill(mid-study1) → 끝까지 대기 → Skill(mid-study2) → ...
+
+# ✅ 올바름 — 병렬 (가장 오래 걸리는 슬롯 시간만큼)
+한 메시지 안에 4 Skill 동시 호출:
+  Skill(mid-study1)
+  Skill(mid-study2)
+  Skill(mid-study3)
+  Skill(week-study)
+→ Anthropic 시스템이 자동 병렬 실행
+```
+
+어느 주차 하나라도 누락되어 있으면 해당 파트 스킬을 호출:
 
 ```
 if any(missing['treasures']):  Skill(mid-study1)   # 3주치 10분연설 일괄
@@ -84,7 +100,55 @@ if any(missing['cbs']):        Skill(mid-study3)   # 3주치 회중성서연구 
 if any(missing['watchtower']): Skill(week-study)   # 3주치 파수대 일괄
 ```
 
-최대 호출 수: **4회** (모두 누락 시). 각 스킬 내부에서 주차 UX·WOL-first·할루시네이션 금지·감수 게이트·docx 렌더까지 다 수행.
+최대 호출 수: **4회 (병렬 — 한 메시지에 동시)**. 각 스킬 내부에서 주차 UX·WOL-first·할루시네이션 금지·감수 게이트·docx 렌더까지 다 수행.
+
+### 3-bis. 진행 모니터링 + 실패 격리 (오케스트레이터 책무)
+
+**메인 Claude = 팀 리더**. 4 Skill 호출 시 `_automation/orchestrator.py` 도구로 진행 추적:
+
+```bash
+# 1) 일괄 빌드 시작 시 init — run_id 받아서 환경변수에 저장
+RID=$(python3 _automation/orchestrator.py init --scope weekly)
+export ORCHESTRATOR_RUN_ID=$RID
+
+# 2) 각 단편 Skill 호출 직전·직후
+python3 _automation/orchestrator.py log-start mid-study1   # 시작 시
+# ... Skill(mid-study1) 호출 ...
+python3 _automation/orchestrator.py log-end mid-study1 success --note "3주치 정상"
+
+# 3) 중간 점검 (필요 시 — 30분 멈춤 카톡 알림)
+python3 _automation/orchestrator.py check --notify
+
+# 4) 모든 슬롯 완료 후 최종 보고 + 카톡
+python3 _automation/orchestrator.py report --notify
+```
+
+**리더 책무**:
+- **성공 슬롯** — log-end success
+- **실패 슬롯** — log-end fail + 다음 슬롯으로 계속, 최종 보고에 실패 목록
+- **30분 넘는 슬롯** — `check --notify` 로 멈춤 자동 알림
+- **모든 슬롯 완료 후** — `report --notify` 로 최종 카톡
+
+상태 파일: `/tmp/orchestrator/{run_id}.json`
+
+### 3-ter. 팀 에이전트 호출 시 정본 prepend 의무
+
+각 단편 SKILL 내부에서 회중 팀 에이전트 (cbs-planner, spiritual-gems-planner, treasures-talk-planner, watchtower-study-planner 등) 를 Task 로 호출할 때:
+
+```python
+from team_briefings import get_briefing_for_team, prepend_to_prompt
+
+brief = get_briefing_for_team("dig-treasures")  # 또는 cbs / week-study / mid-talk
+augmented = prepend_to_prompt(original_prompt, brief)
+Agent(subagent_type="spiritual-gems-planner", prompt=augmented, ...)
+```
+
+또는 CLI 로 brief 텍스트 받아서 prepend:
+```bash
+python3 _automation/team_briefings.py dig-treasures
+```
+
+**이유**: Claude Code Task 도구는 hook stdout JSON 으로 prompt augmentation 미지원. 메인 Claude 의식적 prepend 가 작동 보장 (2026-05-09 실전 검증).
 
 ### 4. 감수 — 파트 스킬이 이미 수행
 
