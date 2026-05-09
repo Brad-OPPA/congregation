@@ -23,6 +23,23 @@ planner/script prompt 첫 줄: "의무 Read: `research-illustration/{YYMMDD}/_co
 
 빌더 build 직후 `verify_docx_against_inventory_auto(out_path, "영적 보물", builder_name)` 자동 호출 — anchor 누락 시 `SeedImageHardFail`.
 
+## 🔁 직전 주차 중복 회피 (Phase G, 2026-05-09 도입)
+
+⑥ 4종 게이트 직전에 **dedup 검사 의무**:
+
+```bash
+python3 _automation/run_dedup_for_slot.py dig-treasures <빌드된 docx 경로>
+```
+
+- HIGH 위반 (단락 유사도 ≥ 0.80) → 재작성 권고 (exit 2)
+- WARN (≥ 0.65) → 참고 (exit 1)
+- 통과 → exit 0
+
+**검사 대상**: 본문 핵심 사례·예화·해설 단락 (사회자 표준 멘트·URL 참조·고정 라벨 자동 제외).
+**역할**: 도입 illustration / 결론 한 문장 / 예화가 직전 주차에서 그대로 복제되는 사고 방지.
+
+세부: `_automation/dedup_against_history.py` (라이브러리) + `run_dedup_for_slot.py` (wrapper).
+
 ## 🛡 품질 단조 증가 (필수, 2026-04-29 도입)
 
 ⑥ 단계는 **4종 병렬 감사** (fact-checker · jw-style-checker · timing-auditor · **quality-monotonic-checker**).

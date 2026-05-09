@@ -3,6 +3,23 @@ name: local-needs
 description: 주중집회 그리스도인 생활 섹션의 **회중의 필요 (local_needs)** 파트 원고 + 슬라이드를 지정된 주차에 대해 생성한다. 인자 `now|next1|next2|next3` (없으면 대화형). 원준님께 **자유 형식 multi-line 브리프** (주제·핵심 내용·성구·할 수 있는 것/없는 것·격려·분량) 입력 받아 local-needs-planner 가 **브리프 요약 → 7 카테고리 후보 확장(성구·출판물·적용·경험담·예화·문답·삽화) → 7개 서브 리서치 지시서** 작성 → 7개 보조 리서치 병렬(wol-researcher·scripture-deep·publication-cross-ref·illustration-finder·qa-designer·application-builder·experience-collector, 모두 필수) → Planner 1차 재검수 → planner 가 script.md + slides_plan.json + meta.yaml 생성 → Planner 2차 재검수 → slides-builder 로 pptx → `build_local_needs.py --pdf` 로 docx + PDF 렌더 (legacy 모드 기본) → fact-checker·jw-style-checker·timing-auditor·quality-monotonic-checker 4종 최종 감수. **6단 방어(v2) 프로토콜(`.claude/shared/multi-layer-defense.md`)** 준수. 지부 서신·순회감독자 방문 준비는 범위 제외. 트리거 "/local-needs", "회중의 필요 만들어 줘".
 ---
 
+## 🔁 직전 주차 중복 회피 (Phase G, 2026-05-09 도입)
+
+⑥ 4종 게이트 직전에 **dedup 검사 의무**:
+
+```bash
+python3 _automation/run_dedup_for_slot.py local-needs <빌드된 docx 경로>
+```
+
+- HIGH 위반 (단락 유사도 ≥ 0.80) → 재작성 권고 (exit 2)
+- WARN (≥ 0.65) → 참고 (exit 1)
+- 통과 → exit 0
+
+**검사 대상**: 본문 핵심 사례·예화·해설 단락 (사회자 표준 멘트·URL 참조·고정 라벨 자동 제외).
+**역할**: 도입 illustration / 결론 한 문장 / 예화가 직전 주차에서 그대로 복제되는 사고 방지.
+
+세부: `_automation/dedup_against_history.py` (라이브러리) + `run_dedup_for_slot.py` (wrapper).
+
 ## 🛡 품질 단조 증가 (필수, 2026-04-29 도입)
 
 ⑥ 단계는 **4종 병렬 감사** (fact-checker · jw-style-checker · timing-auditor · **quality-monotonic-checker**).
