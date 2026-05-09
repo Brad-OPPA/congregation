@@ -1,0 +1,121 @@
+week: 2026-05-31
+version: v5
+baseline_ok_version: v3   # v3 가 사용자 OK baseline 1호
+article:
+  number: 19
+  year: 2026
+  issue: "2026년 4월호"
+  title: "통찰력을 갖고 지혜롭게 행동하십시오"
+  theme_scripture: "잠언 16:20"
+  theme_scripture_text: "통찰력 있게 일을 처리하는 자는 성공한다."
+  url: https://wol.jw.org/ko/wol/d/r8/lp-ko/2026323
+chair_label: "___ 형제"
+reader_label: "___ 형제"
+time_target_seconds: 3600
+time_tolerance_seconds: 90
+paragraph_count: 18
+block_count: 17
+official_question_count: 17
+subheadings:
+  - "교만을 피하고 겸손을 나타내십시오"   # 3-7항
+  - "화를 터뜨리지 말고 차분함을 유지하십시오"   # 8-12항
+  - "두려움에 휩싸이지 말고 여호와를 신뢰하십시오"   # 13-16항
+  - "계속 통찰력을 나타내기 위해 노력하십시오"   # 17-18항
+recap_questions:
+  - 나아만
+  - 다윗과 아비가일
+  - 요나
+images_count: 3   # 7항·10항·16항 본문 삽화
+songs:
+  opening:
+    number: 135
+    title: "여호와께서 호소하시네, \"내 아들아, 지혜롭게 되어라\""
+  closing:
+    number: 42
+    title: "하느님의 종의 기도"
+time_markers:
+  - "2'"
+  - "5'"
+  - "8'"
+  - "11'"
+  - "14'"
+  - "17'"
+  - "20'"
+  - "23'"
+  - "26'"
+  - "29'"
+  - "32'"
+  - "35'"
+  - "38'"
+  - "41'"
+  - "44'"
+  - "47'"
+  - "50'"
+  - "55'"   # 복습
+  - "63'"   # 마무리
+yellow_highlights_targets:
+  - "노래 번호+제목 (시작·마치는)"
+  - "주제 성구 본문"
+  - "host_cue 핵심 어구 [Y]...[/Y] 마커"
+red_bold_targets:
+  - "시간 마커 18개 (단독 줄)"
+  - "사회자 응답 안내 (회중 응답 방식 — 도입부 빨강+볼드)"
+baseline_metrics:
+  v3_char_count: 24232
+  v3_publication_quotes: 45
+  v3_scripture_count: 139
+  v3_image_count: 3
+  v3_long_paragraphs: 137
+  v3_external_14axis_combinations: 5
+  v5_minimum:
+    char_count: 24232
+    publication_quotes: 45
+    scripture_count: 139
+    image_count: 3
+    long_paragraphs: 137
+    external_14axis: 5
+v5_improvements:
+  - "intro_points_preview stock '4개 부분으로 나뉘어 있습니다' 제거 → 세 인물 + 결심 한 줄로 자연화"
+  - "conclusion 462단락 박힘 차단 → 세 인물 한 장면 회상 + 4축 적용 한 줄 + 표어 재인용"
+  - "사칼(잠 16:20) ↔ 세켈(삼첫 25:3) 어근 동질성 12 블록(12항)에 보존 강조 — v3 빛나는 포인트"
+  - "intro hook 외부 14축 1~2개 자연 결합 (강제 박힘 X)"
+  - "핵심 성구 해설 단서 outline 1-2 에 명시 → script 가 자연스럽게 표어 성구 풀이 가능"
+external_14axis_distribution:
+  - "intro: 언어학(사칼) 또는 일상 관찰 1개"
+  - "block_2 (3항): 역사 (시리아 군 / 다마스쿠스 지리)"
+  - "block_4 (5항): 고대근동 의전 (군 사령관 영접 의례)"
+  - "block_11 (12항): 언어학 (사칼·세켈 어근)"
+  - "block_13 (14항): 고고학 (니네베 발굴 / 아시리아 잔혹성)"
+  - "block_14 (15항): 자연사 (큰 물고기 / 지중해 향유고래)"
+  - "block_15 (16항): 지리 (다시스 = 타르테소스 3500km)"
+special_week_flags:
+  circuit_overseer_week: false
+  convention_week: false
+  memorial_week: false
+generated_at: 2026-05-09
+spec_source: "/Users/brandon/Dropbox/02.WatchTower/01.▣ 수원 연무 회중/02.주말집회/02.파수대 사회/260525-0531/_source/spec.py"
+preflight_catalog: "/Users/brandon/Claude/Projects/Congregation/research-illustration/260531/_preflight_week-study.json"
+output_target:
+  folder: "~/Dropbox/02.WatchTower/01.▣ 수원 연무 회중/02.주말집회/02.파수대 사회/260525-0531/"
+  filename: "파수대 사회_260531_ver5_.docx"
+instructions_to_subresearchers: |
+  [공유 파일 2개 Read 의무]
+  1. .claude/shared/multi-layer-defense.md
+  2. .claude/shared/intro-and-illustration-quality.md
+
+  [차등 적용표 — week-study 행 발췌]
+  - 14축 활용: 기사 전체 3~5회 외부 소재 결합
+  - 오프닝 후크 외부 소재: 권장 1~2개
+  - 적절성 8필터: 필수 전부
+  - 삽화 N·A (이미지 임베드 본문 3장 그대로 유지)
+  - 최근 10년 JW 출판물 회피: 오프닝·중간 해설 한정 권장
+
+  [v5 특화 의무]
+  - v3 spec 의 body verbatim 100% 보존 (본문 변경 절대 금지)
+  - sequence host_cue 의 [Y]...[/Y] 노랑 마커 보존
+  - 시간 마커 18개 빨강+볼드 단독 줄
+  - 사칼 ↔ 세켈 어근 연결 (12항 host_cue) 반드시 보존
+  - 서론 stock "4개 부분으로 나뉘어 있습니다" 표현 사용 금지
+  - 결론 4 소제목 stock 박힘 금지 → 세 인물 회상 + 4축 적용
+  - baseline 메트릭 (char ≥ 24232 / pub ≥ 45 / scripture ≥ 139 / image ≥ 3 / long_para ≥ 137) 충족 의무
+  - 산출물 최상단 🟢 착수 전 리마인드 블록 + _selfcheck.md 🔴 자체 검수 블록 PASS/FAIL 의무

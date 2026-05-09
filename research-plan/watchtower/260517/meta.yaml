@@ -1,0 +1,244 @@
+week: 2026-05-17
+week_range: "5월 11-17일"
+article:
+  number: null  # 단계 2 script 의 scrape_wt 가 docid 확정 시 채움
+  year: 2026
+  issue: null   # 단계 2 script 가 본문 fetch 시 확정
+  title: "온 우주에서 가장 높으신 분인 여호와를 신뢰하십시오"
+  theme_scripture:
+    ref: "시편 83:18"
+    verbatim: "그 이름이 여호와이신 당신, 당신만이 홀로 온 땅을 다스리는 가장 높으신 분입니다."
+    translation: nwtsty
+  url: null     # 단계 2 script 의 scrape_wt 가 docid 확정 시 채움 (https://wol.jw.org/ko/wol/d/r8/lp-ko/2026XXX)
+  index_url: "https://wol.jw.org/ko/wol/meetings/r8/lp-ko/2026/20"
+
+# 사회자·낭독자 (당일 채움 — placeholder 의무)
+chair_label: "___ 형제"
+reader_label: "___ 형제"
+song_pre_prayer: "___ 형제"
+song_closing_prayer: "___ 형제"
+
+# 노래 (illustrations.md anchor — 시작 노래 7번 「여호와, 우리의 힘」)
+songs:
+  opening:
+    number: 7
+    title: "여호와, 우리의 힘"
+  middle: null   # 단계 2 본문 fetch 시 확정
+  closing: null  # 단계 2 본문 fetch 시 확정
+
+# 시간 배분 (60분 ±90초)
+time_target_seconds: 3600
+time_tolerance_seconds: 90
+
+# 17 블록 시간 마커 (빨강 + 볼드 단독 줄, 노랑 X)
+time_markers:
+  - "2'"
+  - "5'"
+  - "8'"
+  - "11'"
+  - "14'"
+  - "17'"
+  - "20'"
+  - "23'"
+  - "26'"
+  - "29'"
+  - "32'"
+  - "35'"
+  - "38'"
+  - "41'"
+  - "44'"
+  - "47'"
+  - "52'"
+  - "60'"
+
+# 노랑 강조 위치
+yellow_highlights_targets:
+  - "노래 7번 + 「여호와, 우리의 힘」 (시작·마치는 노래 모두)"
+  - "주제 성구 시 83:18 본문 전체 (좌측 들여쓰기 216 별도 단락)"
+  - "본문 핵심 어구 (사회자 음성 강조 — '가장 높으신 분', '여호와의 한계', '두 배', '왜', '어떻게', '언제')"
+
+# 빨강 + 볼드 라벨 (사회자 진행 안내, 도입부)
+red_labels:
+  - "(파수대 집회의 대답은 어떻게 참여 할수 있습니까?)"
+  - "가능하면 30초이내로"
+  - "첫번째는 직접적으로,"
+  - "이후 참조 성구나 부가적인 대답을 자유롭게 발표 하실"
+
+paragraph_count: 18  # 1-3 도입 + 4-18 본론 (illustrations.md 5 소제목 구조)
+official_question_count: 17  # 17 블록 (단계 2 fetch 후 정정 가능)
+scripture_read_count: null   # 단계 2 본문 fetch 시 합계
+cross_ref_count: 14           # 「통찰」 제1권/제2권 + 「하느님의 사랑」 + 「예수」 + 「선포자」 + 「파수대」 다수 + 「깨어라!」
+
+# 특수 주간 플래그
+special_week_flags:
+  circuit_overseer_week: false
+  convention_week: false
+  memorial_week: false  # 기념식은 4월 1일이었음 (지나감)
+
+# 통합 체크리스트 13 항목 baseline (직전 주차 정량 메트릭)
+quality_baseline:
+  char_min: 46325
+  publication_quotes_min: 124
+  scripture_quotes_min: 260
+  image_min: 3
+  long_paragraph_min: 168
+  external_axes_min: 5
+
+# 외부 14축 후보 (illustrations.md anchor — 13 개 / 사용 권장 5+)
+external_axes_candidates:
+  - axis: "고고학 (우가리트 점토판)"
+    block: 3
+    rating: 3stars
+    source: "Tablet AO 16.636 (Louvre) / 「파수대」 2014/12/15"
+  - axis: "우주 (골디락스 존)"
+    block: 5
+    rating: 3stars
+    source: "NASA Exoplanet Exploration / 「깨어라!」"
+  - axis: "자연·생태 (사파리 펜스)"
+    block: 5
+    rating: 2stars
+    source: "마사이마라·크루거 일반 운영 / 「깨어라!」"
+  - axis: "「파수대」 자체 보도 (1945년 마그데부르크 결의문)"
+    block: 11
+    rating: 3stars
+    source: "「선포자 책」 27장 / 「파수대」 1986/4/1호"
+  - axis: "자연 (강털소나무·므두셀라 대추야자)"
+    block: 13
+    rating: 3stars
+    source: "Sallon et al. 2008·2020 / 「파수대」 2017/8/15호"
+  - axis: "우주 (JWST SMACS 0723)"
+    block: 16
+    rating: 3stars
+    source: "NASA·ESA·CSA / webbtelescope.org"
+  - axis: "일상 (킨츠기)"
+    block: "intro·10"
+    rating: 2stars
+    source: "V&A 박물관 (vam.ac.uk)"
+  - axis: "사유 촉발형 (안개·등산)"
+    block: "intro·7"
+    rating: 2stars
+    source: "일반 등산 상식"
+  - axis: "일상 (회사 임원 회의)"
+    block: 3
+    rating: 1star
+    source: "일반 비유"
+  - axis: "역사 (BC 2천년대 부의 척도)"
+    block: 6
+    rating: 2stars
+    source: "「통찰」 제1권 '욥' 항목"
+  - axis: "어휘 (히브리어 카사프)"
+    block: 14
+    rating: 2stars
+    source: "「통찰」 제2권 '부활'"
+  - axis: "일상 (마라톤 '벽')"
+    block: 12
+    rating: 1star
+    source: "일반 운동 상식"
+  - axis: "사유 촉발형 (비행기 첫 탑승)"
+    block: 17
+    rating: 2stars
+    source: "일반 비유"
+
+# 7 단계 작업 흐름 (정본 v4)
+pipeline_stage: 1  # 현재 단계: 1 (outline + meta 생성 완료)
+next_stage:
+  stage: 2
+  task: "scrape_wt + spec_from_article 본문 fetch → 17 블록 verbatim 확정 → script.md 생성"
+  output: "research-plan/watchtower/260517/script.md"
+
+generated_at: 2026-05-10
+generated_by: "watchtower-study-planner (정본 v4 단계 1)"
+
+# 단계 2~7 진행 시 사용할 6단 방어 ② 단계 지시서
+instructions_to_subresearchers:
+  preamble: |
+    # 6단 방어 v2 — ② 단계 지시서
+
+    이 작업의 모든 서브에이전트는 다음을 **작업 시작 전 의무**로 한다:
+    1. `.claude/shared/multi-layer-defense.md` 전체 Read → 본인이 ②/④ 단계임 확인
+    2. `.claude/shared/intro-and-illustration-quality.md` 전체 Read → 차등 적용표 `week-study` 행 숙지:
+       - 14축 활용: 기사 전체 **3~5회** 외부 소재 결합 (이번 outline 은 ≥ 5 권장)
+       - 오프닝 후크 외부 소재: **권장 1~2개** (킨츠기 1개 추천)
+       - 적절성 8필터 **필수 전부**
+       - 삽화 N·A (이미지 임베드 본문 그대로)
+       - 최근 10년 JW 출판물 회피: **오프닝·중간 해설 한정 권장**
+    3. 산출물 최상단에 🟢 착수 전 리마인드 블록 **복사·☐→☑ 체크 의무**
+    4. 완료 시 `_selfcheck.md` 에 🔴 종료 후 자체 검수 블록 **복사·PASS/FAIL 판정 의무**
+    5. FAIL 1건 이상 → 서브 스스로 재작업 (2회 한도)
+
+    `week-study` 행 발췌 (intro-and-illustration-quality.md 차등 적용표):
+    - 14축 활용: **3~5회**
+    - 오프닝 후크: **1~2개**
+    - 적절성 8필터: **전부**
+    - 삽화: **N·A** (본문 이미지 그대로)
+    - 최근 10년 JW 회피: **오프닝·중간 한정 권장**
+
+  scrape-wt-script: |
+    [단계 2 — script 에이전트]
+    이 outline.md 와 meta.yaml 을 anchor 로 받아 본문 fetch 후 17 블록 verbatim script.md 생성.
+
+    필수:
+    1. 5/17 주차 docid 확정 (https://wol.jw.org/ko/wol/meetings/r8/lp-ko/2026/20 → 파수대 연구 기사)
+    2. scrape_wt.scrape_article(url) → spec_from_article(reader_name="___ 형제") 호출
+    3. 본문 verbatim 보존 — 단어 하나도 바꾸지 않음
+    4. 핵심 성구 = 신세계역 (nwtsty) verbatim — `_automation/nwt_cache/` 캐시 우선
+    5. 외부 14축 ≥ 5 — illustrations.md 의 ★★★ 7개 우선 자연 분산
+    6. 시간 마커 17 개 빨강·볼드 단독 줄
+    7. 노랑 강조 위치 meta.yaml 가이드 따름
+    8. 결론 인물 회상 (욥 본인 회상) — 4축 라벨 박힘 X, 자연 회상
+
+    피해야 할 항목 (지시서 ① 단계 명시):
+    - 본문 verbatim 변형
+    - "예배" 단어 (금칙어, "집회" 사용)
+    - 4축 라벨 박힘 (가정·전도·회중·개인 라벨 그대로 표기 X — 자연 회상)
+    - 최근 10년 「파수대」·「깨어라!」 직접 인용 (배경 보강만)
+    - 진화론 긍정·정치·타종교 교리 긍정·논쟁적 현대 사안
+
+  illustration-finder: |
+    [참고만 — 이미 anchor 완성]
+    research-illustration/260517/illustrations.md 에 이미 풍부한 anchor 있음.
+    재수집 X — 단계 2 script 가 그대로 활용.
+    추가 보완 필요 시에만 illustration-finder 재호출.
+
+  fact-checker: |
+    [단계 6 — fact-checker]
+    완성 script.md 의 다음을 1차 자료 교차 검증:
+    1. 시 83:18 nwtsty verbatim
+    2. 욥 1:6, 1:8, 1:9, 1:12, 1:21, 2:6, 14:13-15, 42:10-13 nwtsty verbatim
+    3. 우가리트 점토판 (Tablet AO 16.636) 루브르 박물관 실존 확인
+    4. NASA Habitable Zone 1.49억 km / 23.5° 자전축 정확
+    5. 1945년 5월 1일 마그데부르크 결의문 「선포자 책」 27장 실존
+    6. 강털소나무 5천 년 / 마사다 대추야자 2005년 발아 / 2020년 결실 (Sallon et al.)
+    7. JWST SMACS 0723 2022년 7월 11일 첫 공개 (NASA)
+    8. V&A 박물관 킨츠기 다완 컬렉션 실존
+    9. 「통찰」·「하느님의 사랑」·「예수」·「선포자 책」 인용 docid 실존
+
+  jw-style-checker: |
+    [단계 6 — jw-style-checker]
+    1. 금칙어 0: 표어성구 (제목성구 X)·들어보시기·신앙·신자단독·가정경배·수동적·사역·예배
+    2. 호칭: ___ 형제 (실명 X)
+    3. 경어체: 회중 사회자 톤 (정중·자연스러운 평어)
+    4. 8필터: 진화론·정치·타종교 교리 긍정·논쟁적 현대 사안·출처 불명·음모론·폭력·비증인 권위 인용
+    5. 4축 라벨 박힘 검사 — *"가정에서… 회중에서… 전도에서… 개인적으로…"* stock 표현 차단
+
+  timing-auditor: |
+    [단계 6 — timing-auditor]
+    60분 ±120초 (낭독 시간 기준).
+    각 블록 시간 마커와 실제 분량 합계 일치 검증.
+    quality > timing — timing FAIL 이라도 quality PASS 면 통과.
+
+  quality-monotonic-checker: |
+    [단계 6 — quality-monotonic-checker]
+    9 축 측정:
+    1. 글자수 ≥ 46325 (직전 주차 baseline)
+    2. 출판물 인용 ≥ 124
+    3. 성구 인용 ≥ 260
+    4. 외부 14축 ≥ 5
+    5. 시간 마커 17 개 (빨강·볼드)
+    6. 깊이 단락 ≥ 168
+    7. 이미지 ≥ 3 (본문 삽화 또는 도입 이미지)
+    8. 구성 표준 (17 블록·5 소제목·복습 질문 3·결론 인물 회상)
+    9. 빛나는 발견 ≥ 3 (★★★ 14축 — 우가리트·골디락스·므두셀라 등)
+
+    9 축 중 1 건 FAIL → NEEDS-REWRITE 자동 판정 (timing 보다 우선).
+    재작성 5회 한도.
