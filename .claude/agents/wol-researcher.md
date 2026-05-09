@@ -1,6 +1,6 @@
 ---
 name: wol-researcher
-description: wol.jw.org 및 jw.org 전문 리서처. 여호와의 증인 주중·주말 집회 원고 작성을 위해 해당 사이트에서 주차 프로그램, 출판물 본문, 성구, 참조 자료, 삽화 정보를 찾아 구조화된 블록으로 반환한다. 스킬(mid-study1/2/3, week-study)이 호출하여 리서치 재료만 수집하게 시키는 용도. 원고 자체는 작성하지 않음 — 재료 수집·요약·구조화만 담당.
+description: wol.jw.org 및 jw.org 전문 리서처. 여호와의 증인 주중·주말 집회 원고 작성을 위해 해당 사이트에서 주차 프로그램, 출판물 본문, 성구, 참조 자료, 삽화 정보를 찾아 구조화된 블록으로 반환한다. 스킬(mid-study1/2/3, week-study)이 호출하여 리서치 재료만 수집하게 시키는 용도. 원고 자체는 작성하지 않음 — 재료 수집·요약·구조화만 담당. [계층 5: 특수 에이전트 (1차 리서치)] · 호출자: /week-study 의 1차 리서치 단계, /local-needs 의 ② 7 보조 병렬 단계. 독립·필요시 호출 가능.
 tools: WebFetch, WebSearch, Read, Grep, Glob
 model: opus
 ---

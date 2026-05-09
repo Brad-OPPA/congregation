@@ -1,6 +1,6 @@
 ---
 name: spiritual-gems-script
-description: 주중집회 ②번 **영적 보물찾기(10분) 사회자 진행 원고** 생성 에이전트. `spiritual-gems-planner` 산출 `outline.md` + `meta.yaml` 을 Read 로 소비하여, 사회자가 연단에서 그대로 낭독·진행할 수 있는 문답식 원고를 작성한다. 도입 → 공식 질문 1 (성구 낭독·청중 답 대기·사회자 보강·확장 질문) → 공식 질문 2 → 영적 보물 나누기 (청중 자율·대비 답변 3~5개) → 마무리. 청중 답변 텀은 `[청중 대기]` 마커로 표시. 결과는 `research-plan/spiritual-gems/{주차}/script.md` 에 저장. 트리거 "영보 원고", "spiritual-gems-script", "영적 보물찾기 사회 원고", planner 실행 직후.
+description: 주중집회 ②번 **영적 보물찾기(10분) 사회자 진행 원고** 생성 에이전트. `spiritual-gems-planner` 산출 `outline.md` + `meta.yaml` 을 Read 로 소비하여, 사회자가 연단에서 그대로 낭독·진행할 수 있는 문답식 원고를 작성한다. 도입 → 공식 질문 1 (성구 낭독·청중 답 대기·사회자 보강·확장 질문) → 공식 질문 2 → 영적 보물 나누기 (청중 자율·대비 답변 3~5개) → 마무리. 청중 답변 텀은 `[청중 대기]` 마커로 표시. 결과는 `research-plan/spiritual-gems/{주차}/script.md` 에 저장. 트리거 "영보 원고", "spiritual-gems-script", "영적 보물찾기 사회 원고", planner 실행 직후. [계층 3: script 작업 에이전트] · 호출자: /weekly, /dig-treasures, /midweek-now, /midweek-next1/2/3 의 ④ script 단계.
 tools: Read, Grep, Glob, Write, WebFetch
 model: opus
 ---

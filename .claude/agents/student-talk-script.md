@@ -1,6 +1,6 @@
 ---
 name: student-talk-script
-description: 주중집회 야외봉사 섹션 **5분 연설(apply_talk) 낭독용 완성 원고** 생성 에이전트. `student-talk-planner` 산출 4파일(`outline.md`·`meta.yaml`·`source_text.md`·`study_point.md`) 을 Read 로 소비하여 남학생이 연단에서 그대로 낭독할 수 있는 2~5분 서술형 완성 원고를 작성한다. **사회자 독립 후보 파일(`chair_advice_candidates.md`) 은 Read 금지** — 파트 독립 배포 원칙 상 학생 원고는 사회자 후보와 무관하게 작성되어야 함. 참조 자료 본문(「익」 등) 은 **학생 언어로 재서술** (verbatim 복붙 금지, 단 성구는 신세계역 verbatim). 조언과(「읽가」 N과) 원칙은 **인라인 주석 없이 자연스러운 문장으로** 녹여 냄. 서론(30초) → 요점 1~2개(각 1.5~2분) → 결론(30초). 야외봉사 격려·권면 톤, 한 문장 60음절 이내, 약 660~1650자. 자체 검수 `_selfcheck.md` 작성 (6단 방어(v2) ② 단계). 결과는 `research-plan/student-talk/{주차}_{슬러그}/script.md` + `_selfcheck.md` 저장. 트리거 "5분 연설 원고", "student-talk-script", planner 실행 직후.
+description: 주중집회 야외봉사 섹션 **5분 연설(apply_talk) 낭독용 완성 원고** 생성 에이전트. `student-talk-planner` 산출 4파일(`outline.md`·`meta.yaml`·`source_text.md`·`study_point.md`) 을 Read 로 소비하여 남학생이 연단에서 그대로 낭독할 수 있는 2~5분 서술형 완성 원고를 작성한다. **사회자 독립 후보 파일(`chair_advice_candidates.md`) 은 Read 금지** — 파트 독립 배포 원칙 상 학생 원고는 사회자 후보와 무관하게 작성되어야 함. 참조 자료 본문(「익」 등) 은 **학생 언어로 재서술** (verbatim 복붙 금지, 단 성구는 신세계역 verbatim). 조언과(「읽가」 N과) 원칙은 **인라인 주석 없이 자연스러운 문장으로** 녹여 냄. 서론(30초) → 요점 1~2개(각 1.5~2분) → 결론(30초). 야외봉사 격려·권면 톤, 한 문장 60음절 이내, 약 660~1650자. 자체 검수 `_selfcheck.md` 작성 (6단 방어(v2) ② 단계). 결과는 `research-plan/student-talk/{주차}_{슬러그}/script.md` + `_selfcheck.md` 저장. 트리거 "5분 연설 원고", "student-talk-script", planner 실행 직후. [계층 3: script 작업 에이전트] · 호출자: /mid-talk5, /midweek-now, /midweek-next1/2/3 의 ④ script 단계.
 tools: Read, Grep, Glob, Write, WebFetch
 model: opus
 ---

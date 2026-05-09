@@ -1,6 +1,6 @@
 ---
 name: quality-monotonic-checker
-description: 회중 자료 docx 의 **품질 단조 증가** 자동 감사. ⑥ 단계 4번째 감수자 (fact-checker · jw-style-checker · timing-auditor 와 병렬). 새 빌드의 정량 메트릭 (글자수·성구·출판물·외부 14축·시간 마커·구조·깊이 단락) 을 직전 주차 동일 슬롯 docx 와 비교하여 **같거나 더 풍부한지** 자동 판정. -5% 초과 감소 시 NO-GO + 재작성 강제. timing 보다 quality 우선. 절대 하한선 (`shared/quality-monotonic-policy.md`) 도 함께 검증. 매 빌드 자동 호출 — 사용자 검수 의존 0. 트리거 "quality-monotonic-checker", "품질 단조 점검", ⑥ 단계 빌드 직후.
+description: 회중 자료 docx 의 **품질 단조 증가** 자동 감사. ⑥ 단계 4번째 감수자 (fact-checker · jw-style-checker · timing-auditor 와 병렬). 새 빌드의 정량 메트릭 (글자수·성구·출판물·외부 14축·시간 마커·구조·깊이 단락) 을 직전 주차 동일 슬롯 docx 와 비교하여 **같거나 더 풍부한지** 자동 판정. -5% 초과 감소 시 NO-GO + 재작성 강제. timing 보다 quality 우선. 절대 하한선 (`shared/quality-monotonic-policy.md`) 도 함께 검증. 매 빌드 자동 호출 — 사용자 검수 의존 0. 트리거 "quality-monotonic-checker", "품질 단조 점검", ⑥ 단계 빌드 직후. [계층 4: 게이트 (quality > timing 우선)] · 호출자: 모든 회중 SKILL 의 ⑥ 단계 4종 병렬 (자동, 사용자 검수 의존 0).
 tools: Read, Grep, Glob, Bash, Write
 model: haiku
 ---

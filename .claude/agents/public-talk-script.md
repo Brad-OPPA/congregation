@@ -1,6 +1,6 @@
 ---
 name: public-talk-script
-description: 주말집회 ① **공개 강연 30분 원고를 직접 작성**하는 전담 에이전트. public-talk-builder 의 기획서 + 6개 리서치 에이전트(scripture-deep · publication-cross-ref · illustration-finder · experience-collector · application-builder · qa-designer mode2) 산출물을 모두 통합해 30분 서술형 .md 원고 1편을 작성. 본체는 절대 직접 작성하지 않고 이 에이전트만 호출. 트리거 "public-talk-script", "공개 강연 원고 작성", `/publictalk` 단계 C.
+description: 주말집회 ① **공개 강연 30분 원고를 직접 작성**하는 전담 에이전트. public-talk-builder 의 기획서 + 6개 리서치 에이전트(scripture-deep · publication-cross-ref · illustration-finder · experience-collector · application-builder · qa-designer mode2) 산출물을 모두 통합해 30분 서술형 .md 원고 1편을 작성. 본체는 절대 직접 작성하지 않고 이 에이전트만 호출. 트리거 "public-talk-script", "공개 강연 원고 작성", `/publictalk` 단계 C. [계층 3: script 작업 에이전트] · 호출자: /publictalk 의 단계 C (30분 서술형 .md 원고 1편 작성).
 tools: Read, Grep, Glob, Write, WebFetch
 model: opus
 ---

@@ -1,6 +1,6 @@
 ---
 name: prayer-composer
-description: 집회 **시작·마침 기도 전문** 을 4단 구조로 창작하는 전담 에이전트. 주중집회(생활과 봉사)·주말집회(공개강연+파수대 연구) 양쪽 다 지원. 입력: 집회 유형(midweek/weekend)·기도 종류(opening/closing)·집회 날짜·주차 주제·성경 읽기 범위·오늘 다루는 핵심 포인트 3~5개·관련 성경 인물(선택)·이전 기도 비유 목록(재탕 회피). 출력: 4단 구조 완성 기도 전문(한글, 호흡 관리 20자 내외, 7~10문장). 시작 기도는 "앞으로 받을 것" 초점, 마침 기도는 "받은 것 적용" 초점으로 톤을 분기. 주차 주제에 공명하는 예수 수식어 + 관련 성경 인물 선택 적용. 이전 `research-prayer/` 기도 Read 해서 세상 현실 비유·예수 수식어 재탕 회피. chair-script-builder · watchtower-study-planner 가 호출하는 용도. 결과는 `research-prayer/{YYMMDD}_{midweek|weekend}_{opening|closing}.md` 저장. 트리거 "기도 전문", "prayer-composer", "시작 기도 만들어 줘", "마침 기도", 사회자 대본에 기도 블록을 채워야 할 때.
+description: 집회 **시작·마침 기도 전문** 을 4단 구조로 창작하는 전담 에이전트. 주중집회(생활과 봉사)·주말집회(공개강연+파수대 연구) 양쪽 다 지원. 입력: 집회 유형(midweek/weekend)·기도 종류(opening/closing)·집회 날짜·주차 주제·성경 읽기 범위·오늘 다루는 핵심 포인트 3~5개·관련 성경 인물(선택)·이전 기도 비유 목록(재탕 회피). 출력: 4단 구조 완성 기도 전문(한글, 호흡 관리 20자 내외, 7~10문장). 시작 기도는 "앞으로 받을 것" 초점, 마침 기도는 "받은 것 적용" 초점으로 톤을 분기. 주차 주제에 공명하는 예수 수식어 + 관련 성경 인물 선택 적용. 이전 `research-prayer/` 기도 Read 해서 세상 현실 비유·예수 수식어 재탕 회피. chair-script-builder · watchtower-study-planner 가 호출하는 용도. 결과는 `research-prayer/{YYMMDD}_{midweek|weekend}_{opening|closing}.md` 저장. 트리거 "기도 전문", "prayer-composer", "시작 기도 만들어 줘", "마침 기도", 사회자 대본에 기도 블록을 채워야 할 때. [계층 5: 특수 에이전트] · 호출자: /chair 의 ② 보조 단계 (opening + closing 2회 병렬). 독립·필요시 호출 가능.
 tools: Read, Grep, Glob, Write, WebFetch
 model: opus
 ---

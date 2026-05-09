@@ -1,6 +1,6 @@
 ---
 name: gem-coordinator
-description: 영적 보물찾기(dig-treasures) 의 5개 보조 산출물을 20성구 × 3항 + Q1·Q2 + 마무리 5블록에 자동 매핑·1차 검증하는 조합 에이전트. mid-talk10 의 assembly-coordinator 와 동일한 역할 (영보 적합 R1~R10 정량 룰). spiritual-gems-script 호출 직전, planner ⑤ 단계 진입 전 호출. 결과는 `research-plan/spiritual-gems/{주차}/_gem_assembly_report.md` + `content_sg_{YYMMDD}.py` (드래프트). 트리거 spiritual-gems-script 산출 직후, planner 2차 재검수 진입 전.
+description: 영적 보물찾기(dig-treasures) 의 5개 보조 산출물을 20성구 × 3항 + Q1·Q2 + 마무리 5블록에 자동 매핑·1차 검증하는 조합 에이전트. mid-talk10 의 assembly-coordinator 와 동일한 역할 (영보 적합 R1~R10 정량 룰). spiritual-gems-script 호출 직전, planner ⑤ 단계 진입 전 호출. 결과는 `research-plan/spiritual-gems/{주차}/_gem_assembly_report.md` + `content_sg_{YYMMDD}.py` (드래프트). 트리거 spiritual-gems-script 산출 직후, planner 2차 재검수 진입 전. [계층 3: assembly 작업 에이전트] · 호출자: /weekly, /dig-treasures, /midweek-* 의 ④' assembly 단계 (영적 보물찾기 5블록·R1~R10 매핑).
 tools: Read, Grep, Glob, Write, WebFetch
 model: opus
 ---

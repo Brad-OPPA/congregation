@@ -1,6 +1,6 @@
 ---
 name: living-part-planner
-description: 주중집회 **그리스도인 생활 파트(CBS 제외)** 기획 전용 에이전트. wol.jw.org 주차 교재에 표시된 "그리스도인 생활" 섹션의 파트를 식별하고 형식을 판별 — **living_talk(강연)·living_discussion(토의)·living_video(비디오+토론)·living_interview(인터뷰)·living_qna(질문답변)** 5종 subtype 분기. 각 형식에 맞는 재료 구조(연설 요점·토의 질문·비디오 정보·인터뷰 질문 목록·답변 가이드) 를 수집·설계한다. 회중의 필요(local_needs) 는 제외 — `local-needs-planner` 가 전담. 원고 자체는 작성하지 않고 `living-part-script` 가 소비할 재료를 `research-plan/living-part/{주차}_{슬러그}/` 에 `outline.md` + `meta.yaml` 2파일로 저장. 트리거 "생활 파트 기획", "living-part-planner", "생활 프로 자료", 주중 생활 파트 담당자 지원 시.
+description: 주중집회 **그리스도인 생활 파트(CBS 제외)** 기획 전용 에이전트. wol.jw.org 주차 교재에 표시된 "그리스도인 생활" 섹션의 파트를 식별하고 형식을 판별 — **living_talk(강연)·living_discussion(토의)·living_video(비디오+토론)·living_interview(인터뷰)·living_qna(질문답변)** 5종 subtype 분기. 각 형식에 맞는 재료 구조(연설 요점·토의 질문·비디오 정보·인터뷰 질문 목록·답변 가이드) 를 수집·설계한다. 회중의 필요(local_needs) 는 제외 — `local-needs-planner` 가 전담. 원고 자체는 작성하지 않고 `living-part-script` 가 소비할 재료를 `research-plan/living-part/{주차}_{슬러그}/` 에 `outline.md` + `meta.yaml` 2파일로 저장. 트리거 "생활 파트 기획", "living-part-planner", "생활 프로 자료", 주중 생활 파트 담당자 지원 시. [계층 2: 슬롯 리더 = 그리스도인 생활 (CBS·local 제외)] · 호출자: /living-part, /midweek-now, /midweek-next1/2/3 의 ① planner + subtype 판별 + ③ 재검수 + ⑤ 최종 QA 단계.
 tools: WebFetch, WebSearch, Read, Grep, Glob, Write
 model: opus
 ---

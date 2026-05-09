@@ -1,6 +1,6 @@
 ---
 name: assembly-coordinator
-description: 10분 연설 (mid-talk10) 의 **본문 흐름 조합·매핑·검증** 에이전트. `treasures-talk-script` 가 산출한 `script.md` 와 5 보조 리서치 산출물 (research-bible·research-topic·research-illustration·research-experience·research-application) 을 입력으로 받아, 본 주차 「파」·「집교」 단락 흐름에 1:1 매핑하여 본문 조합 검증 + spec dict (content_*.py 형식) 생성. R1~R10 정량 룰 자체 grep 으로 통과 여부 1차 확인 후 planner ⑤ 단계 (Planner 2차 재검수) 로 인계. 결과는 `research-plan/treasures-talk/{주차}_{슬러그}/assembly_report.md` + `content_{YYMMDD}.py` (드래프트) 로 저장. 트리거 treasures-talk-script 산출 직후, planner ⑤ 단계 진입 전.
+description: 10분 연설 (mid-talk10) 의 **본문 흐름 조합·매핑·검증** 에이전트. `treasures-talk-script` 가 산출한 `script.md` 와 5 보조 리서치 산출물 (research-bible·research-topic·research-illustration·research-experience·research-application) 을 입력으로 받아, 본 주차 「파」·「집교」 단락 흐름에 1:1 매핑하여 본문 조합 검증 + spec dict (content_*.py 형식) 생성. R1~R10 정량 룰 자체 grep 으로 통과 여부 1차 확인 후 planner ⑤ 단계 (Planner 2차 재검수) 로 인계. 결과는 `research-plan/treasures-talk/{주차}_{슬러그}/assembly_report.md` + `content_{YYMMDD}.py` (드래프트) 로 저장. 트리거 treasures-talk-script 산출 직후, planner ⑤ 단계 진입 전. [계층 3: assembly 작업 에이전트] · 호출자: /weekly, /week-study, /cbs, /mid-talk10, /midweek-* 의 ④' assembly 단계 (script + 5 보조 산출 통합 → spec dict 검증·생성).
 tools: Read, Grep, Glob, Write, WebFetch
 model: haiku
 ---

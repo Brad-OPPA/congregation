@@ -12,20 +12,16 @@
         "hooks": [
           {
             "type": "command",
-            "command": "python3 /Users/brandon/Claude/Projects/.claude/hooks/pre-tool-guard.py"
-          },
-          {
-            "type": "command",
-            "command": "python3 -X utf8 \"$CLAUDE_PROJECT_DIR/.claude/hooks/content-zone-guard.py\""
+            "command": "python3 -X utf8 \"$CLAUDE_PROJECT_DIR/.claude/hooks/validate-on-edit-write.py\""
           }
         ]
       },
       {
-        "matcher": "Task",
+        "matcher": "Task|Skill",
         "hooks": [
           {
             "type": "command",
-            "command": "python3 -X utf8 \"$CLAUDE_PROJECT_DIR/.claude/hooks/agent-prebrief-hook.py\""
+            "command": "python3 -X utf8 \"$CLAUDE_PROJECT_DIR/.claude/hooks/validate-on-task-call.py\""
           }
         ]
       },
@@ -37,15 +33,6 @@
             "command": "python3 -X utf8 \"$CLAUDE_PROJECT_DIR/.claude/hooks/protect-canonical-dropbox.py\""
           }
         ]
-      },
-      {
-        "matcher": "Skill",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "python3 -X utf8 \"$CLAUDE_PROJECT_DIR/.claude/hooks/skill-standard-loader.py\""
-          }
-        ]
       }
     ],
     "PostToolUse": [
@@ -54,43 +41,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "python3 -X utf8 \"$CLAUDE_PROJECT_DIR/.claude/hooks/agent-postcheck-hook.py\""
-          }
-        ]
-      }
-    ],
-    "UserPromptSubmit": [
-      {
-        "hooks": [
-          {
-            "type": "command",
-            "command": "python3 -X utf8 \"$CLAUDE_PROJECT_DIR/.claude/hooks/skill-source-reminder.py\""
-          },
-          {
-            "type": "command",
-            "command": "python3 -X utf8 \"$CLAUDE_PROJECT_DIR/.claude/hooks/edit-restriction-hook.py\""
-          }
-        ]
-      }
-    ],
-    "Stop": [
-      {
-        "hooks": [
-          {
-            "type": "command",
-            "command": "python3 -X utf8 \"$CLAUDE_PROJECT_DIR/.claude/hooks/factcheck-numbers.py\""
-          },
-          {
-            "type": "command",
-            "command": "python3 -X utf8 \"$CLAUDE_PROJECT_DIR/.claude/hooks/quality-loop-enforcer.py\""
-          },
-          {
-            "type": "command",
-            "command": "python3 -X utf8 \"$CLAUDE_PROJECT_DIR/.claude/hooks/fact-loop-enforcer.py\""
-          },
-          {
-            "type": "command",
-            "command": "python3 -X utf8 \"$CLAUDE_PROJECT_DIR/.claude/hooks/version-cleanup-prompt.py\""
+            "command": "python3 -X utf8 \"$CLAUDE_PROJECT_DIR/.claude/hooks/validate-on-task-call.py\""
           }
         ]
       }

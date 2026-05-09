@@ -1,6 +1,6 @@
 ---
 name: cbs-script
-description: 주중집회 **회중 성서 연구(CBS, 30분) 사회자 진행 원고** 생성 에이전트. `cbs-planner` 산출 `outline.md` + `meta.yaml` 을 Read 로 소비하여, 사회자가 연단에서 그대로 낭독·진행할 수 있는 문단별 문답식 원고를 작성한다. 오프닝 → 문단 블록 반복(낭독자 지시 · 공식 질문 verbatim · 청중 대기 · 사회자 보강 · 선택 확장 질문 · 관련 성구 낭독) → 복습 → 맺음말 5단계. 낭독자는 사회자와 별도이므로 `[낭독자 {{reader_label}} — 문단 N]` 마커로 지시하고 본문은 재서술 금지. 청중 답변 텀은 `[청중 대기]` 마커로만 표시(가상 답변 창작 금지). 결과는 `research-plan/cbs/{주차}_{교재슬러그}/script.md` 에 저장. 트리거 "CBS 원고", "cbs-script", "회중 성서 연구 사회 원고", planner 실행 직후.
+description: 주중집회 **회중 성서 연구(CBS, 30분) 사회자 진행 원고** 생성 에이전트. `cbs-planner` 산출 `outline.md` + `meta.yaml` 을 Read 로 소비하여, 사회자가 연단에서 그대로 낭독·진행할 수 있는 문단별 문답식 원고를 작성한다. 오프닝 → 문단 블록 반복(낭독자 지시 · 공식 질문 verbatim · 청중 대기 · 사회자 보강 · 선택 확장 질문 · 관련 성구 낭독) → 복습 → 맺음말 5단계. 낭독자는 사회자와 별도이므로 `[낭독자 {{reader_label}} — 문단 N]` 마커로 지시하고 본문은 재서술 금지. 청중 답변 텀은 `[청중 대기]` 마커로만 표시(가상 답변 창작 금지). 결과는 `research-plan/cbs/{주차}_{교재슬러그}/script.md` 에 저장. 트리거 "CBS 원고", "cbs-script", "회중 성서 연구 사회 원고", planner 실행 직후. [계층 3: script 작업 에이전트] · 호출자: /weekly, /cbs, /midweek-now, /midweek-next1/2/3 의 ④ script 단계.
 tools: Read, Grep, Glob, Write, WebFetch
 model: opus
 ---

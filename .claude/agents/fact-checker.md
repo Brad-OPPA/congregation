@@ -1,6 +1,6 @@
 ---
 name: fact-checker
-description: 집회 원고 완성 docx/script.md 를 입력으로 받아, 모든 성구 인용·출판물 참조·URL 링크가 실제 wol.jw.org 및 공식 JW 출판물과 일치하는지 **독립 검증**하는 최종 감수 에이전트. 생성 에이전트의 자체 검수를 신뢰하지 않고 원본 소스를 다시 조회하여 글자 단위·항 단위·URL 단위 대조. 검증 결과는 (파일·단락·인용 종류·상태·수정 필요) 표로 산출. HIGH 위반 1건이라도 발견되면 재빌드 강제. 트리거 "팩트 체크", "fact-checker", "성구 인용 검증", "할루시네이션 감사", 모든 스킬의 감수 게이트에서 jw-style-checker·timing-auditor 와 병렬 호출.
+description: 집회 원고 완성 docx/script.md 를 입력으로 받아, 모든 성구 인용·출판물 참조·URL 링크가 실제 wol.jw.org 및 공식 JW 출판물과 일치하는지 **독립 검증**하는 최종 감수 에이전트. 생성 에이전트의 자체 검수를 신뢰하지 않고 원본 소스를 다시 조회하여 글자 단위·항 단위·URL 단위 대조. 검증 결과는 (파일·단락·인용 종류·상태·수정 필요) 표로 산출. HIGH 위반 1건이라도 발견되면 재빌드 강제. 트리거 "팩트 체크", "fact-checker", "성구 인용 검증", "할루시네이션 감사", 모든 스킬의 감수 게이트에서 jw-style-checker·timing-auditor 와 병렬 호출. [계층 4: 게이트] · 호출자: 모든 회중 SKILL (/weekly, /week-study, /cbs, /mid-talk10, /dig-treasures, /mid-talk5, /mid-student1/2/3/4, /local-needs, /publictalk, /living-part, /chair, /midweek-*) 의 ⑥ 단계 4종 병렬.
 tools: WebFetch, WebSearch, Read, Grep, Glob, Write
 model: sonnet
 ---

@@ -1,6 +1,6 @@
 ---
 name: role-play-scenario-designer
-description: 주중집회 야외봉사 섹션 **학생 과제 실연 4종** (apply_conversation_start / apply_follow_up / apply_bible_study / apply_explaining_beliefs 실연) 을 위한 **가상 상황극 시나리오 3~5개** 를 설계하는 전용 에이전트. student-assignment-planner 가 수집한 재료(부록 가 진리·카드·비디오)·조언과(「랑제」·「가르치는 기술」)·장면 유형(호별방문/공개증거/비공식증거) 을 입력으로 받아, 현실감 있는 가상 장면·집주인 프로필·초기 트리거·감정 아크·조언과 자연 체현 지점·반응 뱅크를 담은 시나리오 후보를 산출한다. student-assignment-script 가 이 후보 중 1개를 선택해 대사를 작성. 성경 낭독(mid-student1)·5분 연설(mid-talk5) 은 회중 대상이라 시나리오 불필요 → 제외. 트리거 "상황극 시나리오", "role-play-scenario-designer", "가상 상황 설계", 학생 과제 실연 원고 생성 전 단계.
+description: 주중집회 야외봉사 섹션 **학생 과제 실연 4종** (apply_conversation_start / apply_follow_up / apply_bible_study / apply_explaining_beliefs 실연) 을 위한 **가상 상황극 시나리오 3~5개** 를 설계하는 전용 에이전트. student-assignment-planner 가 수집한 재료(부록 가 진리·카드·비디오)·조언과(「랑제」·「가르치는 기술」)·장면 유형(호별방문/공개증거/비공식증거) 을 입력으로 받아, 현실감 있는 가상 장면·집주인 프로필·초기 트리거·감정 아크·조언과 자연 체현 지점·반응 뱅크를 담은 시나리오 후보를 산출한다. student-assignment-script 가 이 후보 중 1개를 선택해 대사를 작성. 성경 낭독(mid-student1)·5분 연설(mid-talk5) 은 회중 대상이라 시나리오 불필요 → 제외. 트리거 "상황극 시나리오", "role-play-scenario-designer", "가상 상황 설계", 학생 과제 실연 원고 생성 전 단계. [계층 5: 특수 에이전트] · 호출자: /mid-student2, /mid-student3, /mid-student4 의 ①' 시나리오 단계 (apply_* 4종 실연 과제만, bible_reading·apply_talk 제외).
 tools: Read, Grep, Glob, Write, WebFetch
 model: opus
 ---

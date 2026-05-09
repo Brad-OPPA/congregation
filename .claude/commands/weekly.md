@@ -1,369 +1,142 @@
 ---
 name: weekly
-description: 매주 월요일 실행 — 3주치 4파트 자료를 자동 생성한 뒤 **2단계 검수 게이트**를 거친다. 1단계 `/weekly` (기본, 2026-04-29 갱신): docx 생성 + **본인(eltc9584@gmail.com)에게만 메일** + 카톡 "검수 요청" 발송 (회중 4명에게는 미발송). 원준님이 본인 메일·docx 검수 후 2단계 `/weekly send` → Gmail 5명 발송 + 카톡 "발송 완료". 주중 3파트(10분연설·영적보물찾기·회중성서연구) = `/mid-study1/2/3`, 주말 1파트(파수대 연구) = `/week-study`. 학생 과제·5분 연설·생활 파트·회중의 필요·공개 강연은 범위 제외 (필요 시 개별 스킬 수동 실행).
+description: 매주 월요일 1회 실행 — 4 슬롯 × 3 주차 = 12 빌드 일괄. 메인 Claude 가 32 에이전트 오케스트레이터로 6 단계 (planner → research 4종 → application+script → assembly → 빌드 → 게이트 4종) 절차를 슬롯·주차 곱셈으로 진행. 단계별 single message multi-tool 병렬. 게이트 FAIL 시 단계 3·4 재호출 (5회 한도, SKILL 절차 책임 — Hook X). 4 슬롯 = 파수대 연구 / 회중 성서 연구 / 10분 연설 / 영적 보물찾기. 트리거 "/weekly", "주간 자료 만들어 줘".
 ---
 
-# /weekly — 3주치 4파트 자동 생성 + **2단계 검수 게이트** + Gmail/카톡
+# SKILL: weekly (4 슬롯 × 3 주차 일괄, 12 빌드)
 
-## 인자 분기 — `/weekly` vs `/weekly send`
+## 정본 절차 (메인 Claude = 오케스트레이터, 변경 X)
 
-| 인자 | 단계 | 동작 |
-|---|---|---|
-| (없음, 기본) | **1단계 — 생성 + 본인 검수** | 3주치 × 4파트 docx 생성 (누락 슬롯만) → **본인 (eltc9584@gmail.com) 에게만 메일** + 카톡 "검수 요청". 회중 4명에게는 발송 안 함. |
-| `send` | **2단계 — 5명 발송** | 본인 검수 통과 후 docx 를 Gmail 5명에게 일괄 발송 + 카톡 "발송 완료". 생성은 안 함. |
+메인 Claude 는 4 슬롯 = `week-study` / `cbs` / `mid-talk10` / `dig-treasures`, 3 주차 = `now` / `next1` / `next2` 를 곱한 12 빌드 매트릭스를 다음 6 단계로 진행한다. 단계 내부는 single message multi-tool 병렬, 단계 사이는 의존 순차.
 
-## 트리거
-- **1단계 (자동)** — 매주 월요일 아침 세션 시작 시 훅이 자동으로 `/weekly` 호출 → docx 생성 + 검수 카톡
-- **2단계 (수동)** — 원준님이 Dropbox 에서 docx 검수 완료 후 `/weekly send` 또는 "메일 보내" 라고 말씀 → Gmail 발송
-
-## 포함 / 제외 범위
-
-**포함 — 4파트 × 3주 = 12 docx**:
-- 주중 3파트 (목요일):
-  - `mid-study1` — ① 성경에 담긴 보물 10분 연설 (3주치 일괄)
-  - `mid-study2` — ② 영적 보물찾기 (3주치 일괄)
-  - `mid-study3` — ⑩ 회중성서연구 사회 30분 (3주치 일괄)
-- 주말 1파트 (일요일):
-  - `week-study` — 파수대 연구 사회 (3주치 일괄)
-
-**제외**:
-- 주중 학생 과제 (`mid-student1~4`) — 학생이 본인 준비
-- 주중 5분 연설 (`mid-talk5`) — 남학생 본인 준비
-- 주중 생활 파트 (`living-part`) — 담당자 본인 준비
-- 주중 회중의 필요 (`local-needs`) — 장로의회 주제 입력 필요, 수동 실행
-- 주말 공개 강연 (`publictalk`) — 담당자 스케줄 별도, 수동 실행
-
-위 제외 파트는 원준님이 필요할 때 개별 스킬로 호출. `/weekly` 는 오직 4파트만.
-
-## 실행 흐름
-
-### 1. 날짜 계산 — 3주치
+### 단계 0 — Preflight (1 Bash)
 
 ```bash
-python _automation/weekly_dates.py --json
-```
-또는:
-```python
-from weekly_dates import get_multi_week_dates
-weeks = get_multi_week_dates(n=3)
-# weeks[0] = 이번 주 / weeks[1] = 다음 주 / weeks[2] = 다다음 주
+git -C /Users/brandon/Claude/Projects/Congregation pull --ff-only
+python3 /Users/brandon/Claude/Projects/Congregation/_automation/quality_baseline.py --list-ok
 ```
 
-### 2. 사전 존재 체크 → 없는 것만 생성 (중복 방지)
+기존 산출물 skip 정책 (`.claude/shared/skip-existing-policy.md`) 확인. 누락 슬롯·주차만 다음 단계 진행.
 
-**원칙: 이미 생성된 자료는 재생성하지 않는다.** 3주치 × 4파트별로 예상 docx·pdf 경로를 체크하여, 둘 다 존재하면 해당 슬롯은 **스킵**.
+### 단계 1 — planner 병렬 (single message, 12 Task)
 
-```python
-# 의사 코드
-from weekly_dates import get_multi_week_dates
-from send_weekly_mail import collect_weekly_files
+12 Task 동시 호출:
 
-weeks = get_multi_week_dates(n=3)
-slots = ['treasures', 'gems', 'cbs', 'watchtower']  # 4개 슬롯
+| 슬롯 | subagent_type |
+|---|---|
+| 파수대 | `watchtower-study-planner` |
+| CBS | `cbs-planner` |
+| 10분 연설 | `treasures-talk-planner` |
+| 영적 보물찾기 | `spiritual-gems-planner` |
 
-missing = {slot: [] for slot in slots}
-for idx, d in enumerate(weeks):
-    week_collected = collect_weekly_files(d['monday'], d['thursday'], d['sunday'])
-    for slot in slots:
-        if not week_collected.get(slot):
-            missing[slot].append(idx)
+각 prompt 에 정본 brief prepend (출처: `_automation/team_briefings.py`) + 주차 (`now`/`next1`/`next2`) + WOL 인덱스 docid 명시.
 
-print(f"누락 슬롯: {missing}")
-```
+산출물: 슬롯·주차별 `outline.md` + `meta.yaml`.
 
-### 3. 누락 파트만 스킬 호출 — ⚡ **병렬 호출 의무 (2026-05-09 도입)**
+### 단계 2 — research 4 보조 병렬 (single message, 48 Task = 12 × 4)
 
-각 파트 스킬은 내부적으로 3주치를 한꺼번에 만드므로 **슬롯 단위가 아닌 파트 단위**로 호출 (한 번 호출 = 3주치).
+| 에이전트 | 책임 |
+|---|---|
+| `scripture-deep` | 핵심 성구 nwtsty verbatim 추출 |
+| `publication-cross-ref` | 「파」·「통」·「예-1」·「훈」 출판물 인용 매칭 |
+| `illustration-finder` | 외부 14축 예화·삽화 후보 + `download_image.py` 시드 이미지 |
+| `experience-collector` | 경험담·적용 사례 |
 
-**핵심 — 4 슬롯 (treasures / gems / cbs / watchtower) 은 서로 의존성 없음.**
-메인 Claude 는 **한 응답 메시지에 누락된 모든 Skill 을 동시 호출** 해야 한다 (Anthropic 도구 호출 시스템이 한 메시지의 다중 도구 호출을 자동 병렬 실행).
+각 prompt 에 단계 1 outline 발췌 prepend.
 
-```python
-# ❌ 잘못 — 순차 (4시간)
-Skill(mid-study1) → 끝까지 대기 → Skill(mid-study2) → ...
+산출물: `research-bible/{YYMMDD}/`, `research-pub/{YYMMDD}/`, `research-illust/{YYMMDD}/`, `research-exp/{YYMMDD}/`.
 
-# ✅ 올바름 — 병렬 (가장 오래 걸리는 슬롯 시간만큼)
-한 메시지 안에 4 Skill 동시 호출:
-  Skill(mid-study1)
-  Skill(mid-study2)
-  Skill(mid-study3)
-  Skill(week-study)
-→ Anthropic 시스템이 자동 병렬 실행
-```
+### 단계 3 — application + script (의존 순차, 슬롯별 2 Task)
 
-어느 주차 하나라도 누락되어 있으면 해당 파트 스킬을 호출:
+병렬 단위 = 12 슬롯·주차. 각 슬롯·주차 내부는 순차:
 
-```
-if any(missing['treasures']):  Skill(mid-study1)   # 3주치 10분연설 일괄
-if any(missing['gems']):       Skill(mid-study2)   # 3주치 영적보물 일괄
-if any(missing['cbs']):        Skill(mid-study3)   # 3주치 회중성서연구 일괄
-if any(missing['watchtower']): Skill(week-study)   # 3주치 파수대 일괄
-```
+1. `application-builder` ← research 4종 결과 → 4축 적용점 (생활/봉사/교리/회중)
+2. 슬롯별 script 에이전트 ← outline + research 5종 → 본문·결론·서론 LLM draft
 
-최대 호출 수: **4회 (병렬 — 한 메시지에 동시)**. 각 스킬 내부에서 주차 UX·WOL-first·할루시네이션 금지·감수 게이트·docx 렌더까지 다 수행.
+| 슬롯 | script 에이전트 |
+|---|---|
+| 파수대 | (script 에이전트 통합 또는 watchtower-study-planner 가 겸임) |
+| CBS | `cbs-script` |
+| 10분 연설 | `treasures-talk-script` |
+| 영적 보물찾기 | `spiritual-gems-script` |
 
-### 3-bis. 진행 모니터링 + 실패 격리 (오케스트레이터 책무)
+산출물: `script.md` (자연스러운 본문·결론·서론, LLM 작성).
 
-**메인 Claude = 팀 리더**. 4 Skill 호출 시 `_automation/orchestrator.py` 도구로 진행 추적:
+### 단계 4 — assembly + content_*.py (single message, 12 Task)
+
+| 슬롯 | coordinator |
+|---|---|
+| 파수대 | `assembly-coordinator` |
+| CBS | `assembly-coordinator` (또는 cbs 전용 분기) |
+| 10분 연설 | `assembly-coordinator` |
+| 영적 보물찾기 | `gem-coordinator` |
+
+책임: script.md → spec dict 검증·생성 (`content_*_YYMMDD.py`). 4축·5요소·핵심 성구·시간 마커 누락 시 빌드 차단 트리거.
+
+### 단계 5 — Bash 빌드 (single message, 12 Bash 병렬)
 
 ```bash
-# 1) 일괄 빌드 시작 시 init — run_id 받아서 환경변수에 저장
-RID=$(python3 _automation/orchestrator.py init --scope weekly)
-export ORCHESTRATOR_RUN_ID=$RID
-
-# 2) 각 단편 Skill 호출 직전·직후
-python3 _automation/orchestrator.py log-start mid-study1   # 시작 시
-# ... Skill(mid-study1) 호출 ...
-python3 _automation/orchestrator.py log-end mid-study1 success --note "3주치 정상"
-
-# 3) 중간 점검 (필요 시 — 30분 멈춤 카톡 알림)
-python3 _automation/orchestrator.py check --notify
-
-# 4) 모든 슬롯 완료 후 최종 보고 + 카톡
-python3 _automation/orchestrator.py report --notify
+python3 _automation/build_watchtower.py {YYMMDD}
+python3 _automation/build_cbs_v10.py {YYMMDD}
+python3 _automation/build_treasures_talk.py {YYMMDD}
+python3 _automation/build_spiritual_gems.py {YYMMDD}
 ```
 
-**리더 책무**:
-- **성공 슬롯** — log-end success
-- **실패 슬롯** — log-end fail + 다음 슬롯으로 계속, 최종 보고에 실패 목록
-- **30분 넘는 슬롯** — `check --notify` 로 멈춤 자동 알림
-- **모든 슬롯 완료 후** — `report --notify` 로 최종 카톡
+순수 렌더러 (LLM 호출 0). `validate_spec_integrity` / `verify_spec_scriptures` / `enforce_all_seed_images` 가 spec 무결성 자동 검증 후 docx + PDF 출력.
 
-상태 파일: `/tmp/orchestrator/{run_id}.json`
+### 단계 6 — 게이트 4종 병렬 (single message, 48 Task = 12 × 4)
 
-### 3-ter. 팀 에이전트 호출 시 정본 prepend 의무
+| 게이트 | 책임 |
+|---|---|
+| `fact-checker` | 성구·출판물·URL·docid 검증 |
+| `jw-style-checker` | 용어·금칙어·NWT 책 이름·사용자 NG list |
+| `timing-auditor` | 분량·시간 마커 (timing FAIL ≠ 빌드 NO-GO; quality > timing) |
+| `quality-monotonic-checker` | 9축 baseline 비교 (글자수·성구·출판물·외부 14축·시간 마커·깊이 단락·이미지·구성·SPEC) |
 
-각 단편 SKILL 내부에서 회중 팀 에이전트 (cbs-planner, spiritual-gems-planner, treasures-talk-planner, watchtower-study-planner 등) 를 Task 로 호출할 때:
+게이트 4종 모두 PASS = 슬롯·주차 통과. quality-monotonic 결과를 timing-auditor 가 참고, jw-style 위반 시 fact-checker 가 인용 재검증 (교차 검증).
 
-```python
-from team_briefings import get_briefing_for_team, prepend_to_prompt
+### 게이트 FAIL 시 재호출 (정본 — Hook 책임 X, SKILL 절차가 처리)
 
-brief = get_briefing_for_team("dig-treasures")  # 또는 cbs / week-study / mid-talk
-augmented = prepend_to_prompt(original_prompt, brief)
-Agent(subagent_type="spiritual-gems-planner", prompt=augmented, ...)
-```
+게이트 결과 통합 후:
 
-또는 CLI 로 brief 텍스트 받아서 prepend:
-```bash
-python3 _automation/team_briefings.py dig-treasures
-```
+- HIGH 위반 = 0 → 빌드 정본 채택, 다음 슬롯·주차 진행
+- HIGH 위반 ≥ 1 → 위반 사유 + 해당 슬롯 prompt 에 prepend → 단계 3 (script) · 단계 4 (assembly) 재호출 (해당 슬롯·주차만, 격리) → 단계 5 재빌드 → 단계 6 재게이트
+- 5회 한도 도달 → 사용자 BLOCKING 알림 (`재작성 5회 도달, 슬롯 X 주차 Y 수동 검토 필요`)
 
-**이유**: Claude Code Task 도구는 hook stdout JSON 으로 prompt augmentation 미지원. 메인 Claude 의식적 prepend 가 작동 보장 (2026-05-09 실전 검증).
+다른 슬롯·주차에 영향 X (격리 보장).
 
-### 4. 감수 — 파트 스킬이 이미 수행
-
-각 파트 스킬 내부에서 이미 `fact-checker` + `jw-style-checker` + (필요 시) `timing-auditor` 가 감수하므로 `/weekly` 레벨에서는 재감수 불필요. 감수 결과 HIGH 위반 건수만 요약.
-
-### 5. 2단계 검수 게이트 — 카톡 검수 요청 → 승인 → Gmail
-
-#### 5A. 1단계 (기본 `/weekly`) — **본인에게만** 검수 메일 + 카톡 (2026-04-29 정책 갱신)
-
-`_automation/send_weekly_mail.py --notify-review` 실행.
-- docx 수집
-- **본인 (eltc9584@gmail.com) 에게만 메일 발송** — 첨부 파일명·인사말·docx 본문 전부 미리 검수 가능 (`--only-me` 자동 적용)
-- 카톡 "검수 요청" 메시지 발송
-- **나머지 4명 (회중 형제·자매) 에게는 발송 안 함** — 원준님 승인 대기
-
-```bash
-python _automation/send_weekly_mail.py --notify-review
-python _automation/send_weekly_mail.py --notify-review --dry-run   # 카톡·메일 없이 수집 확인
-```
-
-**카톡 "검수 요청" 메시지 예시**:
-```
-📋 주간 집회 자료 생성 완료 — 검수 요청
-📅 {주차 범위}
-📎 docx N개 생성
-
-Dropbox 폴더에서 확인하신 뒤,
-Claude 에게 '메일 보내' 또는 '/weekly send'
-를 말씀해 주시면 5명에게 발송됩니다.
-```
-
-**정책 의도**: 이전에는 카톡만 보내고 메일은 본인도 미발송이었으나, 첨부 파일명 슬러그·인사말·HTML 본문 미리보기 등 메일 자체를 직접 검수해야 발견 가능한 오류 (예: CBS 슬러그가 `Talk_10분프로_*` 로 잘못 표기) 가 있어, 본인 메일을 1단계로 이동.
-
-#### 5B. 2단계 (`/weekly send`) — 승인 후 Gmail 발송
-
-원준님이 Dropbox 에서 docx 검수 완료 후 Claude 에게 "메일 보내" 또는 `/weekly send` → `_automation/send_weekly_mail.py --send-only` 실행.
-- 이미 생성된 docx 를 Gmail 5명에게 일괄 발송
-- 성공 후 카톡 "발송 완료" 알림
-
-```bash
-python _automation/send_weekly_mail.py --send-only
-python _automation/send_weekly_mail.py --send-only --dry-run   # HTML 미리보기
-```
-
-#### 공통 정보
-
-- **collect_weekly_files()** — 4개 슬롯(treasures·gems·cbs·watchtower) 수집
-- **파일명 규칙**:
-  - `Talk_10분프로_{주제}_YYMMDD.docx`
-  - `Gems_영적보물찾기_YYMMDD.docx`
-  - `CBS_회중성서연구_훈{N-M}_YYMMDD.docx`
-  - `WT_파수대연구_YYMMDD.docx`
-- **첨부 파일 수**: 4 × 3주 = **12개**
-- **메일 수신자**: 5명 (김원준·김승수·김효신·김은수·송윤호)
-- **카톡 수신자**: 1명 (원준님 "나와의 채팅")
-
-#### 정정 발송 (특수)
-
-정정 발송은 2단계 게이트 건너뛰고 즉시 발송 (하위 호환 `--auto` 유지):
-```bash
-python send_weekly_mail.py --auto --subject-prefix "[정정] " --notice "정정 사유..."
-```
-
-### 6. congregation/ 리서치 자료 git 커밋
-
-```bash
-cd ~/Claude/Projects/Congregation
-git add research-wol/ research-bible/ research-illustration/ \
-        research-experience/ research-application/ research-qa/ \
-        research-style/ research-timing/ research-topic/ \
-        research-public-talk/ research-plan/ research-prayer/ \
-        .claude/agents/
-if git diff --cached --quiet; then
-  echo "[git] congregation 변경사항 없음 — 커밋 생략"
-else
-  git commit -m "research: {FIRST_WEEK_LABEL} ~ {LAST_WEEK_LABEL} 3주치 4파트 자료 리서치"
-  if git remote -v | grep -q origin; then
-    git push origin main 2>&1 || echo "[git] push 실패 — 로컬 유지"
-  else
-    echo "[git] 원격 없음 — Dropbox 동기화로 백업"
-  fi
-fi
-```
-
-**원칙**: 변경사항 없으면 생략, 메일 실패와 독립, `git add .` 금지.
-
-### 7. 완료 보고
-
-Claude 가 콘솔에 다음을 출력:
-- 3주치 × 4파트 주제·집회일·파일 경로
-- 감수 통과 내역 (금칙어/허구 인용/삽화/시간 이슈 카운트)
-- 메일 발송 결과 (성공/실패 + 수신자 5명)
-- 카톡 알림 결과 (원준님 "나와의 채팅")
-- congregation/ git 커밋 결과
-
-## 수신자 (5명, 2026-04-22 기준)
-- 김원준 형제 (eltc9584@gmail.com) — 본인
-- 김승수 형제 (nathan0703@naver.com)
-- 김효신 자매 (hyoshin9576@gmail.com)
-- 김은수 자매 (linzy0314@gmail.com)
-- 송윤호 형제 (ufoname999@gmail.com)
-
-변경은 `_automation/weekly_secrets.py` 의 `RECIPIENTS` 수정.
-
-## 카톡 수신자 (1명)
-- 원준님 카카오 계정 "나와의 채팅" (본인 전용 메모)
-
-변경은 `_automation/weekly_secrets.py` 의 `KAKAO_*` 토큰 수정.
-
-## 오류 대응
-
-- **특정 파트 스킬 실패** → 해당 파트 스킬 내부에서 이미 3회 재시도. `/weekly` 레벨에서는 다음 파트로 계속 진행하고 최종 보고에 실패 파트 목록.
-- **WOL 주차 페이지 fetch 실패** → 각 파트 스킬에서 처리.
-- **Gmail 전송 실패** → `weekly_secrets.py` 의 `GMAIL_APP_PASSWORD` 확인 후 재시도.
-- **카톡 전송 실패** → 카카오 토큰 만료 가능성, `kakao_auth.py` 로 갱신 후 재시도.
-- **git 커밋 실패** → 경고만 출력.
-- **일부 주차 누락** → `--auto` 로그의 `[주의] 누락된 집회 슬롯` 확인. 누락 파트 스킬 수동 재실행 후 `send_weekly_mail.py --auto` 재호출.
-
-## 설정 파일
-
-- `_automation/weekly_dates.py` — 날짜 계산
-- `_automation/send_weekly_mail.py` — Gmail SMTP + 카톡 알림 통합 발송
-- `_automation/kakao_notify.py` — 카카오톡 "나와의 채팅" 메모 전송
-- `_automation/kakao_auth.py` — 카카오 OAuth 토큰 갱신
-- `_automation/weekly_secrets.py` — Gmail 앱 비밀번호·RECIPIENTS·카카오 토큰 (gitignore)
-- `_automation/README_WEEKLY.md` — 운영 가이드
-
-## 아키텍처 변경 노트 (2026-04-25 확정)
-
-**확정 범위** (4파트 × 3주 = 12 docx):
-- 주중: 10분 연설·영적 보물찾기·회중성서연구
-- 주말: 파수대 연구 사회
-
-**범위 밖** (필요 시 개별 스킬 수동 실행):
-- 주중 학생 과제 4종, 5분 연설, 생활 파트, 회중의 필요
-- 주말 공개 강연
-
-**의사 결정**:
-- 학생 과제·5분 연설·생활 파트는 각 담당자가 준비하는 영역이라 일괄 생성 범위 밖으로 결정
-- 회중의 필요·공개 강연은 입력 파라미터(장로의회 주제·강연 번호) 필요로 대화형 수동 실행 유지
-- 구 mid-study1/2/3 스킬이 각각 3주치 일괄 생성 구조라서 `/weekly` 오케스트레이터는 midweek-* 우회하고 **직접 호출**
-- `/midweek-now` 등은 10파트 전체 생성용으로 그대로 유지 (필요 시 원준님이 개별 호출)
-
-**파이썬 코드 상태**:
-- `send_weekly_mail.py` 의 `collect_weekly_files()` 는 **이미 4파트 수집 구조**로 구현되어 있음 → 수정 불필요
-- 파일명 패턴 4종이 `line 231~256` 에 고정 정의
-
-
----
-
-## 산출물 존재 시 skip 정책 (필수)
-
-스킬 진입 시 출력 폴더에 산출물이 이미 있는지 먼저 확인한다.
-
-- **없음**: 정상 진행
-- **있음 + 사용자 무명시**: 단정형 확인 1회 ("이미 있는데 새로 만드시나요?") → 답 없거나 No → **skip**
-- **있음 + 사용자가 "재생성·업그레이드·버전 올려" 명시**: 버전 번호 +1 부여 후 신규 생성 (기존 파일 보존)
-
-일괄 스킬(·)은 파트별로 자동 skip — 결과적으로 **없는 것만** 새로 만든다. 자세한 규칙: .
-
-
----
-
-## 묶음 확인 절차 (skip 정책 일괄 스킬용)
-
-이 일괄 스킬은 여러 파트를 한 번에 만들기 때문에, **각 파트마다 단정형 확인을 따로 묻지 않는다**. 시작 시점에 한 번에 표로 보고하고 사용자에게 한 번만 yes/no 받는다.
+## 유기적 협력 (의존성 그래프)
 
 ```
-{스킬} 산출물 현황:
-| 파트 | 주차 | 상태 |
-|---|---|---|
-| 10분 연설 | 260430 | ✅ 있음 |
-| 영적 보물 | 260430 | ✅ 있음 |
-| 학생과제 #1 | 260430 | ❌ 없음 |
-| ...
-
-기존 N개는 그대로 두고, 빠진 M개만 새로 만들면 되시죠?
+scripture-deep ─┐
+                ├─→ publication-cross-ref (성구 → 출판물 매칭)
+                │       ↓
+                ├─→ application-builder (성구 + 출판물 → 4축 적용)
+                │       ↓
+illustration-finder ─→ script (예화 + 출판물 + 성구 → 본문)
+                │       ↓
+experience-collector ─→ script (경험담 + 본문 → 결론)
+                ↓
+            coordinator → spec dict (`content_*.py`)
+                ↓
+            빌더 → docx + PDF
+                ↓
+            4 게이트 (교차 검증) → PASS / 단계 3·4 재호출
 ```
 
-**원준님 응답에 따른 분기:**
+## 재사용 자산 (영구 라이브러리)
 
-- 답 없음 / "응" / "그래" → 빠진 것만 신규 생성, 기존 보존
-- "아니, 전부 새로 만들어" / "버전 업그레이드" → 모두 버전 +1 부여 후 신규 생성
-- "특정 파트만 다시" → 명시한 파트만 버전 +1 신규 생성
+- `_automation/team_briefings.py` — 5팀 정본 brief
+- `_automation/quality_baseline.py` — OK builds 우선 사용 분기
+- `_automation/mark_ok_build.py` — 사용자 OK 등록
+- `.claude/shared/ok-builds.json` — 5/31 v3 1호 baseline
+- `.claude/shared/skill-agent-mapping.md` — SKILL 단계 ↔ 에이전트 매핑 정본
+- `.claude/shared/banned-vocabulary.md` — 금칙어·사용자 NG
+- `.claude/shared/user-quality-standard.md` — 사용자 품질 표준
+- 빌더 5종의 `validate_spec_integrity` / `verify_spec_scriptures` / `enforce_all_seed_images`
 
-**기준 — 자리 비움 시 안전:** 원준님이 자리 비우셨을 때도 답 없음 → skip 으로 자동 작동하므로 검수·발송된 docx 가 의도치 않게 덮어쓰이지 않는다.
+## 출력
 
-자세한 규칙: `.claude/shared/skip-existing-policy.md` §3.
+12 docx + 12 PDF (회중 정본 폴더 + Dropbox), 게이트 통과 리포트, 재호출 통계.
 
-
----
-
-## 시작 시 — 30일 경과 자동 생성 산출물 정리 점검
-
-`/weekly` 시작 시 자동으로 정리 점검 단계를 거친다. 사용자 수정 흔적 있는 파일은 자동으로 후보에서 제외되므로 안전.
-
-### 절차
-
-1. `python _automation/_cleanup_old_files.py` (dry-run) 자동 실행
-2. 출력 표를 사용자에게 그대로 보고
-3. 단정형 확인:
-   - 정리 대상 0개 → 보고 생략, 정상 진행
-   - 정리 대상 ≥ 1개 → "이 N개를 휴지통으로 이동할까요? (총 X MB)" 묻기
-4. 사용자 응답:
-   - "응" / "삭제해" / "이동해" → `python _cleanup_old_files.py --apply` 실행
-   - "아니" / "하지 마" / 무응답 → 그대로 보존, **다음 주 `/weekly` 에서 또 묻기**
-5. 정리(또는 보존) 보고 후 본 weekly 4파트 작업 진행
-
-### 자동 보존 대상 (사용자 편집 흔적 있음)
-
-다음은 정리 후보에서 자동 제외되어 묻지도 않는다:
-
-- 일반 폴더의 `*_ver{N}_*.docx/pdf` 중 mtime 이 ctime 보다 5초 이상 새로운 파일 (사용자가 직접 편집한 흔적)
-- `_v_old/` 외부에 있는 사용자가 만든 파일
-
-### 자세한 규칙
-
-`.claude/shared/skip-existing-policy.md` §6-D 참조.
+자동 빌드 산출물은 baseline (`_verN_`) 으로 보존. 회중 발송 정본은 사용자 손질본 (`_final.docx`) 별도.

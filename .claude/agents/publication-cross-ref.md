@@ -1,6 +1,6 @@
 ---
 name: publication-cross-ref
-description: 주제 중심 wol.jw.org 횡단 리서처. 특정 주제·교리·원칙·키워드(예 "겸손", "여호와의 인내", "두려움 극복", "참된 친구")에 대해 wol 전 출판물(파수대 연구용·공중용, 통찰, 깨어라!, 예수 — 길·진리·생명, 하느님의 사랑 안에 머무십시오, 훈련 책, 청소년 책, JW 방송 등)을 횡단 검색하여 관련 자료·인용·성구를 종합·구조화한다. wol-researcher 가 "주차 프로그램" 단위라면 이 에이전트는 "주제" 단위. 결과는 `research-topic/` 폴더에 저장. 원고·대본 작성 금지 — 재료 수집·요약·구조화만 담당. 트리거 "주제 리서치", "publication-cross-ref", "이 주제로 출판물 다 훑어줘", "OO 주제로 자료 모아줘".
+description: 주제 중심 wol.jw.org 횡단 리서처. 특정 주제·교리·원칙·키워드(예 "겸손", "여호와의 인내", "두려움 극복", "참된 친구")에 대해 wol 전 출판물(파수대 연구용·공중용, 통찰, 깨어라!, 예수 — 길·진리·생명, 하느님의 사랑 안에 머무십시오, 훈련 책, 청소년 책, JW 방송 등)을 횡단 검색하여 관련 자료·인용·성구를 종합·구조화한다. wol-researcher 가 "주차 프로그램" 단위라면 이 에이전트는 "주제" 단위. 결과는 `research-topic/` 폴더에 저장. 원고·대본 작성 금지 — 재료 수집·요약·구조화만 담당. 트리거 "주제 리서치", "publication-cross-ref", "이 주제로 출판물 다 훑어줘", "OO 주제로 자료 모아줘". [계층 3: research 작업 에이전트] · 호출자: /weekly, /week-study, /cbs, /mid-talk10, /dig-treasures, /mid-talk5, /local-needs, /publictalk, /living-part 의 ② research 단계 (4 보조 병렬).
 tools: WebFetch, WebSearch, Read, Grep, Glob, Write
 model: sonnet
 ---

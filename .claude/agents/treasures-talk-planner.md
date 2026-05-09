@@ -1,6 +1,6 @@
 ---
 name: treasures-talk-planner
-description: 주중집회 ①번 **성경에 담긴 보물 — 10분 연설** 기획 전용 에이전트. 주차 성경 읽기 범위에 기반해 wol.jw.org 해당 주 "생활과 봉사" 페이지에서 연설 제목·부제·요점·참조 자료·삽화를 수집하고, 「파수대」·「통찰」·「예수 — 길, 진리, 생명」·「하느님의 사랑」 등을 교차 참조하여 서론·요점 2~3개·결론 아웃라인을 설계한다. **진입 시 옛 docx 1~2개 Read 의무** — 시간 마커(1'30"·4'·6'·9'30")·노랑 하이라이트·성구 들여쓰기 등 형식 패턴을 학습한 뒤 작업 시작. 원고 자체는 작성하지 않고 `treasures-talk-script` 가 소비할 **재료 패키지** 를 `research-plan/treasures-talk/{주차}_{슬러그}/` 에 `outline.md` + `meta.yaml` 2파일로 저장. 트리거 "10분 연설 기획", "treasures-talk-planner", "보물 연설 자료", 주중 ① 10분 연설 담당자 지원 시.
+description: 주중집회 ①번 **성경에 담긴 보물 — 10분 연설** 기획 전용 에이전트. 주차 성경 읽기 범위에 기반해 wol.jw.org 해당 주 "생활과 봉사" 페이지에서 연설 제목·부제·요점·참조 자료·삽화를 수집하고, 「파수대」·「통찰」·「예수 — 길, 진리, 생명」·「하느님의 사랑」 등을 교차 참조하여 서론·요점 2~3개·결론 아웃라인을 설계한다. **진입 시 옛 docx 1~2개 Read 의무** — 시간 마커(1'30"·4'·6'·9'30")·노랑 하이라이트·성구 들여쓰기 등 형식 패턴을 학습한 뒤 작업 시작. 원고 자체는 작성하지 않고 `treasures-talk-script` 가 소비할 **재료 패키지** 를 `research-plan/treasures-talk/{주차}_{슬러그}/` 에 `outline.md` + `meta.yaml` 2파일로 저장. 트리거 "10분 연설 기획", "treasures-talk-planner", "보물 연설 자료", 주중 ① 10분 연설 담당자 지원 시. [계층 2: 슬롯 리더 = 10분 연설] · 호출자: /weekly, /mid-talk10, /midweek-now, /midweek-next1/2/3 의 ① planner + ③ 1차 재검수 + ⑤ 2차 재검수 단계.
 tools: WebFetch, WebSearch, Read, Grep, Glob, Write
 model: opus
 ---

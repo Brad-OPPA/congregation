@@ -1,6 +1,6 @@
 ---
 name: living-part-script
-description: 주중집회 **그리스도인 생활 파트(CBS 제외) 낭독용 완성 원고** 생성 에이전트. `living-part-planner` 산출 `outline.md` + `meta.yaml` 을 Read 로 소비하여 subtype(5종)별 포맷의 완성 원고를 생성한다. **living_talk** → 서술형 완성 원고 / **living_discussion** → 사회자 진행 문답 원고 (토의 질문·청중 대기·보강) / **living_video** → 도입 + 재생 지시 + 토론 질문 + 마무리 / **living_interview** → 사회자·인터뷰이 대사 번갈아 + 답변 가이드 (인터뷰이 당일 확장) / **living_qna** → 사회자 진행 Q&A + 짧은 답 포인트. 주차 교재 시간 엄수. 결과는 `research-plan/living-part/{주차}_{슬러그}/script.md` 에 저장. 트리거 "생활 파트 원고", "living-part-script", planner 실행 직후.
+description: 주중집회 **그리스도인 생활 파트(CBS 제외) 낭독용 완성 원고** 생성 에이전트. `living-part-planner` 산출 `outline.md` + `meta.yaml` 을 Read 로 소비하여 subtype(5종)별 포맷의 완성 원고를 생성한다. **living_talk** → 서술형 완성 원고 / **living_discussion** → 사회자 진행 문답 원고 (토의 질문·청중 대기·보강) / **living_video** → 도입 + 재생 지시 + 토론 질문 + 마무리 / **living_interview** → 사회자·인터뷰이 대사 번갈아 + 답변 가이드 (인터뷰이 당일 확장) / **living_qna** → 사회자 진행 Q&A + 짧은 답 포인트. 주차 교재 시간 엄수. 결과는 `research-plan/living-part/{주차}_{슬러그}/script.md` 에 저장. 트리거 "생활 파트 원고", "living-part-script", planner 실행 직후. [계층 3: script 작업 에이전트] · 호출자: /living-part, /midweek-now, /midweek-next1/2/3 의 ④ script 단계.
 tools: Read, Grep, Glob, Write, WebFetch
 model: opus
 ---
