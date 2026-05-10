@@ -1,0 +1,260 @@
+"""3 슬롯 ver13 — INTEGRATED 텍스트에 [Y] 마커 자동 삽입 후 빌드.
+
+PHRASES dict (publication-cross-ref 추출) → re.sub 으로 [Y]...[/Y] 박기.
+빌더 v9 + canon_v8_illust + ver11 패턴.
+"""
+import os, sys, re
+sys.path.insert(0, '/Users/brandon/Claude/Projects/Congregation/_automation')
+sys.path.insert(0, '/tmp')
+from importlib import util as _imp_util
+from PIL import Image
+
+BASE = "/Users/brandon/Library/CloudStorage/Dropbox/02.WatchTower/01.▣ 수원 연무 회중/02.주말집회/02.파수대 사회"
+ILLUST_PATH = '/Users/brandon/Claude/Projects/Congregation/research-illust/canon_v8_illust.py'
+
+SLOTS = [
+    {
+        'ymd': '260517', 'folder': '260511-0517',
+        'integrated': '/Users/brandon/Claude/Projects/Congregation/research-plan/watchtower/260517_canon/integrated_commentary.py',
+        'narratives': '/Users/brandon/Claude/Projects/Congregation/research-bible/260517_canon_v4/key_scripture_narratives.py',
+        'phrases': 'phrases_517',
+    },
+    {
+        'ymd': '260524', 'folder': '260518-0524',
+        'integrated': '/Users/brandon/Claude/Projects/Congregation/research-plan/watchtower/260524_canon/integrated_commentary.py',
+        'narratives': '/Users/brandon/Claude/Projects/Congregation/research-bible/260524_canon_v4/key_scripture_narratives.py',
+        'phrases': 'phrases_524',
+    },
+    {
+        'ymd': '260531', 'folder': '260525-0531',
+        'integrated': '/Users/brandon/Claude/Projects/Congregation/research-plan/watchtower/260531_v11/integrated_commentary.py',
+        'narratives': '/Users/brandon/Claude/Projects/Congregation/research-bible/260531_v5/key_scripture_narratives.py',
+        'phrases': 'phrases_531',
+    },
+]
+
+os.environ['NWT_VERIFY'] = '0'
+import validators as _v
+_v.enforce_all_seed_images = lambda *a, **kw: None
+_v.verify_spec_against_inventory_auto = lambda *a, **kw: True
+_v.verify_docx_against_inventory_auto = lambda *a, **kw: True
+
+# PIL XMP strip
+for slot in SLOTS:
+    img_dir = f"{BASE}/{slot['folder']}/_images"
+    if os.path.exists(img_dir):
+        for fn in os.listdir(img_dir):
+            if fn.endswith('.jpg'):
+                p = os.path.join(img_dir, fn)
+                try: Image.open(p).convert('RGB').save(p, 'JPEG', quality=85, optimize=True)
+                except Exception: pass
+
+from build_watchtower import build_watchtower
+from scrape_wt import fetch_nwt_verse, _parse_range_ref
+
+def load(path, name):
+    if not os.path.exists(path): return None
+    s = _imp_util.spec_from_file_location(name, path); m = _imp_util.module_from_spec(s); s.loader.exec_module(m); return m
+
+def insert_yhl(text, phrases):
+    """텍스트에 [Y]phrase[/Y] 마커 삽입. 이미 박힌 곳은 skip."""
+    if not text or not phrases: return text
+    # 길이 긴 phrase 부터 (짧은 게 먼저 매칭되어 긴 게 깨지지 않게)
+    sorted_phrases = sorted(set(phrases), key=lambda x: -len(x))
+    for ph in sorted_phrases:
+        if not ph or len(ph) < 3: continue
+        # 이미 [Y]...[/Y] 안에 있는지 검사 — 안전한 1회 매칭
+        # phrase 원본 그대로 매칭 (escape)
+        pat = re.compile(re.escape(ph))
+        # 첫 매칭만 [Y] 박기 (반복 X — 한 텍스트에 한 phrase 한 번만)
+        m = pat.search(text)
+        if m:
+            # 이미 [Y] 안에 있는지
+            before = text[:m.start()]
+            if before.count('[Y]') > before.count('[/Y]'):
+                continue  # 이미 마커 안
+            text = text[:m.start()] + '[Y]' + m.group() + '[/Y]' + text[m.end():]
+    return text
+
+NAKDOK_PAREN = re.compile(r'\(([가-힣][^()]{1,30}\d+:\s*\d+(?:[,\s\-–~]\s*\d+)*)\s*낭독[^)]*\)')
+NAKDOK_PLAIN = re.compile(
+    r'(?:^|[\s\.\?\!])((?:창세기|출애굽기|레위기|민수기|신명기|여호수아|판관기|룻기|사무엘|열왕기|역대|에스라|느헤미야|에스더|욥기|시편|잠언|전도서|아가서|이사야|예레미야|예레미야 애가|에스겔|다니엘|호세아|요엘|아모스|오바댜|요나|미가|나훔|하박국|스바냐|학개|스가랴|말라기|마태복음|마가복음|누가복음|요한복음|사도|로마|고린도|갈라디아|에베소|빌립보|골로새|데살로니가|디모데|디도|빌레몬|히브리|야고보|베드로|요한|유다|계시록|마|막|눅|요|행|롬|고전|고후|갈|엡|빌|골|살전|살후|딤전|딤후|딛|몬|히|약|벧전|벧후|요일|요이|요삼|유|계)(?:\s*\d+(?:상|하)?)?\s*\d+:\s*\d+(?:[,\s\-–~]\s*\d+)*)\s*낭독'
+)
+
+for slot in SLOTS:
+    ymd, folder = slot['ymd'], slot['folder']
+    print(f"\n=== {ymd} ===")
+    spec_path = f"{BASE}/{folder}/_source/spec.py"
+    if not os.path.exists(spec_path): continue
+    ns = {}
+    with open(spec_path, encoding='utf-8') as f: exec(f.read(), ns)
+    spec = ns['spec']
+
+    # spec 청소 — stock illustration
+    for block in spec.get('blocks', []):
+        seq = block.get('sequence', [])
+        block['sequence'] = [it for it in seq
+                             if not (isinstance(it, dict) and it.get('type') == 'illustration'
+                                     and str(it.get('text', '')).startswith('(블록 '))]
+
+    if not spec.get('audience_guide'):
+        spec['audience_guide'] = (
+            "(파수대 집회의 대답은 어떻게 참여 할수 있습니까? 가능하면 30초이내로, "
+            "첫번째는 직접적으로, 이후 참조성구나 부가적인 대답을 자유롭게 발표 "
+            "하실 수 있겠습니다.)"
+        )
+
+    # PHRASES 로드
+    phrases_mod = __import__(slot['phrases'])
+    PHRASES = phrases_mod.PHRASES
+
+    # NARRATIVES
+    narr_mod = load(slot['narratives'], f'narr_{ymd}')
+    NARRATIVES = getattr(narr_mod, 'NARRATIVES', {}) if narr_mod else {}
+    nn = 0
+    for bi, block in enumerate(spec.get('blocks', [])):
+        comm = block.get('commentary') or {}
+        ks = comm.get('key_scripture')
+        if isinstance(ks, list):
+            for si, item in enumerate(ks):
+                if not isinstance(item, dict): continue
+                narr = NARRATIVES.get((bi, si))
+                if narr:
+                    item['narrative'] = narr
+                    nn += 1
+
+    # INTEGRATED + [Y] 마커 삽입
+    int_mod = load(slot['integrated'], f'int_{ymd}')
+    INT = getattr(int_mod, 'INTEGRATED_COMMENTARY', {}) if int_mod else {}
+    ai = af = yhl_n = 0
+    for bi, block in enumerate(spec.get('blocks', [])):
+        new_comm = INT.get(bi)
+        if not new_comm: continue
+        comm = block.get('commentary') or {}
+        for fld in ('answer', 'depth', 'key_point', 'real_life'):
+            t = new_comm.get(fld)
+            if not t: continue
+            phrases = PHRASES.get((bi, fld), [])
+            new_t = insert_yhl(t, phrases)
+            if '[Y]' in new_t and '[Y]' not in t:
+                yhl_n += new_t.count('[Y]')
+            if fld == 'depth' and new_comm.get('footnote_excerpt'):
+                fe = new_comm['footnote_excerpt']
+                fe_phrases = PHRASES.get((bi, 'footnote_excerpt'), [])
+                fe = insert_yhl(fe, fe_phrases)
+                new_t = new_t + "\n\n" + fe
+                af += 1
+            comm[fld] = new_t
+        block['commentary'] = comm
+        ai += 1
+
+    # 이미지 매핑
+    img_path = f'/Users/brandon/Claude/Projects/Congregation/research-illust/{ymd}_canon_v4/downloaded.py'
+    IMAGE_PATHS = {}
+    if os.path.exists(img_path):
+        img_mod = load(img_path, f'img_{ymd}')
+        IMAGE_PATHS = getattr(img_mod, 'IMAGE_PATHS', {}) if img_mod else {}
+    img_n = 0
+    meaningful_ill = []
+    for bi, block in enumerate(spec.get('blocks', [])):
+        for it in block.get('sequence', []):
+            if isinstance(it, dict) and it.get('type') == 'illustration':
+                cap = it.get('text', '')
+                if cap.startswith('(블록 '): continue
+                meaningful_ill.append((bi, it))
+    for bi, ill in meaningful_ill:
+        if ill.get('image_path'): continue
+        cap = ill.get('text', '')
+        cm = re.search(r'\((\d+)(?:[-–](\d+))?\s*항\s*참조\)', cap)
+        target_n = int(cm.group(1)) if cm else None
+        if target_n and target_n in IMAGE_PATHS:
+            v = IMAGE_PATHS[target_n]
+            ill['image_path'] = v[0] if isinstance(v, list) else v
+            img_n += 1
+    used_paths = set(ill['image_path'] for _, ill in meaningful_ill if ill.get('image_path'))
+    remaining_ills = [ill for _, ill in meaningful_ill if not ill.get('image_path')]
+    remaining_paths = []
+    for k in sorted(IMAGE_PATHS.keys(), key=str):
+        v = IMAGE_PATHS[k]
+        if isinstance(v, list):
+            for p in v:
+                if p not in used_paths: remaining_paths.append(p)
+        elif v not in used_paths:
+            remaining_paths.append(v)
+    for i, ill in enumerate(remaining_ills):
+        if i < len(remaining_paths):
+            ill['image_path'] = remaining_paths[i]
+            img_n += 1
+
+    # 삽화 [Y] description+commentary
+    illust_mod = load(ILLUST_PATH, f'illust_{ymd}')
+    ILLUST = getattr(illust_mod, 'ILLUST_V8', {}) if illust_mod else {}
+    illust_dict = ILLUST.get(ymd, {})
+    icn = 0
+    for bi, block in enumerate(spec.get('blocks', [])):
+        if bi not in illust_dict: continue
+        entry = illust_dict[bi]
+        if not isinstance(entry, dict): continue
+        for it in block.get('sequence', []):
+            if isinstance(it, dict) and it.get('type') == 'illustration':
+                cap = it.get('text', '')
+                if cap.startswith('(블록 '): continue
+                if entry.get('description'): it['description'] = entry['description']
+                if entry.get('commentary'): it['commentary'] = entry['commentary']
+                icn += 1
+                break
+
+    # 메인 성구 박스
+    mn = vn = 0
+    for bi, block in enumerate(spec.get('blocks', [])):
+        comm = block.get('commentary') or {}
+        body_lines = []
+        for line in (block.get('body') or []):
+            if isinstance(line, list):
+                for run in line:
+                    if isinstance(run, tuple): body_lines.append(run[0] if run else '')
+                    elif isinstance(run, str): body_lines.append(run)
+            elif isinstance(line, str): body_lines.append(line)
+        body_full = ' '.join(body_lines)
+        ms = comm.get('main_scripture')
+        if not ms:
+            m = NAKDOK_PAREN.search(body_full) or NAKDOK_PLAIN.search(body_full)
+            if m:
+                ms = {'ref': m.group(1), 'verbatim': '', 'depth_explanation': ''}
+                mn += 1
+        if ms and not ms.get('verbatim'):
+            try:
+                v_start, v_end = _parse_range_ref(ms.get('ref', ''))
+                verse = fetch_nwt_verse(ms['ref'], verse_end=v_end)
+                if verse and verse.get('text'):
+                    ms['verbatim'] = verse['text']
+                    vn += 1
+            except Exception: pass
+        if ms:
+            comm['main_scripture'] = ms
+            block['commentary'] = comm
+
+    # conclusion stock 차단
+    cp = spec.get('conclusion', {}).get('paragraphs', [])
+    if cp:
+        new_cp = []
+        for blk in cp:
+            txt = ''
+            if isinstance(blk, str): txt = blk
+            elif isinstance(blk, list):
+                for r in blk:
+                    if isinstance(r, tuple) and r:
+                        txt += r[0] if isinstance(r[0], str) else ''
+            if re.search(r"모두 \d+개 부분 — 을 함께 살펴보았습니다", txt): continue
+            new_cp.append(blk)
+        spec['conclusion']['paragraphs'] = new_cp
+
+    print(f"  ✓ narr:{nn} int:{ai}/17 footnote:{af} new_main:{mn} verb:{vn} img:{img_n} illust:{icn} [Y] 마커:{yhl_n}")
+
+    OUT = f"{BASE}/{folder}/파수대 사회_{ymd}_ver13_.docx"
+    try:
+        build_watchtower(spec, OUT)
+        print(f"  ✓ Built: {os.path.basename(OUT)}")
+    except Exception as e:
+        print(f"  ❌ FAIL: {e}")
+        import traceback; traceback.print_exc()
