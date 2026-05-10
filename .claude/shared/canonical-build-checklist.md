@@ -1,6 +1,42 @@
-# 회중 자료 빌드 통합 체크리스트 — 정본 v3 (2026-05-10 통합)
+# 회중 자료 빌드 통합 체크리스트 — 정본 v4 (2026-05-11 ver13 확정)
 
-## v3 통합 (2026-05-10 밤) — 단일 진실의 원천
+## v4 ver13 절대 정본 (2026-05-11 사용자 OK)
+
+**baseline = `.claude/shared/ok-builds.json` v2 의 ver13 entries (5/17·24·31)**.
+
+### 매주 빌드 의무 (자동 검증)
+
+| 메트릭 | ver13 baseline (min) |
+|---|---|
+| 노랑 ≤25자 핵심 (highlight_short) | ≥ 400 |
+| 메인 박스 (main_scripture_boxes) | ≥ 6 |
+| 이미지 (image_count) | ≥ 2 |
+| 단락 (paragraph_count) | ≥ 500 |
+| 출판물 인용 (publication_quotes) | ≥ 120 |
+| 글자수 (char_count) | ≥ 60,000 |
+
+`quality-monotonic-checker` 가 자동 검증 — 미달 1축이라도 NO-GO + 자동 재빌드 (5회 한도).
+
+### ver13 자동화 흐름 (lock-in)
+
+`/week-study` 호출 1회 = 매주 동일 톤 ver13 식 docx:
+
+1. `watchtower-study-planner` → `outline.md`
+2. 7 research 병렬 (scripture-deep · publication-cross-ref · illustration-finder · qa-designer · experience-collector · application-builder · prayer-composer)
+3. `watchtower-study-script` ★ → `content_wt_{ymd}.py` + `script.md`
+4. **PHRASES 추출 (작은 출력 LLM Task) + [Y] 마커 자동 삽입 (Python re.sub)** ← ver13 정본 핵심
+5. `build_watchtower v9` → docx + PDF
+6. 4 게이트 (fact·style·timing·quality ≥ ver13 100%)
+
+세부:
+- 스킬: `.claude/commands/week-study/SKILL.md` v13
+- 에이전트: `.claude/agents/watchtower-study-script.md`
+- plan: `/Users/brandon/.claude/plans/adaptive-wandering-thunder.md` v13
+- ver13 빌드 코드: `research-illust/ver13_build.py`
+
+---
+
+## v3 (2026-05-10 밤)
 
 ### 정본 = ver11 + 9 항목 (낮 명시) + 저녁 추가 명시
 - 5/31 ver11 docx 가 베이스라인 톤
