@@ -1,12 +1,70 @@
 {
-  "version": 1,
+  "version": 2,
   "builds": {
     "week-study": [
+      {
+        "marked_at": "2026-05-11 00:00:00",
+        "docx_path": "/Users/brandon/Library/CloudStorage/Dropbox/02.WatchTower/01.▣ 수원 연무 회중/02.주말집회/02.파수대 사회/260511-0517/파수대 사회_260517_ver13_.docx",
+        "file_name": "파수대 사회_260517_ver13_.docx",
+        "reason": "ver13 — INTEGRATED 자료에 핵심 명사구 [Y] 마커 박힘 + 빌더 v9 (낭독 성구 박스 통합 라벨 + 자동 강조 폐기 + body_runs <strong> 보존). 사용자 정본 확정 2026-05-11.",
+        "metrics": {
+          "char_count": 60317,
+          "paragraph_count": 504,
+          "image_count": 4,
+          "publication_quotes": 157,
+          "scripture_refs": 317,
+          "time_markers": 19,
+          "bold_runs": 290,
+          "highlight_runs": 452,
+          "highlight_short": 426,
+          "long_paragraphs": 105,
+          "main_scripture_boxes": 6
+        }
+      },
+      {
+        "marked_at": "2026-05-11 00:00:00",
+        "docx_path": "/Users/brandon/Library/CloudStorage/Dropbox/02.WatchTower/01.▣ 수원 연무 회중/02.주말집회/02.파수대 사회/260518-0524/파수대 사회_260524_ver13_.docx",
+        "file_name": "파수대 사회_260524_ver13_.docx",
+        "reason": "ver13 — INTEGRATED 자료에 핵심 명사구 [Y] 마커 박힘 + 빌더 v9. 사용자 정본 확정 2026-05-11.",
+        "metrics": {
+          "char_count": 71818,
+          "paragraph_count": 506,
+          "image_count": 2,
+          "publication_quotes": 151,
+          "scripture_refs": 305,
+          "time_markers": 19,
+          "bold_runs": 290,
+          "highlight_runs": 420,
+          "highlight_short": 400,
+          "long_paragraphs": 100,
+          "main_scripture_boxes": 7
+        }
+      },
+      {
+        "marked_at": "2026-05-11 00:00:00",
+        "docx_path": "/Users/brandon/Library/CloudStorage/Dropbox/02.WatchTower/01.▣ 수원 연무 회중/02.주말집회/02.파수대 사회/260525-0531/파수대 사회_260531_ver13_.docx",
+        "file_name": "파수대 사회_260531_ver13_.docx",
+        "reason": "ver13 — INTEGRATED 자료에 핵심 명사구 [Y] 마커 박힘 + 빌더 v9. 사용자 정본 확정 2026-05-11. ver11 대체 정본 baseline.",
+        "metrics": {
+          "char_count": 60524,
+          "paragraph_count": 560,
+          "image_count": 3,
+          "publication_quotes": 123,
+          "scripture_refs": 266,
+          "time_markers": 19,
+          "bold_runs": 342,
+          "highlight_runs": 462,
+          "highlight_short": 421,
+          "long_paragraphs": 99,
+          "main_scripture_boxes": 8
+        }
+      },
       {
         "marked_at": "2026-05-10 00:26:18",
         "docx_path": "/Users/brandon/Dropbox/02.WatchTower/01.▣ 수원 연무 회중/02.주말집회/02.파수대 사회/260525-0531/파수대 사회_260531_ver11_.docx",
         "file_name": "파수대 사회_260531_ver11_.docx",
-        "reason": "v11 — 통합 commentary 정본 (질문→답→심도→성구→적용→실생활→각주 1흐름) + 포르출랸 형제 jw.org fetch + 본문 verbatim. 사용자 명시 정본 2026-05-10.",
+        "reason": "ver11 — 통합 commentary 정본 (질문→답→심도→성구→적용→실생활→각주 1흐름). 핵심 강조 [Y] 마커 부재. ver13 으로 대체됨 (2026-05-11). 보존만.",
+        "deprecated": true,
         "metrics": {
           "char_count": 46325,
           "paragraph_count": 410,
