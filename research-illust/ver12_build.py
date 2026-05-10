@@ -128,6 +128,50 @@ for slot in SLOTS:
         block['commentary'] = comm
         ai += 1
 
+    # 이미지 매핑 (caption "(N항 참조)" 항 번호 또는 순서 fallback)
+    img_path = f'/Users/brandon/Claude/Projects/Congregation/research-illust/{ymd}_canon_v4/downloaded.py'
+    IMAGE_PATHS = {}
+    if os.path.exists(img_path):
+        img_mod = load(img_path, f'img_{ymd}')
+        IMAGE_PATHS = getattr(img_mod, 'IMAGE_PATHS', {}) if img_mod else {}
+    img_n = 0
+    # 의미있는 caption 의 illustration list (block_index 순)
+    meaningful_ill = []
+    for bi, block in enumerate(spec.get('blocks', [])):
+        for it in block.get('sequence', []):
+            if isinstance(it, dict) and it.get('type') == 'illustration':
+                cap = it.get('text', '')
+                if cap.startswith('(블록 '): continue
+                meaningful_ill.append((bi, it))
+    # 1차: caption "(N항 참조)" → IMAGE_PATHS 정수 key
+    for bi, ill in meaningful_ill:
+        if ill.get('image_path'): continue
+        cap = ill.get('text', '')
+        cm = re.search(r'\((\d+)(?:[-–](\d+))?\s*항\s*참조\)', cap)
+        target_n = int(cm.group(1)) if cm else None
+        if target_n and target_n in IMAGE_PATHS:
+            v = IMAGE_PATHS[target_n]
+            ill['image_path'] = v[0] if isinstance(v, list) else v
+            img_n += 1
+    # 2차: 매핑 안된 illustration + 매핑 안된 IMAGE_PATHS values 순서 fallback
+    used_paths = set()
+    for _, ill in meaningful_ill:
+        if ill.get('image_path'):
+            used_paths.add(ill['image_path'])
+    remaining_ills = [ill for _, ill in meaningful_ill if not ill.get('image_path')]
+    remaining_paths = []
+    for k in sorted(IMAGE_PATHS.keys(), key=str):
+        v = IMAGE_PATHS[k]
+        if isinstance(v, list):
+            for p in v:
+                if p not in used_paths: remaining_paths.append(p)
+        elif v not in used_paths:
+            remaining_paths.append(v)
+    for i, ill in enumerate(remaining_ills):
+        if i < len(remaining_paths):
+            ill['image_path'] = remaining_paths[i]
+            img_n += 1
+
     # 삽화 [Y] description+commentary 주입 (canon_v8_illust)
     illust_mod = load(ILLUST_PATH, f'illust_{ymd}')
     ILLUST = getattr(illust_mod, 'ILLUST_V8', {}) if illust_mod else {}
@@ -200,7 +244,7 @@ for slot in SLOTS:
             new_cp.append(blk)
         spec['conclusion']['paragraphs'] = new_cp
 
-    print(f"  ✓ narr:{nn} int:{ai}/17 footnote:{af} new_main:{mn} verb:{vn} illust:{icn}")
+    print(f"  ✓ narr:{nn} int:{ai}/17 footnote:{af} new_main:{mn} verb:{vn} img:{img_n} illust:{icn}")
 
     OUT = f"{BASE}/{folder}/파수대 사회_{ymd}_ver12_.docx"
     try:
